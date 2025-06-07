@@ -1,0 +1,31 @@
+@import './base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 全局样式重置 */
+#app {
+  font-weight: normal;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 自定义组件样式 */
+@layer components {
+  .container-section {
+    @apply max-w-7xl mx-auto px-4;
+  }
+  
+  @media (min-width: 640px) {
+    .container-section {
+      @apply px-6;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-section {
+      @apply px-8;
+    }
+  }
+}

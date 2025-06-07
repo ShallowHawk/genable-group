@@ -1,0 +1,90 @@
+{
+  "name": "kenable-group-website",
+  "version": "1.0.0",
+  "description": "KENABLE GROUP 企业官网 - 专业跨境物流服务商官方网站",
+  "author": "KENABLE GROUP",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "keywords": [
+    "logistics",
+    "cross-border",
+    "warehouse",
+    "shipping",
+    "vue3",
+    "typescript",
+    "enterprise"
+  ],
+  "homepage": "https://www.kenablegroup.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kenablegroup/website.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "build-only": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "type-check": "vue-tsc --build",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
+    "format": "prettier --write src/",
+    "format:check": "prettier --check src/",
+    "clean": "rm -rf dist node_modules/.vite",
+    "reinstall": "rm -rf node_modules package-lock.json && npm install",
+    "analyze": "npx vite-bundle-analyzer dist/stats.html",
+    "serve": "npm run build && npm run preview",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.23",
+    "@heroicons/vue": "^2.2.0",
+    "autoprefixer": "^10.4.21",
+    "gsap": "^3.13.0",
+    "lucide-vue-next": "^0.513.0",
+    "pinia": "^3.0.1",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^3.4.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "zod": "^3.25.51"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.1",
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vitest/eslint-plugin": "^1.1.39",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.5.0",
+    "@vue/test-utils": "^2.4.6",
+    "@vue/tsconfig": "^0.7.0",
+    "eslint": "^9.22.0",
+    "eslint-plugin-vue": "~10.0.0",
+    "gh-pages": "^6.3.0",
+    "jiti": "^2.4.2",
+    "jsdom": "^26.0.0",
+    "npm-run-all2": "^7.0.2",
+    "prettier": "3.5.3",
+    "terser": "^5.41.0",
+    "typescript": "~5.8.0",
+    "vite": "^6.2.4",
+    "vite-plugin-vue-devtools": "^7.7.2",
+    "vitest": "^3.1.1",
+    "vue-tsc": "^2.2.8"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
+}
