@@ -7,7 +7,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 // https://vitejs.dev/config/
 export default defineConfig({
   // GitHub Pages部署配置
-  base: process.env.NODE_ENV === 'production' ? '/website/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/genable-group/' : '/',
   plugins: [vue(), vueDevTools()],
   resolve: {
     alias: {
