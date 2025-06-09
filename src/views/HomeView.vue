@@ -107,6 +107,58 @@ const partners = [
   { name: 'Matson', logo: '🚢' },
 ]
 
+// 核心服务解决方案数据
+const coreServicesSolutions = [
+  {
+    id: 'air-freight',
+    title: '空运',
+    description: '快速、安全的国际航空运输解决方案',
+    image:
+      'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=400&h=400&fit=crop&crop=center',
+    link: '/services/air-freight',
+  },
+  {
+    id: 'sea-freight',
+    title: '海运',
+    description: '经济高效的海洋货运解决方案',
+    image:
+      'https://plus.unsplash.com/premium_photo-1661881251976-9fc9bbb90c4e?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    link: '/services/sea-freight',
+  },
+  {
+    id: 'contract-logistics',
+    title: '合同物流',
+    description: '定制化的供应链管理服务',
+    image:
+      'https://plus.unsplash.com/premium_photo-1661559046208-0cef1cbf7b0b?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    link: '/services/contract-logistics',
+  },
+  {
+    id: 'road-rail-transport',
+    title: '公路与铁路运输',
+    description: '灵活可靠的陆路运输网络',
+    image:
+      'https://plus.unsplash.com/premium_photo-1673443701408-38bae3c1aec0?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    link: '/services/road-rail-transport',
+  },
+  {
+    id: 'multimodal-transport',
+    title: '多式联运',
+    description: '整合多种运输方式的综合解决方案',
+    image:
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    link: '/services/multimodal-transport',
+  },
+  {
+    id: 'supply-chain-solutions',
+    title: '供应链解决方案',
+    description: '端到端的供应链优化服务',
+    image:
+      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=400&fit=crop&crop=center',
+    link: '/services/supply-chain-solutions',
+  },
+]
+
 // 常见问题解答
 const faqItems = [
   {
@@ -148,6 +200,30 @@ const setActiveTab = (tabId: string) => {
 
 // 初始化滚动动画
 const initScrollAnimations = () => {
+  // 核心服务解决方案动画
+  gsap.fromTo(
+    '.solution-item',
+    {
+      y: 80,
+      opacity: 0,
+      scale: 0.9,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.core-solutions-section',
+        start: 'top 75%',
+        end: 'bottom 25%',
+        toggleActions: 'play none none reverse',
+      },
+    },
+  )
+
   // 统计数据动画
   gsap.fromTo(
     '.stat-item',
@@ -416,7 +492,7 @@ onBeforeUnmount(() => {
             <span
               class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 text-blue-200 border border-blue-400/30"
             >
-              近19年行业经验
+              近20年行业经验
             </span>
             <span
               class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-cyan-500/20 text-cyan-200 border border-cyan-400/30"
@@ -568,6 +644,69 @@ onBeforeUnmount(() => {
             </div>
           </div>
         </transition>
+      </div>
+    </section>
+
+    <!-- 核心服务与解决方案区域 -->
+    <section class="py-16 lg:py-24 bg-gray-50 core-solutions-section">
+      <div class="container-section">
+        <div class="max-w-7xl mx-auto">
+          <!-- 标题区域 -->
+          <div class="text-center mb-16 lg:mb-20">
+            <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              肯纳布尔集团解决方案
+            </h2>
+            <p class="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+              整合运输、仓储、报关、和贸易合规，提供一站式国际物流解决方案。
+              <a href="#" class="text-blue-600 hover:text-blue-800 font-medium ml-2">了解更多</a>
+            </p>
+          </div>
+
+          <!-- 服务网格 -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+            <router-link
+              v-for="service in coreServicesSolutions"
+              :key="service.id"
+              :to="service.link"
+              class="group text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl solution-item"
+            >
+              <!-- 服务图片 -->
+              <div class="mb-6 lg:mb-8">
+                <div class="relative mx-auto">
+                  <img
+                    :src="service.image"
+                    :alt="service.title"
+                    class="w-44 h-44 lg:w-52 lg:h-52 rounded-full object-cover mx-auto border-4 border-white shadow-lg group-hover:shadow-2xl transition-all duration-300"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <!-- 服务标题 -->
+              <h3
+                class="text-xl lg:text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors"
+              >
+                {{ service.title }}
+              </h3>
+
+              <!-- 服务描述（可选显示） -->
+              <p class="text-gray-600 leading-relaxed hidden lg:block">
+                {{ service.description }}
+              </p>
+            </router-link>
+          </div>
+
+          <!-- 底部了解更多按钮 -->
+          <div class="text-center mt-16">
+            <BaseButton
+              variant="primary"
+              size="lg"
+              class="bg-blue-600 hover:bg-blue-700 px-8 py-3 shadow-md hover:shadow-lg transition-all"
+            >
+              了解更多
+            </BaseButton>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -741,10 +880,9 @@ onBeforeUnmount(() => {
 
             <!-- 底部链接 -->
             <div class="text-center mt-12 lg:mt-16">
-              <a
-                href="#"
+              <router-link
+                to="/case-studies"
                 class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-lg transition-colors group"
-                @click="$router.push('/case-studies')"
               >
                 查看更多客户案例
                 <svg
@@ -760,7 +898,7 @@ onBeforeUnmount(() => {
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   ></path>
                 </svg>
-              </a>
+              </router-link>
             </div>
           </div>
         </div>
@@ -802,10 +940,9 @@ onBeforeUnmount(() => {
             <div class="mb-8 lg:mb-0">
               <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">常见问题解答</h2>
             </div>
-            <a
-              href="#"
+            <router-link
+              to="/faq"
               class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-lg transition-colors group"
-              @click="$router.push('/faq')"
             >
               查看全部问题
               <svg
@@ -821,7 +958,7 @@ onBeforeUnmount(() => {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 ></path>
               </svg>
-            </a>
+            </router-link>
           </div>
 
           <!-- FAQ列表 -->
@@ -874,10 +1011,9 @@ onBeforeUnmount(() => {
 
           <!-- CTA按钮 -->
           <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a
-              href="#"
+            <router-link
+              to="/contact"
               class="inline-flex items-center px-8 py-4 bg-white text-blue-900 font-semibold text-lg rounded-lg hover:bg-gray-100 transition-all duration-300 group"
-              @click="$router.push('/contact')"
             >
               立即开始合作
               <svg
@@ -893,7 +1029,7 @@ onBeforeUnmount(() => {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 ></path>
               </svg>
-            </a>
+            </router-link>
 
             <a
               href="#"
