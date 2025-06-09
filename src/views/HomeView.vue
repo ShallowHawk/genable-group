@@ -3,8 +3,8 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import BaseButton from '@/components/ui/BaseButton.vue'
-
 import BaseInput from '@/components/ui/BaseInput.vue'
+import Icon from '@/components/ui/Icon.vue'
 
 // 注册 ScrollTrigger 插件
 gsap.registerPlugin(ScrollTrigger)
@@ -71,22 +71,31 @@ const coreServices = [
   },
 ]
 
-// 客户评价 - 真实客户案例
-const mainTestimonial = {
-  content:
-    'KENABLE通过其专业的清关知识和端到端解决方案，帮助我们解决了高价值光伏产品进入美国市场的复杂物流难题，保障了货物的安全与时效。',
-  author: '正泰集团',
-  position: 'Chint Group 物流总监 王先生',
-  logo: '⚡',
-}
-
-const secondaryTestimonial = {
-  content:
-    '作为年销售额超1亿美元的多平台销售商，面对多国出口、多渠道销售的复杂需求，KENABLE利用其覆盖全美的多仓网络和灵活的履行模式，为我们提供了稳定高效的仓储和分销服务。',
-  author: 'Cushion Lab',
-  position: '多平台电商品牌 运营总监 李先生',
-  logo: '🪑',
-}
+// 客户评价数据
+const testimonials = [
+  {
+    id: 'chint',
+    company: '正泰集团',
+    industry: '光伏新能源',
+    logo: '⚡',
+    content:
+      '面对高价值产品的跨境难题，KENABLE提供的一站式解决方案和全额价值保障，让我们能真正安心地将市场重心放在美国，后顾无忧。',
+    author: '张总',
+    position: '供应链总监',
+    rating: 5,
+  },
+  {
+    id: 'cushion-lab',
+    company: 'Cushion Lab',
+    industry: '电商零售',
+    logo: '🪑',
+    content:
+      '作为年销售额超1亿美元的多平台销售商，KENABLE利用其覆盖全美的多仓网络和灵活的履行模式，为我们提供了稳定高效的仓储和分销服务。',
+    author: '李总',
+    position: '运营总监',
+    rating: 5,
+  },
+]
 
 // 合作伙伴
 const partners = [
@@ -652,90 +661,81 @@ onBeforeUnmount(() => {
       </div>
     </section>
 
-    <!-- 客户评价区域 - DSV风格 -->
+    <!-- 客户评价区域 - 选项卡风格 -->
     <section class="py-16 lg:py-24 bg-gray-100 testimonial-section">
       <div class="container-section">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-6xl mx-auto">
           <!-- 标题 -->
           <div class="text-center mb-16">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">口碑见证</h2>
             <p class="text-lg text-gray-600">真实客户案例，见证我们的专业实力</p>
           </div>
 
-          <!-- 客户评价列表 -->
-          <div class="space-y-16 lg:space-y-24 testimonial-content">
-            <!-- 正泰集团案例 -->
-            <div class="relative">
-              <!-- 大引号 -->
+          <!-- 客户评价卡片 - 竖向排列 -->
+          <div class="testimonial-content">
+            <!-- 评价内容 -->
+            <div class="max-w-4xl mx-auto space-y-16">
+              <!-- 客户评价卡片 -->
               <div
-                class="text-6xl lg:text-8xl text-blue-200 font-serif leading-none mb-8 text-left"
+                v-for="testimonial in testimonials"
+                :key="testimonial.id"
+                class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 lg:p-12 rounded-2xl shadow-2xl relative overflow-hidden testimonial-card"
               >
-                "
-              </div>
-
-              <!-- 评价内容 -->
-              <div class="relative -mt-16 lg:-mt-20">
-                <blockquote
-                  class="text-xl lg:text-2xl xl:text-3xl text-gray-700 leading-relaxed mb-12 lg:mb-16 font-light"
-                >
-                  {{ mainTestimonial.content }}
-                </blockquote>
-
-                <!-- 客户信息 -->
-                <div class="text-right">
-                  <div class="flex items-center justify-end space-x-3 mb-1">
-                    <div class="text-lg lg:text-xl font-semibold text-gray-900">
-                      {{ mainTestimonial.author }}
-                    </div>
-                    <div class="text-2xl">
-                      {{ mainTestimonial.logo }}
-                    </div>
-                  </div>
-                  <div class="text-base lg:text-lg text-gray-600">
-                    {{ mainTestimonial.position }}
-                  </div>
+                <!-- 装饰性引号 -->
+                <div class="absolute top-6 right-6 opacity-10">
+                  <Icon name="quote" size="4xl" class="text-white" />
                 </div>
-              </div>
-            </div>
 
-            <!-- 分隔线 -->
-            <div class="flex items-center justify-center">
-              <div
-                class="w-32 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"
-              ></div>
-            </div>
-
-            <!-- Cushion Lab案例 -->
-            <div class="relative">
-              <!-- 大引号 -->
-              <div
-                class="text-6xl lg:text-8xl text-cyan-200 font-serif leading-none mb-8 text-left"
-              >
-                "
-              </div>
-
-              <!-- 评价内容 -->
-              <div class="relative -mt-16 lg:-mt-20">
-                <blockquote
-                  class="text-xl lg:text-2xl xl:text-3xl text-gray-700 leading-relaxed mb-12 lg:mb-16 font-light"
-                >
-                  {{ secondaryTestimonial.content }}
-                </blockquote>
-
-                <!-- 客户信息 -->
-                <div class="text-right">
-                  <div class="flex items-center justify-end space-x-3 mb-1">
-                    <div class="text-lg lg:text-xl font-semibold text-gray-900">
-                      {{ secondaryTestimonial.author }}
-                    </div>
-                    <div class="text-2xl">
-                      {{ secondaryTestimonial.logo }}
-                    </div>
-                  </div>
-                  <div class="text-base lg:text-lg text-gray-600">
-                    {{ secondaryTestimonial.position }}
-                  </div>
+                <!-- 背景闪光效果 -->
+                <div class="absolute inset-0 opacity-20">
+                  <div class="shine-effect"></div>
                 </div>
+
+                <div class="relative z-10">
+                  <div class="flex items-center mb-8">
+                    <div
+                      class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mr-4 shadow-lg"
+                    >
+                      <Icon name="star" size="md" class="text-white" />
+                    </div>
+                    <h4 class="font-black text-white text-2xl">客户评价</h4>
+                  </div>
+
+                  <blockquote
+                    class="text-gray-100 italic leading-relaxed mb-8 text-xl lg:text-2xl font-light"
+                  >
+                    "{{ testimonial.content }}"
+                  </blockquote>
+
+                  <footer class="flex items-center justify-between">
+                    <div>
+                      <div class="font-bold text-white text-xl mb-1">
+                        {{ testimonial.author }}
+                      </div>
+                      <div class="text-gray-300 text-lg mb-1">{{ testimonial.position }}</div>
+                      <div class="text-blue-300 text-lg font-medium">{{ testimonial.company }}</div>
+                    </div>
+
+                    <!-- 五星评价 -->
+                    <div class="flex items-center space-x-1">
+                      <Icon
+                        v-for="i in testimonial.rating"
+                        :key="i"
+                        name="star"
+                        size="md"
+                        class="text-yellow-400 fill-current"
+                      />
+                    </div>
+                  </footer>
+                </div>
+
+                <!-- 背景装饰效果 -->
+                <div
+                  class="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"
+                ></div>
+                <div
+                  class="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl"
+                ></div>
               </div>
             </div>
 
@@ -744,7 +744,7 @@ onBeforeUnmount(() => {
               <a
                 href="#"
                 class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-lg transition-colors group"
-                @click="$router.push('/cases')"
+                @click="$router.push('/case-studies')"
               >
                 查看更多客户案例
                 <svg
@@ -936,4 +936,60 @@ onBeforeUnmount(() => {
 }
 
 /* 组件特定样式 */
+
+/* 客户评价过渡动画 */
+.testimonial-enter-active,
+.testimonial-leave-active {
+  transition: all 0.5s ease;
+}
+
+.testimonial-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.testimonial-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* 选项卡按钮悬停效果 */
+.testimonial-tab-button {
+  transition: all 0.3s ease;
+}
+
+.testimonial-tab-button:hover {
+  transform: translateY(-2px);
+}
+
+/* 星星填充效果 */
+.fill-current {
+  fill: currentColor;
+}
+
+/* 背景闪光效果 */
+.shine-effect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: skewX(-25deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* 客户评价卡片悬停效果 */
+.testimonial-card:hover .shine-effect {
+  animation-duration: 1.5s;
+}
 </style>
