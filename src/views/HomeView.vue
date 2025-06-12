@@ -559,13 +559,15 @@ onBeforeUnmount(() => {
                   <option>增值服务（分拣、换标、重包装、定制）</option>
                   <option>逆向物流（退货、重新上架、库存处置）</option>
                 </select>
-                <BaseButton
-                  variant="primary"
-                  size="lg"
-                  class="bg-blue-600 hover:bg-blue-700 px-8 shadow-md hover:shadow-lg transition-shadow"
-                >
-                  获取报价
-                </BaseButton>
+                <router-link to="/contact">
+                  <BaseButton
+                    variant="primary"
+                    size="lg"
+                    class="bg-blue-600 hover:bg-blue-700 px-8 shadow-md hover:shadow-lg transition-shadow"
+                  >
+                    获取报价
+                  </BaseButton>
+                </router-link>
               </div>
             </div>
 
@@ -576,20 +578,24 @@ onBeforeUnmount(() => {
                 深入了解我们的全链路服务体系，找到最适合您业务的定制化方案
               </p>
               <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <BaseButton
-                  variant="primary"
-                  size="lg"
-                  class="bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow"
-                >
-                  物流解决方案报价
-                </BaseButton>
-                <BaseButton
-                  variant="outline"
-                  size="lg"
-                  class="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white shadow-md hover:shadow-lg transition-all"
-                >
-                  了解更多物流解决方案
-                </BaseButton>
+                <router-link to="/contact">
+                  <BaseButton
+                    variant="primary"
+                    size="lg"
+                    class="bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow"
+                  >
+                    物流解决方案报价
+                  </BaseButton>
+                </router-link>
+                <router-link to="/services">
+                  <BaseButton
+                    variant="outline"
+                    size="lg"
+                    class="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white shadow-md hover:shadow-lg transition-all"
+                  >
+                    了解更多物流解决方案
+                  </BaseButton>
+                </router-link>
               </div>
             </div>
 
@@ -598,20 +604,24 @@ onBeforeUnmount(() => {
               <h2 class="text-3xl font-bold text-gray-900 mb-4">便捷服务预订</h2>
               <p class="text-gray-600 mb-8">一键预订，省心省力：立即开启您的物流服务之旅</p>
               <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <BaseButton
-                  variant="primary"
-                  size="lg"
-                  class="bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow"
-                >
-                  新客户预订
-                </BaseButton>
-                <BaseButton
-                  variant="primary"
-                  size="lg"
-                  class="bg-gray-600 hover:bg-gray-700 shadow-md hover:shadow-lg transition-shadow"
-                >
-                  现有客户登录
-                </BaseButton>
+                <router-link to="/contact">
+                  <BaseButton
+                    variant="primary"
+                    size="lg"
+                    class="bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow"
+                  >
+                    新客户预订
+                  </BaseButton>
+                </router-link>
+                <router-link to="/contact">
+                  <BaseButton
+                    variant="primary"
+                    size="lg"
+                    class="bg-gray-600 hover:bg-gray-700 shadow-md hover:shadow-lg transition-shadow"
+                  >
+                    现有客户登录
+                  </BaseButton>
+                </router-link>
               </div>
             </div>
 
@@ -633,13 +643,15 @@ onBeforeUnmount(() => {
                     class="w-full shadow-sm"
                   />
                 </div>
-                <BaseButton
-                  variant="primary"
-                  size="lg"
-                  class="bg-blue-600 hover:bg-blue-700 px-12 shadow-md hover:shadow-lg transition-shadow"
-                >
-                  立即追踪
-                </BaseButton>
+                <router-link to="/tracking">
+                  <BaseButton
+                    variant="primary"
+                    size="lg"
+                    class="bg-blue-600 hover:bg-blue-700 px-12 shadow-md hover:shadow-lg transition-shadow"
+                  >
+                    立即追踪
+                  </BaseButton>
+                </router-link>
               </div>
             </div>
           </div>
@@ -698,13 +710,15 @@ onBeforeUnmount(() => {
 
           <!-- 底部了解更多按钮 -->
           <div class="text-center mt-16">
-            <BaseButton
-              variant="primary"
-              size="lg"
-              class="bg-blue-600 hover:bg-blue-700 px-8 py-3 shadow-md hover:shadow-lg transition-all"
-            >
-              了解更多
-            </BaseButton>
+            <router-link to="/services">
+              <BaseButton
+                variant="primary"
+                size="lg"
+                class="bg-blue-600 hover:bg-blue-700 px-8 py-3 shadow-md hover:shadow-lg transition-all"
+              >
+                了解更多
+              </BaseButton>
+            </router-link>
           </div>
         </div>
       </div>
