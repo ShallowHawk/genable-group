@@ -8,20 +8,24 @@
       label="全美仓储网络服务"
     >
       <template #actions>
-        <BaseButton
-          variant="primary"
-          size="lg"
-          class="bg-blue-600 text-white hover:bg-blue-700 px-8 shadow-md hover:shadow-lg transition-all"
-        >
-          获取仓储报价
-        </BaseButton>
-        <BaseButton
-          variant="outline"
-          size="lg"
-          class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 transition-all"
-        >
-          在线咨询
-        </BaseButton>
+        <router-link to="/contact">
+          <BaseButton
+            variant="primary"
+            size="lg"
+            class="bg-blue-600 text-white hover:bg-blue-700 px-8 shadow-md hover:shadow-lg transition-all"
+          >
+            获取仓储报价
+          </BaseButton>
+        </router-link>
+        <router-link to="/contact">
+          <BaseButton
+            variant="outline"
+            size="lg"
+            class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 transition-all"
+          >
+            在线咨询
+          </BaseButton>
+        </router-link>
       </template>
     </PageHero>
 

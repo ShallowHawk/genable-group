@@ -8,20 +8,24 @@
       label="智能供应链管理专家"
     >
       <template #actions>
-        <BaseButton
-          variant="primary"
-          size="lg"
-          class="bg-blue-600 text-white hover:bg-blue-700 px-8 shadow-md hover:shadow-lg transition-all"
-        >
-          获取解决方案
-        </BaseButton>
-        <BaseButton
-          variant="outline"
-          size="lg"
-          class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 transition-all"
-        >
-          在线咨询
-        </BaseButton>
+        <router-link to="/contact">
+          <BaseButton
+            variant="primary"
+            size="lg"
+            class="bg-blue-600 text-white hover:bg-blue-700 px-8 shadow-md hover:shadow-lg transition-all"
+          >
+            获取解决方案
+          </BaseButton>
+        </router-link>
+        <router-link to="/contact">
+          <BaseButton
+            variant="outline"
+            size="lg"
+            class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 transition-all"
+          >
+            在线咨询
+          </BaseButton>
+        </router-link>
       </template>
     </PageHero>
 

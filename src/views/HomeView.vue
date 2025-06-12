@@ -670,7 +670,7 @@ onBeforeUnmount(() => {
             </h2>
             <p class="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
               整合运输、仓储、报关、和贸易合规，提供一站式国际物流解决方案。
-              <a href="#" class="text-blue-600 hover:text-blue-800 font-medium ml-2">了解更多</a>
+              <!-- <a href="#" class="text-blue-600 hover:text-blue-800 font-medium ml-2">了解更多</a> -->
             </p>
           </div>
 
@@ -759,13 +759,15 @@ onBeforeUnmount(() => {
 
         <!-- 底部按钮 -->
         <div class="text-center">
-          <BaseButton
-            variant="outline"
-            size="lg"
-            class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 font-semibold transition-all duration-300"
-          >
-            查看我们的全球网络
-          </BaseButton>
+          <router-link to="/warehouses">
+            <BaseButton
+              variant="outline"
+              size="lg"
+              class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 font-semibold transition-all duration-300"
+            >
+              查看我们的全球网络
+            </BaseButton>
+          </router-link>
         </div>
       </div>
     </section>
@@ -954,6 +956,7 @@ onBeforeUnmount(() => {
             <div class="mb-8 lg:mb-0">
               <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">常见问题解答</h2>
             </div>
+            <!--
             <router-link
               to="/faq"
               class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-lg transition-colors group"
@@ -973,6 +976,7 @@ onBeforeUnmount(() => {
                 ></path>
               </svg>
             </router-link>
+            -->
           </div>
 
           <!-- FAQ列表 -->
