@@ -60,7 +60,7 @@ interface Props {
   solution: string
   results: string
   images: CaseImage[]
-  backgroundColor?: string
+  backgroundColor?: 'white' | 'gray' | 'dark' | 'gradient'
 }
 
 withDefaults(defineProps<Props>(), {

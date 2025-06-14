@@ -56,7 +56,7 @@ interface Props {
   imageAlt?: string
   features: Feature[]
   reverse?: boolean
-  backgroundColor?: string
+  backgroundColor?: 'white' | 'gray' | 'dark' | 'gradient'
 }
 
 withDefaults(defineProps<Props>(), {
