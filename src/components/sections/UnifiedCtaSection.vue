@@ -16,7 +16,7 @@
     <div class="container-section relative z-10">
       <div class="max-w-4xl mx-auto text-center text-white cta-content">
         <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold mb-8 leading-tight">
-          携手KENABLE，共创美国市场新机遇
+          携手可耐博达，共创美国市场新机遇
         </h2>
         <p class="text-xl lg:text-2xl mb-12 text-gray-300 font-light leading-relaxed">
           专业团队24小时在线，为您量身打造最优物流解决方案

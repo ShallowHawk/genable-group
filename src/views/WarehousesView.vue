@@ -3,6 +3,9 @@
     page-title="仓储网络"
     page-description="覆盖全美4大配送中心的智能仓储网络，为您提供高效的仓储和配送服务。"
   >
+    <!-- 仓储网络页面Banner -->
+    <WarehousesHero />
+
     <!-- 网络概览区域 -->
     <section class="py-16 lg:py-24 bg-white">
       <div class="container-section">
@@ -14,7 +17,7 @@
             </h2>
             <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                KENABLE GROUP在美国战略性布局了4大配送中心，覆盖东西海岸及中部地区，
+                可耐博达在美国战略性布局了4大配送中心，覆盖东西海岸及中部地区，
                 确保为客户提供最快速、最经济的仓储和配送服务。
               </p>
               <p>
@@ -318,6 +321,7 @@ import PageLayout from '@/components/layout/PageLayout.vue'
 import BaseCard from '@/components/ui/BaseCard.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import Icon from '@/components/ui/Icon.vue'
+import WarehousesHero from '@/components/sections/WarehousesHero.vue'
 import UnifiedCtaSection from '@/components/sections/UnifiedCtaSection.vue'
 
 // 配送中心数据

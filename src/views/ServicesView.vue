@@ -3,6 +3,9 @@
     page-title="端到端一体化服务体系"
     page-description="我们提供从国际头程到美国末端派送的全链路解决方案，精准、高效，全程可控。"
   >
+    <!-- 服务体系页面Banner -->
+    <ServicesHero />
+
     <!-- 服务概览 -->
     <section class="py-16 lg:py-24 bg-white">
       <div class="container-section">
@@ -14,31 +17,49 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-          <BaseCard
+          <router-link
             v-for="service in services"
             :key="service.id"
-            variant="elevated"
-            hoverable
-            class="text-center"
+            :to="service.route"
+            class="block group"
           >
-            <template #header>
-              <div
-                class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4"
-              >
-                <Icon :name="service.icon" size="xl" class="text-primary-500" />
-              </div>
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ service.title }}</h3>
-            </template>
-            <p class="text-gray-600 mb-4">{{ service.description }}</p>
-            <template #footer>
-              <ul class="text-sm text-gray-500 space-y-1">
-                <li v-for="feature in service.features" :key="feature" class="flex items-center">
-                  <Icon name="check" size="xs" class="text-primary-500 mr-2" />
-                  {{ feature }}
-                </li>
-              </ul>
-            </template>
-          </BaseCard>
+            <BaseCard
+              variant="elevated"
+              hoverable
+              class="text-center h-full transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1"
+            >
+              <template #header>
+                <div
+                  class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-200 transition-colors"
+                >
+                  <Icon
+                    :name="service.icon"
+                    size="xl"
+                    class="text-primary-500 group-hover:text-primary-600"
+                  />
+                </div>
+                <h3
+                  class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors"
+                >
+                  {{ service.title }}
+                </h3>
+              </template>
+              <p class="text-gray-600 mb-4">{{ service.description }}</p>
+              <template #footer>
+                <ul class="text-sm text-gray-500 space-y-1 mb-4">
+                  <li v-for="feature in service.features" :key="feature" class="flex items-center">
+                    <Icon name="check" size="xs" class="text-primary-500 mr-2" />
+                    {{ feature }}
+                  </li>
+                </ul>
+                <div
+                  class="text-primary-600 text-sm font-medium group-hover:text-primary-700 transition-colors"
+                >
+                  了解详情 →
+                </div>
+              </template>
+            </BaseCard>
+          </router-link>
         </div>
       </div>
     </section>
@@ -134,6 +155,7 @@
 import PageLayout from '@/components/layout/PageLayout.vue'
 import BaseCard from '@/components/ui/BaseCard.vue'
 import Icon from '@/components/ui/Icon.vue'
+import ServicesHero from '@/components/sections/ServicesHero.vue'
 import UnifiedCtaSection from '@/components/sections/UnifiedCtaSection.vue'
 
 const services = [
@@ -142,6 +164,7 @@ const services = [
     title: '头程物流',
     description: '专业的国际货运服务，从揽收到目的地清关的全流程管理',
     icon: 'plane',
+    route: '/services/first-leg-logistics',
     features: ['揽收、订舱', '出口报关', '目的地清关与拆箱', 'FBA及指定仓库头程运输'],
   },
   {
@@ -149,6 +172,7 @@ const services = [
     title: '全国派送',
     description: '覆盖全美的自营及合作派送网络，灵活满足不同配送需求',
     icon: 'truck',
+    route: '/services/nationwide-delivery',
     features: ['"整票-包裹"专线派送', '"整票-卡车"专线派送', '覆盖全美的自营及合作派送网络'],
   },
   {
@@ -156,6 +180,7 @@ const services = [
     title: '海外仓储',
     description: '多地自营仓库，总面积超22,000m²，提供专业仓储与库存管理',
     icon: 'warehouse',
+    route: '/services/overseas-warehouses',
     features: [
       '多地自营仓库，总面积超22,000m²',
       '一件代发 (Drop-Shipping)',
@@ -168,6 +193,7 @@ const services = [
     title: '增值服务',
     description: '提供定制化的增值服务，满足多样化的客户需求',
     icon: 'settings',
+    route: '/services/value-added-services',
     features: [
       '库内分拣、质检',
       '更换标签、更换包装',
@@ -180,6 +206,7 @@ const services = [
     title: '逆向物流',
     description: '专业的退货处理服务，完善的逆向物流解决方案',
     icon: 'arrow-path',
+    route: '/services/reverse-logistics',
     features: ['退货处理与接收', '退货质检与重新上架', '过剩库存管理与处置'],
   },
 ]

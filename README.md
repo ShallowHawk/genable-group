@@ -1,10 +1,10 @@
-# KENABLE GROUP 企业官网
+# 可耐博达Kenable 企业官网
 
 > 专业跨境物流服务商官方网站 - 基于 Vue 3 + TypeScript + Vite 构建
 
 ## 📋 项目概览
 
-KENABLE GROUP是一家专注跨境物流服务的专业公司，成立于2004年，拥有20+年行业经验。本项目是其企业官方网站，展示公司服务能力、仓储网络、客户案例等核心信息。
+可耐博达（广州）供应链管理有限公司是一家专注跨境物流服务的专业公司，成立于2004年，拥有20+年行业经验。本项目是其企业官方网站，展示公司服务能力、仓储网络、客户案例等核心信息。
 
 ### 🎯 核心特色
 
@@ -18,18 +18,21 @@ KENABLE GROUP是一家专注跨境物流服务的专业公司，成立于2004年
 ## 🛠️ 技术栈
 
 ### 前端框架
+
 - **Vue 3** - 渐进式JavaScript框架
 - **TypeScript** - 类型安全的JavaScript超集
 - **Vite** - 下一代前端构建工具
 - **Vue Router** - 官方路由管理器
 
 ### UI与样式
+
 - **TailwindCSS** - 实用工具优先的CSS框架
 - **Headless UI** - 无样式可访问组件库
 - **Lucide Icons** - 美观简洁的图标库
 - **GSAP** - 高性能动画库
 
 ### 开发工具
+
 - **ESLint** - 代码质量检查
 - **Prettier** - 代码格式化
 - **Vitest** - 单元测试框架
@@ -66,6 +69,7 @@ KGWeb/
 ## 🌟 主要功能
 
 ### 🏠 首页 (HomeView)
+
 - Hero品牌展示区域
 - 核心数据统计
 - 服务体系展示
@@ -74,12 +78,14 @@ KGWeb/
 - 新闻动态
 
 ### 📖 关于我们 (AboutView)
+
 - 公司发展历程
 - 核心团队介绍
 - 企业文化价值观
 - 发展里程碑
 
 ### 🚚 服务体系 (ServicesView)
+
 - 国际运输服务
 - 仓储管理
 - 清关服务
@@ -87,24 +93,28 @@ KGWeb/
 - 退货处理
 
 ### 🏭 仓储网络 (WarehousesView)
+
 - 4大配送中心介绍
 - 仓储管理系统(WMS)
 - 服务流程展示
 - 地理位置分布
 
 ### 📊 客户案例 (CaseStudiesView)
+
 - 成功案例展示
 - 行业解决方案
 - 客户证言
 - 业务数据分析
 
 ### 📞 联系我们 (ContactView)
+
 - 多渠道联系方式
 - 智能联系表单
 - 办公地址信息
 - 常见问题解答
 
 ### 🔍 其他页面
+
 - 货物跟踪系统
 - 价格方案
 - 新闻动态
@@ -114,17 +124,20 @@ KGWeb/
 ## 🎨 设计系统
 
 ### 🎨 品牌色彩
+
 - **主色调**: 绿色 `#228B22` (Forest Green)
 - **辅助色**: 橙色 `#FF6B35` (Orange Red)
 - **中性色**: 灰色系列
 
 ### 📐 响应式断点
+
 - **Mobile**: `<768px`
 - **Tablet**: `768px - 1024px`
 - **Desktop**: `1024px - 1440px`
 - **Large**: `>1440px`
 
 ### 🧩 核心组件
+
 - **BaseButton** - 按钮组件 (5种变体)
 - **BaseCard** - 卡片组件 (4种变体)
 - **BaseInput** - 输入框组件
@@ -134,10 +147,12 @@ KGWeb/
 ## 🚀 开发指南
 
 ### 环境要求
+
 - Node.js 18+
 - npm 9+ 或 yarn 1.22+
 
 ### 安装依赖
+
 ```bash
 npm install
 # 或
@@ -145,6 +160,7 @@ yarn install
 ```
 
 ### 开发服务器
+
 ```bash
 npm run dev
 # 或
@@ -154,6 +170,7 @@ yarn dev
 服务器将运行在 `http://localhost:5173`
 
 ### 构建生产版本
+
 ```bash
 npm run build
 # 或
@@ -161,6 +178,7 @@ yarn build
 ```
 
 ### 预览生产版本
+
 ```bash
 npm run preview
 # 或
@@ -168,6 +186,7 @@ yarn preview
 ```
 
 ### 代码检查
+
 ```bash
 npm run lint
 # 或
@@ -175,6 +194,7 @@ yarn lint
 ```
 
 ### 类型检查
+
 ```bash
 npm run type-check
 # 或
@@ -182,6 +202,7 @@ yarn type-check
 ```
 
 ### 运行测试
+
 ```bash
 npm run test
 # 或
@@ -202,6 +223,7 @@ yarn test
 ### 服务器部署
 
 1. 构建生产版本：
+
    ```bash
    npm run build
    ```
@@ -213,6 +235,7 @@ yarn test
 ### Vercel部署示例
 
 1. 安装Vercel CLI：
+
    ```bash
    npm i -g vercel
    ```
@@ -251,16 +274,19 @@ server {
 ## 🔧 配置文件说明
 
 ### `vite.config.ts`
+
 - 构建优化配置
 - 代码分割策略
 - 资源处理规则
 
 ### `tailwind.config.js`
+
 - 品牌色彩定义
 - 响应式断点
 - 自定义工具类
 
 ### `tsconfig.json`
+
 - TypeScript编译选项
 - 路径别名配置
 - 类型检查规则
@@ -286,14 +312,17 @@ server {
 ### 常见问题
 
 1. **CSS样式不生效**
+
    - 检查TailwindCSS配置
    - 确认CSS文件正确导入
 
 2. **路由404错误**
+
    - 确认路由配置正确
    - 检查服务器配置支持SPA
 
 3. **TypeScript错误**
+
    - 运行 `npm run type-check`
    - 检查类型定义是否正确
 
@@ -311,8 +340,8 @@ server {
 
 ## 📄 许可证
 
-本项目为 KENABLE GROUP 企业私有项目，版权所有。
+本项目为 可耐博达（广州）供应链管理有限公司 企业私有项目，版权所有。
 
 ---
 
-**© 2024 KENABLE GROUP. All rights reserved.**
+**© 2024 可耐博达（广州）供应链管理有限公司. All rights reserved.**

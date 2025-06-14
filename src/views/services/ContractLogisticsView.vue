@@ -2,10 +2,10 @@
   <div class="contract-logistics-page">
     <!-- Hero区域 -->
     <PageHero
-      title="专业的合同物流服务"
-      subtitle="肯纳布尔集团在美国四个关键州（加州、德州、佐治亚州、印第安纳州）拥有超过22,000平方米的自营仓库网络。我们提供全方位的仓储管理、订单履行、增值服务和逆向物流解决方案，助力您轻松管理美国市场的供应链运营。"
+      title="个性化定制方案，释放您的仓储潜能"
+      subtitle="可耐博达在美国四大战略枢纽（加州、德州、佐治亚州、印第安纳州）拥有超22,000平米自营仓网。根据您的业务特点量身定制仓储管理、订单履约、增值服务及逆向物流等专属解决方案，助您轻松掌控美国供应链。"
       image-url="https://plus.unsplash.com/premium_photo-1661559046208-0cef1cbf7b0b?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      label="全美仓储网络服务"
+      label="全美仓储与履约专家"
     >
       <template #actions>
         <router-link to="/contact">
@@ -44,7 +44,7 @@
 
           <!-- 右侧内容 -->
           <div class="order-1 lg:order-2">
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">我们的合同物流服务</h2>
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">我们的个性化定制方案</h2>
 
             <div class="space-y-6">
               <!-- 仓储与库存管理 -->
@@ -55,9 +55,9 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">仓储与库存管理</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">智能仓储与库存管理</h3>
                   <p class="text-gray-600">
-                    多地仓库，WMS系统，精准库存控制。我们依据您的需求整合各地供货商，再装拆分销中心或店家，降低整体运输成本，提高经济效益。
+                    布局全美关键区域，配备先进WMS系统，根据您的货品特性和业务需求定制存储策略，实现库存精准管控与高效周转，有效降低持有成本。
                   </p>
                 </div>
               </div>
@@ -70,9 +70,9 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">订单履行与配送</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">高效订单履行与配送</h3>
                   <p class="text-gray-600">
-                    支持D2C/B2B，多渠道一站式发货。我们灵活运用超库作业帮您争取应供应商突发交货如生产、船期延误、塞港及海关检验所损失的宝贵时间，协助您推进货物配送决策以取得更充裕的时间收集市场动态，增加决策精准度。
+                    支持D2C/B2B全渠道订单处理，一站式发货。根据您的业务模式量身定制履约流程，灵活调配资源，应对订单波动与供应商交货变化，确保履约时效。
                   </p>
                 </div>
               </div>
@@ -85,10 +85,9 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">增值服务</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">专属增值服务定制</h3>
                   <p class="text-gray-600">
-                    贴标、换包装、组装，满足个性化需求。针对超大尺寸（OOG-Out of
-                    Gauge）及复杂的货物，我们的项目团队为您订制解决方案与详细计划，协调海运所有细节。
+                    根据您的品牌需求和产品特性，量身定制贴标、换包装、简单组装等增值服务，提升产品附加值，满足市场多元需求。
                   </p>
                 </div>
               </div>
@@ -101,13 +100,9 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">逆向物流</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">敏捷逆向物流管理</h3>
                   <p class="text-gray-600">
-                    高效退货处理，优化二次销售。我们专业的信息团队为您高效处理系统对接。<a
-                      href="#"
-                      class="text-cyan-600 hover:text-cyan-800 font-medium"
-                      >与我们的系统串联。</a
-                    >
+                    建立高效退货处理流程，支持检测、翻新、再销售，最大化资产回收价值。
                   </p>
                 </div>
               </div>
@@ -133,7 +128,7 @@
           <!-- 右侧文案 -->
           <div class="order-1 lg:order-2">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
-              为什么选择肯纳布尔的合同物流服务？
+              为什么选择可耐博达个性化定制方案？
             </h2>
 
             <div class="space-y-6">
@@ -146,9 +141,9 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">全美战略布局</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">战略仓网，量身布局</h3>
                   <p class="text-gray-600">
-                    在加州、德州、佐治亚州、印第安纳州拥有超过22,000平方米的自营仓库网络。
+                    自营仓超22,000平米，布局于加州、德州、佐治亚州、印第安纳州四大核心区域，根据您的客户分布和业务特点，提供最优仓储配置。
                   </p>
                 </div>
               </div>
@@ -166,10 +161,8 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">高效履约能力</h3>
-                  <p class="text-gray-600">
-                    99%的货物在24小时内被取件，全美配送时效2-5天，确保快速履约。
-                  </p>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">极速履约，承诺必达</h3>
+                  <p class="text-gray-600">99%订单24小时内完成出库，全美配送时效仅需2-5天。</p>
                 </div>
               </div>
 
@@ -184,9 +177,10 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">多平台整合</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">全渠道集成，定制对接</h3>
                   <p class="text-gray-600">
-                    无缝对接Amazon、Shopify、WooCommerce等主流电商平台，支持多渠道订单处理。
+                    根据您的销售渠道深度对接Amazon, Shopify,
+                    WooCommerce等主流平台，定制化集成方案，轻松管理多渠道订单。
                   </p>
                 </div>
               </div>
@@ -204,9 +198,9 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">专业增值服务</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">专属服务，品牌定制</h3>
                   <p class="text-gray-600">
-                    提供贴标、换包装、组装等增值服务，满足个性化需求，提升产品附加值。
+                    针对您的品牌特色和客户需求，量身打造贴标、包装设计等专属增值服务，助力品牌塑造，优化终端客户体验。
                   </p>
                 </div>
               </div>
@@ -223,9 +217,9 @@
           <!-- 左侧文案 -->
           <div>
             <div class="mb-8">
-              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">肯纳布尔在行动</h2>
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">可耐博达在行动</h2>
               <h3 class="text-xl text-blue-600 font-semibold mb-6">
-                赋能快速增长的DTC美妆品牌，实现全美高效订单履约
+                赋能DTC美妆新锐，实现全美订单爆发式增长下的高效履约
               </h3>
             </div>
 
@@ -234,11 +228,11 @@
                 <h4 class="text-lg font-bold text-gray-900 mb-3">挑战与解决方案</h4>
                 <p class="text-gray-600 mb-4">
                   <strong>挑战：</strong
-                  >某DTC美妆品牌在社交媒体爆火后订单量激增，原有的自发货模式严重滞后，急需专业的仓储与履约伙伴。
+                  >社交媒体引爆后订单激增，原有自发货体系崩溃，急需专业仓配伙伴。
                 </p>
                 <p class="text-gray-600">
                   <strong>解决方案：</strong
-                  >肯纳布尔为其提供了东、西海岸两个仓库的仓储服务，通过WMS系统对接其Shopify店铺，实现了订单的自动处理、精美包装及快速发货。
+                  >根据客户业务特点定制东、西海岸双仓布局，WMS系统直连Shopify店铺，量身打造自动化订单处理、精美包装与快速发货的专属流程。
                 </p>
               </div>
 
@@ -247,15 +241,7 @@
                 <ul class="space-y-2">
                   <li class="flex items-center text-gray-700">
                     <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    订单处理准确率达到99.9%
-                  </li>
-                  <li class="flex items-center text-gray-700">
-                    <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    当日订单截止时间延长2小时
-                  </li>
-                  <li class="flex items-center text-gray-700">
-                    <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    客户复购率提升15%
+                    订单处理准确率高达99.9%
                   </li>
                 </ul>
               </div>
@@ -281,8 +267,8 @@
 
     <!-- CTA区域 -->
     <CtaSection
-      title="选择专业合同物流，优化您的供应链"
-      subtitle="全美仓储网络，为您提供高效的订单履行和库存管理解决方案"
+      title="选择个性化定制方案，优化您的供应链"
+      subtitle="全美仓储网络，根据您的业务特点量身定制高效的订单履行和库存管理解决方案"
       primary-button-text="获取仓储报价"
       primary-button-href="/contact"
       secondary-button-text="下载服务手册"

@@ -2,10 +2,10 @@
   <div class="sea-freight-page">
     <!-- Hero区域 -->
     <PageHero
-      title="值得信赖的全球海运物流合作伙伴"
-      subtitle="肯纳布尔集团 (KENABLE GROUP) 凭借近22年的专业经验，为您提供灵活、高效、经济的全方位海运解决方案。我们年处理超过12,000个集装箱，无论是整箱（FCL）还是拼箱（LCL）货物，我们都能确保您的货物安全、准时地跨越重洋，顺利进入美国市场。"
+      title="全球海运，值得托付"
+      subtitle="深耕行业近22载，可耐博达提供灵活、高效、经济的全方位海运服务。年操作超12,000TEU，无论整箱（FCL）或拼箱（LCL），我们确保您的货物安全、准时跨越重洋，顺利进入美国市场。"
       image-url="https://plus.unsplash.com/premium_photo-1661881251976-9fc9bbb90c4e?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      label="专业海洋货运服务"
+      label="专业海运合作伙伴"
     >
       <template #actions>
         <router-link to="/contact">
@@ -55,9 +55,11 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">整箱运输 (FCL)</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    整箱运输 (FCL - Full Container Load)
+                  </h3>
                   <p class="text-gray-600">
-                    稳定船期，优先航线，覆盖全球主要港口。我们依据您的需求整合各地供货商，再装拆分销中心或店家，降低整体运输成本，提高经济效益。
+                    提供稳定船期、优先航线，覆盖全球主要港口。根据您的需求整合供应商资源，优化集拼与分拨策略，有效降低综合物流成本。
                   </p>
                 </div>
               </div>
@@ -70,9 +72,11 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">拼箱运输 (LCL)</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    拼箱运输 (LCL - Less than Container Load)
+                  </h3>
                   <p class="text-gray-600">
-                    灵活拼装，成本优化，适合中小批量货物。我们灵活运用拼箱作业帮您争取应供应商突发交货如生产、船期延误、塞港及海关检验所损失的宝贵时间，协助您推进货物配送决策以取得更充裕的时间收集市场动态，增加决策精准度。
+                    灵活拼装，成本优化，专为中小批量货物设计。我们敏捷应对供应链波动（生产延误、船期变更、港口拥堵、查验延长），为您争取时间窗口，提升决策效率。
                   </p>
                 </div>
               </div>
@@ -85,10 +89,9 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">专业清关服务</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">专业清关，畅行无忧</h3>
                   <p class="text-gray-600">
-                    精通法规，高效处理，保障货物顺利通关。针对超大尺寸（OOG-Out of
-                    Gauge）及复杂的货物，我们的项目团队为您订制解决方案与详细计划，协调海运所有细节。
+                    精通中美贸易法规，提供高效清关服务。针对超大尺寸（OOG）及复杂货物，专业项目团队定制专属解决方案，协调全程海运细节。
                   </p>
                 </div>
               </div>
@@ -101,13 +104,9 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">亚马逊FBA头程</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">亚马逊FBA头程专线</h3>
                   <p class="text-gray-600">
-                    定制化运输路线，无缝衔接，直达FBA仓库。我们专业的信息团队为您高效处理系统对接。<a
-                      href="#"
-                      class="text-cyan-600 hover:text-cyan-800 font-medium"
-                      >与我们的系统串联。</a
-                    >
+                    定制最优航线，无缝衔接亚马逊运营中心（FBA仓库）。专业IT团队确保系统高效对接，信息流畅通。
                   </p>
                 </div>
               </div>
@@ -133,7 +132,7 @@
           <!-- 右侧文案 -->
           <div class="order-1 lg:order-2">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
-              为什么选择肯纳布尔的海运服务？
+              为什么选择可耐博达海运？
             </h2>
 
             <div class="space-y-6">
@@ -148,9 +147,9 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">经验丰富</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">深厚经验，值得信赖</h3>
                   <p class="text-gray-600">
-                    深耕行业近22年，拥有强大的行业知识和网络，年处理超过12,000个集装箱。
+                    22年行业积淀，强大网络资源，年操作超12,000TEU，经验丰富可靠。
                   </p>
                 </div>
               </div>
@@ -168,9 +167,9 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">时效稳定</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">时效稳定，承诺必达</h3>
                   <p class="text-gray-600">
-                    依托美森快船等优先航线，确保12-15天的稳定运输时效，结合1-3天的快速清关服务。
+                    依托美森快船等核心航线，保障12-15天稳定海运时效，配合1-3天快速清关。
                   </p>
                 </div>
               </div>
@@ -186,9 +185,9 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">端到端无缝衔接</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">端到端服务，无缝覆盖</h3>
                   <p class="text-gray-600">
-                    服务覆盖从港口操作、拆箱、仓储到最后一公里派送的完整链条，实现真正的门到门服务。
+                    服务链条完整：港口操作、拆箱、仓储、本地派送，真正实现门到门。
                   </p>
                 </div>
               </div>
@@ -206,9 +205,9 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">资产安全保障</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">资产安全，全程保障</h3>
                   <p class="text-gray-600">
-                    为高价值货物提供全额赔偿保障，确保货物在运输和存储过程中的安全。
+                    为高价值货物提供足额保险，全程监控，确保运输与仓储安全无虞。
                   </p>
                 </div>
               </div>
@@ -225,9 +224,9 @@
           <!-- 左侧文案 -->
           <div>
             <div class="mb-8">
-              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">肯纳布尔在行动</h2>
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">可耐博达在行动</h2>
               <h3 class="text-xl text-blue-600 font-semibold mb-6">
-                为全球光伏巨头"正泰集团"处理高价值特种货物运输专案
+                护航全球光伏龙头"正泰集团"高价值特种设备赴美
               </h3>
             </div>
 
@@ -236,11 +235,11 @@
                 <h4 class="text-lg font-bold text-gray-900 mb-3">挑战与解决方案</h4>
                 <p class="text-gray-600 mb-4">
                   <strong>挑战：</strong
-                  >如何安全、合规地将高价值、超尺寸的精密光伏设备从中国运往美国，并解决复杂的清关难题？
+                  >如何安全、合规运输高价值、超尺寸精密光伏设备，并解决复杂清关难题？
                 </p>
                 <p class="text-gray-600">
                   <strong>解决方案：</strong
-                  >肯纳布尔提供了包括特殊加固、全程保险、专家清关在内的一站式解决方案，并利用自营卡车网络实现港口到工厂的精准派送。
+                  >提供特殊加固包装、全程高额保险、专家清关服务，并利用自营卡车网络实现港口至工厂的精准直达派送。
                 </p>
               </div>
 
@@ -273,7 +272,7 @@
             />
             <img
               src="https://images.unsplash.com/photo-1596003906949-67221c2d3142?w=600&h=250&fit=crop&crop=center"
-              alt="肯纳布尔卡车运输设备"
+              alt="可耐博达卡车运输设备"
               class="w-full h-64 object-cover rounded-xl shadow-lg"
             />
           </div>

@@ -8,7 +8,7 @@
             <!-- KENABLE Logo -->
             <img
               src="@/assets/kenable_logo.svg"
-              alt="KENABLE GROUP"
+              alt="可耐博达Kenable"
               style="height: 5vh"
               class="h-16 w-auto max-w-none hover:scale-105 transition-transform duration-200"
             />
@@ -180,8 +180,8 @@ const navigationItems = [
       { label: '空运', href: '/services/air-freight' },
       { label: '海运', href: '/services/sea-freight' },
       { label: '合同物流', href: '/services/contract-logistics' },
-      { label: '公路与铁路运输', href: '/services/road-rail-transport' },
-      { label: '多式联运', href: '/services/multimodal-transport' },
+      { label: '一体化联运解决方案', href: '/services/integrated-intermodal-solutions' },
+      { label: '全球化当地布局', href: '/services/global-local-presence' },
       { label: '供应链解决方案', href: '/services/supply-chain-solutions' },
     ],
   },

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { onMounted, onBeforeUnmount } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import BaseButton from '@/components/ui/BaseButton.vue'
 import PageLayout from '@/components/layout/PageLayout.vue'
+import AboutHero from '@/components/sections/AboutHero.vue'
 import UnifiedCtaSection from '@/components/sections/UnifiedCtaSection.vue'
 
 // 注册 ScrollTrigger 插件
@@ -16,7 +16,7 @@ const timelineEvents = [
     title: '奠定基石',
     description: '在洛杉矶亚速萨成立，启动仓储和卡车运输服务',
     details:
-      'KENABLE GROUP在洛杉矶亚速萨正式成立，标志着我们在美国物流行业的征程开始。初期专注于本地仓储服务和卡车运输业务，为日后的全国性扩张奠定了坚实基础。',
+      '可耐博达（广州）供应链管理有限公司在洛杉矶亚速萨正式成立，标志着我们在美国物流行业的征程开始。初期专注于本地仓储服务和卡车运输业务，为日后的全国性扩张奠定了坚实基础。',
   },
   {
     year: '2008-09',
@@ -27,8 +27,8 @@ const timelineEvents = [
   },
   {
     year: '2013-16',
-    title: '全国布局',
-    description: '建立全国物流网，收购佐治亚州和印第安纳州仓库，总面积超15,000平方米',
+    title: '全美布局',
+    description: '建立全美物流网，收购佐治亚州和印第安纳州仓库，总面积超15,000平方米',
     details:
       '这一阶段是公司发展的重要里程碑，我们成功建立了跨越东西海岸的全国物流网络。通过战略性收购佐治亚州和印第安纳州的仓库设施，总仓储面积突破15,000平方米，为客户提供更加高效的全国分销服务。',
   },
@@ -141,8 +141,11 @@ onBeforeUnmount(() => {
 <template>
   <PageLayout
     page-title="关于我们"
-    page-description="KENABLE GROUP 是一家领先的端到端供应链服务企业，致力于为全球客户提供高效、可靠的美国市场准入解决方案。凭借近22年的行业深耕和遍布全美的自营仓储与物流网络，我们提供从国际头程运输、美国仓储、本土派送到订单履行的无缝服务。"
+    page-description="可耐博达（广州）供应链管理有限公司是一家领先的端到端供应链服务企业，致力于为全球客户提供高效、可靠的美国市场准入解决方案。凭借近22年的行业深耕和遍布全美的自营仓储与物流网络，我们提供从国际头程运输、美国仓储、本土派送到订单履行的无缝服务。"
   >
+    <!-- 关于我们页面Banner -->
+    <AboutHero />
+
     <!-- 公司使命与愿景 -->
     <section class="py-16 lg:py-24 bg-white">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -305,20 +308,20 @@ onBeforeUnmount(() => {
                       曾宇星 (Yuxing Zeng)
                     </h3>
                     <p class="text-xl text-blue-600 font-semibold mb-4">
-                      KENABLE GROUP 创始人 & CEO
+                      可耐博达Kenable 创始人 & CEO
                     </p>
                   </div>
 
                   <!-- 介绍内容 -->
                   <div class="prose prose-lg max-w-none">
                     <p class="text-gray-700 leading-relaxed mb-6">
-                      KENABLE集团的创始人曾宇星先生是北美物流领域的资深专家。作为北美卡车协会的重要代表，
+                      可耐博达的创始人曾宇星先生是北美物流领域的资深专家。作为北美卡车协会的重要代表，
                       曾先生曾于<span class="font-semibold text-blue-600"
                         >2017年5月受邀在美国交通部活动上发表主旨演讲</span
                       >， 并获得了时任交通部长赵小兰女士的亲切接见。
                     </p>
                     <p class="text-gray-700 leading-relaxed">
-                      他的远见卓识和深厚行业影响力，是KENABLE不断发展的核心驱动力。在他的领导下，
+                      他的远见卓识和深厚行业影响力，是可耐博达不断发展的核心驱动力。在他的领导下，
                       公司从洛杉矶的一家本土仓储服务商，发展成为覆盖全美四州、服务全球客户的综合性供应链管理企业。
                     </p>
                   </div>

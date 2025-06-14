@@ -1,11 +1,11 @@
 <template>
-  <PageLayout page-title="招聘信息" page-description="加入KENABLE GROUP，开启精彩物流职业生涯。">
+  <PageLayout page-title="招聘信息" page-description="加入可耐博达Kenable，开启精彩物流职业生涯。">
     <!-- 公司优势区域 -->
     <section class="py-16 lg:py-24 bg-white">
       <div class="container-section">
         <div class="text-center mb-16">
           <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            为什么选择KENABLE GROUP？
+            为什么选择可耐博达Kenable？
           </h2>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
             20年行业经验的专业团队，提供有竞争力的薪酬待遇和广阔的发展空间

@@ -2,10 +2,10 @@
   <div class="supply-chain-solutions-page">
     <!-- Hero区域 -->
     <PageHero
-      title="端到端的供应链解决方案"
-      subtitle="肯纳布尔集团凭借近22年的行业经验，为您提供从供应链设计与优化、技术集成、风险管理到定制化服务的全方位供应链解决方案。我们通过专业的SCM/WMS系统集成和平台连接，帮助您实现成本优化、履行效率提升、市场响应加速和持续创新。"
+      title="端到端供应链优化，驱动业务增长"
+      subtitle="依托22年行业洞察，可耐博达提供从设计优化、技术集成、风险管理到定制服务的全链路供应链解决方案。通过专业SCM/WMS系统集成，助力您实现成本优化、效率提升、敏捷响应与持续创新。"
       image-url="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=400&fit=crop&crop=center"
-      label="智能供应链管理专家"
+      label="智能供应链架构师"
     >
       <template #actions>
         <router-link to="/contact">
@@ -124,7 +124,7 @@
           <!-- 左侧文案 -->
           <div class="order-1 lg:order-1">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
-              为什么选择肯纳布尔的供应链解决方案？
+              为什么选择可耐博达供应链方案？
             </h2>
 
             <div class="space-y-6">
@@ -141,8 +141,10 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">成本优化</h3>
-                  <p class="text-gray-600">通过智能路径规划和库存优化，实现运营成本的显著降低。</p>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">显著成本优化</h3>
+                  <p class="text-gray-600">
+                    通过智能规划与库存优化，实现物流与运营成本的持续降低。
+                  </p>
                 </div>
               </div>
 
@@ -159,10 +161,8 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">履行效率</h3>
-                  <p class="text-gray-600">
-                    先进的技术系统和优化流程，确保订单处理的高效性和准确性。
-                  </p>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">卓越履约效率</h3>
+                  <p class="text-gray-600">先进系统与精益流程结合，保障订单处理的高效与精准。</p>
                 </div>
               </div>
 
@@ -177,8 +177,10 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">市场响应</h3>
-                  <p class="text-gray-600">灵活的供应链架构，快速响应市场变化和客户需求。</p>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">敏捷市场响应</h3>
+                  <p class="text-gray-600">
+                    构建灵活供应链架构，快速适应市场需求变化与客户新要求。
+                  </p>
                 </div>
               </div>
 
@@ -195,10 +197,8 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">持续创新</h3>
-                  <p class="text-gray-600">
-                    不断引入新技术和优化方案，保持供应链的先进性和竞争力。
-                  </p>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">持续创新动力</h3>
+                  <p class="text-gray-600">不断引入前沿技术与优化模型，保持您供应链的竞争优势。</p>
                 </div>
               </div>
             </div>
@@ -223,9 +223,9 @@
           <!-- 左侧文案 -->
           <div>
             <div class="mb-8">
-              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">肯纳布尔在行动</h2>
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">可耐博达在行动</h2>
               <h3 class="text-xl text-blue-600 font-semibold mb-6">
-                为一家B2B精密电子元件制造商提供供应链可视化与成本优化方案
+                为B2B精密电子制造商实现供应链可视化与成本优化
               </h3>
             </div>
 
@@ -234,11 +234,11 @@
                 <h4 class="text-lg font-bold text-gray-900 mb-3">挑战与解决方案</h4>
                 <p class="text-gray-600 mb-4">
                   <strong>挑战：</strong
-                  >该制造商需要向全美数十家工厂准时供应生产原料，对库存水平和运输途中的可见性要求极高，以避免生产线停工。
+                  >需准时向全美数十家工厂供料，对库存可视性与运输时效要求极高，避免产线停工。
                 </p>
                 <p class="text-gray-600">
                   <strong>解决方案：</strong
-                  >肯纳布尔通过集成其ERP系统，提供了带有实时追踪功能的供应商管理库存（VMI）方案。通过数据分析，优化了安全库存水平和补货周期。
+                  >集成其ERP系统，部署实时追踪的供应商管理库存（VMI），并通过数据分析优化安全库存与补货策略。
                 </p>
               </div>
 
@@ -248,14 +248,6 @@
                   <li class="flex items-center text-gray-700">
                     <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
                     库存持有成本降低18%
-                  </li>
-                  <li class="flex items-center text-gray-700">
-                    <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    因物料短缺造成的生产中断次数降为零
-                  </li>
-                  <li class="flex items-center text-gray-700">
-                    <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    供应链透明度大幅提升
                   </li>
                 </ul>
               </div>

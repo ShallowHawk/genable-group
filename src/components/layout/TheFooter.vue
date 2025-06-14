@@ -8,10 +8,10 @@
           <div class="lg:col-span-2">
             <div class="flex items-center mb-6">
               <!-- KENABLE Logo (白色版本) -->
-              <img 
-                src="@/assets/kenable_logo.svg" 
-                alt="KENABLE GROUP" 
-                style="height: 5vh;"
+              <img
+                src="@/assets/kenable_logo.svg"
+                alt="可耐博达Kenable"
+                style="height: 5vh"
                 class="h-20 w-auto max-w-none brightness-0 invert"
               />
             </div>
@@ -48,21 +48,9 @@
           <div>
             <h3 class="text-lg font-semibold mb-6">联系我们</h3>
             <div class="space-y-4">
-              <contact-item
-                icon="phone"
-                label="电话"
-                value="+1 (555) 123-4567"
-              />
-              <contact-item
-                icon="mail"
-                label="邮箱"
-                value="info@kenablegroup.com"
-              />
-              <contact-item
-                icon="map-pin"
-                label="地址"
-                value="美国加利福尼亚州洛杉矶市"
-              />
+              <contact-item icon="phone" label="电话" value="+1 (555) 123-4567" />
+              <contact-item icon="mail" label="邮箱" value="info@kenablegroup.com" />
+              <contact-item icon="map-pin" label="地址" value="美国加利福尼亚州洛杉矶市" />
             </div>
           </div>
         </div>
@@ -75,7 +63,7 @@
       <div class="py-6">
         <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div class="text-gray-400 text-sm">
-            © {{ currentYear }} KENABLE GROUP. 保留所有权利。
+            © {{ currentYear }} 可耐博达（广州）供应链管理有限公司. 保留所有权利。
           </div>
           <div class="flex space-x-6 text-sm">
             <router-link
@@ -104,7 +92,7 @@ const socialLinks = [
   { name: 'LinkedIn', href: '#', icon: 'linkedin' },
   { name: 'Twitter', href: '#', icon: 'twitter' },
   { name: 'Facebook', href: '#', icon: 'facebook' },
-  { name: 'YouTube', href: '#', icon: 'youtube' }
+  { name: 'YouTube', href: '#', icon: 'youtube' },
 ]
 
 const quickLinks = [
@@ -114,16 +102,16 @@ const quickLinks = [
   { label: '客户案例', href: '/case-studies' },
   { label: '技术管理', href: '/technology' },
   { label: '新闻资讯', href: '/news' },
-  { label: '联系我们', href: '/contact' }
+  { label: '联系我们', href: '/contact' },
 ]
 
 const legalLinks = [
   { label: '隐私政策', href: '/privacy' },
   { label: '服务条款', href: '/terms' },
-  { label: 'Cookie政策', href: '/cookies' }
+  { label: 'Cookie政策', href: '/cookies' },
 ]
 </script>
 
 <style scoped>
 /* 组件特定样式 */
-</style> 
+</style>

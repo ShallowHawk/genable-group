@@ -2,10 +2,10 @@
   <div class="air-freight-page">
     <!-- Hero区域 -->
     <PageHero
-      title="快速高效的全球空运服务"
-      subtitle="依托强大的全球航空网络和专业团队，肯纳布尔为您提供快速、安全、可靠的空运解决方案。我们整合多国出口资源，通过门到门、机场到门等灵活服务模式，确保您的货物以最快速度到达目的地。"
+      title="全球空运，极速通达"
+      subtitle="依托覆盖全球的航空网络与专业团队，可耐博达提供高效、安全、可靠的空运解决方案。整合多国出口资源，灵活提供门到门、机场到门等模式，确保您的货物以最快速度精准送达。"
       image-url="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=400&h=400&fit=crop&crop=center"
-      label="全球航空货运专家"
+      label="全球空运专家"
     >
       <template #actions>
         <router-link to="/contact">
@@ -55,9 +55,9 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">全球空运网络</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">全球网络，灵活调度</h3>
                   <p class="text-gray-600">
-                    整合全球资源，管理多国出口。我们依据您的需求整合各地供货商，再装拆分销中心或店家，降低整体运输成本，提高经济效益。
+                    整合全球航空资源，高效管理多国出口。我们根据您的需求协调各地供应商，优化集货与分流路径，显著降低运输成本，提升供应链效率。
                   </p>
                 </div>
               </div>
@@ -70,9 +70,9 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">门到门服务</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">门到门，全程无忧</h3>
                   <p class="text-gray-600">
-                    一站式提货、报关、运输、派送。我们灵活运用超库作业帮您争取应供应商突发交货如生产、船期延误、塞港及海关检验所损失的宝贵时间，协助您推进货物配送决策以取得更充裕的时间收集市场动态，增加决策精准度。
+                    提供提货、报关、空运、派送一站式服务。我们灵活应对供应商突发状况（如生产延误、船期变更、港口拥堵、海关查验），为您抢回宝贵时间，确保配送决策更从容、更精准。
                   </p>
                 </div>
               </div>
@@ -85,10 +85,10 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">机场到门服务</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">机场到门，无缝衔接</h3>
                   <p class="text-gray-600">
-                    货物落地后，利用自有卡车网络快速转运。针对超大尺寸（OOG-Out of
-                    Gauge）及复杂的货物，我们的项目团队为您订制解决方案与详细计划，协调海运所有细节。
+                    货物落地即启动，利用自有卡车网络快速转运。针对超大尺寸（OOG - Out of
+                    Gauge，即超规货物）及特殊货物，专业项目团队为您定制专属运输方案与执行计划。
                   </p>
                 </div>
               </div>
@@ -101,13 +101,9 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">加急与优先处理</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">加急专线，优先保障</h3>
                   <p class="text-gray-600">
-                    为高时效性货物提供优先保障。我们专业的信息团队为您高效处理系统对接。<a
-                      href="#"
-                      class="text-cyan-600 hover:text-cyan-800 font-medium"
-                      >与我们的系统串联。</a
-                    >
+                    为高时效性货物开辟绿色通道。专业IT团队高效实现系统对接，信息全程可视，保障急件优先处理。
                   </p>
                 </div>
               </div>
@@ -124,7 +120,7 @@
           <!-- 左侧文案 -->
           <div class="order-1 lg:order-1">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
-              为什么选择肯纳布尔的空运服务？
+              为什么选择可耐博达空运？
             </h2>
 
             <div class="space-y-6">
@@ -139,7 +135,7 @@
                 <div>
                   <h3 class="text-xl font-bold text-gray-900 mb-2">多国出口网络</h3>
                   <p class="text-gray-600">
-                    覆盖中国、泰国、越南等多个出口国，为您提供最灵活的供应链选择。
+                    深耕中国、泰国、越南等核心出口国，提供最具弹性的供应链起点选择。
                   </p>
                 </div>
               </div>
@@ -157,9 +153,9 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">快速时效</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">时效精准可靠</h3>
                   <p class="text-gray-600">
-                    与主要航空公司建立稳定合作关系，确保货物快速、准时到达。
+                    与全球主要航司深度合作，锁定舱位与优先通道，确保货物准时起飞、快速抵达。
                   </p>
                 </div>
               </div>
@@ -175,8 +171,10 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">地面运输整合</h3>
-                  <p class="text-gray-600">货物落地后即刻由自有卡车网络接管，实现无缝空陆联运。</p>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">空地无缝联动</h3>
+                  <p class="text-gray-600">
+                    货物落地即由自有卡车网络接管，实现高效的空陆联运，最后一公里同样迅捷。
+                  </p>
                 </div>
               </div>
 
@@ -193,9 +191,9 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">专业服务团队</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">专业团队护航</h3>
                   <p class="text-gray-600">
-                    拥有丰富经验的专业团队，提供24/7跟踪服务和问题解决方案。
+                    经验丰富的团队提供7x24小时全程跟踪与应急响应，问题即时解决。
                   </p>
                 </div>
               </div>
@@ -221,9 +219,9 @@
           <!-- 左侧文案 -->
           <div>
             <div class="mb-8">
-              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">肯纳布尔在行动</h2>
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">可耐博达在行动</h2>
               <h3 class="text-xl text-blue-600 font-semibold mb-6">
-                助力北美亿级家居品牌Cushion Lab，构建多渠道、跨国一体化供应链
+                助力北美家居巨头Cushion Lab构建多渠道跨国供应链
               </h3>
             </div>
 
@@ -232,11 +230,10 @@
                 <h4 class="text-lg font-bold text-gray-900 mb-3">挑战与解决方案</h4>
                 <p class="text-gray-600 mb-4">
                   <strong>挑战：</strong
-                  >如何高效整合来自中国、越南、泰国的多源头货运，并精准供给Amazon、TikTok、独立站等多个线上渠道？
+                  >如何高效整合中、越、泰三国货源，精准配送至Amazon、TikTok、独立站等多渠道？
                 </p>
                 <p class="text-gray-600">
-                  <strong>解决方案：</strong
-                  >通过海空联运的头程物流，及美国多仓联动的仓配网络，实现灵活履约。
+                  <strong>解决方案：</strong>采用海空联运头程+美国多仓协同网络，实现灵活履约。
                 </p>
               </div>
 
@@ -264,7 +261,7 @@
           <div class="space-y-4">
             <img
               src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=600&h=250&fit=crop&crop=center"
-              alt="肯纳布尔仓库内码放整齐的枕头类产品"
+              alt="可耐博达仓库内码放整齐的枕头类产品"
               class="w-full h-64 object-cover rounded-xl shadow-lg"
             />
             <img
