@@ -123,7 +123,7 @@
           <!-- 左侧图片 -->
           <div class="order-2 lg:order-1">
             <img
-              src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=600&h=400&fit=crop&crop=center"
+              src="https://images.unsplash.com/photo-1605732562742-3023a888e56e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="港口集装箱堆场"
               class="w-full h-96 object-cover rounded-2xl shadow-lg"
             />
@@ -266,12 +266,12 @@
           <!-- 右侧图片组合 -->
           <div class="space-y-4">
             <img
-              src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=250&fit=crop&crop=center"
+              src="https://images.unsplash.com/photo-1706499856012-14f062c72b49?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="大型光伏设备被吊装上船"
               class="w-full h-64 object-cover rounded-xl shadow-lg"
             />
             <img
-              src="https://images.unsplash.com/photo-1596003906949-67221c2d3142?w=600&h=250&fit=crop&crop=center"
+              src="https://images.unsplash.com/photo-1485575301924-6891ef935dcd?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjB8fHRyYW5zcG9ydHxlbnwwfHwwfHx8MA%3D%3D"
               alt="可耐博达卡车运输设备"
               class="w-full h-64 object-cover rounded-xl shadow-lg"
             />

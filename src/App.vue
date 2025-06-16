@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView } from 'vue-router'
 import TheHeader from '@/components/layout/TheHeader.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
 </script>
@@ -9,12 +8,12 @@ import TheFooter from '@/components/layout/TheFooter.vue'
   <div id="app" class="min-h-screen flex flex-col">
     <!-- 页面头部 -->
     <TheHeader />
-    
+
     <!-- 主要内容区域 -->
-    <main class="flex-1 pt-20">
+    <main class="flex-1 pt-16 md:pt-20">
       <RouterView />
     </main>
-    
+
     <!-- 页面底部 -->
     <TheFooter />
   </div>
@@ -35,8 +34,16 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    sans-serif;
   line-height: 1.6;
   color: #374151;
   background-color: #ffffff;
@@ -71,7 +78,7 @@ button:focus,
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid #228B22;
+  outline: 2px solid #228b22;
   outline-offset: 2px;
 }
 

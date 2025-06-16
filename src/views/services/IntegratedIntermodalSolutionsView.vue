@@ -4,7 +4,7 @@
     <PageHero
       title="海陆空联运，智慧链接全球"
       subtitle="可耐博达凭借22年经验，提供包含IPI（内陆点多式联运）在内的海、陆、空无缝衔接解决方案。智能组合运输方式，优化成本与时效平衡，助您实现供应链效益最大化。"
-      image-url="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=600&h=400&fit=crop&crop=center"
+      image-url="https://images.unsplash.com/photo-1625153979079-659514a98de5?q=80&w=2619&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       label="多式联运优化专家"
     >
       <template #actions>
@@ -36,7 +36,7 @@
           <!-- 左侧图片 -->
           <div class="order-2 lg:order-1">
             <img
-              src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=600&h=400&fit=crop&crop=center"
+              src="https://images.unsplash.com/photo-1625153979079-659514a98de5?q=80&w=2619&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="一体化联运解决方案"
               class="w-full h-96 object-cover rounded-2xl shadow-lg"
             />
@@ -138,8 +138,7 @@
     <!-- 为什么选择我们 -->
     <WhyUsModule
       title="为什么选择可耐博达联运方案？"
-      image-url="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=600&h=400&fit=crop&crop=center"
-      image-alt="一体化联运流程图"
+      image-url="https://images.unsplash.com/photo-1527314392553-2c7bded21b23?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       :reverse="false"
       background-color="gray"
       :features="whyUsFeatures"
@@ -173,7 +172,6 @@
 import BaseButton from '@/components/ui/BaseButton.vue'
 import PageHero from '@/components/ui/PageHero.vue'
 import Section from '@/components/ui/Section.vue'
-import ServiceCard from '@/components/ui/ServiceCard.vue'
 import WhyUsModule from '@/components/sections/WhyUsModule.vue'
 import CaseStudyModule_Documentary from '@/components/sections/CaseStudyModule_Documentary.vue'
 import CtaSection from '@/components/ui/CtaSection.vue'
@@ -205,14 +203,14 @@ const whyUsFeatures = [
 // 案例研究图片
 const caseStudyImages = [
   {
-    url: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop&crop=center',
+    url: 'https://images.unsplash.com/photo-1601999007938-f584b47324ac?q=80&w=2638&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: '火车运输集装箱',
-    caption: '一列满载集装箱的火车行驶在广阔的西部地貌中',
+    caption: '通过海铁联运，货物从洛杉矶港高效转运至内陆城市',
   },
   {
-    url: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&h=400&fit=crop&crop=center',
+    url: 'https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?q=80&w=2618&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     alt: '卡车装载货物',
-    caption: '可耐博达的卡车正在从火车集装箱场站旁装载货物',
+    caption: '自有卡车网络完成最后一公里的精准送达',
   },
 ]
 </script>

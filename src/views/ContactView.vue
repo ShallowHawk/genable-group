@@ -391,20 +391,6 @@
           <p class="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
             无论您的物流需求多么复杂，我们都有专业的解决方案。联系我们，开启高效物流合作之旅！
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <BaseButton variant="secondary" size="lg">
-              <Icon name="phone" size="sm" class="mr-2" />
-              立即致电咨询
-            </BaseButton>
-            <BaseButton
-              variant="outline"
-              size="lg"
-              class="border-white text-white hover:bg-white hover:text-primary-600"
-            >
-              <Icon name="calendar" size="sm" class="mr-2" />
-              预约上门服务
-            </BaseButton>
-          </div>
         </div>
       </div>
     </section>

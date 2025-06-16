@@ -36,7 +36,7 @@
           <!-- 左侧图片 -->
           <div class="order-2 lg:order-1">
             <img
-              src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=400&fit=crop&crop=center"
+              src="https://images.unsplash.com/photo-1717386255773-1e3037c81788?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="员工在工作台上为产品进行贴标或重新包装"
               class="w-full h-96 object-cover rounded-2xl shadow-lg"
             />
@@ -119,7 +119,7 @@
           <!-- 左侧图片 -->
           <div class="order-2 lg:order-1">
             <img
-              src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=400&fit=crop&crop=center"
+              src="https://plus.unsplash.com/premium_photo-1682145409553-75a35479e3cc?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="员工在工作台上为产品进行贴标或重新包装"
               class="w-full h-96 object-cover rounded-2xl shadow-lg"
             />
@@ -256,7 +256,7 @@
               class="w-full h-64 object-cover rounded-xl shadow-lg"
             />
             <img
-              src="https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=600&h=250&fit=crop&crop=center"
+              src="https://images.unsplash.com/photo-1631730486572-226d1f595b68?q=80&w=2575&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="包装精美的化妆品包裹传送带"
               class="w-full h-64 object-cover rounded-xl shadow-lg"
             />

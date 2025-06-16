@@ -11,7 +11,7 @@
     <PageHero
       title="化繁为简，掌控您的国际头程物流"
       subtitle="专业的国际货运服务，从揽收到目的地清关的全流程管理。我们提供一站式头程物流解决方案，将所有复杂环节交给我们，让您专注于核心业务。"
-      image-url="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop&crop=center"
+      image-url="https://images.unsplash.com/photo-1634638022845-1ab614a94128?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       label="头程物流专家"
     >
       <template #actions>
@@ -51,7 +51,7 @@
           <div class="flex justify-center">
             <div class="w-80 h-80 rounded-2xl overflow-hidden shadow-lg">
               <img
-                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                src="https://images.unsplash.com/photo-1634638022845-1ab614a94128?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="国际货运物流挑战"
                 class="w-full h-full object-cover"
               />
@@ -159,7 +159,7 @@
             </div>
             <div>
               <img
-                src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=600&h=400&fit=crop&crop=center"
+                src="https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?q=80&w=2673&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="集装箱货船在海上航行"
                 class="w-full h-80 object-cover rounded-2xl shadow-lg"
               />
@@ -221,41 +221,10 @@
             </div>
             <div>
               <img
-                src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=400&fit=crop&crop=center"
+                src="https://images.unsplash.com/photo-1718564168675-035cadb16692?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="物流管理系统界面"
                 class="w-full h-80 object-cover rounded-2xl shadow-lg"
               />
-            </div>
-          </div>
-
-          <!-- 多国多式联运 -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="order-2 lg:order-1">
-              <img
-                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop&crop=center"
-                alt="多式联运示意图"
-                class="w-full h-80 object-cover rounded-2xl shadow-lg"
-              />
-            </div>
-            <div class="order-1 lg:order-2">
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">多国多式联运</h3>
-              <p class="text-gray-600 mb-6">
-                整合海运与空运，无缝管理您从中国、越南、泰国等多个产地的出口需求。
-              </p>
-              <ul class="space-y-3">
-                <li class="flex items-center text-gray-700">
-                  <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  多国产地覆盖
-                </li>
-                <li class="flex items-center text-gray-700">
-                  <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  海空联运整合
-                </li>
-                <li class="flex items-center text-gray-700">
-                  <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  灵活运输方案
-                </li>
-              </ul>
             </div>
           </div>
         </div>

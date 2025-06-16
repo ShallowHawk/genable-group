@@ -36,7 +36,7 @@
           <!-- 右侧图片 -->
           <div class="order-2 lg:order-2">
             <img
-              src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=400&fit=crop&crop=center"
+              src="https://plus.unsplash.com/premium_photo-1661551212697-1a6937afdd62?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="员工在工作台上为产品进行贴标或重新包装"
               class="w-full h-96 object-cover rounded-2xl shadow-lg"
             />
@@ -203,7 +203,7 @@
           <!-- 右侧图片 -->
           <div class="order-2 lg:order-2">
             <img
-              src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=600&h=400&fit=crop&crop=center"
+              src="https://images.unsplash.com/photo-1501623021299-5a9e5f95960b?q=80&w=2673&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="机场货运站，工作人员正在用叉车转运航空集装板"
               class="w-full h-96 object-cover rounded-2xl shadow-lg"
             />
@@ -260,12 +260,12 @@
           <!-- 右侧图片组合 -->
           <div class="space-y-4">
             <img
-              src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=600&h=250&fit=crop&crop=center"
+              src="https://images.unsplash.com/photo-1589793463357-5fb813435467?q=80&w=2456&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="可耐博达仓库内码放整齐的枕头类产品"
               class="w-full h-64 object-cover rounded-xl shadow-lg"
             />
             <img
-              src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&h=250&fit=crop&crop=center"
+              src="https://images.unsplash.com/photo-1486556813609-9a827fdc306f?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="员工扫描包裹准备发货"
               class="w-full h-64 object-cover rounded-xl shadow-lg"
             />

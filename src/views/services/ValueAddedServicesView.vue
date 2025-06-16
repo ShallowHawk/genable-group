@@ -170,7 +170,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div class="order-2 lg:order-1">
               <img
-                src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&h=400&fit=crop&crop=center"
+                src="https://images.unsplash.com/photo-1585221330389-24fb30535ec7?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="专业贴标换标服务"
                 class="w-full h-80 object-cover rounded-2xl shadow-lg"
               />
@@ -221,7 +221,7 @@
             </div>
             <div>
               <img
-                src="https://images.unsplash.com/photo-1609296411883-f5b40d2b6440?w=600&h=400&fit=crop&crop=center"
+                src="https://images.unsplash.com/photo-1700165644892-3dd6b67b25bc?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="定制化包装服务"
                 class="w-full h-80 object-cover rounded-2xl shadow-lg"
               />

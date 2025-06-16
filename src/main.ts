@@ -1,5 +1,8 @@
 import './assets/main.css'
 
+// 🔥 引入全局修复样式
+import './assets/styles/global-fix.css'
+
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 

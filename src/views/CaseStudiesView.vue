@@ -3,12 +3,8 @@
     <!-- 模块一：顶部英雄区域 -->
     <CaseStudyHero />
 
-    <!-- 模块二：案例详情展示区 -->
-    <!-- 正泰集团案例 -->
-    <CaseStudyDetail :case-data="chintCase" :reverse="false" background-color="bg-gray-50" />
-
-    <!-- Cushion Lab案例 -->
-    <CaseStudyDetail :case-data="cushionLabCase" :reverse="true" background-color="bg-white" />
+    <!-- 模块二：案例详情展示区 - 选项卡式 -->
+    <CaseStudyTabs :cases="[chintCase, cushionLabCase]" />
 
     <!-- 模块三：行动号召区域 -->
     <UnifiedCtaSection />
@@ -18,7 +14,7 @@
 <script setup lang="ts">
 import PageLayout from '@/components/layout/PageLayout.vue'
 import CaseStudyHero from '@/components/sections/CaseStudyHero.vue'
-import CaseStudyDetail from '@/components/sections/CaseStudyDetail.vue'
+import CaseStudyTabs from '@/components/sections/CaseStudyTabs.vue'
 import UnifiedCtaSection from '@/components/sections/UnifiedCtaSection.vue'
 
 // 正泰集团案例数据

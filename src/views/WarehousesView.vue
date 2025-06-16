@@ -87,27 +87,9 @@
             <div class="bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl p-8 lg:p-12">
               <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">全美配送网络覆盖</h3>
 
-              <!-- 模拟美国地图 -->
-              <div class="relative bg-white rounded-lg p-8 shadow-inner">
-                <div class="text-center text-gray-500 mb-6">
-                  <Icon name="map" size="4xl" class="mx-auto mb-2" />
-                  <p class="text-lg font-medium">美国配送中心分布图</p>
-                </div>
-
-                <!-- 配送中心标记点 -->
-                <div class="grid grid-cols-2 gap-4">
-                  <div
-                    v-for="center in distributionCenters"
-                    :key="center.id"
-                    class="flex items-center p-3 bg-primary-50 rounded-lg"
-                  >
-                    <div class="w-3 h-3 bg-primary-500 rounded-full mr-3"></div>
-                    <div>
-                      <div class="font-semibold text-gray-900 text-sm">{{ center.name }}</div>
-                      <div class="text-xs text-gray-600">{{ center.state }}</div>
-                    </div>
-                  </div>
-                </div>
+              <!-- 真实美国地图 -->
+              <div class="relative bg-white rounded-lg p-4 shadow-inner">
+                <USDistributionMap :centers="mapCenters" />
               </div>
 
               <!-- 覆盖统计 -->
@@ -319,10 +301,46 @@
 <script setup lang="ts">
 import PageLayout from '@/components/layout/PageLayout.vue'
 import BaseCard from '@/components/ui/BaseCard.vue'
-import BaseButton from '@/components/ui/BaseButton.vue'
 import Icon from '@/components/ui/Icon.vue'
 import WarehousesHero from '@/components/sections/WarehousesHero.vue'
 import UnifiedCtaSection from '@/components/sections/UnifiedCtaSection.vue'
+import USDistributionMap from '@/components/ui/USDistributionMap.vue'
+
+// 地图用的配送中心数据（含坐标）
+const mapCenters = [
+  {
+    id: '1',
+    name: '洛杉矶配送中心',
+    state: '加利福尼亚州',
+    coordinates: [34.0522, -118.2437] as [number, number],
+    status: '总部中心',
+    description: '位于洛杉矶港口附近，是我们最大的配送中心，主要服务西海岸地区。',
+  },
+  {
+    id: '2',
+    name: '芝加哥配送中心',
+    state: '伊利诺伊州',
+    coordinates: [41.8781, -87.6298] as [number, number],
+    status: '中部枢纽',
+    description: '战略位置优越，连接东西海岸，是中部地区的物流枢纽。',
+  },
+  {
+    id: '3',
+    name: '纽约配送中心',
+    state: '纽约州',
+    coordinates: [40.7128, -74.006] as [number, number],
+    status: '东海岸中心',
+    description: '服务美国东海岸及东北部地区，靠近纽约港。',
+  },
+  {
+    id: '4',
+    name: '达拉斯配送中心',
+    state: '德克萨斯州',
+    coordinates: [32.7767, -96.797] as [number, number],
+    status: '南部中心',
+    description: '新建的现代化配送中心，采用最新的智能仓储技术。',
+  },
+]
 
 // 配送中心数据
 const distributionCenters = [
