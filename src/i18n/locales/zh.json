@@ -1,0 +1,576 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "services": "服务体系",
+    "warehouses": "仓储网络",
+    "caseStudies": "客户案例",
+    "technology": "技术管理",
+    "contact": "联系我们"
+  },
+  "brand": {
+    "fullName": "可耐博达（广州）供应链管理有限公司",
+    "shortName": "可耐博达Kenable",
+    "abbreviation": "可耐博达"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "submit": "提交",
+    "cancel": "取消",
+    "confirm": "确认",
+    "back": "返回",
+    "next": "下一步",
+    "prev": "上一步",
+    "more": "更多",
+    "less": "收起",
+    "all": "全部",
+    "contactUs": "联系我们",
+    "learnMore": "了解更多",
+    "getQuote": "获取报价",
+    "viewDetails": "查看详情"
+  },
+  "hero": {
+    "title": "您值得信赖的美国供应链管理合作伙伴",
+    "subtitle": "一站式跨境物流解决方案",
+    "description": "一站式提供国际头程、全美仓储、本土派送及订单履行服务，助您轻松立足美国市场。99%货物24小时内被取件",
+    "titlePart1": "您值得信赖的美国",
+    "titlePart2": "供应链管理合作伙伴",
+    "descriptionPart1": "一站式提供国际头程、全美仓储、本土派送及订单履行服务，",
+    "descriptionPart2": "助您轻松立足美国市场。",
+    "descriptionHighlight": "99%货物24小时内被取件",
+    "badge": "美国领先的跨境物流服务商",
+    "cta": "开始合作",
+    "cta2": "了解更多",
+    "features": {
+      "pickup": "99% 取件率保证",
+      "shipping": "东西海岸运输5-7天",
+      "experience": "近20年行业经验",
+      "warehouses": "全美4州自营仓库"
+    }
+  },
+  "services": {
+    "title": "端到端一体化服务体系",
+    "description": "我们提供从国际头程到美国末端派送的全链路解决方案",
+    "airFreight": "空运",
+    "seaFreight": "海运",
+    "contractLogistics": "合同物流",
+    "firstLegLogistics": "头程物流",
+    "globalLocalPresence": "全球化当地布局",
+    "nationwideDelivery": "全国派送",
+    "overseasWarehouses": "海外仓储",
+    "reverseLogistics": "逆向物流",
+    "integratedIntermodalSolutions": "一体化联运解决方案",
+    "supplyChainSolutions": "供应链解决方案",
+    "valueAddedServices": "增值服务"
+  },
+  "servicesPage": {
+    "airFreight": {
+      "title": "空运服务",
+      "subtitle": "快速、安全的国际航空运输解决方案",
+      "description": "提供高效的航空货运服务，确保您的货物安全、快速地到达目的地"
+    },
+    "seaFreight": {
+      "title": "海运服务",
+      "subtitle": "经济高效的海洋货运解决方案",
+      "description": "依托Matson等知名船公司，提供稳定可靠的跨太平洋海运服务"
+    },
+    "contractLogistics": {
+      "title": "个性化定制方案",
+      "subtitle": "定制化的供应链管理服务",
+      "description": "根据您的业务需求，量身定制专属的物流解决方案"
+    },
+    "integratedIntermodal": {
+      "title": "一体化联运解决方案",
+      "subtitle": "含IPI在内的海、陆、空一体化联运解决方案",
+      "description": "整合多种运输方式，提供无缝衔接的综合物流服务"
+    },
+    "globalLocal": {
+      "title": "全球化当地布局",
+      "subtitle": "扎根供应链源头的本地化团队服务",
+      "description": "依托全球网络和本地化团队，提供贴近市场的专业服务"
+    },
+    "supplyChain": {
+      "title": "供应链解决方案",
+      "subtitle": "端到端的供应链优化服务",
+      "description": "从采购到配送，提供全链条的供应链管理和优化服务"
+    },
+    "firstLeg": {
+      "title": "头程物流",
+      "subtitle": "化繁为简掌控国际头程物流",
+      "description": "专业的国际货运服务，从揽收到目的地清关的全流程管理"
+    },
+    "nationwide": {
+      "title": "全国派送",
+      "subtitle": "决胜最后一公里构建高效全美派送体系",
+      "description": "覆盖全美的自营及合作派送网络，450+辆自营卡车"
+    },
+    "warehouses": {
+      "title": "海外仓储",
+      "subtitle": "您的美国本地仓智慧仓储与库存管理专家",
+      "description": "超过22,000平方米的自营美国仓储网络，4大核心自营仓库"
+    },
+    "valueAdded": {
+      "title": "增值服务",
+      "subtitle": "超越仓储定制化增值服务提升产品价值",
+      "description": "将仓库升级为您的产品加工中心，提供精细化分拣、专业贴标换标"
+    },
+    "reverse": {
+      "title": "逆向物流",
+      "subtitle": "变退货为资源专业逆向物流提升利润空间",
+      "description": "专业的逆向物流方案，将退货处理从成本中心转变为价值回收中心"
+    }
+  },
+  "coreServices": {
+    "endToEnd": {
+      "title": "一站式全链路服务",
+      "description": "提供从跨境货运、清关到美国内陆运输和最后一公里派送的全方位解决方案。"
+    },
+    "warehouseNetwork": {
+      "title": "全国自有仓储网络",
+      "description": "在加州、德州、佐治亚和印第安纳州拥有超22,000平米的自营仓库，确保高效分销。"
+    },
+    "industryExperience": {
+      "title": "丰富的行业与清关经验",
+      "description": "近20年行业经验，精通美国法规和平台政策，高效解决复杂物流与清关挑战。"
+    },
+    "deliveryNetwork": {
+      "title": "高效的派送合作网络",
+      "description": "与UPS、USPS等官方合作，配合自营卡车车队，保障派送时效。"
+    },
+    "customSolutions": {
+      "title": "柔性定制化解决方案",
+      "description": "支持整箱、拆箱、代发货等模式，根据您的特定需求量身定制服务。"
+    },
+    "transparentOperations": {
+      "title": "卓越声誉与透明运营",
+      "description": "提供全程可追溯的透明服务，是客户值得信赖的长期战略合作伙伴。"
+    }
+  },
+  "statistics": {
+    "containers": "集装箱处理量",
+    "clients": "服务客户",
+    "deliveries": "年度派送量",
+    "packages": "包裹处理量",
+    "trucks": "自有拖车卡车",
+    "warehouse": "平方米仓库面积"
+  },
+  "testimonials": {
+    "title": "客户评价",
+    "subtitle": "听听我们客户的真实声音",
+    "chint": {
+      "company": "正泰集团",
+      "industry": "光伏新能源",
+      "content": "面对高价值产品的跨境难题，可耐博达提供的一站式解决方案和全额价值保障，让我们能真正安心地将市场重心放在美国，后顾无忧。",
+      "author": "张总",
+      "position": "供应链总监"
+    },
+    "cushionLab": {
+      "company": "Cushion Lab",
+      "industry": "电商零售",
+      "content": "作为年销售额超1亿美元的多平台销售商，可耐博达利用其覆盖全美的多仓网络和灵活的履行模式，为我们提供了稳定高效的仓储和分销服务。",
+      "author": "李总",
+      "position": "运营总监"
+    }
+  },
+  "home": {
+    "solutions": {
+      "title": "Kenable解决方案",
+      "description": "整合运输、仓储、报关、和贸易合规，提供一站式国际物流解决方案。"
+    },
+    "tabs": {
+      "quote": "获取报价",
+      "services": "物流解决方案",
+      "book": "预订服务",
+      "track": "货物追踪"
+    }
+  },
+  "faq": {
+    "services": {
+      "question": "你们提供哪些主要服务？",
+      "answer": "我们提供一站式的供应链服务，包括国际头程物流、美国全国派送（包裹和卡车专线）、海外仓储、退货处理（逆向物流）以及分拣、换标等增值服务。"
+    },
+    "warehouses": {
+      "question": "你们的仓库在美国哪些地方？",
+      "answer": "我们在美国的加利福尼亚州、德克萨斯州、佐治亚州和印第安纳州均设有战略布局的自营仓库，以支持高效的全国分销。"
+    },
+    "timeline": {
+      "question": "从中国海运到美国派送大概需要多久？",
+      "answer": "完整流程时效：揽收/报关1-2天 → 国际海运（Matson快船）12-15天 → 海关清关1-3天 → 派送至洛杉矶仓12-36小时 → 收货上架12-36小时 → 末端派送2-5天。全程约20-28天，每个环节透明可控。"
+    },
+    "categories": {
+      "services": "服务范围",
+      "warehouses": "仓储网络",
+      "timeline": "时效说明"
+    }
+  },
+  "footer": {
+    "company": "公司",
+    "services": "服务",
+    "resources": "资源",
+    "legal": "法律",
+    "contact": "联系我们",
+    "quickLinks": "快速链接",
+    "contactInfo": "联系我们",
+    "phone": "电话",
+    "email": "邮箱",
+    "address": "地址",
+    "addressValue": "美国加利福尼亚州洛杉矶市",
+    "news": "新闻资讯",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "cookies": "Cookie政策",
+    "copyright": "© {year} {brandName}. 保留所有权利。",
+    "description": "专业的跨境供应链解决方案提供商，致力于为全球电商企业提供端到端的物流服务。"
+  },
+  "warehouses": {
+    "title": "仓储网络",
+    "description": "覆盖全美4大配送中心的智能仓储网络，为您提供高效的仓储和配送服务。",
+    "hero": {
+      "title": "战略布局全美的智能仓储网络",
+      "description": "可耐博达在美国战略性布局了4大配送中心，覆盖东西海岸及中部地区，确保为客户提供最快速、最经济的仓储和配送服务。",
+      "detailPart1": "每个配送中心都配备了先进的WMS仓储管理系统，实现智能分拣、自动化库存管理和实时订单跟踪，确保99%的包裹能在24小时内完成提货。",
+      "detailPart2": "总仓储面积超过50万平方英尺，日处理能力达10万个包裹，为跨境电商客户提供从入库到出库的全流程专业服务。"
+    },
+    "advantages": {
+      "automation": {
+        "title": "智能自动化",
+        "description": "WMS系统管理"
+      },
+      "fastResponse": {
+        "title": "快速响应",
+        "description": "24小时内提货"
+      },
+      "security": {
+        "title": "安全可靠",
+        "description": "24/7安防监控"
+      },
+      "efficiency": {
+        "title": "高效运营",
+        "description": "99.8%准确率"
+      }
+    },
+    "networkCoverage": {
+      "title": "全美配送网络覆盖",
+      "population": "人口覆盖",
+      "delivery": "配送时效",
+      "warehouse": "平方英尺"
+    },
+    "centersTitle": "四大配送中心详情",
+    "centersDescription": "每个配送中心都经过精心选址，确保最佳的地理位置和运营效率",
+    "centers": {
+      "la": {
+        "name": "洛杉矶配送中心",
+        "state": "加利福尼亚州",
+        "status": "总部中心",
+        "description": "位于洛杉矶港口附近，是我们最大的配送中心，主要服务西海岸地区。"
+      },
+      "chicago": {
+        "name": "芝加哥配送中心",
+        "state": "伊利诺伊州",
+        "status": "中部枢纽",
+        "description": "战略位置优越，连接东西海岸，是中部地区的物流枢纽。"
+      },
+      "ny": {
+        "name": "纽约配送中心",
+        "state": "纽约州",
+        "status": "东海岸中心",
+        "description": "服务美国东海岸及东北部地区，靠近纽约港。"
+      },
+      "dallas": {
+        "name": "达拉斯配送中心",
+        "state": "德克萨斯州",
+        "status": "南部中心",
+        "description": "新建的现代化配送中心，采用最新的智能仓储技术。"
+      }
+    },
+    "centerDetails": {
+      "area": "仓储面积",
+      "capacity": "日处理能力",
+      "radius": "服务半径",
+      "delivery": "配送时效",
+      "features": "服务特色",
+      "image": "实景"
+    },
+    "wmsTitle": "智能仓储管理系统",
+    "wmsDescription": "先进的WMS系统，实现全流程自动化管理",
+    "processTitle": "仓储服务流程",
+    "processDescription": "标准化作业流程，确保每个环节的精确执行"
+  },
+  "reverse": {
+    "title": "逆向物流",
+    "description": "专业的逆向物流方案，旨在将您的退货处理从成本中心转变为价值回收中心，通过专业操作最大化您的商品生命周期价值。高效退货处理、快速重新入库、积压库存管理与处置、产品再加工。",
+    "hero": {
+      "title": "变退货为资源，专业逆向物流提升您的利润空间",
+      "subtitle": "专业的逆向物流方案，旨在将您的退货处理从成本中心转变为价值回收中心，通过专业操作最大化您的商品生命周期价值。高效退货处理、快速重新入库、积压库存管理与处置、产品再加工。",
+      "badge": "逆向物流专家",
+      "cta": "获取逆向物流报价",
+      "cta2": "在线咨询"
+    },
+    "challenges": {
+      "title": "逆向物流的核心挑战",
+      "description": "退货是电商运营中不可避免的一环，但如果管理不当，它将迅速成为侵蚀利润的'黑洞'。处理流程繁琐、商品价值贬损、库存积压，是所有商家在逆向物流中面临的共同难题。",
+      "inefficiency": {
+        "title": "处理效率低下",
+        "description": "退货流程缓慢，导致客户退款延迟，影响客户体验和品牌声誉。"
+      },
+      "valueLoss": {
+        "title": "商品价值流失",
+        "description": "退回的商品无法得到及时、专业的处理，导致其价值迅速下跌，难以二次销售。"
+      },
+      "stockAccumulation": {
+        "title": "库存积压严重",
+        "description": "退货和积压库存占用了宝贵的仓储空间和资金，影响新品的库存周转。"
+      },
+      "dataBlackBox": {
+        "title": "数据黑盒",
+        "description": "缺乏对退货原因和产品状态的有效数据分析，难以从根源上优化产品和运营。"
+      }
+    },
+    "solutions": {
+      "title": "Kenable的一站式解决方案",
+      "description": "Kenable的逆向物流方案，旨在将您的退货处理从成本中心转变为价值回收中心，通过专业操作最大化您的商品生命周期价值。",
+      "efficientProcessing": {
+        "title": "高效退货处理",
+        "description": "我们提供专业的退货接收、开箱、检测和分类服务，系统化地处理来自各个渠道的退货。",
+        "features": {
+          "receiving": "专业退货接收",
+          "inspection": "标准化检测分类",
+          "multichannel": "多渠道退货处理"
+        }
+      },
+      "fastRestocking": {
+        "title": "快速重新入库",
+        "description": "对符合标准的退货商品，我们进行快速的库存再处理和重新上架，使其能立刻用于二次销售。",
+        "features": {
+          "inspection": "快速质检上架",
+          "inventory": "库存状态更新",
+          "resale": "二次销售就绪"
+        }
+      },
+      "stockManagement": {
+        "title": "积压库存管理与处置",
+        "description": "我们为您提供灵活的积压库存管理方案，包括折扣销售、渠道清货或环保处置等。",
+        "features": {
+          "discount": "折扣销售渠道",
+          "clearance": "多渠道清货方案",
+          "disposal": "环保处置服务"
+        }
+      },
+      "reprocessing": {
+        "title": "产品再加工",
+        "description": "我们能够根据您的要求，对退回的商品进行必要的再加工，以优化库存，使其达到可再销售的状态。",
+        "features": {
+          "repair": "产品修复翻新",
+          "repackaging": "重新包装优化",
+          "quality": "品质恢复处理"
+        }
+      }
+    },
+    "value": {
+      "title": "选择我们，您将立即获得"
+    }
+  },
+  "tracking": {
+    "statusTexts": {
+      "inTransit": "运输中",
+      "delivered": "已送达",
+      "pending": "待处理",
+      "exception": "异常",
+      "unknown": "未知状态"
+    }
+  },
+  "cta": {
+    "defaultSecondary": "了解更多",
+    "contactInfo": "专业团队24小时在线服务 | 客服热线：",
+    "phone": "400-XXX-XXXX"
+  },
+  "home": {
+    "coreServices": {
+      "endToEnd": {
+        "title": "一站式全链路服务",
+        "description": "提供从跨境货运、清关到美国内陆运输和最后一公里派送的全方位解决方案。"
+      },
+      "warehouseNetwork": {
+        "title": "全国自有仓储网络",
+        "description": "在加州、德州、佐治亚和印第安纳州拥有超22,000平米的自营仓库，确保高效分销。"
+      },
+      "industryExperience": {
+        "title": "丰富的行业与清关经验",
+        "description": "近20年行业经验，精通美国法规和平台政策，高效解决复杂物流与清关挑战。"
+      },
+      "deliveryNetwork": {
+        "title": "高效的派送合作网络",
+        "description": "与UPS、USPS等官方合作，配合自营卡车车队，保障派送时效。"
+      },
+      "customSolutions": {
+        "title": "柔性定制化解决方案",
+        "description": "支持整箱、拆箱、代发货等模式，根据您的特定需求量身定制服务。"
+      },
+      "transparentOperations": {
+        "title": "卓越声誉与透明运营",
+        "description": "提供全程可追溯的透明服务，是客户值得信赖的长期战略合作伙伴。"
+      }
+    }
+  },
+  "meta": {
+    "home": {
+      "title": "可耐博达Kenable - 专业跨境物流服务商 | 美国仓储配送一站式解决方案",
+      "description": "20+年跨境物流经验，50万+平方英尺仓储网络，覆盖美国全境。为跨境电商、制造业提供仓储、运输、清关、配送一站式物流解决方案。专业团队24/7服务，助力您的全球贸易。",
+      "keywords": "跨境物流,美国仓储,国际运输,海外仓,电商物流,供应链管理,清关服务,最后一公里配送"
+    },
+    "about": {
+      "title": "关于我们 - 可耐博达Kenable | 20年跨境物流专业经验",
+      "description": "成立于2004年，可耐博达（广州）供应链管理有限公司专注跨境物流20年，服务500+企业客户。拥有专业团队200+人，4大配送中心，98%客户满意度。了解我们的发展历程和核心价值。",
+      "keywords": "公司介绍,物流经验,企业历史,团队介绍,物流专家,行业经验"
+    },
+    "services": {
+      "title": "物流服务 - 可耐博达Kenable | 仓储运输清关配送全方位解决方案",
+      "description": "提供国际运输、仓储管理、清关服务、最后一公里配送、退货处理等全链条物流服务。智能WMS系统，实时跟踪，为您的业务提供强力支撑。",
+      "keywords": "国际运输,仓储管理,清关服务,最后一公里,退货处理,WMS系统,物流跟踪",
+      "airFreight": {
+        "title": "空运服务 - 可耐博达Kenable | 快速安全的国际航空运输",
+        "description": "专业的航空货运服务，2-5天全球直达，紧急货物24小时加急处理，覆盖全球200+城市的一站式门到门服务。",
+        "keywords": "空运服务,航空货运,国际空运,紧急运输,快速物流"
+      },
+      "seaFreight": {
+        "title": "海运服务 - 可耐博达Kenable | 经济高效的海洋货运",
+        "description": "专业的海洋货运服务，支持整箱、拼箱多种运输方式，覆盖全球主要港口，定期班轮服务，成本优势明显。",
+        "keywords": "海运服务,海洋货运,整箱运输,拼箱运输,国际海运"
+      },
+      "contractLogistics": {
+        "title": "合同物流 - 可耐博达Kenable | 定制化供应链管理服务",
+        "description": "专业的合同物流服务，提供仓储管理、配送服务、库存优化、订单处理等全方位供应链管理解决方案。",
+        "keywords": "合同物流,供应链管理,仓储管理,配送服务,库存优化"
+      },
+      "integratedIntermodal": {
+        "title": "一体化联运解决方案 | 可耐博达Kenable",
+        "description": "可耐博达提供含IPI在内的海、陆、空一体化联运解决方案，无缝衔接头程与内陆运输，为您优化成本与时效。",
+        "keywords": "IPI联运,多式联运,海铁联运,一体化运输,内陆运输,头程联运"
+      },
+      "globalLocal": {
+        "title": "全球化当地布局 | 可耐博达Kenable",
+        "description": "可耐博达在中国、越南、印尼设有本地化团队，扎根供应链源头，提供专业的报关、本地运输与客户服务。",
+        "keywords": "本地化服务,全球布局,亚洲团队,源头服务,本地报关,供应链管理"
+      },
+      "supplyChain": {
+        "title": "供应链解决方案 - 可耐博达Kenable | 端到端供应链优化",
+        "description": "专业的供应链解决方案，提供供应商管理、库存优化、需求预测、风险管理等全链条服务，助力企业降本增效。",
+        "keywords": "供应链解决方案,供应商管理,库存优化,需求预测,风险管理"
+      },
+      "firstLeg": {
+        "title": "头程物流 - 可耐博达Kenable | 化繁为简掌控国际头程物流",
+        "description": "专业的国际货运服务，从揽收到目的地清关的全流程管理。提供提货与订舱、专业出口与清关、全程追踪与管理、多国多式联运等一站式头程物流解决方案。",
+        "keywords": "头程物流,国际货运,出口报关,清关服务,多式联运,美森快船"
+      },
+      "nationwide": {
+        "title": "全国派送 - 可耐博达Kenable | 决胜最后一公里构建高效全美派送体系",
+        "description": "覆盖全美的自营及合作派送网络，450+辆自营卡车，UPS/USPS官方合作伙伴，灵活满足不同配送需求，构建高效全美派送体系。",
+        "keywords": "全美派送,最后一公里,自营卡车,UPS合作,USPS合作,配送网络"
+      },
+      "warehouses": {
+        "title": "海外仓储 - 可耐博达Kenable | 您的美国本地仓智慧仓储与库存管理专家",
+        "description": "超过22,000平方米的自营美国仓储网络，4大核心自营仓库，结合先进的WMS管理系统，提供专业仓储与库存管理解决方案。",
+        "keywords": "海外仓储,美国仓库,WMS系统,库存管理,自营仓储,多仓协同"
+      },
+      "valueAdded": {
+        "title": "增值服务 - 可耐博达Kenable | 超越仓储定制化增值服务提升产品价值",
+        "description": "将仓库升级为您的产品加工中心。提供精细化分拣、专业贴标换标、定制化包装、灵活定制方案等增值服务，提升产品价值。",
+        "keywords": "增值服务,精细化分拣,贴标换标,定制包装,产品加工,仓储增值"
+      },
+      "reverse": {
+        "title": "逆向物流 - 可耐博达Kenable | 变退货为资源专业逆向物流提升利润空间",
+        "description": "专业的逆向物流方案，将退货处理从成本中心转变为价值回收中心。提供高效退货处理、快速重新入库、积压库存管理与处置、产品再加工等服务。",
+        "keywords": "逆向物流,退货处理,库存处置,产品再加工,价值回收,二次销售"
+      }
+    },
+    "warehouses": {
+      "title": "仓储网络 - 可耐博达Kenable | 美国4大配送中心50万平方英尺",
+      "description": "洛杉矶、芝加哥、纽约、达拉斯4大配送中心，总面积50万+平方英尺，日处理10万+包裹。智能仓储管理系统，99%库存准确率，为您提供高效仓储服务。",
+      "keywords": "美国仓储,配送中心,智能仓储,WMS系统,洛杉矶仓库,芝加哥仓库,纽约仓库,达拉斯仓库"
+    },
+    "caseStudies": {
+      "title": "客户案例 - 可耐博达Kenable | 500+成功案例见证专业实力",
+      "description": "500+成功案例，覆盖跨境电商、制造业、零售业等15个行业。客户业务平均增长300%，98%满意度。查看真实案例，了解我们如何助力客户成功。",
+      "keywords": "客户案例,成功案例,跨境电商案例,制造业物流,零售物流,客户证言,行业解决方案"
+    },
+    "technology": {
+      "title": "技术与精细管理 - 可耐博达Kenable",
+      "description": "先进的物流技术系统和精细化管理能力"
+    },
+    "contact": {
+      "title": "联系我们 - 可耐博达Kenable | 免费咨询24小时响应",
+      "description": "专业客服团队24/7在线服务，5分钟响应，24小时内提供专业方案。多种联系方式：电话、邮件、微信、上门服务。立即联系获取免费物流方案。",
+      "keywords": "联系我们,免费咨询,客服电话,在线客服,物流咨询,上门服务,24小时服务"
+    },
+    "tracking": {
+      "title": "货物跟踪 - 可耐博达Kenable | 实时物流跟踪查询系统",
+      "description": "24/7实时货物跟踪系统，输入运单号即可查询包裹位置、运输状态、预计到达时间。支持批量查询，短信/邮件通知，让您随时掌握货物动态。",
+      "keywords": "货物跟踪,包裹查询,运单查询,实时跟踪,物流状态,运输进度"
+    },
+    "pricing": {
+      "title": "价格方案 - 可耐博达Kenable | 透明定价无隐藏费用",
+      "description": "透明的物流定价体系，适合不同规模企业的价格方案。从初创企业到大型企业，提供灵活的计费方式。在线计算器，即时获取报价。",
+      "keywords": "物流价格,运输费用,仓储费用,价格计算器,定价方案,物流报价"
+    },
+    "news": {
+      "title": "新闻动态 - 可耐博达Kenable | 行业资讯与公司动态",
+      "description": "最新的物流行业资讯、公司发展动态、合作伙伴新闻。了解跨境物流最新趋势，掌握行业发展方向，获取专业见解和分析。",
+      "keywords": "物流新闻,行业资讯,公司动态,跨境物流趋势,物流分析,行业报告"
+    },
+    "careers": {
+      "title": "招聘信息 - 可耐博达Kenable | 加入专业物流团队",
+      "description": "加入可耐博达Kenable专业团队，提供有竞争力的薪酬待遇和广阔的发展空间。招聘物流专员、仓储管理、客服代表等职位。投递简历，开启物流职业生涯。",
+      "keywords": "招聘信息,职业机会,物流工作,仓储工作,客服工作,简历投递"
+    },
+    "login": {
+      "title": "客户登录 - 可耐博达Kenable | 客户门户系统",
+      "description": "客户专属登录入口，管理您的物流订单、查看账单、下载报告。安全便捷的客户门户系统，随时随地管理您的物流业务。",
+      "keywords": "客户登录,用户登录,客户门户,订单管理,账单查询"
+    },
+    "privacy": {
+      "title": "隐私政策 - 可耐博达Kenable",
+      "description": "我们如何收集、使用和保护您的个人信息"
+    },
+    "terms": {
+      "title": "服务条款 - 可耐博达Kenable",
+      "description": "使用我们服务时需要遵守的条款和条件"
+    },
+    "cookies": {
+      "title": "Cookie政策 - 可耐博达Kenable",
+      "description": "我们如何使用Cookies来改善您的浏览体验"
+    },
+    "notFound": {
+      "title": "页面未找到 - 可耐博达Kenable",
+      "description": "抱歉，您访问的页面不存在。返回首页继续浏览我们的专业物流服务。",
+      "keywords": "404,页面未找到"
+    }
+  },
+  "errors": {
+    "pageNotFound": {
+      "title": "页面未找到",
+      "message": "抱歉，您访问的页面不存在。",
+      "goHome": "返回首页"
+    },
+    "networkError": {
+      "title": "网络错误",
+      "message": "网络连接异常，请稍后重试。",
+      "retry": "重试"
+    },
+    "serverError": {
+      "title": "服务器错误",
+      "message": "服务器暂时无法响应，请稍后重试。"
+    }
+  },
+  "loading": {
+    "default": "加载中...",
+    "searching": "搜索中...",
+    "submitting": "提交中...",
+    "processing": "处理中..."
+  },
+  "breadcrumb": {
+    "home": "首页",
+    "services": "服务体系"
+  }
+}

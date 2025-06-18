@@ -2,10 +2,10 @@
   <div class="supply-chain-solutions-page">
     <!-- Hero区域 -->
     <PageHero
-      title="端到端供应链优化，驱动业务增长"
-      subtitle="依托22年行业洞察，可耐博达提供从设计优化、技术集成、风险管理到定制服务的全链路供应链解决方案。通过专业SCM/WMS系统集成，助力您实现成本优化、效率提升、敏捷响应与持续创新。"
+      :title="getText('title')"
+      :subtitle="getText('subtitle')"
       image-url="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=400&fit=crop&crop=center"
-      label="智能供应链架构师"
+      :label="getText('label')"
     >
       <template #actions>
         <router-link to="/contact">
@@ -14,7 +14,7 @@
             size="lg"
             class="bg-blue-600 text-white hover:bg-blue-700 px-8 shadow-md hover:shadow-lg transition-all"
           >
-            获取解决方案
+            {{ getText('getSolution') }}
           </BaseButton>
         </router-link>
         <router-link to="/contact">
@@ -23,7 +23,7 @@
             size="lg"
             class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 transition-all"
           >
-            在线咨询
+            {{ getText('consultation') }}
           </BaseButton>
         </router-link>
       </template>
@@ -44,7 +44,9 @@
 
           <!-- 右侧内容 -->
           <div class="order-1 lg:order-2">
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">我们的供应链解决方案</h2>
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
+              {{ getText('ourSolutionsTitle') }}
+            </h2>
 
             <div class="space-y-6">
               <!-- 供应链设计与优化 -->
@@ -55,9 +57,9 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">供应链设计与优化</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">{{ getText('designTitle') }}</h3>
                   <p class="text-gray-600">
-                    分析业务模式，设计最优物流路径与库存策略。我们依据您的需求整合各地供货商，再装拆分销中心或店家，降低整体运输成本，提高经济效益。
+                    {{ getText('designDesc') }}
                   </p>
                 </div>
               </div>
@@ -70,9 +72,11 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">技术集成</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('technologyTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    对接ERP/WMS系统，实现全链路数据可视化。我们灵活运用超库作业帮您争取应供应商突发交货如生产、船期延误、塞港及海关检验所损失的宝贵时间，协助您推进货物配送决策以取得更充裕的时间收集市场动态，增加决策精准度。
+                    {{ getText('technologyDesc') }}
                   </p>
                 </div>
               </div>
@@ -85,10 +89,11 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">项目物流</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('projectTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    针对超大尺寸（OOG-Out of
-                    Gauge）及复杂的货物，我们的项目团队为您订制解决方案与详细计划，协调海运所有细节。
+                    {{ getText('projectDesc') }}
                   </p>
                 </div>
               </div>
@@ -101,13 +106,14 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">支持EDI/API快速整合信息</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('integrationTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    我们专业的信息团队为您高效处理系统对接。<a
-                      href="#"
-                      class="text-cyan-600 hover:text-cyan-800 font-medium"
-                      >与我们的系统串联。</a
-                    >
+                    {{ getText('integrationDesc') }}
+                    <a href="#" class="text-cyan-600 hover:text-cyan-800 font-medium">{{
+                      getText('connectWithUs')
+                    }}</a>
                   </p>
                 </div>
               </div>
@@ -124,7 +130,7 @@
           <!-- 左侧文案 -->
           <div class="order-1 lg:order-1">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
-              为什么选择可耐博达供应链方案？
+              {{ getText('whyChooseTitle') }}
             </h2>
 
             <div class="space-y-6">
@@ -141,9 +147,11 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">显著成本优化</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('costOptTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    通过智能规划与库存优化，实现物流与运营成本的持续降低。
+                    {{ getText('costOptDesc') }}
                   </p>
                 </div>
               </div>
@@ -161,8 +169,10 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">卓越履约效率</h3>
-                  <p class="text-gray-600">先进系统与精益流程结合，保障订单处理的高效与精准。</p>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('efficiencyTitle') }}
+                  </h3>
+                  <p class="text-gray-600">{{ getText('efficiencyDesc') }}</p>
                 </div>
               </div>
 
@@ -177,9 +187,11 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">敏捷市场响应</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('agilityTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    构建灵活供应链架构，快速适应市场需求变化与客户新要求。
+                    {{ getText('agilityDesc') }}
                   </p>
                 </div>
               </div>
@@ -197,8 +209,12 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">持续创新动力</h3>
-                  <p class="text-gray-600">不断引入前沿技术与优化模型，保持您供应链的竞争优势。</p>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('innovationTitle') }}
+                  </h3>
+                  <p class="text-gray-600">
+                    {{ getText('innovationDesc') }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -223,31 +239,35 @@
           <!-- 左侧文案 -->
           <div>
             <div class="mb-8">
-              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">可耐博达在行动</h2>
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                {{ getText('caseStudyTitle') }}
+              </h2>
               <h3 class="text-xl text-blue-600 font-semibold mb-6">
-                为B2B精密电子制造商实现供应链可视化与成本优化
+                {{ getText('caseStudySubtitle') }}
               </h3>
             </div>
 
             <div class="space-y-6">
               <div>
-                <h4 class="text-lg font-bold text-gray-900 mb-3">挑战与解决方案</h4>
+                <h4 class="text-lg font-bold text-gray-900 mb-3">
+                  {{ getText('challengesTitle') }}
+                </h4>
                 <p class="text-gray-600 mb-4">
-                  <strong>挑战：</strong
-                  >需准时向全美数十家工厂供料，对库存可视性与运输时效要求极高，避免产线停工。
+                  <strong>{{ getText('challenges') }}</strong
+                  >{{ getText('challengesDesc') }}
                 </p>
                 <p class="text-gray-600">
-                  <strong>解决方案：</strong
-                  >集成其ERP系统，部署实时追踪的供应商管理库存（VMI），并通过数据分析优化安全库存与补货策略。
+                  <strong>{{ getText('solutions') }}</strong
+                  >{{ getText('solutionsDesc') }}
                 </p>
               </div>
 
               <div class="bg-blue-50 p-6 rounded-xl">
-                <h4 class="text-lg font-bold text-gray-900 mb-3">成效：</h4>
+                <h4 class="text-lg font-bold text-gray-900 mb-3">{{ getText('results') }}</h4>
                 <ul class="space-y-2">
                   <li class="flex items-center text-gray-700">
                     <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    库存持有成本降低18%
+                    {{ getText('resultsDesc') }}
                   </li>
                 </ul>
               </div>
@@ -286,10 +306,145 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import PageHero from '@/components/ui/PageHero.vue'
 import Section from '@/components/ui/Section.vue'
 import CtaSection from '@/components/ui/CtaSection.vue'
+
+const { locale } = useI18n()
+
+// 定义翻译键的类型
+type TranslationKey =
+  | 'title'
+  | 'subtitle'
+  | 'label'
+  | 'getSolution'
+  | 'consultation'
+  | 'ourSolutionsTitle'
+  | 'designTitle'
+  | 'designDesc'
+  | 'technologyTitle'
+  | 'technologyDesc'
+  | 'projectTitle'
+  | 'projectDesc'
+  | 'integrationTitle'
+  | 'integrationDesc'
+  | 'connectWithUs'
+  | 'whyChooseTitle'
+  | 'costOptTitle'
+  | 'costOptDesc'
+  | 'efficiencyTitle'
+  | 'efficiencyDesc'
+  | 'agilityTitle'
+  | 'agilityDesc'
+  | 'innovationTitle'
+  | 'innovationDesc'
+  | 'caseStudyTitle'
+  | 'caseStudySubtitle'
+  | 'challengesTitle'
+  | 'challenges'
+  | 'challengesDesc'
+  | 'solutions'
+  | 'solutionsDesc'
+  | 'results'
+  | 'resultsDesc'
+
+// 翻译映射 - 使用地道商业英文表达
+const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
+  zh: {
+    title: '端到端供应链优化，驱动业务增长',
+    subtitle:
+      '依托22年行业洞察，可耐博达提供从设计优化、技术集成、风险管理到定制服务的全链路供应链解决方案。通过专业SCM/WMS系统集成，助力您实现成本优化、效率提升、敏捷响应与持续创新。',
+    label: '智能供应链架构师',
+    getSolution: '获取解决方案',
+    consultation: '在线咨询',
+    ourSolutionsTitle: '我们的供应链解决方案',
+    designTitle: '供应链设计与优化',
+    designDesc:
+      '分析业务模式，设计最优物流路径与库存策略。我们依据您的需求整合各地供货商，再装拆分销中心或店家，降低整体运输成本，提高经济效益。',
+    technologyTitle: '技术集成',
+    technologyDesc:
+      '对接ERP/WMS系统，实现全链路数据可视化。我们灵活运用超库作业帮您争取应供应商突发交货如生产、船期延误、塞港及海关检验所损失的宝贵时间，协助您推进货物配送决策以取得更充裕的时间收集市场动态，增加决策精准度。',
+    projectTitle: '项目物流',
+    projectDesc:
+      '针对超大尺寸（OOG-Out of Gauge）及复杂的货物，我们的项目团队为您订制解决方案与详细计划，协调海运所有细节。',
+    integrationTitle: '支持EDI/API快速整合信息',
+    integrationDesc: '我们专业的信息团队为您高效处理系统对接。',
+    connectWithUs: '与我们的系统串联。',
+    whyChooseTitle: '为什么选择可耐博达供应链方案？',
+    costOptTitle: '显著成本优化',
+    costOptDesc: '通过智能规划与库存优化，实现物流与运营成本的持续降低。',
+    efficiencyTitle: '卓越履约效率',
+    efficiencyDesc: '先进系统与精益流程结合，保障订单处理的高效与精准。',
+    agilityTitle: '敏捷市场响应',
+    agilityDesc: '构建灵活供应链架构，快速适应市场需求变化与客户新要求。',
+    innovationTitle: '持续创新动力',
+    innovationDesc: '不断引入前沿技术与优化模型，保持您供应链的竞争优势。',
+    caseStudyTitle: '可耐博达在行动',
+    caseStudySubtitle: '为B2B精密电子制造商实现供应链可视化与成本优化',
+    challengesTitle: '挑战与解决方案',
+    challenges: '挑战：',
+    challengesDesc: '需准时向全美数十家工厂供料，对库存可视性与运输时效要求极高，避免产线停工。',
+    solutions: '解决方案：',
+    solutionsDesc:
+      '集成其ERP系统，部署实时追踪的供应商管理库存（VMI），并通过数据分析优化安全库存与补货策略。',
+    results: '成效：',
+    resultsDesc: '库存持有成本降低18%',
+  },
+  en: {
+    title: 'End-to-End Supply Chain Optimization That Drives Growth',
+    subtitle:
+      'Drawing on 22 years of industry insight, Kenable delivers comprehensive supply chain solutions from design optimization, technology integration, and risk management to customized services. Through professional SCM/WMS system integration, we help you achieve cost optimization, efficiency improvements, agile response, and continuous innovation.',
+    label: 'Supply Chain Architects',
+    getSolution: 'Get Supply Chain Solution',
+    consultation: 'Get Started',
+    ourSolutionsTitle: 'Our Supply Chain Solutions',
+    designTitle: 'Supply Chain Design & Optimization',
+    designDesc:
+      'We analyze your business model to design optimal logistics pathways and inventory strategies. Based on your requirements, we integrate suppliers from multiple locations, consolidate through distribution centers, reducing overall transportation costs and improving economic efficiency.',
+    technologyTitle: 'Technology Integration',
+    technologyDesc:
+      'Connect ERP/WMS systems for end-to-end data visibility. We flexibly leverage cross-docking operations to help you recover valuable time lost due to supplier delivery changes like production delays, shipping delays, port congestion, and customs inspections, providing you more time to collect market intelligence and improve decision-making precision.',
+    projectTitle: 'Project Logistics',
+    projectDesc:
+      'For oversized (OOG-Out of Gauge) and complex cargo, our project team creates customized solutions and detailed plans, coordinating all shipping details.',
+    integrationTitle: 'EDI/API Rapid Information Integration Support',
+    integrationDesc: 'Our specialized IT team efficiently handles system connectivity.',
+    connectWithUs: 'Connect with our systems.',
+    whyChooseTitle: 'Why Choose Kenable Supply Chain Solutions?',
+    costOptTitle: 'Significant Cost Optimization',
+    costOptDesc:
+      'Through intelligent planning and inventory optimization, we achieve continuous reduction in logistics and operational costs.',
+    efficiencyTitle: 'Exceptional Fulfillment Efficiency',
+    efficiencyDesc:
+      'Advanced systems combined with lean processes ensure high-efficiency and precise order processing.',
+    agilityTitle: 'Agile Market Response',
+    agilityDesc:
+      'Build flexible supply chain architecture to quickly adapt to market demand changes and new customer requirements.',
+    innovationTitle: 'Continuous Innovation Drive',
+    innovationDesc:
+      'Continuously introducing cutting-edge technology and optimization models to maintain your supply chain competitive advantage.',
+    caseStudyTitle: 'Kenable in Action',
+    caseStudySubtitle:
+      'Achieving Supply Chain Visibility & Cost Optimization for B2B Precision Electronics Manufacturer',
+    challengesTitle: 'Challenge & Solution',
+    challenges: 'Challenge: ',
+    challengesDesc:
+      'Need to supply dozens of factories across the US on time, with extremely high requirements for inventory visibility and transportation timeliness to avoid production line shutdowns.',
+    solutions: 'Solution: ',
+    solutionsDesc:
+      'Integrated their ERP system, deployed real-time tracking Vendor Managed Inventory (VMI), and optimized safety stock and replenishment strategies through data analysis.',
+    results: 'Results:',
+    resultsDesc: '18% reduction in inventory holding costs',
+  },
+}
+
+// 获取翻译文本的帮助函数
+const getText = (key: TranslationKey): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
+}
 </script>
 
 <style scoped>

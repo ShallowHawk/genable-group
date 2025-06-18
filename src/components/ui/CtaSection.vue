@@ -41,7 +41,7 @@
               :to="primaryButtonHref"
               class="inline-flex items-center px-8 py-4 bg-white text-blue-900 font-semibold text-lg rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl group"
             >
-              {{ primaryButtonText || '立即开始合作' }}
+              {{ primaryButtonText || getDefaultPrimaryButtonText() }}
               <svg
                 class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
                 fill="none"
@@ -63,7 +63,7 @@
               :href="secondaryButtonHref || '#'"
               class="inline-flex items-center text-white hover:text-gray-300 font-medium text-lg transition-colors group"
             >
-              {{ secondaryButtonText || '了解更多' }}
+              {{ secondaryButtonText || getDefaultSecondaryButtonText() }}
               <svg
                 v-if="secondaryButtonIcon !== false"
                 class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
@@ -93,7 +93,7 @@
         <!-- 联系信息（可选） -->
         <div v-if="showContactInfo" class="mt-8 pt-8 border-t border-white/20">
           <p class="text-gray-300 text-lg">
-            专业团队24小时在线服务 | 客服热线：
+            {{ getContactText() }}
             <a href="tel:400-XXX-XXXX" class="text-white hover:text-cyan-300 transition-colors">
               400-XXX-XXXX
             </a>
@@ -105,6 +105,8 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 interface Props {
   title: string
   subtitle?: string
@@ -120,4 +122,36 @@ withDefaults(defineProps<Props>(), {
   secondaryButtonIcon: 'arrow',
   showContactInfo: false,
 })
+
+// I18n setup
+const { locale } = useI18n()
+
+// Translations for different text elements
+const translations = {
+  contactInfo: {
+    zh: '专业团队24小时在线服务 | 客服热线：',
+    en: 'Professional Team 24/7 Online Service | Customer Hotline: ',
+  },
+  primaryButton: {
+    zh: '立即开始合作',
+    en: 'Start Cooperation Now',
+  },
+  secondaryButton: {
+    zh: '了解更多',
+    en: 'Learn More',
+  },
+}
+
+// Helper function to get text based on current locale
+const getText = (key: keyof typeof translations): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[key][currentLang] || translations[key].zh
+}
+
+// Get contact text based on current locale
+const getContactText = (): string => getText('contactInfo')
+
+// Get default button texts
+const getDefaultPrimaryButtonText = (): string => getText('primaryButton')
+const getDefaultSecondaryButtonText = (): string => getText('secondaryButton')
 </script>

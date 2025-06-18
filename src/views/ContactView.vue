@@ -1,12 +1,14 @@
 <template>
-  <PageLayout page-title="联系我们" page-description="专业团队随时为您服务，多种联系方式任您选择。">
+  <PageLayout :page-title="getText('pageTitle')" :page-description="getText('pageDescription')">
     <!-- 联系方式概览 -->
     <section class="py-16 lg:py-24 bg-white">
       <div class="container-section">
         <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">多种方式，随时联系</h2>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            {{ getText('contactWaysTitle') }}
+          </h2>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            20+年行业经验的专业团队，24/7为您提供最优质的物流服务支持
+            {{ getText('contactWaysDesc') }}
           </p>
         </div>
 
@@ -21,12 +23,12 @@
               </div>
             </template>
 
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">电话咨询</h3>
-            <p class="text-gray-600 mb-4">专业客服随时在线</p>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ getText('phoneConsult') }}</h3>
+            <p class="text-gray-600 mb-4">{{ getText('phoneDesc') }}</p>
             <div class="space-y-2">
               <p class="font-medium text-primary-600">+1 (555) 123-4567</p>
-              <p class="text-sm text-gray-500">工作日: 8:00-18:00</p>
-              <p class="text-sm text-gray-500">周末: 9:00-17:00</p>
+              <p class="text-sm text-gray-500">{{ getText('workdays') }}</p>
+              <p class="text-sm text-gray-500">{{ getText('weekends') }}</p>
             </div>
           </BaseCard>
 
@@ -39,12 +41,12 @@
               </div>
             </template>
 
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">邮件支持</h3>
-            <p class="text-gray-600 mb-4">详细咨询优选方式</p>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ getText('emailSupport') }}</h3>
+            <p class="text-gray-600 mb-4">{{ getText('emailDesc') }}</p>
             <div class="space-y-2">
               <p class="font-medium text-accent-600">info@kenablegroup.com</p>
-              <p class="text-sm text-gray-500">24小时内回复</p>
-              <p class="text-sm text-gray-500">支持中英文</p>
+              <p class="text-sm text-gray-500">{{ getText('replyTime') }}</p>
+              <p class="text-sm text-gray-500">{{ getText('bilingualSupport') }}</p>
             </div>
           </BaseCard>
 
@@ -57,12 +59,12 @@
               </div>
             </template>
 
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">在线客服</h3>
-            <p class="text-gray-600 mb-4">即时响应解答疑问</p>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ getText('onlineService') }}</h3>
+            <p class="text-gray-600 mb-4">{{ getText('onlineDesc') }}</p>
             <div class="space-y-2">
               <p class="font-medium text-green-600">微信: KENABLE2024</p>
-              <p class="text-sm text-gray-500">工作时间实时回复</p>
-              <p class="text-sm text-gray-500">支持语音通话</p>
+              <p class="text-sm text-gray-500">{{ getText('workHoursReply') }}</p>
+              <p class="text-sm text-gray-500">{{ getText('voiceSupport') }}</p>
             </div>
           </BaseCard>
 
@@ -75,31 +77,36 @@
               </div>
             </template>
 
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">上门拜访</h3>
-            <p class="text-gray-600 mb-4">面对面深度交流</p>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ getText('visitService') }}</h3>
+            <p class="text-gray-600 mb-4">{{ getText('visitDesc') }}</p>
             <div class="space-y-2">
-              <p class="font-medium text-blue-600">预约上门服务</p>
-              <p class="text-sm text-gray-500">大客户专享</p>
-              <p class="text-sm text-gray-500">免费方案设计</p>
+              <p class="font-medium text-blue-600">{{ getText('vipService') }}</p>
+              <p class="text-sm text-gray-500">{{ getText('freePlan') }}</p>
             </div>
           </BaseCard>
         </div>
 
         <!-- 快速响应承诺 -->
         <div class="bg-gradient-to-r from-primary-50 to-accent-50 rounded-2xl p-8 text-center">
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">快速响应承诺</h3>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ getText('quickResponseTitle') }}</h3>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <div class="text-3xl font-bold text-primary-600 mb-2">5分钟</div>
-              <p class="text-gray-600">在线客服响应</p>
+              <div class="text-3xl font-bold text-primary-600 mb-2">
+                {{ getText('onlineResponse') }}
+              </div>
+              <p class="text-gray-600">{{ getText('onlineResponseDesc') }}</p>
             </div>
             <div>
-              <div class="text-3xl font-bold text-accent-600 mb-2">2小时</div>
-              <p class="text-gray-600">电话回访确认</p>
+              <div class="text-3xl font-bold text-accent-600 mb-2">
+                {{ getText('callbackConfirm') }}
+              </div>
+              <p class="text-gray-600">{{ getText('callbackConfirmDesc') }}</p>
             </div>
             <div>
-              <div class="text-3xl font-bold text-primary-600 mb-2">24小时</div>
-              <p class="text-gray-600">专业方案提供</p>
+              <div class="text-3xl font-bold text-primary-600 mb-2">
+                {{ getText('professionalSolution') }}
+              </div>
+              <p class="text-gray-600">{{ getText('professionalSolutionDesc') }}</p>
             </div>
           </div>
         </div>
@@ -113,8 +120,10 @@
           <!-- 表单区域 -->
           <div>
             <div class="mb-8">
-              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">留言咨询</h2>
-              <p class="text-xl text-gray-600">填写下方表单，我们将在24小时内与您取得联系</p>
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                {{ getText('messageConsult') }}
+              </h2>
+              <p class="text-xl text-gray-600">{{ getText('formDesc') }}</p>
             </div>
 
             <form @submit.prevent="handleSubmit" class="space-y-6">
@@ -122,15 +131,15 @@
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <BaseInput
                   v-model="form.name"
-                  label="姓名 *"
-                  placeholder="请输入您的姓名"
+                  :label="getText('name') + ' *'"
+                  :placeholder="getText('namePlaceholder')"
                   :error="errors.name"
                   :required="true"
                 />
                 <BaseInput
                   v-model="form.phone"
-                  label="电话 *"
-                  placeholder="请输入联系电话"
+                  :label="getText('phone') + ' *'"
+                  :placeholder="getText('phonePlaceholder')"
                   :error="errors.phone"
                   :required="true"
                 />
@@ -139,46 +148,54 @@
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <BaseInput
                   v-model="form.email"
-                  label="邮箱 *"
+                  :label="getText('email') + ' *'"
                   type="email"
-                  placeholder="请输入邮箱地址"
+                  :placeholder="getText('emailPlaceholder')"
                   :error="errors.email"
                   :required="true"
                 />
-                <BaseInput v-model="form.company" label="公司名称" placeholder="请输入公司名称" />
+                <BaseInput
+                  v-model="form.company"
+                  :label="getText('company')"
+                  :placeholder="getText('companyPlaceholder')"
+                />
               </div>
 
               <!-- 业务信息 -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2"> 业务类型 * </label>
+                  <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >{{ getText('businessType') }} *</label
+                  >
                   <select
                     v-model="form.businessType"
                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                     required
                   >
-                    <option value="">请选择业务类型</option>
-                    <option value="ecommerce">跨境电商</option>
-                    <option value="manufacturing">制造业</option>
-                    <option value="retail">零售业</option>
-                    <option value="healthcare">医疗健康</option>
-                    <option value="automotive">汽车配件</option>
-                    <option value="electronics">电子产品</option>
-                    <option value="other">其他</option>
+                    <option value="">{{ getText('selectBusinessType') }}</option>
+                    <option value="ecommerce">{{ getText('ecommerce') }}</option>
+                    <option value="manufacturing">{{ getText('manufacturing') }}</option>
+                    <option value="retail">{{ getText('retail') }}</option>
+                    <option value="healthcare">{{ getText('healthcare') }}</option>
+                    <option value="automotive">{{ getText('automotive') }}</option>
+                    <option value="electronics">{{ getText('electronics') }}</option>
+                    <option value="other">{{ getText('other') }}</option>
                   </select>
                 </div>
 
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2"> 预计月发货量 </label>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">{{
+                    getText('monthlyVolume')
+                  }}</label>
                   <select
                     v-model="form.monthlyVolume"
                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                   >
-                    <option value="">请选择发货量</option>
-                    <option value="small">100包裹以下</option>
-                    <option value="medium">100-1000包裹</option>
-                    <option value="large">1000-5000包裹</option>
-                    <option value="enterprise">5000包裹以上</option>
+                    <option value="">{{ getText('selectVolume') }}</option>
+                    <option value="small">{{ getText('small') }}</option>
+                    <option value="medium">{{ getText('medium') }}</option>
+                    <option value="large">{{ getText('large') }}</option>
+                    <option value="enterprise">{{ getText('enterprise') }}</option>
                   </select>
                 </div>
               </div>
@@ -186,7 +203,7 @@
               <!-- 服务需求 -->
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-3">
-                  服务需求 (可多选)
+                  {{ getText('serviceNeeds') }} ({{ getText('serviceNeedsDesc') }})
                 </label>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
                   <label
@@ -207,10 +224,12 @@
 
               <!-- 详细需求 -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"> 详细需求描述 </label>
+                <label class="block text-sm font-medium text-gray-700 mb-2">{{
+                  getText('message')
+                }}</label>
                 <textarea
                   v-model="form.message"
-                  placeholder="请详细描述您的物流需求，我们将为您量身定制解决方案..."
+                  :placeholder="getText('messagePlaceholder')"
                   rows="4"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-none"
                 ></textarea>
@@ -218,7 +237,9 @@
 
               <!-- 联系偏好 -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-3"> 首选联系方式 </label>
+                <label class="block text-sm font-medium text-gray-700 mb-3">{{
+                  getText('preferredContact')
+                }}</label>
                 <div class="flex flex-wrap gap-4">
                   <label
                     v-for="contact in contactMethods"
@@ -245,11 +266,13 @@
                   :disabled="isSubmitting"
                   :loading="isSubmitting"
                 >
-                  {{ isSubmitting ? '提交中...' : '提交咨询' }}
+                  {{ isSubmitting ? getText('submitBtn') + '...' : getText('submitBtn') }}
                 </BaseButton>
                 <p class="text-sm text-gray-500 mt-3 text-center">
-                  * 提交表单即表示您同意我们的
-                  <a href="#" class="text-primary-600 hover:text-primary-700">隐私政策</a>
+                  * {{ getText('privacyPolicy') }}
+                  <a href="#" class="text-primary-600 hover:text-primary-700">{{
+                    getText('privacyPolicyLink')
+                  }}</a>
                 </p>
               </div>
             </form>
@@ -258,8 +281,10 @@
           <!-- 办公地址信息 -->
           <div>
             <div class="mb-8">
-              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">办公地址</h2>
-              <p class="text-xl text-gray-600">欢迎预约参观我们的仓储设施和办公环境</p>
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                {{ getText('officeAddress') }}
+              </h2>
+              <p class="text-xl text-gray-600">{{ getText('officeAddressDesc') }}</p>
             </div>
 
             <div class="space-y-8">
@@ -272,7 +297,9 @@
                     <Icon name="building" size="lg" class="text-primary-600" />
                   </div>
                   <div class="flex-1">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">总部 - 洛杉矶</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                      {{ getText('headquarters') }}
+                    </h3>
                     <p class="text-gray-600 mb-3">
                       1234 Logistics Blvd, Suite 500<br />
                       Los Angeles, CA 90015
@@ -293,11 +320,11 @@
 
               <!-- 分部地址 -->
               <div class="space-y-4">
-                <h3 class="text-lg font-semibold text-gray-900">其他办公地点</h3>
+                <h3 class="text-lg font-semibold text-gray-900">{{ getText('otherLocations') }}</h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <BaseCard variant="outlined" class="p-4">
-                    <h4 class="font-medium text-gray-900 mb-2">芝加哥办事处</h4>
+                    <h4 class="font-medium text-gray-900 mb-2">{{ getText('chicago') }}</h4>
                     <p class="text-sm text-gray-600 mb-2">
                       5678 Commerce St<br />
                       Chicago, IL 60601
@@ -306,7 +333,7 @@
                   </BaseCard>
 
                   <BaseCard variant="outlined" class="p-4">
-                    <h4 class="font-medium text-gray-900 mb-2">纽约办事处</h4>
+                    <h4 class="font-medium text-gray-900 mb-2">{{ getText('newYork') }}</h4>
                     <p class="text-sm text-gray-600 mb-2">
                       9012 Trade Ave<br />
                       New York, NY 10001
@@ -315,7 +342,7 @@
                   </BaseCard>
 
                   <BaseCard variant="outlined" class="p-4">
-                    <h4 class="font-medium text-gray-900 mb-2">达拉斯办事处</h4>
+                    <h4 class="font-medium text-gray-900 mb-2">{{ getText('dallas') }}</h4>
                     <p class="text-sm text-gray-600 mb-2">
                       3456 Freight Way<br />
                       Dallas, TX 75201
@@ -324,7 +351,7 @@
                   </BaseCard>
 
                   <BaseCard variant="outlined" class="p-4">
-                    <h4 class="font-medium text-gray-900 mb-2">中国办事处</h4>
+                    <h4 class="font-medium text-gray-900 mb-2">{{ getText('china') }}</h4>
                     <p class="text-sm text-gray-600 mb-2">
                       深圳市南山区科技园<br />
                       创新大厦8楼
@@ -341,8 +368,8 @@
                 >
                   <div class="text-center text-gray-500">
                     <Icon name="map" size="4xl" class="mb-4" />
-                    <p class="text-lg font-medium">交互式地图</p>
-                    <p class="text-sm">点击查看详细位置信息</p>
+                    <p class="text-lg font-medium">{{ getText('interactiveMap') }}</p>
+                    <p class="text-sm">{{ getText('clickForDetails') }}</p>
                   </div>
                 </div>
               </BaseCard>
@@ -356,8 +383,10 @@
     <section class="py-16 lg:py-24 bg-white">
       <div class="container-section">
         <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">常见问题</h2>
-          <p class="text-xl text-gray-600">快速找到您关心的问题答案</p>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            {{ getText('faqTitle') }}
+          </h2>
+          <p class="text-xl text-gray-600">{{ getText('faqDesc') }}</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -377,7 +406,7 @@
         <div class="text-center mt-12">
           <BaseButton variant="outline" size="lg">
             <Icon name="message-circle" size="sm" class="mr-2" />
-            查看更多FAQ
+            {{ getText('viewMoreFaq') }}
           </BaseButton>
         </div>
       </div>
@@ -387,9 +416,9 @@
     <section class="py-16 lg:py-24 bg-gradient-to-br from-primary-500 to-primary-600">
       <div class="container-section">
         <div class="text-center text-white">
-          <h2 class="text-3xl lg:text-4xl font-bold mb-4">准备好开始合作了吗？</h2>
+          <h2 class="text-3xl lg:text-4xl font-bold mb-4">{{ getText('readyToStart') }}</h2>
           <p class="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
-            无论您的物流需求多么复杂，我们都有专业的解决方案。联系我们，开启高效物流合作之旅！
+            {{ getText('readyToStartDesc') }}
           </p>
         </div>
       </div>
@@ -398,46 +427,415 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import PageLayout from '@/components/layout/PageLayout.vue'
 import BaseCard from '@/components/ui/BaseCard.vue'
-import BaseButton from '@/components/ui/BaseButton.vue'
 import BaseInput from '@/components/ui/BaseInput.vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
 import Icon from '@/components/ui/Icon.vue'
 
-interface ContactForm {
-  name: string
-  phone: string
-  email: string
-  company: string
-  businessType: string
-  monthlyVolume: string
-  services: string[]
-  message: string
-  preferredContact: string
+const { locale } = useI18n()
+
+// 定义翻译键的类型
+type TranslationKey =
+  // 页面基本信息
+  | 'pageTitle'
+  | 'pageDescription'
+  // 联系方式概览
+  | 'contactWaysTitle'
+  | 'contactWaysDesc'
+  // 联系方式卡片
+  | 'phoneConsult'
+  | 'phoneDesc'
+  | 'emailSupport'
+  | 'emailDesc'
+  | 'onlineService'
+  | 'onlineDesc'
+  | 'visitService'
+  | 'visitDesc'
+  // 工作时间
+  | 'workdays'
+  | 'weekends'
+  | 'replyTime'
+  | 'bilingualSupport'
+  | 'workHoursReply'
+  | 'voiceSupport'
+  | 'vipService'
+  | 'freePlan'
+  // 快速响应承诺
+  | 'quickResponseTitle'
+  | 'onlineResponse'
+  | 'onlineResponseDesc'
+  | 'callbackConfirm'
+  | 'callbackConfirmDesc'
+  | 'professionalSolution'
+  | 'professionalSolutionDesc'
+  // 表单相关
+  | 'messageConsult'
+  | 'formDesc'
+  | 'name'
+  | 'namePlaceholder'
+  | 'phone'
+  | 'phonePlaceholder'
+  | 'email'
+  | 'emailPlaceholder'
+  | 'company'
+  | 'companyPlaceholder'
+  | 'businessType'
+  | 'monthlyVolume'
+  | 'serviceNeeds'
+  | 'serviceNeedsDesc'
+  | 'message'
+  | 'messagePlaceholder'
+  | 'preferredContact'
+  | 'submitBtn'
+  // 表单选项
+  | 'selectBusinessType'
+  | 'selectVolume'
+  | 'ecommerce'
+  | 'manufacturing'
+  | 'retail'
+  | 'healthcare'
+  | 'automotive'
+  | 'electronics'
+  | 'other'
+  | 'small'
+  | 'medium'
+  | 'large'
+  | 'enterprise'
+  // 联系方式偏好
+  | 'phoneMethod'
+  | 'emailMethod'
+  | 'wechatMethod'
+  | 'visitMethod'
+  // 隐私政策
+  | 'privacyPolicy'
+  | 'privacyPolicyLink'
+  // 办公地址
+  | 'officeAddress'
+  | 'officeAddressDesc'
+  | 'headquarters'
+  | 'otherLocations'
+  | 'chicago'
+  | 'newYork'
+  | 'dallas'
+  | 'china'
+  | 'interactiveMap'
+  | 'clickForDetails'
+  // FAQ
+  | 'faqTitle'
+  | 'faqDesc'
+  | 'viewMoreFaq'
+  // CTA
+  | 'readyToStart'
+  | 'readyToStartDesc'
+  // FAQ 翻译键
+  | 'faq1Question'
+  | 'faq1Answer'
+  | 'faq2Question'
+  | 'faq2Answer'
+  | 'faq3Question'
+  | 'faq3Answer'
+  | 'faq4Question'
+  | 'faq4Answer'
+  | 'faq5Question'
+  | 'faq5Answer'
+  | 'faq6Question'
+  | 'faq6Answer'
+  // 表单验证错误
+  | 'phoneValidationError'
+  | 'emailValidationError'
+  | 'submitSuccess'
+  | 'submitError'
+
+// 翻译映射 - 地道英文表达
+const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
+  zh: {
+    // 页面基本信息
+    pageTitle: '联系我们',
+    pageDescription: '专业团队随时为您服务，多种联系方式任您选择。',
+
+    // 联系方式概览
+    contactWaysTitle: '多种方式，随时联系',
+    contactWaysDesc: '20+年行业经验的专业团队，24/7为您提供最优质的物流服务支持',
+
+    // 联系方式卡片
+    phoneConsult: '电话咨询',
+    phoneDesc: '专业客服随时在线',
+    emailSupport: '邮件支持',
+    emailDesc: '详细咨询优选方式',
+    onlineService: '在线客服',
+    onlineDesc: '即时响应解答疑问',
+    visitService: '上门拜访',
+    visitDesc: '面对面深度交流',
+
+    // 工作时间
+    workdays: '工作日: 8:00-18:00',
+    weekends: '周末: 9:00-17:00',
+    replyTime: '24小时内回复',
+    bilingualSupport: '支持中英文',
+    workHoursReply: '工作时间实时回复',
+    voiceSupport: '支持语音通话',
+    vipService: '大客户专享',
+    freePlan: '免费方案设计',
+
+    // 快速响应承诺
+    quickResponseTitle: '快速响应承诺',
+    onlineResponse: '在线客服响应',
+    onlineResponseDesc: '15分钟内快速响应',
+    callbackConfirm: '电话回访确认',
+    callbackConfirmDesc: '2小时内电话确认',
+    professionalSolution: '专业方案提供',
+    professionalSolutionDesc: '24小时内专业方案',
+
+    // 表单相关
+    messageConsult: '留言咨询',
+    formDesc: '填写下方表单，我们将在24小时内与您取得联系',
+    name: '姓名',
+    namePlaceholder: '请输入您的姓名',
+    phone: '电话',
+    phonePlaceholder: '请输入您的电话号码',
+    email: '邮箱',
+    emailPlaceholder: '请输入您的邮箱地址',
+    company: '公司名称',
+    companyPlaceholder: '请输入您的公司名称',
+    businessType: '业务类型',
+    monthlyVolume: '预计月发货量',
+    serviceNeeds: '服务需求',
+    serviceNeedsDesc: '可多选',
+    message: '详细需求',
+    messagePlaceholder: '请详细描述您的物流需求和期望...',
+    preferredContact: '首选联系方式',
+    submitBtn: '提交咨询',
+
+    // 表单选项
+    selectBusinessType: '请选择业务类型',
+    selectVolume: '请选择发货量',
+    ecommerce: '跨境电商',
+    manufacturing: '制造业',
+    retail: '零售业',
+    healthcare: '医疗健康',
+    automotive: '汽车配件',
+    electronics: '电子产品',
+    other: '其他',
+    small: '100包裹以下',
+    medium: '100-1000包裹',
+    large: '1000-5000包裹',
+    enterprise: '5000包裹以上',
+
+    // 联系方式偏好
+    phoneMethod: '电话',
+    emailMethod: '邮件',
+    wechatMethod: '微信',
+    visitMethod: '上门拜访',
+
+    // 隐私政策
+    privacyPolicy: '我已阅读并同意',
+    privacyPolicyLink: '隐私政策',
+
+    // 办公地址
+    officeAddress: '办公地址',
+    officeAddressDesc: '全球多个办事处，就近为您提供专业服务',
+    headquarters: '总部',
+    otherLocations: '其他办事处',
+    chicago: '芝加哥',
+    newYork: '纽约',
+    dallas: '达拉斯',
+    china: '中国',
+    interactiveMap: '交互式地图',
+    clickForDetails: '点击查看详细信息',
+
+    // FAQ
+    faqTitle: '常见问题',
+    faqDesc: '为您解答物流服务中的常见疑问',
+    viewMoreFaq: '查看更多FAQ',
+
+    // CTA
+    readyToStart: '准备开始合作？',
+    readyToStartDesc: '立即联系我们，获取专属物流解决方案',
+
+    // FAQ
+    faq1Question: '你们的服务覆盖哪些地区？',
+    faq1Answer:
+      '我们的服务网络覆盖美国全境，在洛杉矶、芝加哥、纽约、达拉斯设有配送中心，同时在中国深圳设有办事处，为跨境贸易提供端到端服务。',
+    faq2Question: '如何计算物流费用？',
+    faq2Answer:
+      '物流费用根据货物重量、体积、运输距离、服务类型等因素综合计算。我们提供透明的定价体系，无隐藏费用，可根据您的具体需求提供个性化报价。',
+    faq3Question: '货物运输过程中的安全如何保障？',
+    faq3Answer:
+      '我们拥有完善的货物保护体系，包括专业包装、实时跟踪、保险覆盖、温控运输等。所有仓库均配备先进的安防系统，确保货物安全。',
+    faq4Question: '可以实时跟踪货物状态吗？',
+    faq4Answer:
+      '是的，我们提供24/7实时跟踪服务。您可以通过我们的在线平台或APP随时查看货物位置、运输状态和预计到达时间。',
+    faq5Question: '支持哪些付款方式？',
+    faq5Answer:
+      '我们支持多种付款方式，包括银行转账、信用卡、PayPal、支付宝等。大客户还可以申请账期服务，享受更灵活的付款条件。',
+    faq6Question: '如何处理货物损坏或丢失？',
+    faq6Answer:
+      '我们为所有货物提供保险保障。如发生损坏或丢失，我们会在24小时内启动理赔程序，并提供相应的赔偿或补发服务。',
+
+    // 表单验证错误
+    phoneValidationError: '请输入有效的电话号码',
+    emailValidationError: '请输入有效的邮箱地址',
+    submitSuccess: '提交成功！我们将在24小时内与您联系。',
+    submitError: '提交失败，请稍后重试。',
+  },
+  en: {
+    // 页面基本信息 - 专业商务表达
+    pageTitle: 'Contact Us',
+    pageDescription:
+      'Our professional team is ready to serve you with multiple contact options available.',
+
+    // 联系方式概览 - 简洁有力
+    contactWaysTitle: 'Multiple Ways to Reach Us',
+    contactWaysDesc:
+      'Professional team with 20+ years of industry experience, providing 24/7 premium logistics service support',
+
+    // 联系方式卡片 - 自然表达
+    phoneConsult: 'Phone Consultation',
+    phoneDesc: 'Professional customer service available',
+    emailSupport: 'Email Support',
+    emailDesc: 'Preferred method for detailed inquiries',
+    onlineService: 'Live Chat',
+    onlineDesc: 'Instant response to your questions',
+    visitService: 'On-Site Visit',
+    visitDesc: 'Face-to-face in-depth communication',
+
+    // 工作时间 - 美国商务习惯
+    workdays: 'Weekdays: 8:00 AM - 6:00 PM',
+    weekends: 'Weekends: 9:00 AM - 5:00 PM',
+    replyTime: 'Reply within 24 hours',
+    bilingualSupport: 'English & Chinese support',
+    workHoursReply: 'Real-time reply during business hours',
+    voiceSupport: 'Voice call support available',
+    vipService: 'Exclusive for enterprise clients',
+    freePlan: 'Free solution design',
+
+    // 快速响应承诺
+    quickResponseTitle: 'Quick Response Guarantee',
+    onlineResponse: 'Live chat response',
+    onlineResponseDesc: 'Quick response within 15 minutes',
+    callbackConfirm: 'Phone callback confirmation',
+    callbackConfirmDesc: 'Phone confirmation within 2 hours',
+    professionalSolution: 'Professional solution delivery',
+    professionalSolutionDesc: 'Professional solution within 24 hours',
+
+    // 表单相关 - 简洁明了
+    messageConsult: 'Send Us a Message',
+    formDesc: 'Fill out the form below and we will contact you within 24 hours',
+    name: 'Name',
+    namePlaceholder: 'Enter your name',
+    phone: 'Phone',
+    phonePlaceholder: 'Enter your phone number',
+    email: 'Email',
+    emailPlaceholder: 'Enter your email address',
+    company: 'Company',
+    companyPlaceholder: 'Enter your company name',
+    businessType: 'Business Type',
+    monthlyVolume: 'Monthly Shipping Volume',
+    serviceNeeds: 'Service Requirements',
+    serviceNeedsDesc: 'Multiple selections allowed',
+    message: 'Detailed Requirements',
+    messagePlaceholder: 'Please describe your logistics needs and expectations in detail...',
+    preferredContact: 'Preferred Contact Method',
+    submitBtn: 'Submit Inquiry',
+
+    // 表单选项 - 标准英文
+    selectBusinessType: 'Select business type',
+    selectVolume: 'Select shipping volume',
+    ecommerce: 'Cross-border E-commerce',
+    manufacturing: 'Manufacturing',
+    retail: 'Retail',
+    healthcare: 'Healthcare',
+    automotive: 'Automotive Parts',
+    electronics: 'Electronics',
+    other: 'Other',
+    small: 'Under 100 packages',
+    medium: '100-1,000 packages',
+    large: '1,000-5,000 packages',
+    enterprise: 'Over 5,000 packages',
+
+    // 联系方式偏好
+    phoneMethod: 'Phone',
+    emailMethod: 'Email',
+    wechatMethod: 'WeChat',
+    visitMethod: 'On-site Visit',
+
+    // 隐私政策
+    privacyPolicy: 'I have read and agree to the',
+    privacyPolicyLink: 'Privacy Policy',
+
+    // 办公地址
+    officeAddress: 'Office Locations',
+    officeAddressDesc: 'Global offices to serve you with professional services nearby',
+    headquarters: 'Headquarters',
+    otherLocations: 'Other Locations',
+    chicago: 'Chicago',
+    newYork: 'New York',
+    dallas: 'Dallas',
+    china: 'China',
+    interactiveMap: 'Interactive Map',
+    clickForDetails: 'Click for details',
+
+    // FAQ
+    faqTitle: 'Frequently Asked Questions',
+    faqDesc: 'Answers to common questions about our logistics services',
+    viewMoreFaq: 'View More FAQ',
+
+    // CTA
+    readyToStart: 'Ready to Get Started?',
+    readyToStartDesc: 'Contact us today for your customized logistics solution',
+
+    // FAQ - 地道英文表达
+    faq1Question: 'What regions do you serve?',
+    faq1Answer:
+      'Our service network covers the entire United States with distribution centers in Los Angeles, Chicago, New York, and Dallas. We also have offices in Shenzhen, China, providing end-to-end services for cross-border trade.',
+    faq2Question: 'How do you calculate logistics costs?',
+    faq2Answer:
+      'Logistics costs are calculated based on cargo weight, volume, transportation distance, and service types. We provide transparent pricing with no hidden fees and can offer personalized quotes based on your specific requirements.',
+    faq3Question: 'How do you ensure cargo safety during transportation?',
+    faq3Answer:
+      'We have a comprehensive cargo protection system including professional packaging, real-time tracking, insurance coverage, and temperature-controlled transportation. All warehouses are equipped with advanced security systems to ensure cargo safety.',
+    faq4Question: 'Can I track my shipment in real-time?',
+    faq4Answer:
+      'Yes, we provide 24/7 real-time tracking services. You can check cargo location, transportation status, and estimated arrival time through our online platform or mobile app anytime.',
+    faq5Question: 'What payment methods do you accept?',
+    faq5Answer:
+      'We support multiple payment methods including bank transfers, credit cards, PayPal, and Alipay. Large customers can also apply for credit terms for more flexible payment conditions.',
+    faq6Question: 'How do you handle damaged or lost cargo?',
+    faq6Answer:
+      'We provide insurance coverage for all cargo. In case of damage or loss, we will initiate the claims process within 24 hours and provide appropriate compensation or replacement services.',
+
+    // 表单验证错误
+    phoneValidationError: 'Please enter a valid phone number',
+    emailValidationError: 'Please enter a valid email address',
+    submitSuccess: 'Submitted successfully! We will contact you within 24 hours.',
+    submitError: 'Submission failed. Please try again later.',
+  },
 }
 
-interface FormErrors {
-  name: string
-  phone: string
-  email: string
+// 获取翻译文本的帮助函数
+const getText = (key: TranslationKey): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
 }
 
 // 表单数据
-const form = reactive<ContactForm>({
+const form = reactive({
   name: '',
   phone: '',
   email: '',
   company: '',
   businessType: '',
   monthlyVolume: '',
-  services: [],
+  services: [] as string[],
   message: '',
-  preferredContact: 'phone',
+  preferredContact: 'phone' as string,
 })
 
-// 表单错误
-const errors = reactive<FormErrors>({
+// 表单验证错误
+const errors = reactive({
   name: '',
   phone: '',
   email: '',
@@ -446,63 +844,75 @@ const errors = reactive<FormErrors>({
 // 提交状态
 const isSubmitting = ref(false)
 
-// 服务选项
-const services = [
-  { value: 'warehousing', label: '仓储管理' },
-  { value: 'shipping', label: '国际运输' },
-  { value: 'distribution', label: '配送服务' },
-  { value: 'customs', label: '清关服务' },
-  { value: 'packaging', label: '包装服务' },
-  { value: 'returns', label: '退货处理' },
-]
+// 服务选项 - 响应式翻译
+const services = computed(() => [
+  {
+    value: 'warehousing',
+    label: locale.value === 'zh' ? '海外仓储' : 'Overseas Warehousing',
+  },
+  {
+    value: 'shipping',
+    label: locale.value === 'zh' ? '国际运输' : 'International Shipping',
+  },
+  {
+    value: 'customs',
+    label: locale.value === 'zh' ? '清关服务' : 'Customs Clearance',
+  },
+  {
+    value: 'delivery',
+    label: locale.value === 'zh' ? '本土配送' : 'Local Delivery',
+  },
+  {
+    value: 'fulfillment',
+    label: locale.value === 'zh' ? '订单履行' : 'Order Fulfillment',
+  },
+  {
+    value: 'reverse',
+    label: locale.value === 'zh' ? '逆向物流' : 'Reverse Logistics',
+  },
+])
 
-// 联系方式偏好
-const contactMethods = [
-  { value: 'phone', label: '电话' },
-  { value: 'email', label: '邮件' },
-  { value: 'wechat', label: '微信' },
-  { value: 'visit', label: '上门拜访' },
-]
+// 联系方式偏好 - 响应式翻译
+const contactMethods = computed(() => [
+  { value: 'phone', label: getText('phoneMethod') },
+  { value: 'email', label: getText('emailMethod') },
+  { value: 'wechat', label: getText('wechatMethod') },
+  { value: 'visit', label: getText('visitMethod') },
+])
 
-// FAQ数据
-const faqs = [
+// FAQ数据 - 响应式翻译
+const faqs = computed(() => [
   {
     id: '1',
-    question: '你们的服务覆盖哪些地区？',
-    answer:
-      '我们的服务网络覆盖美国全境，在洛杉矶、芝加哥、纽约、达拉斯设有配送中心，同时在中国深圳设有办事处，为跨境贸易提供端到端服务。',
+    question: getText('faq1Question'),
+    answer: getText('faq1Answer'),
   },
   {
     id: '2',
-    question: '如何计算物流费用？',
-    answer:
-      '物流费用根据货物重量、体积、运输距离、服务类型等因素综合计算。我们提供透明的定价体系，无隐藏费用，可根据您的具体需求提供个性化报价。',
+    question: getText('faq2Question'),
+    answer: getText('faq2Answer'),
   },
   {
     id: '3',
-    question: '货物运输过程中的安全如何保障？',
-    answer:
-      '我们拥有完善的货物保护体系，包括专业包装、实时跟踪、保险覆盖、温控运输等。所有仓库均配备先进的安防系统，确保货物安全。',
+    question: getText('faq3Question'),
+    answer: getText('faq3Answer'),
   },
   {
     id: '4',
-    question: '可以实时跟踪货物状态吗？',
-    answer:
-      '是的，我们提供24/7实时跟踪服务。您可以通过我们的在线平台或APP随时查看货物位置、运输状态和预计到达时间。',
+    question: getText('faq4Question'),
+    answer: getText('faq4Answer'),
   },
   {
     id: '5',
-    question: '支持哪些付款方式？',
-    answer:
-      '我们支持多种付款方式，包括银行转账、信用卡、PayPal、支付宝等。大客户还可以申请账期服务，享受更灵活的付款条件。',
+    question: getText('faq5Question'),
+    answer: getText('faq5Answer'),
   },
   {
     id: '6',
-    question: '如何处理货物损坏或丢失？',
-    answer:
-      '我们为所有货物提供保险保障。如发生损坏或丢失，我们会在24小时内启动理赔程序，并提供相应的赔偿或补发服务。',
+    question: getText('faq6Question'),
+    answer: getText('faq6Answer'),
   },
-]
+])
 
 // 表单验证
 const validateForm = () => {
@@ -514,23 +924,23 @@ const validateForm = () => {
   })
 
   if (!form.name.trim()) {
-    errors.name = '请输入姓名'
+    errors.name = getText('name')
     isValid = false
   }
 
   if (!form.phone.trim()) {
-    errors.phone = '请输入联系电话'
+    errors.phone = getText('phone')
     isValid = false
   } else if (!/^[+]?[\d\s\-()]+$/.test(form.phone)) {
-    errors.phone = '请输入有效的电话号码'
+    errors.phone = getText('phoneValidationError')
     isValid = false
   }
 
   if (!form.email.trim()) {
-    errors.email = '请输入邮箱地址'
+    errors.email = getText('email')
     isValid = false
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-    errors.email = '请输入有效的邮箱地址'
+    errors.email = getText('emailValidationError')
     isValid = false
   }
 
@@ -550,7 +960,7 @@ const handleSubmit = async () => {
     await new Promise((resolve) => setTimeout(resolve, 2000))
 
     // 提交成功后的处理
-    alert('提交成功！我们将在24小时内与您联系。')
+    alert(getText('submitSuccess'))
 
     // 重置表单
     Object.keys(form).forEach((key) => {
@@ -562,7 +972,7 @@ const handleSubmit = async () => {
     })
     form.preferredContact = 'phone'
   } catch (error) {
-    alert('提交失败，请稍后重试。')
+    alert(getText('submitError'))
   } finally {
     isSubmitting.value = false
   }

@@ -76,14 +76,14 @@
               size="lg"
               class="bg-white text-blue-900 hover:bg-gray-100 px-8 shadow-md hover:shadow-lg transition-all"
             >
-              获取专业报价
+              {{ getText('getQuote') }}
             </BaseButton>
             <BaseButton
               variant="outline"
               size="lg"
               class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 transition-all"
             >
-              在线咨询
+              {{ getText('onlineConsult') }}
             </BaseButton>
           </slot>
         </div>
@@ -93,6 +93,8 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/ui/BaseButton.vue'
 
 interface Props {
@@ -103,6 +105,26 @@ interface Props {
 }
 
 defineProps<Props>()
+
+const { locale } = useI18n()
+
+// 简化的翻译映射 - 地道英文表达
+const translations = {
+  zh: {
+    getQuote: '获取专业报价',
+    onlineConsult: '在线咨询',
+  },
+  en: {
+    getQuote: 'Get Professional Quote',
+    onlineConsult: 'Online Consultation',
+  },
+}
+
+// 获取翻译文本的帮助函数
+const getText = (key: 'getQuote' | 'onlineConsult'): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
+}
 </script>
 
 <style scoped>

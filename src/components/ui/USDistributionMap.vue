@@ -5,7 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
@@ -23,19 +24,39 @@ const props = defineProps<{
   centers: DistributionCenter[]
 }>()
 
+const { locale } = useI18n()
 const mapContainer = ref<HTMLElement>()
 let map: L.Map | null = null
 
-// 自定义标记图标
-const createCustomIcon = (status: string) => {
-  const colors = {
-    总部中心: '#2563eb',
-    中部枢纽: '#059669',
-    东海岸中心: '#dc2626',
-    南部中心: '#ea580c',
+// 响应式颜色映射 - 支持多语言
+const statusColors = computed(() => {
+  const baseColors = {
+    headquarters: '#2563eb',
+    centralHub: '#059669',
+    eastCoastCenter: '#dc2626',
+    southCenter: '#ea580c',
   }
 
-  const color = colors[status as keyof typeof colors] || '#6b7280'
+  if (locale.value === 'zh') {
+    return {
+      总部中心: baseColors.headquarters,
+      中部枢纽: baseColors.centralHub,
+      东海岸中心: baseColors.eastCoastCenter,
+      南部中心: baseColors.southCenter,
+    }
+  } else {
+    return {
+      Headquarters: baseColors.headquarters,
+      'Central Hub': baseColors.centralHub,
+      'East Coast Center': baseColors.eastCoastCenter,
+      'South Center': baseColors.southCenter,
+    }
+  }
+})
+
+// 自定义标记图标
+const createCustomIcon = (status: string) => {
+  const color = statusColors.value[status as keyof typeof statusColors.value] || '#6b7280'
 
   return L.divIcon({
     html: `

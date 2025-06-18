@@ -3,12 +3,22 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   // GitHub Pages部署配置
   base: process.env.NODE_ENV === 'production' ? '/genable-group/' : '/',
-  plugins: [vue(), vueDevTools()],
+  plugins: [
+    vue(),
+    vueDevTools(),
+    VueI18nPlugin({
+      include: fileURLToPath(new URL('./src/i18n/locales/**', import.meta.url)),
+      runtimeOnly: false,
+      strictMessage: false,
+      escapeHtml: false,
+    }),
+  ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

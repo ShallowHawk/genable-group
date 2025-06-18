@@ -8,7 +8,7 @@
             <!-- KENABLE Logo -->
             <img
               src="@/assets/kenable_logo.svg"
-              alt="可耐博达Kenable"
+              :alt="getText('logoAlt')"
               class="h-10 md:h-16 w-auto max-w-none hover:scale-105 transition-transform duration-200"
             />
           </router-link>
@@ -21,7 +21,7 @@
             <div v-if="item.children" class="relative group">
               <router-link
                 :to="item.href"
-                class="flex items-center px-3 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+                class="flex items-center px-3 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 whitespace-nowrap"
                 :class="{ 'text-blue-600': isActiveRoute(item.href) }"
               >
                 {{ item.label }}
@@ -34,14 +34,14 @@
 
               <!-- 下拉菜单 -->
               <div
-                class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+                class="absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
               >
                 <div class="py-2">
                   <router-link
                     v-for="child in item.children"
                     :key="child.href"
                     :to="child.href"
-                    class="block px-4 py-3 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200"
+                    class="block px-4 py-3 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 whitespace-nowrap leading-tight"
                     :class="{ 'text-blue-600 bg-blue-50': isActiveRoute(child.href) }"
                   >
                     {{ child.label }}
@@ -62,6 +62,9 @@
 
         <!-- CTA按钮和移动端菜单按钮 -->
         <div class="flex items-center space-x-3">
+          <!-- 语言切换器 -->
+          <LanguageSwitcher class="hidden md:inline-flex" />
+
           <!-- 联系我们按钮 (桌面端) -->
           <BaseButton
             variant="primary"
@@ -69,7 +72,7 @@
             class="hidden lg:inline-flex"
             @click="$router.push('/contact')"
           >
-            联系我们
+            {{ contactText }}
           </BaseButton>
 
           <!-- 移动端菜单按钮 -->
@@ -148,6 +151,11 @@
                 />
               </template>
 
+              <!-- 移动端语言切换器 -->
+              <div class="flex justify-center mt-4">
+                <LanguageSwitcher />
+              </div>
+
               <!-- 移动端CTA按钮 -->
               <BaseButton
                 variant="primary"
@@ -156,7 +164,7 @@
                 class="mt-4"
                 @click="handleContactClick"
               >
-                联系我们
+                {{ contactText }}
               </BaseButton>
             </div>
           </div>
@@ -169,42 +177,131 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import Icon from '@/components/ui/Icon.vue'
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher.vue'
 import NavLink from './NavLink.vue'
 
+const { locale } = useI18n()
 const route = useRoute()
 const router = useRouter()
+
+// 定义翻译键的类型
+type TranslationKey =
+  | 'home'
+  | 'about'
+  | 'services'
+  | 'warehouses'
+  | 'caseStudies'
+  | 'technology'
+  | 'contact'
+  | 'airFreight'
+  | 'seaFreight'
+  | 'contractLogistics'
+  | 'integratedIntermodalSolutions'
+  | 'globalLocalPresence'
+  | 'supplyChainSolutions'
+  | 'firstLegLogistics'
+  | 'nationwideDelivery'
+  | 'overseasWarehouses'
+  | 'valueAddedServices'
+  | 'reverseLogistics'
+  | 'logoAlt'
+
+// 扩展的翻译映射 - 使用翻译文件中的内容
+const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
+  zh: {
+    // 导航
+    home: '首页',
+    about: '关于我们',
+    services: '服务体系',
+    warehouses: '仓储网络',
+    caseStudies: '客户案例',
+    technology: '技术管理',
+    contact: '联系我们',
+    // 服务子菜单
+    airFreight: '空运',
+    seaFreight: '海运',
+    contractLogistics: '合同物流',
+    integratedIntermodalSolutions: '一体化联运解决方案',
+    globalLocalPresence: '全球化当地布局',
+    supplyChainSolutions: '供应链解决方案',
+    firstLegLogistics: '头程物流',
+    nationwideDelivery: '全国派送',
+    overseasWarehouses: '海外仓储',
+    valueAddedServices: '增值服务',
+    reverseLogistics: '逆向物流',
+    logoAlt: '可耐博达Kenable',
+  },
+  en: {
+    // 导航
+    home: 'Home',
+    about: 'About Us',
+    services: 'Services',
+    warehouses: 'Warehouses',
+    caseStudies: 'Case Studies',
+    technology: 'Technology',
+    contact: 'Contact Us',
+    // 服务子菜单 - 优化简洁版本
+    airFreight: 'Air Freight',
+    seaFreight: 'Sea Freight',
+    contractLogistics: 'Contract Logistics',
+    integratedIntermodalSolutions: 'Intermodal Solutions',
+    globalLocalPresence: 'Global Presence',
+    supplyChainSolutions: 'Supply Chain',
+    firstLegLogistics: 'First-Mile',
+    nationwideDelivery: 'Nationwide Delivery',
+    overseasWarehouses: 'Overseas Warehouses',
+    valueAddedServices: 'Value-Added',
+    reverseLogistics: 'Reverse Logistics',
+    logoAlt: 'Kenable Group - Logistics Solutions',
+  },
+}
+
+// 获取翻译文本的帮助函数
+const getText = (key: TranslationKey): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
+}
+
+// 联系我们按钮文本
+const contactText = computed(() => getText('contact'))
+
 const isMobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 const openMobileSubmenus = ref<string[]>([])
 
-const navigationItems = [
-  { label: '首页', href: '/' },
-  { label: '关于我们', href: '/about' },
+// 响应式导航项 - 使用翻译
+const navigationItems = computed(() => [
+  { label: getText('home'), href: '/' },
+  { label: getText('about'), href: '/about' },
   {
-    label: '服务体系',
+    label: getText('services'),
     href: '/services',
     children: [
       // 核心运输服务
-      { label: '空运', href: '/services/air-freight' },
-      { label: '海运', href: '/services/sea-freight' },
-      { label: '合同物流', href: '/services/contract-logistics' },
-      { label: '一体化联运解决方案', href: '/services/integrated-intermodal-solutions' },
-      { label: '全球化当地布局', href: '/services/global-local-presence' },
-      { label: '供应链解决方案', href: '/services/supply-chain-solutions' },
+      { label: getText('airFreight'), href: '/services/air-freight' },
+      { label: getText('seaFreight'), href: '/services/sea-freight' },
+      { label: getText('contractLogistics'), href: '/services/contract-logistics' },
+      {
+        label: getText('integratedIntermodalSolutions'),
+        href: '/services/integrated-intermodal-solutions',
+      },
+      { label: getText('globalLocalPresence'), href: '/services/global-local-presence' },
+      { label: getText('supplyChainSolutions'), href: '/services/supply-chain-solutions' },
       // 五大核心服务
-      { label: '头程物流', href: '/services/first-leg-logistics' },
-      { label: '全国派送', href: '/services/nationwide-delivery' },
-      { label: '海外仓储', href: '/services/overseas-warehouses' },
-      { label: '增值服务', href: '/services/value-added-services' },
-      { label: '逆向物流', href: '/services/reverse-logistics' },
+      { label: getText('firstLegLogistics'), href: '/services/first-leg-logistics' },
+      { label: getText('nationwideDelivery'), href: '/services/nationwide-delivery' },
+      { label: getText('overseasWarehouses'), href: '/services/overseas-warehouses' },
+      { label: getText('valueAddedServices'), href: '/services/value-added-services' },
+      { label: getText('reverseLogistics'), href: '/services/reverse-logistics' },
     ],
   },
-  { label: '仓储网络', href: '/warehouses' },
-  { label: '客户案例', href: '/case-studies' },
-  { label: '技术管理', href: '/technology' },
-]
+  { label: getText('warehouses'), href: '/warehouses' },
+  { label: getText('caseStudies'), href: '/case-studies' },
+  { label: getText('technology'), href: '/technology' },
+])
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value

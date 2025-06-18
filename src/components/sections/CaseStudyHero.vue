@@ -8,13 +8,12 @@
     <div class="container-section text-center">
       <div class="space-y-8">
         <h1 class="text-white font-black text-5xl lg:text-7xl mb-8 tracking-tight leading-tight">
-          赋能客户
-          <span class="block text-primary-300 mt-2">共创成功</span>
+          {{ getText('empowerClients') }}
+          <span class="block text-primary-300 mt-2">{{ getText('createSuccess') }}</span>
         </h1>
         <div class="w-24 h-1 bg-primary-400 mx-auto mb-8"></div>
         <p class="text-gray-100 font-light text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed">
-          我们相信，客户的成功才是我们真正的成功。<br />
-          每一个案例，都是我们专业能力与服务承诺的真实见证。
+          {{ getText('heroDescription') }}
         </p>
       </div>
     </div>
@@ -22,7 +21,35 @@
 </template>
 
 <script setup lang="ts">
-// 这个组件不需要任何 props 或响应式数据
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
+
+// 定义翻译键类型
+type TranslationKey = 'empowerClients' | 'createSuccess' | 'heroDescription'
+
+// 翻译映射
+const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
+  zh: {
+    empowerClients: '赋能客户',
+    createSuccess: '共创成功',
+    heroDescription:
+      '我们相信，客户的成功才是我们真正的成功。每一个案例，都是我们专业能力与服务承诺的真实见证。',
+  },
+  en: {
+    empowerClients: 'Empowering Clients',
+    createSuccess: 'Creating Success Together',
+    heroDescription:
+      "We believe that our clients' success is our true success. Every case study demonstrates our professional capabilities and service commitment.",
+  },
+}
+
+// 获取翻译文本的帮助函数
+const getText = (key: TranslationKey): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
+}
 </script>
 
 <style scoped>

@@ -16,10 +16,10 @@
     <div class="container-section relative z-10">
       <div class="max-w-4xl mx-auto text-center text-white cta-content">
         <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold mb-8 leading-tight">
-          携手可耐博达，共创美国市场新机遇
+          {{ getText('ctaTitle') }}
         </h2>
         <p class="text-xl lg:text-2xl mb-12 text-gray-300 font-light leading-relaxed">
-          专业团队24小时在线，为您量身打造最优物流解决方案
+          {{ getText('ctaDescription') }}
         </p>
 
         <!-- CTA按钮 -->
@@ -29,7 +29,7 @@
             class="inline-flex items-center px-8 py-4 bg-white text-blue-900 font-semibold text-lg rounded-lg hover:bg-gray-100 transition-all duration-300 group"
             @click="$router.push('/contact')"
           >
-            立即开始合作
+            {{ getText('ctaButtonPrimary') }}
             <svg
               class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
               fill="none"
@@ -49,7 +49,7 @@
             href="#"
             class="inline-flex items-center text-white hover:text-gray-300 font-medium text-lg transition-colors group"
           >
-            下载服务手册
+            {{ getText('ctaButtonSecondary') }}
             <svg
               class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
               fill="none"
@@ -72,8 +72,36 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 const router = useRouter()
+const { locale } = useI18n()
+
+// 定义翻译键的类型
+type TranslationKey = 'ctaTitle' | 'ctaDescription' | 'ctaButtonPrimary' | 'ctaButtonSecondary'
+
+// 翻译映射
+const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
+  zh: {
+    ctaTitle: '携手可耐博达，共创美国市场新机遇',
+    ctaDescription: '专业团队24小时在线，为您量身打造最优物流解决方案',
+    ctaButtonPrimary: '立即开始合作',
+    ctaButtonSecondary: '下载服务手册',
+  },
+  en: {
+    ctaTitle: 'Partner with Kenable, Create New Opportunities in the US Market',
+    ctaDescription:
+      'Professional team available 24/7 to craft optimal logistics solutions tailored for you',
+    ctaButtonPrimary: 'Start Partnership Now',
+    ctaButtonSecondary: 'Download Service Brochure',
+  },
+}
+
+// 获取翻译文本的帮助函数
+const getText = (key: TranslationKey): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
+}
 </script>
 
 <style scoped>

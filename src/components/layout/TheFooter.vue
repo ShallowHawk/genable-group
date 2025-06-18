@@ -16,7 +16,7 @@
               />
             </div>
             <p class="text-gray-300 text-lg leading-relaxed mb-6 max-w-md">
-              专业的跨境供应链解决方案提供商，致力于为全球电商企业提供端到端的物流服务。
+              {{ getText('companyDescription') }}
             </p>
             <div class="flex space-x-4">
               <social-link
@@ -31,7 +31,7 @@
 
           <!-- 快速链接 -->
           <div>
-            <h3 class="text-lg font-semibold mb-6">快速链接</h3>
+            <h3 class="text-lg font-semibold mb-6">{{ getText('quickLinksTitle') }}</h3>
             <ul class="space-y-4">
               <li v-for="link in quickLinks" :key="link.href">
                 <router-link
@@ -46,11 +46,15 @@
 
           <!-- 联系信息 -->
           <div>
-            <h3 class="text-lg font-semibold mb-6">联系我们</h3>
+            <h3 class="text-lg font-semibold mb-6">{{ getText('contactTitle') }}</h3>
             <div class="space-y-4">
-              <contact-item icon="phone" label="电话" value="+1 (555) 123-4567" />
-              <contact-item icon="mail" label="邮箱" value="info@kenablegroup.com" />
-              <contact-item icon="map-pin" label="地址" value="美国加利福尼亚州洛杉矶市" />
+              <contact-item icon="phone" :label="contactLabels.phone" value="+1 (555) 123-4567" />
+              <contact-item
+                icon="mail"
+                :label="contactLabels.email"
+                value="info@kenablegroup.com"
+              />
+              <contact-item icon="map-pin" :label="contactLabels.address" :value="addressText" />
             </div>
           </div>
         </div>
@@ -63,7 +67,7 @@
       <div class="py-6">
         <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div class="text-gray-400 text-sm">
-            © {{ currentYear }} 可耐博达（广州）供应链管理有限公司. 保留所有权利。
+            © {{ currentYear }} {{ getText('copyright') }}. {{ getText('allRightsReserved') }}
           </div>
           <div class="flex space-x-6 text-sm">
             <router-link
@@ -83,10 +87,109 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import SocialLink from './SocialLink.vue'
 import ContactItem from './ContactItem.vue'
 
+const { locale } = useI18n()
+
 const currentYear = computed(() => new Date().getFullYear())
+
+// 定义翻译键的类型
+type TranslationKey =
+  // 公司信息
+  | 'companyDescription'
+  // 快速链接
+  | 'quickLinksTitle'
+  | 'aboutUs'
+  | 'services'
+  | 'warehouses'
+  | 'caseStudies'
+  | 'technology'
+  | 'news'
+  | 'contactUs'
+  // 联系信息
+  | 'contactTitle'
+  | 'phone'
+  | 'email'
+  | 'address'
+  // 版权信息
+  | 'copyright'
+  | 'allRightsReserved'
+  // 法律链接
+  | 'privacyPolicy'
+  | 'termsOfService'
+  | 'cookiePolicy'
+
+// 翻译映射 - 地道英文表达
+const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
+  zh: {
+    // 公司信息
+    companyDescription:
+      '专业的跨境供应链解决方案提供商，致力于为全球电商企业提供端到端的物流服务。',
+
+    // 快速链接
+    quickLinksTitle: '快速链接',
+    aboutUs: '关于我们',
+    services: '服务体系',
+    warehouses: '仓储网络',
+    caseStudies: '客户案例',
+    technology: '技术管理',
+    news: '新闻资讯',
+    contactUs: '联系我们',
+
+    // 联系信息
+    contactTitle: '联系我们',
+    phone: '电话',
+    email: '邮箱',
+    address: '地址',
+
+    // 版权信息
+    copyright: '可耐博达（广州）供应链管理有限公司',
+    allRightsReserved: '保留所有权利。',
+
+    // 法律链接
+    privacyPolicy: '隐私政策',
+    termsOfService: '服务条款',
+    cookiePolicy: 'Cookie政策',
+  },
+  en: {
+    // 公司信息 - 专业商务表达
+    companyDescription:
+      'Professional cross-border supply chain solutions provider dedicated to delivering end-to-end logistics services for global e-commerce businesses.',
+
+    // 快速链接 - 直观明了
+    quickLinksTitle: 'Quick Links',
+    aboutUs: 'About Us',
+    services: 'Services',
+    warehouses: 'Warehouses',
+    caseStudies: 'Case Studies',
+    technology: 'Technology',
+    news: 'News',
+    contactUs: 'Contact Us',
+
+    // 联系信息
+    contactTitle: 'Contact Us',
+    phone: 'Phone',
+    email: 'Email',
+    address: 'Address',
+
+    // 版权信息 - 符合美国商务习惯
+    copyright: 'Kenable Group Corp',
+    allRightsReserved: 'All rights reserved.',
+
+    // 法律链接 - 标准表达
+    privacyPolicy: 'Privacy Policy',
+    termsOfService: 'Terms of Service',
+    cookiePolicy: 'Cookie Policy',
+  },
+}
+
+// 获取翻译文本的帮助函数
+const getText = (key: TranslationKey): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
+}
 
 const socialLinks = [
   { name: 'LinkedIn', href: '#', icon: 'linkedin' },
@@ -95,21 +198,35 @@ const socialLinks = [
   { name: 'YouTube', href: '#', icon: 'youtube' },
 ]
 
-const quickLinks = [
-  { label: '关于我们', href: '/about' },
-  { label: '服务体系', href: '/services' },
-  { label: '仓储网络', href: '/warehouses' },
-  { label: '客户案例', href: '/case-studies' },
-  { label: '技术管理', href: '/technology' },
-  { label: '新闻资讯', href: '/news' },
-  { label: '联系我们', href: '/contact' },
-]
+// 响应式翻译的快速链接
+const quickLinks = computed(() => [
+  { label: getText('aboutUs'), href: '/about' },
+  { label: getText('services'), href: '/services' },
+  { label: getText('warehouses'), href: '/warehouses' },
+  { label: getText('caseStudies'), href: '/case-studies' },
+  { label: getText('technology'), href: '/technology' },
+  { label: getText('news'), href: '/news' },
+  { label: getText('contactUs'), href: '/contact' },
+])
 
-const legalLinks = [
-  { label: '隐私政策', href: '/privacy' },
-  { label: '服务条款', href: '/terms' },
-  { label: 'Cookie政策', href: '/cookies' },
-]
+// 响应式翻译的法律链接
+const legalLinks = computed(() => [
+  { label: getText('privacyPolicy'), href: '/privacy' },
+  { label: getText('termsOfService'), href: '/terms' },
+  { label: getText('cookiePolicy'), href: '/cookies' },
+])
+
+// 响应式翻译的联系信息标签
+const contactLabels = computed(() => ({
+  phone: getText('phone'),
+  email: getText('email'),
+  address: getText('address'),
+}))
+
+// 响应式翻译的地址信息
+const addressText = computed(() =>
+  locale.value === 'zh' ? '美国加利福尼亚州洛杉矶市' : 'Los Angeles, California, USA',
+)
 </script>
 
 <style scoped>

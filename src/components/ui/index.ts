@@ -10,6 +10,7 @@ export { default as ServiceCard } from './ServiceCard.vue'
 export { default as FeatureList } from './FeatureList.vue'
 export { default as CaseStudyCard } from './CaseStudyCard.vue'
 export { default as CtaSection } from './CtaSection.vue'
+export { default as LanguageSwitcher } from './LanguageSwitcher.vue'
 
 // 组件类型导出
 export type { ButtonProps } from './BaseButton.vue'

@@ -2,10 +2,10 @@
   <div class="air-freight-page">
     <!-- Hero区域 -->
     <PageHero
-      title="全球空运，极速通达"
-      subtitle="依托覆盖全球的航空网络与专业团队，可耐博达提供高效、安全、可靠的空运解决方案。整合多国出口资源，灵活提供门到门、机场到门等模式，确保您的货物以最快速度精准送达。"
+      :title="getText('heroTitle')"
+      :subtitle="getText('heroSubtitle')"
       image-url="https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=400&h=400&fit=crop&crop=center"
-      label="全球空运专家"
+      :label="getText('heroLabel')"
     >
       <template #actions>
         <router-link to="/contact">
@@ -14,7 +14,7 @@
             size="lg"
             class="bg-blue-600 text-white hover:bg-blue-700 px-8 shadow-md hover:shadow-lg transition-all"
           >
-            获取空运报价
+            {{ getText('getQuoteButton') }}
           </BaseButton>
         </router-link>
         <router-link to="/contact">
@@ -23,7 +23,7 @@
             size="lg"
             class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 transition-all"
           >
-            在线咨询
+            {{ getText('consultButton') }}
           </BaseButton>
         </router-link>
       </template>
@@ -44,7 +44,9 @@
 
           <!-- 左侧内容 -->
           <div class="order-1 lg:order-1">
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">我们的空运服务</h2>
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
+              {{ getText('servicesTitle') }}
+            </h2>
 
             <div class="space-y-6">
               <!-- 全球空运网络 -->
@@ -55,9 +57,11 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">全球网络，灵活调度</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('globalNetworkTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    整合全球航空资源，高效管理多国出口。我们根据您的需求协调各地供应商，优化集货与分流路径，显著降低运输成本，提升供应链效率。
+                    {{ getText('globalNetworkDesc') }}
                   </p>
                 </div>
               </div>
@@ -70,9 +74,11 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">门到门，全程无忧</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('doorToDoorTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    提供提货、报关、空运、派送一站式服务。我们灵活应对供应商突发状况（如生产延误、船期变更、港口拥堵、海关查验），为您抢回宝贵时间，确保配送决策更从容、更精准。
+                    {{ getText('doorToDoorDesc') }}
                   </p>
                 </div>
               </div>
@@ -85,10 +91,11 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">机场到门，无缝衔接</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('airportToDoorTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    货物落地即启动，利用自有卡车网络快速转运。针对超大尺寸（OOG - Out of
-                    Gauge，即超规货物）及特殊货物，专业项目团队为您定制专属运输方案与执行计划。
+                    {{ getText('airportToDoorDesc') }}
                   </p>
                 </div>
               </div>
@@ -101,9 +108,11 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">加急专线，优先保障</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('expeditedTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    为高时效性货物开辟绿色通道。专业IT团队高效实现系统对接，信息全程可视，保障急件优先处理。
+                    {{ getText('expeditedDesc') }}
                   </p>
                 </div>
               </div>
@@ -120,7 +129,7 @@
           <!-- 左侧文案 -->
           <div class="order-1 lg:order-1">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
-              为什么选择可耐博达空运？
+              {{ getText('whyChooseTitle') }}
             </h2>
 
             <div class="space-y-6">
@@ -133,9 +142,11 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">多国出口网络</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('multiCountryTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    深耕中国、泰国、越南等核心出口国，提供最具弹性的供应链起点选择。
+                    {{ getText('multiCountryDesc') }}
                   </p>
                 </div>
               </div>
@@ -153,9 +164,11 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">时效精准可靠</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('reliableScheduleTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    与全球主要航司深度合作，锁定舱位与优先通道，确保货物准时起飞、快速抵达。
+                    {{ getText('reliableScheduleDesc') }}
                   </p>
                 </div>
               </div>
@@ -171,9 +184,11 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">空地无缝联动</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('airGroundTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    货物落地即由自有卡车网络接管，实现高效的空陆联运，最后一公里同样迅捷。
+                    {{ getText('airGroundDesc') }}
                   </p>
                 </div>
               </div>
@@ -191,9 +206,11 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">专业团队护航</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('professionalTeamTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    经验丰富的团队提供7x24小时全程跟踪与应急响应，问题即时解决。
+                    {{ getText('professionalTeamDesc') }}
                   </p>
                 </div>
               </div>
@@ -219,38 +236,41 @@
           <!-- 左侧文案 -->
           <div>
             <div class="mb-8">
-              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">可耐博达在行动</h2>
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                {{ getText('caseStudyTitle') }}
+              </h2>
               <h3 class="text-xl text-blue-600 font-semibold mb-6">
-                助力北美家居巨头Cushion Lab构建多渠道跨国供应链
+                {{ getText('caseStudySubtitle') }}
               </h3>
             </div>
 
             <div class="space-y-6">
               <div>
-                <h4 class="text-lg font-bold text-gray-900 mb-3">挑战与解决方案</h4>
+                <h4 class="text-lg font-bold text-gray-900 mb-3">
+                  {{ getText('challengeTitle') }}
+                </h4>
                 <p class="text-gray-600 mb-4">
-                  <strong>挑战：</strong
-                  >如何高效整合中、越、泰三国货源，精准配送至Amazon、TikTok、独立站等多渠道？
+                  <strong>挑战：</strong>{{ getText('challengeText') }}
                 </p>
                 <p class="text-gray-600">
-                  <strong>解决方案：</strong>采用海空联运头程+美国多仓协同网络，实现灵活履约。
+                  <strong>解决方案：</strong>{{ getText('solutionText') }}
                 </p>
               </div>
 
               <div class="bg-blue-50 p-6 rounded-xl">
-                <h4 class="text-lg font-bold text-gray-900 mb-3">成效：</h4>
+                <h4 class="text-lg font-bold text-gray-900 mb-3">{{ getText('resultsTitle') }}</h4>
                 <ul class="space-y-2">
                   <li class="flex items-center text-gray-700">
                     <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    全美平均配送时效缩短至2-5天
+                    {{ getText('result1') }}
                   </li>
                   <li class="flex items-center text-gray-700">
                     <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    大幅提升客户满意度
+                    {{ getText('result2') }}
                   </li>
                   <li class="flex items-center text-gray-700">
                     <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    成功支撑年销售额超1亿美元的多平台运营
+                    {{ getText('result3') }}
                   </li>
                 </ul>
               </div>
@@ -276,11 +296,11 @@
 
     <!-- CTA区域 -->
     <CtaSection
-      title="选择快速空运服务，抢占市场先机"
-      subtitle="专业的空运解决方案，让您的货物以最快速度到达目的地"
-      primary-button-text="获取空运报价"
+      :title="getText('ctaTitle')"
+      :subtitle="getText('ctaSubtitle')"
+      :primary-button-text="getText('ctaPrimaryButton')"
       primary-button-href="/contact"
-      secondary-button-text="下载服务手册"
+      :secondary-button-text="getText('ctaSecondaryButton')"
       secondary-button-href="#"
       secondary-button-icon="download"
       :show-contact-info="true"
@@ -289,8 +309,172 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import PageHero from '@/components/ui/PageHero.vue'
 import Section from '@/components/ui/Section.vue'
 import CtaSection from '@/components/ui/CtaSection.vue'
+
+// I18n setup
+const { locale } = useI18n()
+
+// Define translation keys for type safety
+type TranslationKey =
+  | 'pageTitle'
+  | 'pageDescription'
+  | 'heroTitle'
+  | 'heroSubtitle'
+  | 'heroLabel'
+  | 'getQuoteButton'
+  | 'consultButton'
+  | 'breadcrumbServices'
+  | 'breadcrumbAirFreight'
+  | 'servicesTitle'
+  | 'globalNetworkTitle'
+  | 'globalNetworkDesc'
+  | 'doorToDoorTitle'
+  | 'doorToDoorDesc'
+  | 'airportToDoorTitle'
+  | 'airportToDoorDesc'
+  | 'expeditedTitle'
+  | 'expeditedDesc'
+  | 'whyChooseTitle'
+  | 'multiCountryTitle'
+  | 'multiCountryDesc'
+  | 'reliableScheduleTitle'
+  | 'reliableScheduleDesc'
+  | 'airGroundTitle'
+  | 'airGroundDesc'
+  | 'professionalTeamTitle'
+  | 'professionalTeamDesc'
+  | 'caseStudyTitle'
+  | 'caseStudySubtitle'
+  | 'challengeTitle'
+  | 'challengeText'
+  | 'solutionText'
+  | 'resultsTitle'
+  | 'result1'
+  | 'result2'
+  | 'result3'
+  | 'ctaTitle'
+  | 'ctaSubtitle'
+  | 'ctaPrimaryButton'
+  | 'ctaSecondaryButton'
+
+// Translation mappings
+const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
+  zh: {
+    pageTitle: '空运服务',
+    pageDescription:
+      '依托覆盖全球的航空网络与专业团队，可耐博达提供高效、安全、可靠的空运解决方案。整合多国出口资源，灵活提供门到门、机场到门等模式，确保您的货物以最快速度精准送达。',
+    heroTitle: '全球空运，极速通达',
+    heroSubtitle:
+      '依托覆盖全球的航空网络与专业团队，可耐博达提供高效、安全、可靠的空运解决方案。整合多国出口资源，灵活提供门到门、机场到门等模式，确保您的货物以最快速度精准送达。',
+    heroLabel: '全球空运专家',
+    getQuoteButton: '获取空运报价',
+    consultButton: '在线咨询',
+    breadcrumbServices: '服务体系',
+    breadcrumbAirFreight: '空运服务',
+    servicesTitle: '我们的空运服务',
+    globalNetworkTitle: '全球网络，灵活调度',
+    globalNetworkDesc:
+      '整合全球航空资源，高效管理多国出口。我们根据您的需求协调各地供应商，优化集货与分流路径，显著降低运输成本，提升供应链效率。',
+    doorToDoorTitle: '门到门，全程无忧',
+    doorToDoorDesc:
+      '提供提货、报关、空运、派送一站式服务。我们灵活应对供应商突发状况（如生产延误、船期变更、港口拥堵、海关查验），为您抢回宝贵时间，确保配送决策更从容、更精准。',
+    airportToDoorTitle: '机场到门，无缝衔接',
+    airportToDoorDesc:
+      '货物落地即启动，利用自有卡车网络快速转运。针对超大尺寸（OOG - Out of Gauge，即超规货物）及特殊货物，专业项目团队为您定制专属运输方案与执行计划。',
+    expeditedTitle: '加急专线，优先保障',
+    expeditedDesc:
+      '为高时效性货物开辟绿色通道。专业IT团队高效实现系统对接，信息全程可视，保障急件优先处理。',
+    whyChooseTitle: '为什么选择可耐博达空运？',
+    multiCountryTitle: '多国出口网络',
+    multiCountryDesc: '深耕中国、泰国、越南等核心出口国，提供最具弹性的供应链起点选择。',
+    reliableScheduleTitle: '时效精准可靠',
+    reliableScheduleDesc:
+      '与全球主要航司深度合作，锁定舱位与优先通道，确保货物准时起飞、快速抵达。',
+    airGroundTitle: '空地无缝联动',
+    airGroundDesc: '货物落地即由自有卡车网络接管，实现高效的空陆联运，最后一公里同样迅捷。',
+    professionalTeamTitle: '专业团队护航',
+    professionalTeamDesc: '经验丰富的团队提供7x24小时全程跟踪与应急响应，问题即时解决。',
+    caseStudyTitle: '可耐博达在行动',
+    caseStudySubtitle: '助力北美家居巨头Cushion Lab构建多渠道跨国供应链',
+    challengeTitle: '挑战与解决方案',
+    challengeText: '如何高效整合中、越、泰三国货源，精准配送至Amazon、TikTok、独立站等多渠道？',
+    solutionText: '采用海空联运头程+美国多仓协同网络，实现灵活履约。',
+    resultsTitle: '成效：',
+    result1: '全美平均配送时效缩短至2-5天',
+    result2: '大幅提升客户满意度',
+    result3: '成功支撑年销售额超1亿美元的多平台运营',
+    ctaTitle: '选择快速空运服务，抢占市场先机',
+    ctaSubtitle: '专业的空运解决方案，让您的货物以最快速度到达目的地',
+    ctaPrimaryButton: '获取空运报价',
+    ctaSecondaryButton: '下载服务手册',
+  },
+  en: {
+    pageTitle: 'Air Freight Services',
+    pageDescription:
+      'Leveraging our global aviation network and professional team, Kenable provides efficient, secure, and reliable air freight solutions. We integrate multi-country export resources and offer flexible door-to-door and airport-to-door services to ensure your cargo reaches its destination with maximum speed and precision.',
+    heroTitle: 'Global Air Freight, Express Connectivity Worldwide',
+    heroSubtitle:
+      'Leveraging our global aviation network and professional team, Kenable provides efficient, secure, and reliable air freight solutions. We integrate multi-country export resources and offer flexible door-to-door and airport-to-door services to ensure your cargo reaches its destination with maximum speed and precision.',
+    heroLabel: 'Global Air Freight Expert',
+    getQuoteButton: 'Get Air Freight Quote',
+    consultButton: 'Online Consultation',
+    breadcrumbServices: 'Services',
+    breadcrumbAirFreight: 'Air Freight',
+    servicesTitle: 'Our Air Freight Services',
+    globalNetworkTitle: 'Global Network, Flexible Scheduling',
+    globalNetworkDesc:
+      'Integrating global aviation resources for efficient multi-country export management. We coordinate suppliers across regions based on your needs, optimizing consolidation and distribution routes to significantly reduce transportation costs and enhance supply chain efficiency.',
+    doorToDoorTitle: 'Door-to-Door, Complete Peace of Mind',
+    doorToDoorDesc:
+      'Providing one-stop services including pickup, customs clearance, air freight, and delivery. We flexibly handle supplier contingencies (such as production delays, schedule changes, port congestion, customs inspections), helping you recover precious time and ensuring more confident and precise delivery decisions.',
+    airportToDoorTitle: 'Airport-to-Door, Seamless Connection',
+    airportToDoorDesc:
+      'Operations commence immediately upon cargo arrival, utilizing our proprietary truck network for rapid transshipment. For oversized (OOG - Out of Gauge) and special cargo, our professional project team creates customized transportation solutions and execution plans.',
+    expeditedTitle: 'Express Lane, Priority Guarantee',
+    expeditedDesc:
+      'Creating green channels for high-priority cargo. Our professional IT team efficiently implements system integration with full visibility throughout the process, ensuring priority handling for urgent shipments.',
+    whyChooseTitle: 'Why Choose Kenable Air Freight?',
+    multiCountryTitle: 'Multi-Country Export Network',
+    multiCountryDesc:
+      'Deep presence in core export countries including China, Thailand, and Vietnam, providing the most flexible supply chain origin options.',
+    reliableScheduleTitle: 'Precise and Reliable Schedule',
+    reliableScheduleDesc:
+      'Deep partnerships with major global airlines, securing cargo space and priority channels to ensure on-time departure and rapid arrival.',
+    airGroundTitle: 'Seamless Air-Ground Integration',
+    airGroundDesc:
+      'Upon cargo arrival, our proprietary truck network takes over immediately, achieving efficient air-ground intermodal transport with equally swift last-mile delivery.',
+    professionalTeamTitle: 'Professional Team Escort',
+    professionalTeamDesc:
+      'Experienced teams provide 24/7 full tracking and emergency response with immediate problem resolution.',
+    caseStudyTitle: 'Kenable In Action',
+    caseStudySubtitle:
+      'Empowering North American Home Furnishing Giant Cushion Lab to Build Multi-Channel Cross-Border Supply Chain',
+    challengeTitle: 'Challenge & Solution',
+    challengeText:
+      'How to efficiently integrate cargo sources from China, Vietnam, and Thailand for precise delivery to multiple channels including Amazon, TikTok, and independent websites?',
+    solutionText:
+      'Adopting sea-air multimodal first-mile + US multi-warehouse collaborative network for flexible fulfillment.',
+    resultsTitle: 'Results:',
+    result1: 'US-wide average delivery time reduced to 2-5 days',
+    result2: 'Significantly improved customer satisfaction',
+    result3: 'Successfully supported multi-platform operations exceeding $100M in annual sales',
+    ctaTitle: 'Choose Express Air Freight Services to Seize Market Opportunities',
+    ctaSubtitle:
+      'Professional air freight solutions to get your cargo to destination at maximum speed',
+    ctaPrimaryButton: 'Get Air Freight Quote',
+    ctaSecondaryButton: 'Download Service Manual',
+  },
+}
+
+// Get translated text helper function
+const getText = (key: TranslationKey): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
+}
+
+// Note: breadcrumbs can be added here if needed for navigation
 </script>

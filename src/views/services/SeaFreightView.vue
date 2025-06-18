@@ -2,10 +2,10 @@
   <div class="sea-freight-page">
     <!-- Hero区域 -->
     <PageHero
-      title="全球海运，值得托付"
-      subtitle="深耕行业近22载，可耐博达提供灵活、高效、经济的全方位海运服务。年操作超12,000TEU，无论整箱（FCL）或拼箱（LCL），我们确保您的货物安全、准时跨越重洋，顺利进入美国市场。"
+      :title="getText('heroTitle')"
+      :subtitle="getText('heroSubtitle')"
       image-url="https://plus.unsplash.com/premium_photo-1661881251976-9fc9bbb90c4e?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      label="专业海运合作伙伴"
+      :label="getText('heroLabel')"
     >
       <template #actions>
         <router-link to="/contact">
@@ -14,7 +14,7 @@
             size="lg"
             class="bg-blue-600 text-white hover:bg-blue-700 px-8 shadow-md hover:shadow-lg transition-all"
           >
-            获取海运报价
+            {{ getText('getQuoteButton') }}
           </BaseButton>
         </router-link>
         <router-link to="/contact">
@@ -23,7 +23,7 @@
             size="lg"
             class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 transition-all"
           >
-            在线咨询
+            {{ getText('consultButton') }}
           </BaseButton>
         </router-link>
       </template>
@@ -44,7 +44,9 @@
 
           <!-- 右侧内容 -->
           <div class="order-1 lg:order-2">
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">我们的海运服务</h2>
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
+              {{ getText('servicesTitle') }}
+            </h2>
 
             <div class="space-y-6">
               <!-- 整箱运输 (FCL) -->
@@ -56,10 +58,10 @@
                 </div>
                 <div>
                   <h3 class="text-xl font-bold text-gray-900 mb-2">
-                    整箱运输 (FCL - Full Container Load)
+                    {{ getText('fclTitle') }}
                   </h3>
                   <p class="text-gray-600">
-                    提供稳定船期、优先航线，覆盖全球主要港口。根据您的需求整合供应商资源，优化集拼与分拨策略，有效降低综合物流成本。
+                    {{ getText('fclDesc') }}
                   </p>
                 </div>
               </div>
@@ -73,10 +75,10 @@
                 </div>
                 <div>
                   <h3 class="text-xl font-bold text-gray-900 mb-2">
-                    拼箱运输 (LCL - Less than Container Load)
+                    {{ getText('lclTitle') }}
                   </h3>
                   <p class="text-gray-600">
-                    灵活拼装，成本优化，专为中小批量货物设计。我们敏捷应对供应链波动（生产延误、船期变更、港口拥堵、查验延长），为您争取时间窗口，提升决策效率。
+                    {{ getText('lclDesc') }}
                   </p>
                 </div>
               </div>
@@ -89,9 +91,11 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">专业清关，畅行无忧</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('customsClearanceTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    精通中美贸易法规，提供高效清关服务。针对超大尺寸（OOG）及复杂货物，专业项目团队定制专属解决方案，协调全程海运细节。
+                    {{ getText('customsClearanceDesc') }}
                   </p>
                 </div>
               </div>
@@ -104,9 +108,11 @@
                   <div class="w-6 h-6 bg-cyan-500 rounded-full"></div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">亚马逊FBA头程专线</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('fbaExpressTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    定制最优航线，无缝衔接亚马逊运营中心（FBA仓库）。专业IT团队确保系统高效对接，信息流畅通。
+                    {{ getText('fbaExpressDesc') }}
                   </p>
                 </div>
               </div>
@@ -132,7 +138,7 @@
           <!-- 右侧文案 -->
           <div class="order-1 lg:order-2">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
-              为什么选择可耐博达海运？
+              {{ getText('whyChooseTitle') }}
             </h2>
 
             <div class="space-y-6">
@@ -147,9 +153,11 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">深厚经验，值得信赖</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('experienceTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    22年行业积淀，强大网络资源，年操作超12,000TEU，经验丰富可靠。
+                    {{ getText('experienceDesc') }}
                   </p>
                 </div>
               </div>
@@ -167,9 +175,11 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">时效稳定，承诺必达</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('timelinessTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    依托美森快船等核心航线，保障12-15天稳定海运时效，配合1-3天快速清关。
+                    {{ getText('timelinessDesc') }}
                   </p>
                 </div>
               </div>
@@ -185,9 +195,11 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">端到端服务，无缝覆盖</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('endToEndTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    服务链条完整：港口操作、拆箱、仓储、本地派送，真正实现门到门。
+                    {{ getText('endToEndDesc') }}
                   </p>
                 </div>
               </div>
@@ -205,9 +217,11 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">资产安全，全程保障</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('securityTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    为高价值货物提供足额保险，全程监控，确保运输与仓储安全无虞。
+                    {{ getText('securityDesc') }}
                   </p>
                 </div>
               </div>
@@ -224,39 +238,41 @@
           <!-- 左侧文案 -->
           <div>
             <div class="mb-8">
-              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">可耐博达在行动</h2>
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                {{ getText('caseStudyTitle') }}
+              </h2>
               <h3 class="text-xl text-blue-600 font-semibold mb-6">
-                护航全球光伏龙头"正泰集团"高价值特种设备赴美
+                {{ getText('caseStudySubtitle') }}
               </h3>
             </div>
 
             <div class="space-y-6">
               <div>
-                <h4 class="text-lg font-bold text-gray-900 mb-3">挑战与解决方案</h4>
+                <h4 class="text-lg font-bold text-gray-900 mb-3">
+                  {{ getText('challengeSolutionTitle') }}
+                </h4>
                 <p class="text-gray-600 mb-4">
-                  <strong>挑战：</strong
-                  >如何安全、合规运输高价值、超尺寸精密光伏设备，并解决复杂清关难题？
+                  <strong>挑战：</strong>{{ getText('challengeText') }}
                 </p>
                 <p class="text-gray-600">
-                  <strong>解决方案：</strong
-                  >提供特殊加固包装、全程高额保险、专家清关服务，并利用自营卡车网络实现港口至工厂的精准直达派送。
+                  <strong>解决方案：</strong>{{ getText('solutionText') }}
                 </p>
               </div>
 
               <div class="bg-blue-50 p-6 rounded-xl">
-                <h4 class="text-lg font-bold text-gray-900 mb-3">成效：</h4>
+                <h4 class="text-lg font-bold text-gray-900 mb-3">{{ getText('resultsTitle') }}</h4>
                 <ul class="space-y-2">
                   <li class="flex items-center text-gray-700">
                     <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    实现零货损交付
+                    {{ getText('result1') }}
                   </li>
                   <li class="flex items-center text-gray-700">
                     <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    清关时间比预估缩短20%
+                    {{ getText('result2') }}
                   </li>
                   <li class="flex items-center text-gray-700">
                     <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                    为客户项目按时启动提供了有力保障
+                    {{ getText('result3') }}
                   </li>
                 </ul>
               </div>
@@ -282,11 +298,11 @@
 
     <!-- CTA区域 -->
     <CtaSection
-      title="选择专业海运服务，开启美国市场之旅"
-      subtitle="让我们为您提供最具性价比的海运解决方案，专业团队24小时在线服务"
-      primary-button-text="获取海运报价"
+      :title="getText('ctaTitle')"
+      :subtitle="getText('ctaSubtitle')"
+      :primary-button-text="getText('ctaPrimaryButton')"
       primary-button-href="/contact"
-      secondary-button-text="下载服务手册"
+      :secondary-button-text="getText('ctaSecondaryButton')"
       secondary-button-href="#"
       secondary-button-icon="download"
       :show-contact-info="true"
@@ -295,8 +311,155 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import PageHero from '@/components/ui/PageHero.vue'
 import Section from '@/components/ui/Section.vue'
 import CtaSection from '@/components/ui/CtaSection.vue'
+
+const { locale } = useI18n()
+
+// Translation types
+type TranslationKey =
+  | 'heroTitle'
+  | 'heroSubtitle'
+  | 'heroLabel'
+  | 'getQuoteButton'
+  | 'consultButton'
+  | 'servicesTitle'
+  | 'fclTitle'
+  | 'fclDesc'
+  | 'lclTitle'
+  | 'lclDesc'
+  | 'customsClearanceTitle'
+  | 'customsClearanceDesc'
+  | 'fbaExpressTitle'
+  | 'fbaExpressDesc'
+  | 'whyChooseTitle'
+  | 'experienceTitle'
+  | 'experienceDesc'
+  | 'timelinessTitle'
+  | 'timelinessDesc'
+  | 'endToEndTitle'
+  | 'endToEndDesc'
+  | 'securityTitle'
+  | 'securityDesc'
+  | 'caseStudyTitle'
+  | 'caseStudySubtitle'
+  | 'challengeSolutionTitle'
+  | 'challengeText'
+  | 'solutionText'
+  | 'resultsTitle'
+  | 'result1'
+  | 'result2'
+  | 'result3'
+  | 'ctaTitle'
+  | 'ctaSubtitle'
+  | 'ctaPrimaryButton'
+  | 'ctaSecondaryButton'
+
+// Translation mappings
+const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
+  zh: {
+    heroTitle: '全球海运，值得托付',
+    heroSubtitle:
+      '深耕行业近22载，可耐博达提供灵活、高效、经济的全方位海运服务。年操作超12,000TEU，无论整箱（FCL）或拼箱（LCL），我们确保您的货物安全、准时跨越重洋，顺利进入美国市场。',
+    heroLabel: '专业海运合作伙伴',
+    getQuoteButton: '获取海运报价',
+    consultButton: '在线咨询',
+    servicesTitle: '我们的海运服务',
+    fclTitle: '整箱运输 (FCL - Full Container Load)',
+    fclDesc:
+      '提供稳定船期、优先航线，覆盖全球主要港口。根据您的需求整合供应商资源，优化集拼与分拨策略，有效降低综合物流成本。',
+    lclTitle: '拼箱运输 (LCL - Less than Container Load)',
+    lclDesc:
+      '灵活拼装，成本优化，专为中小批量货物设计。我们敏捷应对供应链波动（生产延误、船期变更、港口拥堵、查验延长），为您争取时间窗口，提升决策效率。',
+    customsClearanceTitle: '专业清关，畅行无忧',
+    customsClearanceDesc:
+      '精通中美贸易法规，提供高效清关服务。针对超大尺寸（OOG）及复杂货物，专业项目团队定制专属解决方案，协调全程海运细节。',
+    fbaExpressTitle: '亚马逊FBA头程专线',
+    fbaExpressDesc:
+      '定制最优航线，无缝衔接亚马逊运营中心（FBA仓库）。专业IT团队确保系统高效对接，信息流畅通。',
+    whyChooseTitle: '为什么选择可耐博达海运？',
+    experienceTitle: '深厚经验，值得信赖',
+    experienceDesc: '22年行业积淀，强大网络资源，年操作超12,000TEU，经验丰富可靠。',
+    timelinessTitle: '时效稳定，承诺必达',
+    timelinessDesc: '依托美森快船等核心航线，保障12-15天稳定海运时效，配合1-3天快速清关。',
+    endToEndTitle: '端到端服务，无缝覆盖',
+    endToEndDesc: '服务链条完整：港口操作、拆箱、仓储、本地派送，真正实现门到门。',
+    securityTitle: '资产安全，全程保障',
+    securityDesc: '为高价值货物提供足额保险，全程监控，确保运输与仓储安全无虞。',
+    caseStudyTitle: '可耐博达在行动',
+    caseStudySubtitle: '护航全球光伏龙头"正泰集团"高价值特种设备赴美',
+    challengeSolutionTitle: '挑战与解决方案',
+    challengeText: '如何安全、合规运输高价值、超尺寸精密光伏设备，并解决复杂清关难题？',
+    solutionText:
+      '提供特殊加固包装、全程高额保险、专家清关服务，并利用自营卡车网络实现港口至工厂的精准直达派送。',
+    resultsTitle: '成效：',
+    result1: '实现零货损交付',
+    result2: '清关时间比预估缩短20%',
+    result3: '为客户项目按时启动提供了有力保障',
+    ctaTitle: '选择专业海运服务，开启美国市场之旅',
+    ctaSubtitle: '让我们为您提供最具性价比的海运解决方案，专业团队24小时在线服务',
+    ctaPrimaryButton: '获取海运报价',
+    ctaSecondaryButton: '下载服务手册',
+  },
+  en: {
+    heroTitle: 'Global Sea Freight, Trustworthy Service',
+    heroSubtitle:
+      'With nearly 22 years of industry experience, Kenable provides flexible, efficient, and economical comprehensive sea freight services. Handling over 12,000 TEU annually, whether FCL or LCL, we ensure your goods safely and punctually cross the ocean to enter the US market successfully.',
+    heroLabel: 'Professional Sea Freight Partner',
+    getQuoteButton: 'Get Sea Freight Quote',
+    consultButton: 'Online Consultation',
+    servicesTitle: 'Our Sea Freight Services',
+    fclTitle: 'Full Container Load (FCL)',
+    fclDesc:
+      'Providing stable schedules and priority routes covering major global ports. Integrating supplier resources according to your needs, optimizing consolidation and distribution strategies to effectively reduce overall logistics costs.',
+    lclTitle: 'Less than Container Load (LCL)',
+    lclDesc:
+      'Flexible consolidation and cost optimization designed for small to medium volume shipments. We respond agilely to supply chain fluctuations (production delays, schedule changes, port congestion, extended inspections) to secure time windows and improve decision-making efficiency.',
+    customsClearanceTitle: 'Professional Customs Clearance, Smooth Journey',
+    customsClearanceDesc:
+      'Proficient in China-US trade regulations, providing efficient customs clearance services. For oversized (OOG) and complex cargo, our professional project team customizes exclusive solutions and coordinates full sea freight details.',
+    fbaExpressTitle: 'Amazon FBA First-Mile Express',
+    fbaExpressDesc:
+      'Customized optimal routes with seamless connection to Amazon fulfillment centers (FBA warehouses). Professional IT team ensures efficient system integration and smooth information flow.',
+    whyChooseTitle: 'Why Choose Kenable Sea Freight?',
+    experienceTitle: 'Deep Experience, Trustworthy',
+    experienceDesc:
+      '22 years of industry expertise, strong network resources, handling over 12,000 TEU annually, experienced and reliable.',
+    timelinessTitle: 'Stable Transit Time, Committed Delivery',
+    timelinessDesc:
+      'Relying on core routes like Matson Express, ensuring stable 12-15 day sea freight transit times with 1-3 day rapid customs clearance.',
+    endToEndTitle: 'End-to-End Service, Seamless Coverage',
+    endToEndDesc:
+      'Complete service chain: port operations, unpacking, warehousing, local delivery, truly achieving door-to-door service.',
+    securityTitle: 'Asset Security, Full Protection',
+    securityDesc:
+      'Providing adequate insurance for high-value cargo with full monitoring to ensure safe transportation and warehousing.',
+    caseStudyTitle: 'Kenable in Action',
+    caseStudySubtitle:
+      'Safeguarding Global Solar Leader "Chint Group\'s" High-Value Special Equipment to the US',
+    challengeSolutionTitle: 'Challenge & Solution',
+    challengeText:
+      'How to safely and compliantly transport high-value, oversized precision solar equipment while solving complex customs clearance challenges?',
+    solutionText:
+      'Providing special reinforcement packaging, full high-value insurance, expert customs clearance services, and utilizing our self-operated truck network for precise direct delivery from port to factory.',
+    resultsTitle: 'Results:',
+    result1: 'Achieved zero cargo damage delivery',
+    result2: 'Customs clearance time reduced by 20% compared to estimate',
+    result3: 'Provided strong support for timely project launch',
+    ctaTitle: 'Choose Professional Sea Freight Services to Start Your US Market Journey',
+    ctaSubtitle:
+      'Let us provide you with the most cost-effective sea freight solutions with 24/7 professional team service',
+    ctaPrimaryButton: 'Get Sea Freight Quote',
+    ctaSecondaryButton: 'Download Service Manual',
+  },
+}
+
+// Get translated text helper function
+const getText = (key: TranslationKey): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
+}
 </script>

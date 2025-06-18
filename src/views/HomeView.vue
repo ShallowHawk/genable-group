@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import BaseButton from '@/components/ui/BaseButton.vue'
@@ -9,93 +10,582 @@ import Icon from '@/components/ui/Icon.vue'
 // 注册 ScrollTrigger 插件
 gsap.registerPlugin(ScrollTrigger)
 
-// 统计数据
-const statistics = [
+const { locale } = useI18n()
+
+// 定义翻译键的类型
+type TranslationKey =
+  // 统计数据
+  | 'statisticsTitle'
+  | 'containersHandled'
+  | 'clientsServed'
+  | 'annualDeliveries'
+  | 'packagesProcessed'
+  | 'ownTrucks'
+  | 'warehouseSpace'
+  // 核心服务
+  | 'endToEndTitle'
+  | 'endToEndDesc'
+  | 'warehouseNetworkTitle'
+  | 'warehouseNetworkDesc'
+  | 'industryExperienceTitle'
+  | 'industryExperienceDesc'
+  | 'deliveryNetworkTitle'
+  | 'deliveryNetworkDesc'
+  | 'customSolutionsTitle'
+  | 'customSolutionsDesc'
+  | 'transparentOperationsTitle'
+  | 'transparentOperationsDesc'
+  // 客户评价
+  | 'testimonialsTitle'
+  | 'testimonialsSubtitle'
+  | 'chintTestimonial'
+  | 'cushionLabTestimonial'
+  | 'chintAuthor'
+  | 'chintPosition'
+  | 'cushionLabAuthor'
+  | 'cushionLabPosition'
+  // Hero区域
+  | 'heroTitle'
+  | 'heroSubtitle'
+  | 'heroDescription'
+  | 'heroTitlePart1'
+  | 'heroTitlePart2'
+  | 'heroDescPart1'
+  | 'heroDescPart2'
+  | 'heroDescHighlight'
+  | 'heroBadge'
+  | 'heroCtaPrimary'
+  | 'heroCtaSecondary'
+  // 轮播图
+  | 'airFreightTitle'
+  | 'airFreightSubtitle'
+  | 'airFreightDesc'
+  | 'seaFreightTitle'
+  | 'seaFreightSubtitle'
+  | 'seaFreightDesc'
+  | 'contractLogisticsTitle'
+  | 'contractLogisticsSubtitle'
+  | 'contractLogisticsDesc'
+  | 'integratedIntermodalTitle'
+  | 'integratedIntermodalSubtitle'
+  | 'integratedIntermodalDesc'
+  | 'globalLocalTitle'
+  | 'globalLocalSubtitle'
+  | 'globalLocalDesc'
+  | 'supplyChainTitle'
+  | 'supplyChainSubtitle'
+  | 'supplyChainDesc'
+  // CTA区域
+  | 'ctaTitle'
+  | 'ctaSubtitle'
+  | 'ctaPrimary'
+  | 'ctaSecondary'
+  | 'ctaTertiary'
+  // 通用按钮和文本
+  | 'learnMore'
+  | 'viewNetwork'
+  | 'getQuote'
+  | 'clientTestimonials'
+  // 新增翻译键
+  | 'kenableSolutionsTitle'
+  | 'kenableSolutionsSubtitle'
+  | 'whyChooseUsTitle'
+  | 'partnersTitle'
+  | 'viewMoreCasesText'
+  | 'startCooperationButton'
+  | 'downloadManualButton'
+  | 'faqTitle'
+  // 选项卡
+  | 'tabGetQuote'
+  | 'tabServices'
+  | 'tabBook'
+  | 'tabTrack'
+  | 'tabQuoteTitle'
+  | 'tabQuoteDesc'
+  | 'tabServicesTitle'
+  | 'tabServicesDesc'
+  | 'tabBookTitle'
+  | 'tabBookDesc'
+  | 'tabTrackTitle'
+  | 'tabTrackDesc'
+  | 'selectServiceType'
+  | 'serviceFirstMile'
+  | 'serviceNationwideDelivery'
+  | 'serviceCustomSolutions'
+  | 'serviceValueAdded'
+  | 'serviceReverseLogistics'
+  | 'getQuoteButton'
+  | 'logisticsSolutionQuote'
+  | 'learnMoreLogistics'
+  | 'newCustomerBooking'
+  | 'existingCustomerLogin'
+  | 'trackNowButton'
+  | 'trackingSupportInfo'
+  | 'testimonialSectionTitle'
+  | 'testimonialSectionSubtitle'
+  | 'solutionAirFreightTitle'
+  | 'solutionAirFreightDesc'
+  | 'solutionSeaFreightTitle'
+  | 'solutionSeaFreightDesc'
+  | 'solutionContractLogisticsTitle'
+  | 'solutionContractLogisticsDesc'
+  | 'solutionIntermodalTitle'
+  | 'solutionIntermodalDesc'
+  | 'solutionGlobalLocalTitle'
+  | 'solutionGlobalLocalDesc'
+  | 'solutionSupplyChainTitle'
+  | 'solutionSupplyChainDesc'
+
+// 翻译映射 - 优化后的地道英文表达
+const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
+  zh: {
+    // 统计数据
+    statisticsTitle: '卓越成就，一目了然',
+    containersHandled: '集装箱处理量',
+    clientsServed: '服务客户',
+    annualDeliveries: '年度派送量',
+    packagesProcessed: '包裹处理量',
+    ownTrucks: '自有拖车卡车',
+    warehouseSpace: '平方米仓库面积',
+
+    // 核心服务
+    endToEndTitle: '一站式全链路服务',
+    endToEndDesc: '提供从跨境货运、清关到美国内陆运输和最后一公里派送的全方位解决方案。',
+    warehouseNetworkTitle: '全国自有仓储网络',
+    warehouseNetworkDesc:
+      '在加州、德州、佐治亚和印第安纳州拥有超22,000平米的自营仓库，确保高效分销。',
+    industryExperienceTitle: '丰富的行业与清关经验',
+    industryExperienceDesc: '近20年行业经验，精通美国法规和平台政策，高效解决复杂物流与清关挑战。',
+    deliveryNetworkTitle: '高效的派送合作网络',
+    deliveryNetworkDesc: '与UPS、USPS等官方合作，配合自营卡车车队，保障派送时效。',
+    customSolutionsTitle: '柔性定制化解决方案',
+    customSolutionsDesc: '支持整箱、拆箱、代发货等模式，根据您的特定需求量身定制服务。',
+    transparentOperationsTitle: '卓越声誉与透明运营',
+    transparentOperationsDesc: '提供全程可追溯的透明服务，是客户值得信赖的长期战略合作伙伴。',
+
+    // 客户评价
+    testimonialsTitle: '客户评价',
+    testimonialsSubtitle: '听听我们客户的真实声音',
+    chintTestimonial:
+      '面对高价值产品的跨境难题，可耐博达提供的一站式解决方案和全额价值保障，让我们能真正安心地将市场重心放在美国，后顾无忧。',
+    cushionLabTestimonial:
+      '作为年销售额超1亿美元的多平台销售商，可耐博达利用其覆盖全美的多仓网络和灵活的履行模式，为我们提供了稳定高效的仓储和分销服务。',
+    chintAuthor: '张总',
+    chintPosition: '供应链总监',
+    cushionLabAuthor: '李总',
+    cushionLabPosition: '运营总监',
+
+    // Hero区域
+    heroTitle: '您值得信赖的美国供应链管理合作伙伴',
+    heroSubtitle: '一站式跨境物流解决方案',
+    heroDescription:
+      '一站式提供国际头程、全美仓储、本土派送及订单履行服务，助您轻松立足美国市场。99%货物24小时内被取件',
+    heroTitlePart1: '您值得信赖的美国',
+    heroTitlePart2: '供应链管理合作伙伴',
+    heroDescPart1: '一站式提供国际头程、全美仓储、本土派送及订单履行服务，',
+    heroDescPart2: '助您轻松立足美国市场。',
+    heroDescHighlight: '99%货物24小时内被取件',
+    heroBadge: '美国领先的跨境物流服务商',
+    heroCtaPrimary: '开始合作',
+    heroCtaSecondary: '了解更多',
+
+    // 轮播图服务
+    airFreightTitle: '空运服务',
+    airFreightSubtitle: '快速、安全的国际航空运输解决方案',
+    airFreightDesc: '提供高效的航空货运服务，确保您的货物安全、快速地到达目的地',
+    seaFreightTitle: '海运服务',
+    seaFreightSubtitle: '经济高效的海洋货运解决方案',
+    seaFreightDesc: '依托Matson等知名船公司，提供稳定可靠的跨太平洋海运服务',
+    contractLogisticsTitle: '个性化定制方案',
+    contractLogisticsSubtitle: '定制化的供应链管理服务',
+    contractLogisticsDesc: '根据您的业务需求，量身定制专属的物流解决方案',
+    integratedIntermodalTitle: '一体化联运解决方案',
+    integratedIntermodalSubtitle: '含IPI在内的海、陆、空一体化联运解决方案',
+    integratedIntermodalDesc: '整合多种运输方式，提供无缝衔接的综合物流服务',
+    globalLocalTitle: '全球化当地布局',
+    globalLocalSubtitle: '扎根供应链源头的本地化团队服务',
+    globalLocalDesc: '依托全球网络和本地化团队，提供贴近市场的专业服务',
+    supplyChainTitle: '供应链解决方案',
+    supplyChainSubtitle: '端到端的供应链优化服务',
+    supplyChainDesc: '从采购到配送，提供全链条的供应链管理和优化服务',
+
+    // CTA区域
+    ctaTitle: '携手可耐博达，共创美国市场新机遇',
+    ctaSubtitle: '专业团队24小时在线，为您量身打造最优物流解决方案',
+    ctaPrimary: '获取专业报价',
+    ctaSecondary: '预约专属顾问',
+    ctaTertiary: '400-888-0123',
+
+    // 通用
+    learnMore: '了解更多',
+    viewNetwork: '查看我们的全球网络',
+    getQuote: '获取报价',
+    clientTestimonials: '客户评价',
+
+    // 新增翻译
+    kenableSolutionsTitle: '可耐博达Kenable解决方案',
+    kenableSolutionsSubtitle: '整合运输、仓储、报关、和贸易合规，提供一站式国际物流解决方案。',
+    whyChooseUsTitle: '为什么选择我们',
+    partnersTitle: '携手共赢的合作伙伴',
+    viewMoreCasesText: '查看更多客户案例',
+    startCooperationButton: '立即开始合作',
+    downloadManualButton: '下载服务手册',
+    faqTitle: '常见问题解答',
+
+    // 选项卡
+    tabGetQuote: '获取报价',
+    tabServices: '物流解决方案',
+    tabBook: '预订服务',
+    tabTrack: '货物追踪',
+    tabQuoteTitle: '专业报价，量身定制',
+    tabQuoteDesc: '告诉我们您的服务需求，我们将为您提供最具竞争力的解决方案',
+    tabServicesTitle: '智慧物流解决方案',
+    tabServicesDesc: '深入了解我们的全链路服务体系，找到最适合您业务的定制化方案',
+    tabBookTitle: '便捷服务预订',
+    tabBookDesc: '一键预订，省心省力：立即开启您的物流服务之旅',
+    tabTrackTitle: '智能货物追踪',
+    tabTrackDesc: '一键查询，全程透明：输入追踪号码，实时掌握货物运输状态',
+    selectServiceType: '选择服务类型',
+    serviceFirstMile: '头程物流（揽收、报关、清关、FBA运输）',
+    serviceNationwideDelivery: '全国派送（包裹与卡车专线服务）',
+    serviceCustomSolutions: '个性化定制方案（储存、指定货件处理、代发货）',
+    serviceValueAdded: '增值服务（分拣、换标、重包装、定制）',
+    serviceReverseLogistics: '逆向物流（退货、重新上架、库存处置）',
+    getQuoteButton: '获取报价',
+    logisticsSolutionQuote: '物流解决方案报价',
+    learnMoreLogistics: '了解更多物流解决方案',
+    newCustomerBooking: '新客户预订',
+    existingCustomerLogin: '现有客户登录',
+    trackNowButton: '立即追踪',
+    trackingSupportInfo: '支持：空运提单号、海运提单号、集装箱号、客户参考号',
+    testimonialSectionTitle: '口碑见证',
+    testimonialSectionSubtitle: '真实客户案例，见证我们的专业实力',
+    solutionAirFreightTitle: '空运服务',
+    solutionAirFreightDesc: '快速、安全的国际航空运输解决方案',
+    solutionSeaFreightTitle: '海运服务',
+    solutionSeaFreightDesc: '经济高效的海洋货运解决方案',
+    solutionContractLogisticsTitle: '个性化定制方案',
+    solutionContractLogisticsDesc: '定制化的供应链管理服务',
+    solutionIntermodalTitle: '一体化联运解决方案',
+    solutionIntermodalDesc: '含IPI在内的海、陆、空一体化联运解决方案',
+    solutionGlobalLocalTitle: '全球化当地布局',
+    solutionGlobalLocalDesc: '扎根供应链源头的本地化团队服务',
+    solutionSupplyChainTitle: '供应链解决方案',
+    solutionSupplyChainDesc: '端到端的供应链优化服务',
+  },
+  en: {
+    // 统计数据 - 地道英文表达
+    statisticsTitle: 'Our Track Record Speaks for Itself',
+    containersHandled: 'Containers Handled',
+    clientsServed: 'Satisfied Clients',
+    annualDeliveries: 'Annual Deliveries',
+    packagesProcessed: 'Packages Processed',
+    ownTrucks: 'Fleet Vehicles',
+    warehouseSpace: 'Sq Ft Warehouse Space',
+
+    // 核心服务 - 更自然的英文表达
+    endToEndTitle: 'Complete End-to-End Solutions',
+    endToEndDesc:
+      'From international freight and customs clearance to inland transportation and last-mile delivery across America.',
+    warehouseNetworkTitle: 'Nationwide Self-Operated Network',
+    warehouseNetworkDesc:
+      'Over 240,000 sq ft of self-operated warehouses strategically located in California, Texas, Georgia, and Indiana for optimal distribution.',
+    industryExperienceTitle: 'Deep Industry & Regulatory Expertise',
+    industryExperienceDesc:
+      'Nearly two decades of experience navigating US regulations and platform requirements, solving complex logistics challenges efficiently.',
+    deliveryNetworkTitle: 'Reliable Delivery Partnership',
+    deliveryNetworkDesc:
+      'Official partnerships with UPS and USPS combined with our own fleet ensure consistent delivery performance.',
+    customSolutionsTitle: 'Flexible, Tailored Solutions',
+    customSolutionsDesc:
+      'Full container, LCL, and drop-shipping options customized to meet your specific business requirements.',
+    transparentOperationsTitle: 'Trusted Partnership & Transparency',
+    transparentOperationsDesc:
+      'Full end-to-end visibility and transparent operations make us your reliable long-term strategic partner.',
+
+    // 客户评价 - 自然英文表达
+    testimonialsTitle: 'What Our Clients Say',
+    testimonialsSubtitle: 'Real feedback from satisfied customers',
+    chintTestimonial:
+      "With high-value products and complex cross-border challenges, Kenable's comprehensive solutions and full value protection give us complete peace of mind to focus on the US market.",
+    cushionLabTestimonial:
+      "As a multi-platform seller with over $100M in annual sales, Kenable's nationwide multi-warehouse network and flexible fulfillment options provide us with the stability and efficiency we need.",
+    chintAuthor: 'Mr. Zhang',
+    chintPosition: 'Supply Chain Director',
+    cushionLabAuthor: 'Mr. Li',
+    cushionLabPosition: 'Operations Director',
+
+    // Hero区域 - 地道表达
+    heroTitle: 'Your Trusted US Supply Chain Partner',
+    heroSubtitle: 'Complete Cross-Border Logistics Solutions',
+    heroDescription:
+      'From international shipping and nationwide warehousing to local delivery and order fulfillment - helping you succeed in the US market. 99% of shipments picked up within 24 hours.',
+    heroTitlePart1: 'Your Trusted US',
+    heroTitlePart2: 'Supply Chain Partner',
+    heroDescPart1:
+      'From international shipping and nationwide warehousing to local delivery and order fulfillment -',
+    heroDescPart2: 'helping you succeed in the US market.',
+    heroDescHighlight: '99% pickup within 24 hours',
+    heroBadge: 'Leading Cross-Border Logistics Provider in America',
+    heroCtaPrimary: 'Start Partnership',
+    heroCtaSecondary: 'Learn More',
+
+    // 轮播图服务 - 简洁有力的英文
+    airFreightTitle: 'Air Freight Services',
+    airFreightSubtitle: 'Fast, secure international air transport',
+    airFreightDesc:
+      'Efficient air cargo services ensuring your goods reach their destination safely and quickly',
+    seaFreightTitle: 'Ocean Freight Services',
+    seaFreightSubtitle: 'Cost-effective ocean shipping solutions',
+    seaFreightDesc: 'Reliable trans-Pacific shipping through trusted carriers like Matson',
+    contractLogisticsTitle: 'Custom Logistics Solutions',
+    contractLogisticsSubtitle: 'Tailored supply chain management',
+    contractLogisticsDesc:
+      'Logistics solutions designed specifically for your unique business needs',
+    integratedIntermodalTitle: 'Integrated Multimodal Solutions',
+    integratedIntermodalSubtitle: 'Seamless sea, land, and air transport including IPI',
+    integratedIntermodalDesc:
+      'Multiple transport modes integrated for comprehensive logistics efficiency',
+    globalLocalTitle: 'Global Network, Local Expertise',
+    globalLocalSubtitle: 'On-ground teams at supply chain origins',
+    globalLocalDesc:
+      'Local expertise and global reach providing market-focused professional services',
+    supplyChainTitle: 'Supply Chain Optimization',
+    supplyChainSubtitle: 'End-to-end supply chain solutions',
+    supplyChainDesc:
+      'Complete supply chain management and optimization from procurement to final delivery',
+
+    // CTA区域 - 有说服力的英文
+    ctaTitle: 'Partner with Kenable for US Market Success',
+    ctaSubtitle:
+      'Our expert team is available 24/7 to create the perfect logistics solution for your business',
+    ctaPrimary: 'Get Professional Quote',
+    ctaSecondary: 'Schedule Consultation',
+    ctaTertiary: 'Call Now: +1-800-KENABLE',
+
+    // 通用
+    learnMore: 'Learn More',
+    viewNetwork: 'View Our Global Network',
+    getQuote: 'Get Quote',
+    clientTestimonials: 'Client Testimonials',
+
+    // 新增翻译
+    kenableSolutionsTitle: 'Kenable Solutions',
+    kenableSolutionsSubtitle:
+      'Integrated transportation, warehousing, customs clearance, and trade compliance for comprehensive international logistics solutions.',
+    whyChooseUsTitle: 'Why Choose Us',
+    partnersTitle: 'Trusted Partners',
+    viewMoreCasesText: 'View More Case Studies',
+    startCooperationButton: 'Start Partnership',
+    downloadManualButton: 'Download Service Guide',
+    faqTitle: 'Frequently Asked Questions',
+
+    // 选项卡
+    tabGetQuote: 'Get Quote',
+    tabServices: 'Logistics Solutions',
+    tabBook: 'Book Service',
+    tabTrack: 'Track Shipment',
+    tabQuoteTitle: 'Professional Quote, Tailored for You',
+    tabQuoteDesc:
+      "Tell us your service requirements, and we'll provide the most competitive solution",
+    tabServicesTitle: 'Smart Logistics Solutions',
+    tabServicesDesc:
+      'Explore our comprehensive service portfolio to find the perfect customized solution for your business',
+    tabBookTitle: 'Convenient Service Booking',
+    tabBookDesc: 'One-click booking, hassle-free: Start your logistics journey today',
+    tabTrackTitle: 'Smart Shipment Tracking',
+    tabTrackDesc:
+      'One-click inquiry, full transparency: Enter tracking number for real-time shipment status',
+    selectServiceType: 'Select Service Type',
+    serviceFirstMile: 'First-Mile Logistics (Pickup, Customs, Clearance, FBA Transport)',
+    serviceNationwideDelivery: 'Nationwide Delivery (Parcel & FTL Services)',
+    serviceCustomSolutions: 'Custom Solutions (Storage, Designated Handling, Drop-shipping)',
+    serviceValueAdded: 'Value-Added Services (Sorting, Relabeling, Repackaging, Customization)',
+    serviceReverseLogistics: 'Reverse Logistics (Returns, Restocking, Inventory Disposal)',
+    getQuoteButton: 'Get Quote',
+    logisticsSolutionQuote: 'Logistics Solution Quote',
+    learnMoreLogistics: 'Learn More Logistics Solutions',
+    newCustomerBooking: 'New Customer Booking',
+    existingCustomerLogin: 'Existing Customer Login',
+    trackNowButton: 'Track Now',
+    trackingSupportInfo: 'Supports: Air waybill, Ocean B/L, Container number, Customer reference',
+    testimonialSectionTitle: 'Customer Testimonials',
+    testimonialSectionSubtitle:
+      'Real customer success stories showcasing our professional excellence',
+    solutionAirFreightTitle: 'Air Freight Services',
+    solutionAirFreightDesc: 'Fast, secure international air transport',
+    solutionSeaFreightTitle: 'Ocean Freight Services',
+    solutionSeaFreightDesc: 'Cost-effective ocean shipping solutions',
+    solutionContractLogisticsTitle: 'Custom Logistics Solutions',
+    solutionContractLogisticsDesc: 'Tailored supply chain management',
+    solutionIntermodalTitle: 'Integrated Multimodal Solutions',
+    solutionIntermodalDesc: 'Seamless sea, land, and air transport including IPI',
+    solutionGlobalLocalTitle: 'Global Network, Local Expertise',
+    solutionGlobalLocalDesc:
+      'Local expertise and global reach providing market-focused professional services',
+    solutionSupplyChainTitle: 'Supply Chain Optimization',
+    solutionSupplyChainDesc: 'End-to-end supply chain solutions',
+  },
+}
+
+// 获取翻译文本的帮助函数
+const getText = (key: TranslationKey): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
+}
+
+// 响应式翻译的统计数据
+const statistics = computed(() => [
   {
     value: '12,000+',
-    description: '集装箱处理量',
+    description: getText('containersHandled'),
   },
   {
     value: '110+',
-    description: '服务客户',
+    description: getText('clientsServed'),
   },
   {
     value: '15,000+',
-    description: '年度派送量',
+    description: getText('annualDeliveries'),
   },
   {
     value: '380,000+',
-    description: '包裹处理量',
+    description: getText('packagesProcessed'),
   },
   {
     value: '450+',
-    description: '自有拖车卡车',
+    description: getText('ownTrucks'),
   },
   {
     value: '22,000+',
-    description: '平方米仓库面积',
+    description: getText('warehouseSpace'),
   },
-]
+])
 
-// 核心优势
-const coreServices = [
+// 响应式翻译的核心服务
+const coreServices = computed(() => [
   {
     id: 'end-to-end',
-    title: '一站式全链路服务',
-    description: '提供从跨境货运、清关到美国内陆运输和最后一公里派送的全方位解决方案。',
+    title: getText('endToEndTitle'),
+    description: getText('endToEndDesc'),
   },
   {
     id: 'warehouse-network',
-    title: '全国自有仓储网络',
-    description: '在加州、德州、佐治亚和印第安纳州拥有超22,000平米的自营仓库，确保高效分销。',
+    title: getText('warehouseNetworkTitle'),
+    description: getText('warehouseNetworkDesc'),
   },
   {
     id: 'industry-experience',
-    title: '丰富的行业与清关经验',
-    description: '近20年行业经验，精通美国法规和平台政策，高效解决复杂物流与清关挑战。',
+    title: getText('industryExperienceTitle'),
+    description: getText('industryExperienceDesc'),
   },
   {
     id: 'delivery-network',
-    title: '高效的派送合作网络',
-    description: '与UPS、USPS等官方合作，配合自营卡车车队，保障派送时效。',
+    title: getText('deliveryNetworkTitle'),
+    description: getText('deliveryNetworkDesc'),
   },
   {
     id: 'custom-solutions',
-    title: '柔性定制化解决方案',
-    description: '支持整箱、拆箱、代发货等模式，根据您的特定需求量身定制服务。',
+    title: getText('customSolutionsTitle'),
+    description: getText('customSolutionsDesc'),
   },
   {
     id: 'transparent-operations',
-    title: '卓越声誉与透明运营',
-    description: '提供全程可追溯的透明服务，是客户值得信赖的长期战略合作伙伴。',
+    title: getText('transparentOperationsTitle'),
+    description: getText('transparentOperationsDesc'),
   },
-]
+])
 
-// 客户评价数据
-const testimonials = [
+// 响应式翻译的客户评价
+const testimonials = computed(() => [
   {
     id: 'chint',
-    company: '正泰集团',
-    industry: '光伏新能源',
+    company: 'Chint Group',
+    industry: locale.value === 'zh' ? '光伏新能源' : 'Solar Energy',
     logo: '⚡',
-    content:
-      '面对高价值产品的跨境难题，可耐博达提供的一站式解决方案和全额价值保障，让我们能真正安心地将市场重心放在美国，后顾无忧。',
-    author: '张总',
-    position: '供应链总监',
+    content: getText('chintTestimonial'),
+    author: getText('chintAuthor'),
+    position: getText('chintPosition'),
     rating: 5,
   },
   {
     id: 'cushion-lab',
     company: 'Cushion Lab',
-    industry: '电商零售',
+    industry: locale.value === 'zh' ? '电商零售' : 'E-commerce',
     logo: '🪑',
-    content:
-      '作为年销售额超1亿美元的多平台销售商，可耐博达利用其覆盖全美的多仓网络和灵活的履行模式，为我们提供了稳定高效的仓储和分销服务。',
-    author: '李总',
-    position: '运营总监',
+    content: getText('cushionLabTestimonial'),
+    author: getText('cushionLabAuthor'),
+    position: getText('cushionLabPosition'),
     rating: 5,
   },
-]
+])
+
+// 响应式翻译的轮播图数据
+const carouselSlides = computed(() => [
+  {
+    id: 'main-hero',
+    title: getText('heroTitle'),
+    subtitle: getText('heroSubtitle'),
+    description: getText('heroDescription'),
+    image: '',
+    link: '/services',
+    isMainHero: true,
+  },
+  {
+    id: 'air-freight',
+    title: getText('airFreightTitle'),
+    subtitle: getText('airFreightSubtitle'),
+    description: getText('airFreightDesc'),
+    image:
+      'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&h=1080&fit=crop&crop=center',
+    link: '/services/air-freight',
+  },
+  {
+    id: 'sea-freight',
+    title: getText('seaFreightTitle'),
+    subtitle: getText('seaFreightSubtitle'),
+    description: getText('seaFreightDesc'),
+    image:
+      'https://plus.unsplash.com/premium_photo-1661881251976-9fc9bbb90c4e?q=80&w=1920&h=1080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    link: '/services/sea-freight',
+  },
+  {
+    id: 'contract-logistics',
+    title: getText('contractLogisticsTitle'),
+    subtitle: getText('contractLogisticsSubtitle'),
+    description: getText('contractLogisticsDesc'),
+    image:
+      'https://plus.unsplash.com/premium_photo-1661559046208-0cef1cbf7b0b?q=80&w=1920&h=1080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    link: '/services/contract-logistics',
+  },
+  {
+    id: 'integrated-intermodal-solutions',
+    title: getText('integratedIntermodalTitle'),
+    subtitle: getText('integratedIntermodalSubtitle'),
+    description: getText('integratedIntermodalDesc'),
+    image:
+      'https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1920&h=1080&fit=crop&crop=center',
+    link: '/services/integrated-intermodal-solutions',
+  },
+  {
+    id: 'global-local-presence',
+    title: getText('globalLocalTitle'),
+    subtitle: getText('globalLocalSubtitle'),
+    description: getText('globalLocalDesc'),
+    image:
+      'https://plus.unsplash.com/premium_photo-1664298313394-cdfdff0300a9?q=80&w=1920&h=1080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    link: '/services/global-local-presence',
+  },
+  {
+    id: 'supply-chain-solutions',
+    title: getText('supplyChainTitle'),
+    subtitle: getText('supplyChainSubtitle'),
+    description: getText('supplyChainDesc'),
+    image:
+      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&h=1080&fit=crop&crop=center',
+    link: '/services/supply-chain-solutions',
+  },
+])
 
 // 合作伙伴
 const partners = [
@@ -107,74 +597,6 @@ const partners = [
   { name: 'Matson', logo: '🚢' },
 ]
 
-// 轮播图数据
-const carouselSlides = [
-  {
-    id: 'main-hero',
-    title: '您值得信赖的美国供应链管理合作伙伴',
-    subtitle: '一站式跨境物流解决方案',
-    description:
-      '一站式提供国际头程、全美仓储、本土派送及订单履行服务，助您轻松立足美国市场。99%货物24小时内被取件',
-    image: '', // 空字符串表示使用科技背景
-    link: '/services',
-    isMainHero: true, // 标记为主Hero，使用特殊背景
-  },
-  {
-    id: 'air-freight',
-    title: '空运服务',
-    subtitle: '快速、安全的国际航空运输解决方案',
-    description: '提供高效的航空货运服务，确保您的货物安全、快速地到达目的地',
-    image:
-      'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1920&h=1080&fit=crop&crop=center',
-    link: '/services/air-freight',
-  },
-  {
-    id: 'sea-freight',
-    title: '海运服务',
-    subtitle: '经济高效的海洋货运解决方案',
-    description: '依托Matson等知名船公司，提供稳定可靠的跨太平洋海运服务',
-    image:
-      'https://plus.unsplash.com/premium_photo-1661881251976-9fc9bbb90c4e?q=80&w=1920&h=1080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    link: '/services/sea-freight',
-  },
-  {
-    id: 'contract-logistics',
-    title: '个性化定制方案',
-    subtitle: '定制化的供应链管理服务',
-    description: '根据您的业务需求，量身定制专属的物流解决方案',
-    image:
-      'https://plus.unsplash.com/premium_photo-1661559046208-0cef1cbf7b0b?q=80&w=1920&h=1080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    link: '/services/contract-logistics',
-  },
-  {
-    id: 'integrated-intermodal-solutions',
-    title: '一体化联运解决方案',
-    subtitle: '含IPI在内的海、陆、空一体化联运解决方案',
-    description: '整合多种运输方式，提供无缝衔接的综合物流服务',
-    image:
-      'https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=1920&h=1080&fit=crop&crop=center',
-    link: '/services/integrated-intermodal-solutions',
-  },
-  {
-    id: 'global-local-presence',
-    title: '全球化当地布局',
-    subtitle: '扎根供应链源头的本地化团队服务',
-    description: '依托全球网络和本地化团队，提供贴近市场的专业服务',
-    image:
-      'https://plus.unsplash.com/premium_photo-1664298313394-cdfdff0300a9?q=80&w=1920&h=1080&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    link: '/services/global-local-presence',
-  },
-  {
-    id: 'supply-chain-solutions',
-    title: '供应链解决方案',
-    subtitle: '端到端的供应链优化服务',
-    description: '从采购到配送，提供全链条的供应链管理和优化服务',
-    image:
-      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&h=1080&fit=crop&crop=center',
-    link: '/services/supply-chain-solutions',
-  },
-]
-
 // 轮播图状态
 const currentSlide = ref(0)
 const isAutoPlay = ref(true)
@@ -182,11 +604,12 @@ let autoPlayTimer: ReturnType<typeof setInterval> | null = null
 
 // 轮播图方法
 const nextSlide = () => {
-  currentSlide.value = (currentSlide.value + 1) % carouselSlides.length
+  currentSlide.value = (currentSlide.value + 1) % carouselSlides.value.length
 }
 
 const prevSlide = () => {
-  currentSlide.value = currentSlide.value === 0 ? carouselSlides.length - 1 : currentSlide.value - 1
+  currentSlide.value =
+    currentSlide.value === 0 ? carouselSlides.value.length - 1 : currentSlide.value - 1
 }
 
 const goToSlide = (index: number) => {
@@ -205,92 +628,124 @@ const stopAutoPlay = () => {
   }
 }
 
-// 核心服务解决方案数据
-const coreServicesSolutions = [
+// 核心服务解决方案数据 - 响应式翻译
+const coreServicesSolutions = computed(() => [
   {
     id: 'air-freight',
-    title: '空运',
-    description: '快速、安全的国际航空运输解决方案',
+    title: getText('solutionAirFreightTitle'),
+    description: getText('solutionAirFreightDesc'),
     image:
       'https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=400&h=400&fit=crop&crop=center',
     link: '/services/air-freight',
   },
   {
     id: 'sea-freight',
-    title: '海运',
-    description: '经济高效的海洋货运解决方案',
+    title: getText('solutionSeaFreightTitle'),
+    description: getText('solutionSeaFreightDesc'),
     image:
       'https://plus.unsplash.com/premium_photo-1661881251976-9fc9bbb90c4e?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     link: '/services/sea-freight',
   },
   {
     id: 'contract-logistics',
-    title: '个性化定制方案',
-    description: '定制化的供应链管理服务',
+    title: getText('solutionContractLogisticsTitle'),
+    description: getText('solutionContractLogisticsDesc'),
     image:
       'https://plus.unsplash.com/premium_photo-1661559046208-0cef1cbf7b0b?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     link: '/services/contract-logistics',
   },
   {
     id: 'integrated-intermodal-solutions',
-    title: '一体化联运解决方案',
-    description: '含IPI在内的海、陆、空一体化联运解决方案',
+    title: getText('solutionIntermodalTitle'),
+    description: getText('solutionIntermodalDesc'),
     image:
       'https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=600&h=400&fit=crop&crop=center',
     link: '/services/integrated-intermodal-solutions',
   },
   {
     id: 'global-local-presence',
-    title: '全球化当地布局',
-    description: '扎根供应链源头的本地化团队服务',
+    title: getText('solutionGlobalLocalTitle'),
+    description: getText('solutionGlobalLocalDesc'),
     image:
       'https://plus.unsplash.com/premium_photo-1664298313394-cdfdff0300a9?q=80&w=2692&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     link: '/services/global-local-presence',
   },
   {
     id: 'supply-chain-solutions',
-    title: '供应链解决方案',
-    description: '端到端的供应链优化服务',
+    title: getText('solutionSupplyChainTitle'),
+    description: getText('solutionSupplyChainDesc'),
     image:
       'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=400&fit=crop&crop=center',
     link: '/services/supply-chain-solutions',
   },
-]
+])
 
 // 常见问题解答
-const faqItems = [
-  {
-    id: '1',
-    question: '你们提供哪些主要服务？',
-    answer:
-      '我们提供一站式的供应链服务，包括国际头程物流、美国全国派送（包裹和卡车专线）、海外仓储、退货处理（逆向物流）以及分拣、换标等增值服务。',
-    category: '服务范围',
-  },
-  {
-    id: '2',
-    question: '你们的仓库在美国哪些地方？',
-    answer:
-      '我们在美国的加利福尼亚州、德克萨斯州、佐治亚州和印第安纳州均设有战略布局的自营仓库，以支持高效的全国分销。',
-    category: '仓储网络',
-  },
-  {
-    id: '3',
-    question: '从中国海运到美国派送大概需要多久？',
-    answer:
-      '完整流程时效：揽收/报关1-2天 → 国际海运（Matson快船）12-15天 → 海关清关1-3天 → 派送至洛杉矶仓12-36小时 → 收货上架12-36小时 → 末端派送2-5天。全程约20-28天，每个环节透明可控。',
-    category: '时效说明',
-  },
-]
+// 响应式FAQ数据
+const faqItems = computed(() => {
+  const currentLang = locale.value as 'zh' | 'en'
+
+  if (currentLang === 'en') {
+    return [
+      {
+        id: '1',
+        question: 'What are your main services?',
+        answer:
+          'We provide comprehensive supply chain services including international first-mile logistics, US nationwide delivery (parcel and FTL services), overseas warehousing, returns processing (reverse logistics), and value-added services such as sorting and relabeling.',
+        category: 'Service Scope',
+      },
+      {
+        id: '2',
+        question: 'Where are your warehouses located in the US?',
+        answer:
+          'We operate strategically located self-operated warehouses in California, Texas, Georgia, and Indiana to support efficient nationwide distribution.',
+        category: 'Warehouse Network',
+      },
+      {
+        id: '3',
+        question: 'How long does sea freight from China to US delivery take?',
+        answer:
+          'Complete process timeline: Pickup/customs clearance 1-2 days → International shipping (Matson express) 12-15 days → US customs clearance 1-3 days → Delivery to LA warehouse 12-36 hours → Receiving and shelving 12-36 hours → Last-mile delivery 2-5 days. Total: approximately 20-28 days with full transparency at each stage.',
+        category: 'Transit Time',
+      },
+    ]
+  }
+
+  return [
+    {
+      id: '1',
+      question: '你们提供哪些主要服务？',
+      answer:
+        '我们提供一站式的供应链服务，包括国际头程物流、美国全国派送（包裹和卡车专线）、海外仓储、退货处理（逆向物流）以及分拣、换标等增值服务。',
+      category: '服务范围',
+    },
+    {
+      id: '2',
+      question: '你们的仓库在美国哪些地方？',
+      answer:
+        '我们在美国的加利福尼亚州、德克萨斯州、佐治亚州和印第安纳州均设有战略布局的自营仓库，以支持高效的全国分销。',
+      category: '仓储网络',
+    },
+    {
+      id: '3',
+      question: '从中国海运到美国派送大概需要多久？',
+      answer:
+        '完整流程时效：揽收/报关1-2天 → 国际海运（Matson快船）12-15天 → 海关清关1-3天 → 派送至洛杉矶仓12-36小时 → 收货上架12-36小时 → 末端派送2-5天。全程约20-28天，每个环节透明可控。',
+      category: '时效说明',
+    },
+  ]
+})
 
 // 选项卡功能
 const activeTab = ref('quote')
 
-const tabs = [
-  { id: 'quote', label: '获取报价' },
-  { id: 'services', label: '物流解决方案' },
-  { id: 'book', label: '预订服务' },
-  { id: 'track', label: '货物追踪' },
-]
+// 响应式选项卡
+const tabs = computed(() => [
+  { id: 'quote', label: getText('tabGetQuote') },
+  { id: 'services', label: getText('tabServices') },
+  { id: 'book', label: getText('tabBook') },
+  { id: 'track', label: getText('tabTrack') },
+])
 
 const setActiveTab = (tabId: string) => {
   activeTab.value = tabId
@@ -595,7 +1050,7 @@ onBeforeUnmount(() => {
               <div
                 class="inline-flex items-center bg-blue-500/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-blue-200 mb-8 border border-blue-400/30"
               >
-                美国领先的跨境物流服务商
+                {{ getText('heroBadge') }}
               </div>
 
               <!-- 主标题 -->
@@ -603,11 +1058,11 @@ onBeforeUnmount(() => {
                 v-if="slide.isMainHero"
                 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight"
               >
-                您值得信赖的美国
+                {{ getText('heroTitlePart1') }}
                 <br class="hidden lg:block" />
                 <span
                   class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"
-                  >供应链管理合作伙伴</span
+                  >{{ getText('heroTitlePart2') }}</span
                 >
               </h1>
               <h1
@@ -630,10 +1085,10 @@ onBeforeUnmount(() => {
                 v-if="slide.isMainHero"
                 class="text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto"
               >
-                一站式提供国际头程、全美仓储、本土派送及订单履行服务，
+                {{ getText('heroDescPart1') }}
                 <br class="hidden lg:block" />
-                助您轻松立足美国市场。
-                <span class="font-semibold text-cyan-400">99%货物24小时内被取件</span>
+                {{ getText('heroDescPart2') }}
+                <span class="font-semibold text-cyan-400">{{ getText('heroDescHighlight') }}</span>
               </p>
               <p
                 v-else
@@ -650,7 +1105,7 @@ onBeforeUnmount(() => {
                     size="lg"
                     class="bg-blue-600 hover:bg-blue-700 px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    了解更多
+                    {{ getText('learnMore') }}
                   </BaseButton>
                 </router-link>
                 <router-link to="/contact">
@@ -659,7 +1114,7 @@ onBeforeUnmount(() => {
                     size="lg"
                     class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 font-semibold transition-all duration-300"
                   >
-                    获取报价
+                    {{ getText('getQuote') }}
                   </BaseButton>
                 </router-link>
               </div>
@@ -738,11 +1193,11 @@ onBeforeUnmount(() => {
           <!-- 标题区域 -->
           <div class="text-center mb-16 lg:mb-20">
             <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              可耐博达Kenable解决方案
+              {{ getText('kenableSolutionsTitle') }}
             </h2>
             <p class="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
-              整合运输、仓储、报关、和贸易合规，提供一站式国际物流解决方案。
-              <!-- <a href="#" class="text-blue-600 hover:text-blue-800 font-medium ml-2">了解更多</a> -->
+              {{ getText('kenableSolutionsSubtitle') }}
+              <!-- <a href="#" class="text-blue-600 hover:text-blue-800 font-medium ml-2">{{ getText('learnMore') }}</a> -->
             </p>
           </div>
 
@@ -788,7 +1243,7 @@ onBeforeUnmount(() => {
                 size="lg"
                 class="bg-blue-600 hover:bg-blue-700 px-8 py-3 shadow-md hover:shadow-lg transition-all"
               >
-                了解更多
+                {{ getText('learnMore') }}
               </BaseButton>
             </router-link>
           </div>
@@ -812,7 +1267,9 @@ onBeforeUnmount(() => {
 
       <div class="container-section relative z-10">
         <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">卓越成就，一目了然</h2>
+          <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+            {{ getText('statisticsTitle') }}
+          </h2>
         </div>
 
         <!-- 统计数字 -->
@@ -837,7 +1294,7 @@ onBeforeUnmount(() => {
               size="lg"
               class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 font-semibold transition-all duration-300"
             >
-              查看我们的全球网络
+              {{ getText('viewNetwork') }}
             </BaseButton>
           </router-link>
         </div>
@@ -851,7 +1308,7 @@ onBeforeUnmount(() => {
           <!-- 标题 -->
           <div class="text-center mb-16 lg:mb-20">
             <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight">
-              为什么选择我们
+              {{ getText('whyChooseUsTitle') }}
             </h2>
           </div>
 
@@ -929,21 +1386,21 @@ onBeforeUnmount(() => {
                     <!-- 获取报价选项卡 -->
                     <div v-if="activeTab === 'quote'" class="flex flex-col justify-center h-full">
                       <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                        专业报价，量身定制
+                        {{ getText('tabQuoteTitle') }}
                       </h2>
                       <p class="text-xl text-gray-600 mb-10 leading-relaxed">
-                        告诉我们您的服务需求，我们将为您提供最具竞争力的解决方案
+                        {{ getText('tabQuoteDesc') }}
                       </p>
                       <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
                         <select
                           class="px-6 py-4 border border-gray-300 rounded-lg text-lg min-w-64 bg-white shadow-sm focus:ring-2 focus:ring-blue-500"
                         >
-                          <option>选择服务类型</option>
-                          <option>头程物流（揽收、报关、清关、FBA运输）</option>
-                          <option>全国派送（包裹与卡车专线服务）</option>
-                          <option>个性化定制方案（储存、指定货件处理、代发货）</option>
-                          <option>增值服务（分拣、换标、重包装、定制）</option>
-                          <option>逆向物流（退货、重新上架、库存处置）</option>
+                          <option>{{ getText('selectServiceType') }}</option>
+                          <option>{{ getText('serviceFirstMile') }}</option>
+                          <option>{{ getText('serviceNationwideDelivery') }}</option>
+                          <option>{{ getText('serviceCustomSolutions') }}</option>
+                          <option>{{ getText('serviceValueAdded') }}</option>
+                          <option>{{ getText('serviceReverseLogistics') }}</option>
                         </select>
                         <router-link to="/contact">
                           <BaseButton
@@ -951,7 +1408,7 @@ onBeforeUnmount(() => {
                             size="lg"
                             class="bg-blue-600 hover:bg-blue-700 px-8 shadow-md hover:shadow-lg transition-shadow"
                           >
-                            获取报价
+                            {{ getText('getQuoteButton') }}
                           </BaseButton>
                         </router-link>
                       </div>
@@ -963,10 +1420,10 @@ onBeforeUnmount(() => {
                       class="flex flex-col justify-center h-full"
                     >
                       <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                        智慧物流解决方案
+                        {{ getText('tabServicesTitle') }}
                       </h2>
                       <p class="text-xl text-gray-600 mb-10 leading-relaxed">
-                        深入了解我们的全链路服务体系，找到最适合您业务的定制化方案
+                        {{ getText('tabServicesDesc') }}
                       </p>
                       <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <router-link to="/contact">
@@ -975,7 +1432,7 @@ onBeforeUnmount(() => {
                             size="lg"
                             class="bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow"
                           >
-                            物流解决方案报价
+                            {{ getText('logisticsSolutionQuote') }}
                           </BaseButton>
                         </router-link>
                         <router-link to="/services">
@@ -984,7 +1441,7 @@ onBeforeUnmount(() => {
                             size="lg"
                             class="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white shadow-md hover:shadow-lg transition-all"
                           >
-                            了解更多物流解决方案
+                            {{ getText('learnMoreLogistics') }}
                           </BaseButton>
                         </router-link>
                       </div>
@@ -996,10 +1453,10 @@ onBeforeUnmount(() => {
                       class="flex flex-col justify-center h-full"
                     >
                       <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                        便捷服务预订
+                        {{ getText('tabBookTitle') }}
                       </h2>
                       <p class="text-xl text-gray-600 mb-10 leading-relaxed">
-                        一键预订，省心省力：立即开启您的物流服务之旅
+                        {{ getText('tabBookDesc') }}
                       </p>
                       <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <router-link to="/contact">
@@ -1008,7 +1465,7 @@ onBeforeUnmount(() => {
                             size="lg"
                             class="bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow"
                           >
-                            新客户预订
+                            {{ getText('newCustomerBooking') }}
                           </BaseButton>
                         </router-link>
                         <router-link to="/contact">
@@ -1017,7 +1474,7 @@ onBeforeUnmount(() => {
                             size="lg"
                             class="bg-gray-600 hover:bg-gray-700 shadow-md hover:shadow-lg transition-shadow"
                           >
-                            现有客户登录
+                            {{ getText('existingCustomerLogin') }}
                           </BaseButton>
                         </router-link>
                       </div>
@@ -1029,19 +1486,22 @@ onBeforeUnmount(() => {
                       class="flex flex-col justify-center h-full"
                     >
                       <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                        智能货物追踪
+                        {{ getText('tabTrackTitle') }}
                       </h2>
                       <p class="text-xl text-gray-600 mb-10 leading-relaxed">
-                        一键查询，全程透明：输入追踪号码，实时掌握货物运输状态<br /><span
-                          class="text-base text-gray-500"
-                          >支持：空运提单号、海运提单号、集装箱号、客户参考号</span
-                        >
+                        {{ getText('tabTrackDesc') }}<br /><span class="text-base text-gray-500">{{
+                          getText('trackingSupportInfo')
+                        }}</span>
                       </p>
 
                       <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
                         <div class="flex-1 max-w-md">
                           <BaseInput
-                            placeholder="请输入您的追踪号码..."
+                            :placeholder="
+                              locale === 'zh'
+                                ? '请输入您的追踪号码...'
+                                : 'Enter your tracking number...'
+                            "
                             size="lg"
                             class="w-full shadow-sm"
                           />
@@ -1052,7 +1512,7 @@ onBeforeUnmount(() => {
                             size="lg"
                             class="bg-blue-600 hover:bg-blue-700 px-12 shadow-md hover:shadow-lg transition-shadow"
                           >
-                            立即追踪
+                            {{ getText('trackNowButton') }}
                           </BaseButton>
                         </router-link>
                       </div>
@@ -1072,8 +1532,10 @@ onBeforeUnmount(() => {
         <div class="max-w-6xl mx-auto">
           <!-- 标题 -->
           <div class="text-center mb-16">
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">口碑见证</h2>
-            <p class="text-lg text-gray-600">真实客户案例，见证我们的专业实力</p>
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              {{ getText('testimonialSectionTitle') }}
+            </h2>
+            <p class="text-lg text-gray-600">{{ getText('testimonialSectionSubtitle') }}</p>
           </div>
 
           <!-- 客户评价卡片 - 竖向排列 -->
@@ -1103,7 +1565,9 @@ onBeforeUnmount(() => {
                     >
                       <Icon name="star" size="md" class="text-white" />
                     </div>
-                    <h4 class="font-black text-white text-2xl">客户评价</h4>
+                    <h4 class="font-black text-white text-2xl">
+                      {{ getText('clientTestimonials') }}
+                    </h4>
                   </div>
 
                   <blockquote
@@ -1150,7 +1614,7 @@ onBeforeUnmount(() => {
                 to="/case-studies"
                 class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-lg transition-colors group"
               >
-                查看更多客户案例
+                {{ getText('viewMoreCasesText') }}
                 <svg
                   class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
                   fill="none"
@@ -1177,7 +1641,9 @@ onBeforeUnmount(() => {
         <div class="max-w-4xl mx-auto">
           <!-- 标题 -->
           <div class="text-center mb-16">
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">携手共赢的合作伙伴</h2>
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              {{ getText('partnersTitle') }}
+            </h2>
           </div>
 
           <!-- 合作伙伴标志 -->
@@ -1204,7 +1670,9 @@ onBeforeUnmount(() => {
           <!-- 头部 -->
           <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-16">
             <div class="mb-8 lg:mb-0">
-              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">常见问题解答</h2>
+              <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                {{ getText('faqTitle') }}
+              </h2>
             </div>
             <!--
             <router-link
@@ -1271,10 +1739,10 @@ onBeforeUnmount(() => {
       <div class="container-section relative z-10">
         <div class="max-w-4xl mx-auto text-center text-white cta-content">
           <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold mb-8 leading-tight">
-            携手可耐博达，共创美国市场新机遇
+            {{ getText('ctaTitle') }}
           </h2>
           <p class="text-xl lg:text-2xl mb-12 text-gray-300 font-light leading-relaxed">
-            专业团队24小时在线，为您量身打造最优物流解决方案
+            {{ getText('ctaSubtitle') }}
           </p>
 
           <!-- CTA按钮 -->
@@ -1283,7 +1751,7 @@ onBeforeUnmount(() => {
               to="/contact"
               class="inline-flex items-center px-8 py-4 bg-white text-blue-900 font-semibold text-lg rounded-lg hover:bg-gray-100 transition-all duration-300 group"
             >
-              立即开始合作
+              {{ getText('startCooperationButton') }}
               <svg
                 class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
                 fill="none"
@@ -1303,7 +1771,7 @@ onBeforeUnmount(() => {
               href="#"
               class="inline-flex items-center text-white hover:text-gray-300 font-medium text-lg transition-colors group"
             >
-              下载服务手册
+              {{ getText('downloadManualButton') }}
               <svg
                 class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
                 fill="none"

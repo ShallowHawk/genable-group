@@ -56,6 +56,7 @@ const handleClick = (event: Event) => {
   text-decoration: none;
   transition: color 0.2s ease;
   border-radius: 0.375rem;
+  white-space: nowrap;
 }
 
 .nav-link:hover,
@@ -72,6 +73,7 @@ const handleClick = (event: Event) => {
   transition: all 0.2s ease;
   border-radius: 0.375rem;
   margin: 0.25rem 0;
+  white-space: nowrap;
 }
 
 .mobile-nav-link:hover,

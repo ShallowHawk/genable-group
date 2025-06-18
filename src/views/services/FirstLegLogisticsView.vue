@@ -1,18 +1,18 @@
 <template>
   <PageLayout
-    page-title="头程物流"
-    page-description="专业的国际货运服务，从揽收到目的地清关的全流程管理。我们提供一站式头程物流解决方案，将所有复杂环节交给我们，让您专注于核心业务。"
+    :page-title="getText('pageTitle')"
+    :page-description="getText('pageDescription')"
     :custom-breadcrumbs="[
-      { label: '服务体系', href: '/services' },
-      { label: '头程物流', href: '/services/first-leg-logistics' },
+      { label: getText('servicesLabel'), href: '/services' },
+      { label: getText('pageTitle'), href: '/services/first-leg-logistics' },
     ]"
   >
     <!-- Hero区域 -->
     <PageHero
-      title="化繁为简，掌控您的国际头程物流"
-      subtitle="专业的国际货运服务，从揽收到目的地清关的全流程管理。我们提供一站式头程物流解决方案，将所有复杂环节交给我们，让您专注于核心业务。"
+      :title="getText('title')"
+      :subtitle="getText('subtitle')"
       image-url="https://images.unsplash.com/photo-1634638022845-1ab614a94128?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      label="头程物流专家"
+      :label="getText('label')"
     >
       <template #actions>
         <router-link to="/contact">
@@ -21,7 +21,7 @@
             size="lg"
             class="bg-blue-600 text-white hover:bg-blue-700 px-8 shadow-md hover:shadow-lg transition-all"
           >
-            获取头程报价
+            {{ getText('getQuote') }}
           </BaseButton>
         </router-link>
         <router-link to="/contact">
@@ -30,7 +30,7 @@
             size="lg"
             class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 transition-all"
           >
-            在线咨询
+            {{ getText('consultation') }}
           </BaseButton>
         </router-link>
       </template>
@@ -40,9 +40,11 @@
     <Section background="gray">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">头程物流的核心挑战</h2>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            {{ getText('challengesTitle') }}
+          </h2>
           <p class="text-xl text-gray-600 max-w-4xl mx-auto">
-            从海外发货到抵达美国，头程物流充满了不确定性。高昂的运输成本、复杂的清关流程、不可控的延误风险，以及与多方供应商沟通的低效率，都是您在扩大业务时面临的现实挑战。
+            {{ getText('challengesIntro') }}
           </p>
         </div>
 
@@ -68,9 +70,11 @@
                   <span class="text-red-600 font-bold text-sm">!</span>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">成本失控</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('costControlTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    难以获得有竞争力的运费，燃油、旺季等附加费不透明，预算难以控制。
+                    {{ getText('costControlDesc') }}
                   </p>
                 </div>
               </li>
@@ -82,9 +86,11 @@
                   <span class="text-orange-600 font-bold text-sm">!</span>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">清关风险</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('clearanceRiskTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    不熟悉美国海关法规，文件错漏导致货物被扣、产生高额罚款。
+                    {{ getText('clearanceRiskDesc') }}
                   </p>
                 </div>
               </li>
@@ -96,9 +102,11 @@
                   <span class="text-yellow-600 font-bold text-sm">!</span>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">时效不定</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('timelineTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    船期或航班延误，无法准确预估到货时间，影响后续销售计划。
+                    {{ getText('timelineDesc') }}
                   </p>
                 </div>
               </li>
@@ -110,9 +118,11 @@
                   <span class="text-purple-600 font-bold text-sm">!</span>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">沟通壁垒</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('communicationTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    需要同时与工厂、货代、报关行、船公司等多方沟通，耗费大量精力。
+                    {{ getText('communicationDesc') }}
                   </p>
                 </div>
               </li>
@@ -127,10 +137,10 @@
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
           <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            可耐博达Kenable的一站式解决方案
+            {{ getText('solutionTitle') }}
           </h2>
           <p class="text-xl text-gray-600">
-            可耐博达（广州）供应链管理有限公司深刻理解您的痛点。我们提供一站式头程物流解决方案，将所有复杂环节交给我们，让您专注于核心业务。
+            {{ getText('solutionIntro') }}
           </p>
         </div>
 
@@ -138,22 +148,22 @@
           <!-- 提货与订舱 -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">提货与订舱</h3>
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">{{ getText('pickupTitle') }}</h3>
               <p class="text-gray-600 mb-6">
-                我们负责从您的指定工厂提货，并利用我们的行业网络，为您预定包括美森快船在内的最优航线和舱位。
+                {{ getText('pickupDesc') }}
               </p>
               <ul class="space-y-3">
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  专业上门提货服务
+                  {{ getText('pickupFeature1') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  美森快船优先舱位
+                  {{ getText('pickupFeature2') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  最优航线规划
+                  {{ getText('pickupFeature3') }}
                 </li>
               </ul>
             </div>
@@ -176,22 +186,22 @@
               />
             </div>
             <div class="order-1 lg:order-2">
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">专业出口与清关</h3>
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">{{ getText('clearanceTitle') }}</h3>
               <p class="text-gray-600 mb-6">
-                我们的专家团队在起运地和目的地处理所有报关文件，凭借丰富的经验处理高价值或特殊品的复杂清关，确保全程合规。
+                {{ getText('clearanceDesc') }}
               </p>
               <ul class="space-y-3">
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  专业报关文件处理
+                  {{ getText('clearanceFeature1') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  高价值特殊品清关
+                  {{ getText('clearanceFeature2') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  全程合规保障
+                  {{ getText('clearanceFeature3') }}
                 </li>
               </ul>
             </div>
@@ -360,9 +370,135 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import PageLayout from '@/components/layout/PageLayout.vue'
 import PageHero from '@/components/ui/PageHero.vue'
 import Section from '@/components/ui/Section.vue'
 import CtaSection from '@/components/ui/CtaSection.vue'
+
+const { locale } = useI18n()
+
+// 定义翻译键的类型
+type TranslationKey =
+  | 'pageTitle'
+  | 'pageDescription'
+  | 'servicesLabel'
+  | 'title'
+  | 'subtitle'
+  | 'label'
+  | 'getQuote'
+  | 'consultation'
+  | 'challengesTitle'
+  | 'challengesIntro'
+  | 'costControlTitle'
+  | 'costControlDesc'
+  | 'clearanceRiskTitle'
+  | 'clearanceRiskDesc'
+  | 'timelineTitle'
+  | 'timelineDesc'
+  | 'communicationTitle'
+  | 'communicationDesc'
+  | 'solutionTitle'
+  | 'solutionIntro'
+  | 'pickupTitle'
+  | 'pickupDesc'
+  | 'pickupFeature1'
+  | 'pickupFeature2'
+  | 'pickupFeature3'
+  | 'clearanceTitle'
+  | 'clearanceDesc'
+  | 'clearanceFeature1'
+  | 'clearanceFeature2'
+  | 'clearanceFeature3'
+
+// 翻译映射 - 使用地道商业英文表达
+const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
+  zh: {
+    pageTitle: '头程物流',
+    pageDescription:
+      '专业的国际货运服务，从揽收到目的地清关的全流程管理。我们提供一站式头程物流解决方案，将所有复杂环节交给我们，让您专注于核心业务。',
+    servicesLabel: '服务体系',
+    title: '化繁为简，掌控您的国际头程物流',
+    subtitle:
+      '专业的国际货运服务，从揽收到目的地清关的全流程管理。我们提供一站式头程物流解决方案，将所有复杂环节交给我们，让您专注于核心业务。',
+    label: '头程物流专家',
+    getQuote: '获取头程报价',
+    consultation: '在线咨询',
+    challengesTitle: '头程物流的核心挑战',
+    challengesIntro:
+      '从海外发货到抵达美国，头程物流充满了不确定性。高昂的运输成本、复杂的清关流程、不可控的延误风险，以及与多方供应商沟通的低效率，都是您在扩大业务时面临的现实挑战。',
+    costControlTitle: '成本失控',
+    costControlDesc: '难以获得有竞争力的运费，燃油、旺季等附加费不透明，预算难以控制。',
+    clearanceRiskTitle: '清关风险',
+    clearanceRiskDesc: '不熟悉美国海关法规，文件错漏导致货物被扣、产生高额罚款。',
+    timelineTitle: '时效不定',
+    timelineDesc: '船期或航班延误，无法准确预估到货时间，影响后续销售计划。',
+    communicationTitle: '沟通壁垒',
+    communicationDesc: '需要同时与工厂、货代、报关行、船公司等多方沟通，耗费大量精力。',
+    solutionTitle: '可耐博达Kenable的一站式解决方案',
+    solutionIntro:
+      '可耐博达（广州）供应链管理有限公司深刻理解您的痛点。我们提供一站式头程物流解决方案，将所有复杂环节交给我们，让您专注于核心业务。',
+    pickupTitle: '提货与订舱',
+    pickupDesc:
+      '我们负责从您的指定工厂提货，并利用我们的行业网络，为您预定包括美森快船在内的最优航线和舱位。',
+    pickupFeature1: '专业上门提货服务',
+    pickupFeature2: '美森快船优先舱位',
+    pickupFeature3: '最优航线规划',
+    clearanceTitle: '专业出口与清关',
+    clearanceDesc:
+      '我们的专家团队在起运地和目的地处理所有报关文件，凭借丰富的经验处理高价值或特殊品的复杂清关，确保全程合规。',
+    clearanceFeature1: '专业报关文件处理',
+    clearanceFeature2: '高价值特殊品清关',
+    clearanceFeature3: '全程合规保障',
+  },
+  en: {
+    pageTitle: 'First-Mile Logistics',
+    pageDescription:
+      'Professional international freight services with end-to-end management from pickup to destination clearance. We provide comprehensive first-mile logistics solutions, handling all complex processes so you can focus on your core business.',
+    servicesLabel: 'Services',
+    title: 'Simplify Complexity, Master Your International First-Mile Logistics',
+    subtitle:
+      'Professional international freight services with end-to-end management from pickup to destination clearance. We provide comprehensive first-mile logistics solutions, handling all complex processes so you can focus on your core business.',
+    label: 'First-Mile Logistics Expert',
+    getQuote: 'Get First-Mile Quote',
+    consultation: 'Get Started',
+    challengesTitle: 'Core Challenges in First-Mile Logistics',
+    challengesIntro:
+      'From overseas shipment to US arrival, first-mile logistics is filled with uncertainties. High transportation costs, complex customs processes, uncontrollable delay risks, and inefficient communication with multiple suppliers are all real challenges you face when expanding your business.',
+    costControlTitle: 'Cost Overruns',
+    costControlDesc:
+      'Difficulty securing competitive shipping rates, with opaque fuel surcharges and peak season fees making budget control challenging.',
+    clearanceRiskTitle: 'Customs Risks',
+    clearanceRiskDesc:
+      'Unfamiliarity with US customs regulations leads to documentation errors causing cargo detention and hefty penalties.',
+    timelineTitle: 'Uncertain Timelines',
+    timelineDesc:
+      'Shipping or flight delays make it impossible to accurately estimate arrival times, affecting subsequent sales planning.',
+    communicationTitle: 'Communication Barriers',
+    communicationDesc:
+      'Need to coordinate simultaneously with factories, freight forwarders, customs brokers, and shipping lines, consuming significant energy.',
+    solutionTitle: "Kenable's Complete First-Mile Solution",
+    solutionIntro:
+      'Kenable (Guangzhou) Supply Chain Management deeply understands your pain points. We provide comprehensive first-mile logistics solutions, handling all complex processes so you can focus on your core business.',
+    pickupTitle: 'Pickup & Booking',
+    pickupDesc:
+      'We handle pickup from your designated factories and leverage our industry network to secure optimal routes and space including priority Matson vessel bookings.',
+    pickupFeature1: 'Professional door-to-door pickup',
+    pickupFeature2: 'Priority Matson vessel space',
+    pickupFeature3: 'Optimal route planning',
+    clearanceTitle: 'Professional Export & Customs Clearance',
+    clearanceDesc:
+      'Our expert team handles all documentation at origin and destination, with extensive experience in complex clearance for high-value or special goods, ensuring full compliance throughout.',
+    clearanceFeature1: 'Professional customs documentation',
+    clearanceFeature2: 'High-value specialty goods clearance',
+    clearanceFeature3: 'Full compliance guarantee',
+  },
+}
+
+// 获取翻译文本的帮助函数
+const getText = (key: TranslationKey): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
+}
 </script>

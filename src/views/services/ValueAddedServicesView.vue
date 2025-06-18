@@ -1,18 +1,15 @@
 <template>
   <PageLayout
-    page-title="增值服务"
-    page-description="我们将仓库升级为您的产品'加工中心'。提供一系列专业的在库增值服务，让您的供应链更具柔性与创造力。精细化分拣、专业贴标换标、定制化包装、灵活定制方案。"
-    :custom-breadcrumbs="[
-      { label: '服务体系', href: '/services' },
-      { label: '增值服务', href: '/services/value-added-services' },
-    ]"
+    :page-title="getText('pageTitle')"
+    :page-description="getText('pageDescription')"
+    :custom-breadcrumbs="breadcrumbs"
   >
     <!-- Hero区域 -->
     <PageHero
-      title="超越仓储，以定制化增值服务提升您的产品价值"
-      subtitle="我们将仓库升级为您的产品'加工中心'。提供一系列专业的在库增值服务，让您的供应链更具柔性与创造力。精细化分拣、专业贴标换标、定制化包装、灵活定制方案。"
+      :title="getText('heroTitle')"
+      :subtitle="getText('heroSubtitle')"
       image-url="https://images.unsplash.com/photo-1553413077-190dd305871c?w=400&h=400&fit=crop&crop=center"
-      label="增值服务专家"
+      :label="getText('heroLabel')"
     >
       <template #actions>
         <router-link to="/contact">
@@ -21,7 +18,7 @@
             size="lg"
             class="bg-blue-600 text-white hover:bg-blue-700 px-8 shadow-md hover:shadow-lg transition-all"
           >
-            获取增值服务报价
+            {{ getText('getQuoteButton') }}
           </BaseButton>
         </router-link>
         <router-link to="/contact">
@@ -30,7 +27,7 @@
             size="lg"
             class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 transition-all"
           >
-            在线咨询
+            {{ getText('consultButton') }}
           </BaseButton>
         </router-link>
       </template>
@@ -40,9 +37,11 @@
     <Section background="gray">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">供应链中的增值挑战</h2>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            {{ getText('challengesTitle') }}
+          </h2>
           <p class="text-xl text-gray-600 max-w-4xl mx-auto">
-            在竞争激烈的市场中，标准化的物流已不足以构建核心优势。您的业务常常需要更灵活、更个性化的处理来满足特定的市场需求、平台规则或促销活动，而这正是许多传统物流服务商的短板。
+            {{ getText('challengesDescription') }}
           </p>
         </div>
 
@@ -68,9 +67,11 @@
                   <span class="text-red-600 font-bold text-sm">!</span>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">平台要求多变</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('platformRequirementsTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    不同电商平台（如亚马逊）对产品标签、包装有不同的规定，需要快速调整以满足合规要求。
+                    {{ getText('platformRequirementsDesc') }}
                   </p>
                 </div>
               </li>
@@ -82,9 +83,11 @@
                   <span class="text-orange-600 font-bold text-sm">!</span>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">产品组合营销</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('productMarketingTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    希望在仓库内进行产品组合、捆绑销售或礼品包装，但操作复杂且缺乏专业支持。
+                    {{ getText('productMarketingDesc') }}
                   </p>
                 </div>
               </li>
@@ -96,9 +99,11 @@
                   <span class="text-yellow-600 font-bold text-sm">!</span>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">库存版本管理</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('inventoryManagementTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    同一产品有多个版本或包装，需要精细化的分拣和管理，容易出现混乱。
+                    {{ getText('inventoryManagementDesc') }}
                   </p>
                 </div>
               </li>
@@ -110,9 +115,11 @@
                   <span class="text-purple-600 font-bold text-sm">!</span>
                 </div>
                 <div>
-                  <h3 class="text-xl font-bold text-gray-900 mb-2">临时性项目需求</h3>
+                  <h3 class="text-xl font-bold text-gray-900 mb-2">
+                    {{ getText('temporaryProjectsTitle') }}
+                  </h3>
                   <p class="text-gray-600">
-                    面对突发的市场活动或项目，需要快速、临时的定制化操作支持，但难以找到合适的服务商。
+                    {{ getText('temporaryProjectsDesc') }}
                   </p>
                 </div>
               </li>
@@ -127,10 +134,10 @@
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
           <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            可耐博达Kenable的一站式解决方案
+            {{ getText('solutionTitle') }}
           </h2>
           <p class="text-xl text-gray-600">
-            可耐博达（广州）供应链管理有限公司将仓库升级为您的产品'加工中心'。我们提供一系列专业的在库增值服务，让您的供应链更具柔性与创造力。
+            {{ getText('solutionDescription') }}
           </p>
         </div>
 
@@ -138,22 +145,24 @@
           <!-- 精细化分拣 -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">精细化分拣</h3>
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                {{ getText('precisionSortingTitle') }}
+              </h3>
               <p class="text-gray-600 mb-6">
-                我们根据您的指令，对到库货物按SKU、批次、渠道等维度进行精细化分类处理。
+                {{ getText('precisionSortingDesc') }}
               </p>
               <ul class="space-y-3">
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  按SKU精细分类
+                  {{ getText('precisionSortingFeature1') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  批次管理分拣
+                  {{ getText('precisionSortingFeature2') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  渠道定向处理
+                  {{ getText('precisionSortingFeature3') }}
                 </li>
               </ul>
             </div>
@@ -176,22 +185,24 @@
               />
             </div>
             <div class="order-1 lg:order-2">
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">专业贴标与换标</h3>
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                {{ getText('professionalLabelingTitle') }}
+              </h3>
               <p class="text-gray-600 mb-6">
-                我们提供高效的重新贴标（Relabeling）服务，确保您的产品标签符合任何销售渠道的规范。
+                {{ getText('professionalLabelingDesc') }}
               </p>
               <ul class="space-y-3">
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  高效重新贴标
+                  {{ getText('professionalLabelingFeature1') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  多渠道标准匹配
+                  {{ getText('professionalLabelingFeature2') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  质量检验保障
+                  {{ getText('professionalLabelingFeature3') }}
                 </li>
               </ul>
             </div>
@@ -200,22 +211,24 @@
           <!-- 定制化包装 -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">定制化包装</h3>
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                {{ getText('customPackagingTitle') }}
+              </h3>
               <p class="text-gray-600 mb-6">
-                我们支持产品的二次包装、重新包装（Repackaging）和组合包装，以满足您的营销和品牌展示需求。
+                {{ getText('customPackagingDesc') }}
               </p>
               <ul class="space-y-3">
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  二次包装服务
+                  {{ getText('customPackagingFeature1') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  重新包装定制
+                  {{ getText('customPackagingFeature2') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  组合套装包装
+                  {{ getText('customPackagingFeature3') }}
                 </li>
               </ul>
             </div>
@@ -238,22 +251,24 @@
               />
             </div>
             <div class="order-1 lg:order-2">
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">灵活的定制方案</h3>
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                {{ getText('flexibleSolutionsTitle') }}
+              </h3>
               <p class="text-gray-600 mb-6">
-                我们拥有近22年的行业经验，能够为您量身打造满足特定行业需求的、灵活可定制的解决方案。
+                {{ getText('flexibleSolutionsDesc') }}
               </p>
               <ul class="space-y-3">
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  22年行业经验
+                  {{ getText('flexibleSolutionsFeature1') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  量身定制方案
+                  {{ getText('flexibleSolutionsFeature2') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  特定行业需求
+                  {{ getText('flexibleSolutionsFeature3') }}
                 </li>
               </ul>
             </div>
@@ -266,9 +281,11 @@
     <Section background="white">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">选择我们，您将立即获得</h2>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            {{ getText('valueTitle') }}
+          </h2>
           <p class="text-xl text-gray-600">
-            我们的增值服务，是您应对市场不确定性、提升品牌价值的利器。
+            {{ getText('valueDescription') }}
           </p>
         </div>
 
@@ -284,10 +301,10 @@
                   />
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900">市场响应速度最大化</h3>
+              <h3 class="text-2xl font-bold text-gray-900">{{ getText('marketResponseTitle') }}</h3>
             </div>
             <p class="text-gray-600">
-              帮助您快速适应市场变化和平台政策调整，增强供应链的灵活性和韧性。
+              {{ getText('marketResponseDesc') }}
             </p>
           </div>
 
@@ -302,10 +319,12 @@
                   />
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900">供应链成本优化</h3>
+              <h3 class="text-2xl font-bold text-gray-900">
+                {{ getText('costOptimizationTitle') }}
+              </h3>
             </div>
             <p class="text-gray-600">
-              在仓库内一站式完成所有操作，无需中转至第三方，为您节省时间和运输成本。
+              {{ getText('costOptimizationDesc') }}
             </p>
           </div>
 
@@ -320,10 +339,10 @@
                   />
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900">品牌价值提升</h3>
+              <h3 class="text-2xl font-bold text-gray-900">{{ getText('brandValueTitle') }}</h3>
             </div>
             <p class="text-gray-600">
-              通过定制化的包装和处理，提升您产品的最终呈现效果和客户体验。
+              {{ getText('brandValueDesc') }}
             </p>
           </div>
 
@@ -336,9 +355,11 @@
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900">运营流程简化</h3>
+              <h3 class="text-2xl font-bold text-gray-900">
+                {{ getText('operationalSimplificationTitle') }}
+              </h3>
             </div>
-            <p class="text-gray-600">您只需下达指令，所有复杂的在库操作均由我们专业的团队完成。</p>
+            <p class="text-gray-600">{{ getText('operationalSimplificationDesc') }}</p>
           </div>
         </div>
       </div>
@@ -346,11 +367,11 @@
 
     <!-- CTA区域 -->
     <CtaSection
-      title="选择专业增值服务，提升您的产品价值"
-      subtitle="灵活的定制化方案，让您的供应链更具柔性与创造力"
-      primary-button-text="获取增值服务报价"
+      :title="getText('ctaTitle')"
+      :subtitle="getText('ctaSubtitle')"
+      :primary-button-text="getText('ctaPrimaryButton')"
       primary-button-href="/contact"
-      secondary-button-text="下载服务手册"
+      :secondary-button-text="getText('ctaSecondaryButton')"
       secondary-button-href="#"
       secondary-button-icon="download"
       :show-contact-info="true"
@@ -359,9 +380,229 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import PageLayout from '@/components/layout/PageLayout.vue'
 import PageHero from '@/components/ui/PageHero.vue'
 import Section from '@/components/ui/Section.vue'
 import CtaSection from '@/components/ui/CtaSection.vue'
+
+const { locale } = useI18n()
+
+// Translation types
+type TranslationKey =
+  | 'pageTitle'
+  | 'pageDescription'
+  | 'heroTitle'
+  | 'heroSubtitle'
+  | 'heroLabel'
+  | 'getQuoteButton'
+  | 'consultButton'
+  | 'breadcrumbServices'
+  | 'breadcrumbValueAdded'
+  | 'challengesTitle'
+  | 'challengesDescription'
+  | 'platformRequirementsTitle'
+  | 'platformRequirementsDesc'
+  | 'productMarketingTitle'
+  | 'productMarketingDesc'
+  | 'inventoryManagementTitle'
+  | 'inventoryManagementDesc'
+  | 'temporaryProjectsTitle'
+  | 'temporaryProjectsDesc'
+  | 'solutionTitle'
+  | 'solutionDescription'
+  | 'precisionSortingTitle'
+  | 'precisionSortingDesc'
+  | 'precisionSortingFeature1'
+  | 'precisionSortingFeature2'
+  | 'precisionSortingFeature3'
+  | 'professionalLabelingTitle'
+  | 'professionalLabelingDesc'
+  | 'professionalLabelingFeature1'
+  | 'professionalLabelingFeature2'
+  | 'professionalLabelingFeature3'
+  | 'customPackagingTitle'
+  | 'customPackagingDesc'
+  | 'customPackagingFeature1'
+  | 'customPackagingFeature2'
+  | 'customPackagingFeature3'
+  | 'flexibleSolutionsTitle'
+  | 'flexibleSolutionsDesc'
+  | 'flexibleSolutionsFeature1'
+  | 'flexibleSolutionsFeature2'
+  | 'flexibleSolutionsFeature3'
+  | 'valueTitle'
+  | 'valueDescription'
+  | 'marketResponseTitle'
+  | 'marketResponseDesc'
+  | 'costOptimizationTitle'
+  | 'costOptimizationDesc'
+  | 'brandValueTitle'
+  | 'brandValueDesc'
+  | 'operationalSimplificationTitle'
+  | 'operationalSimplificationDesc'
+  | 'ctaTitle'
+  | 'ctaSubtitle'
+  | 'ctaPrimaryButton'
+  | 'ctaSecondaryButton'
+
+// Translation mappings
+const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
+  zh: {
+    pageTitle: '增值服务',
+    pageDescription:
+      '我们将仓库升级为您的产品"加工中心"。提供一系列专业的在库增值服务，让您的供应链更具柔性与创造力。精细化分拣、专业贴标换标、定制化包装、灵活定制方案。',
+    heroTitle: '超越仓储，以定制化增值服务提升您的产品价值',
+    heroSubtitle:
+      '我们将仓库升级为您的产品"加工中心"。提供一系列专业的在库增值服务，让您的供应链更具柔性与创造力。精细化分拣、专业贴标换标、定制化包装、灵活定制方案。',
+    heroLabel: '增值服务专家',
+    getQuoteButton: '获取增值服务报价',
+    consultButton: '在线咨询',
+    breadcrumbServices: '服务体系',
+    breadcrumbValueAdded: '增值服务',
+    challengesTitle: '供应链中的增值挑战',
+    challengesDescription:
+      '在竞争激烈的市场中，标准化的物流已不足以构建核心优势。您的业务常常需要更灵活、更个性化的处理来满足特定的市场需求、平台规则或促销活动，而这正是许多传统物流服务商的短板。',
+    platformRequirementsTitle: '平台要求多变',
+    platformRequirementsDesc:
+      '不同电商平台（如亚马逊）对产品标签、包装有不同的规定，需要快速调整以满足合规要求。',
+    productMarketingTitle: '产品组合营销',
+    productMarketingDesc:
+      '希望在仓库内进行产品组合、捆绑销售或礼品包装，但操作复杂且缺乏专业支持。',
+    inventoryManagementTitle: '库存版本管理',
+    inventoryManagementDesc: '同一产品有多个版本或包装，需要精细化的分拣和管理，容易出现混乱。',
+    temporaryProjectsTitle: '临时性项目需求',
+    temporaryProjectsDesc:
+      '面对突发的市场活动或项目，需要快速、临时的定制化操作支持，但难以找到合适的服务商。',
+    solutionTitle: '可耐博达Kenable的一站式解决方案',
+    solutionDescription:
+      '可耐博达（广州）供应链管理有限公司将仓库升级为您的产品"加工中心"。我们提供一系列专业的在库增值服务，让您的供应链更具柔性与创造力。',
+    precisionSortingTitle: '精细化分拣',
+    precisionSortingDesc: '我们根据您的指令，对到库货物按SKU、批次、渠道等维度进行精细化分类处理。',
+    precisionSortingFeature1: '按SKU精细分类',
+    precisionSortingFeature2: '批次管理分拣',
+    precisionSortingFeature3: '渠道定向处理',
+    professionalLabelingTitle: '专业贴标与换标',
+    professionalLabelingDesc:
+      '我们提供高效的重新贴标（Relabeling）服务，确保您的产品标签符合任何销售渠道的规范。',
+    professionalLabelingFeature1: '高效重新贴标',
+    professionalLabelingFeature2: '多渠道标准匹配',
+    professionalLabelingFeature3: '质量检验保障',
+    customPackagingTitle: '定制化包装',
+    customPackagingDesc:
+      '我们支持产品的二次包装、重新包装（Repackaging）和组合包装，以满足您的营销和品牌展示需求。',
+    customPackagingFeature1: '二次包装服务',
+    customPackagingFeature2: '重新包装定制',
+    customPackagingFeature3: '组合套装包装',
+    flexibleSolutionsTitle: '灵活的定制方案',
+    flexibleSolutionsDesc:
+      '我们拥有近22年的行业经验，能够为您量身打造满足特定行业需求的、灵活可定制的解决方案。',
+    flexibleSolutionsFeature1: '22年行业经验',
+    flexibleSolutionsFeature2: '量身定制方案',
+    flexibleSolutionsFeature3: '特定行业需求',
+    valueTitle: '选择我们，您将立即获得',
+    valueDescription: '我们的增值服务，是您应对市场不确定性、提升品牌价值的利器。',
+    marketResponseTitle: '市场响应速度最大化',
+    marketResponseDesc: '帮助您快速适应市场变化和平台政策调整，增强供应链的灵活性和韧性。',
+    costOptimizationTitle: '供应链成本优化',
+    costOptimizationDesc: '在仓库内一站式完成所有操作，无需中转至第三方，为您节省时间和运输成本。',
+    brandValueTitle: '品牌价值提升',
+    brandValueDesc: '通过定制化的包装和处理，提升您产品的最终呈现效果和客户体验。',
+    operationalSimplificationTitle: '运营流程简化',
+    operationalSimplificationDesc: '您只需下达指令，所有复杂的在库操作均由我们专业的团队完成。',
+    ctaTitle: '选择专业增值服务，提升您的产品价值',
+    ctaSubtitle: '灵活的定制化方案，让您的供应链更具柔性与创造力',
+    ctaPrimaryButton: '获取增值服务报价',
+    ctaSecondaryButton: '下载服务手册',
+  },
+  en: {
+    pageTitle: 'Value-Added Services',
+    pageDescription:
+      'We upgrade warehouses into your product "processing centers". Providing a series of professional in-warehouse value-added services to make your supply chain more flexible and creative. Precise sorting, professional relabeling, customized packaging, flexible custom solutions.',
+    heroTitle:
+      'Beyond Warehousing: Enhance Your Product Value with Customized Value-Added Services',
+    heroSubtitle:
+      'We upgrade warehouses into your product "processing centers". Providing a series of professional in-warehouse value-added services to make your supply chain more flexible and creative. Precise sorting, professional relabeling, customized packaging, flexible custom solutions.',
+    heroLabel: 'Value-Added Services Expert',
+    getQuoteButton: 'Get Value-Added Services Quote',
+    consultButton: 'Online Consultation',
+    breadcrumbServices: 'Services',
+    breadcrumbValueAdded: 'Value-Added Services',
+    challengesTitle: 'Value-Added Challenges in Supply Chain',
+    challengesDescription:
+      "In today's competitive market, standardized logistics is no longer sufficient to build core advantages. Your business often requires more flexible and personalized handling to meet specific market demands, platform requirements, or promotional activities, which is precisely where many traditional logistics providers fall short.",
+    platformRequirementsTitle: 'Variable Platform Requirements',
+    platformRequirementsDesc:
+      'Different e-commerce platforms (such as Amazon) have varying regulations for product labeling and packaging, requiring quick adjustments to meet compliance requirements.',
+    productMarketingTitle: 'Product Combination Marketing',
+    productMarketingDesc:
+      'Need to perform product combinations, bundled sales, or gift packaging within warehouses, but operations are complex and lack professional support.',
+    inventoryManagementTitle: 'Inventory Version Management',
+    inventoryManagementDesc:
+      'Same products with multiple versions or packaging requiring precise sorting and management, prone to confusion.',
+    temporaryProjectsTitle: 'Temporary Project Demands',
+    temporaryProjectsDesc:
+      'Facing sudden market activities or projects requiring rapid, temporary customized operational support, but difficult to find suitable service providers.',
+    solutionTitle: "Kenable's One-Stop Solution",
+    solutionDescription:
+      'Kenable Group Corp upgrades warehouses into your product "processing centers". We provide a series of professional in-warehouse value-added services, making your supply chain more flexible and creative.',
+    precisionSortingTitle: 'Precision Sorting',
+    precisionSortingDesc:
+      'Following your instructions, we perform precise classification of warehouse goods by SKU, batch, channel, and other dimensions.',
+    precisionSortingFeature1: 'Precise SKU Classification',
+    precisionSortingFeature2: 'Batch Management Sorting',
+    precisionSortingFeature3: 'Channel-Directed Processing',
+    professionalLabelingTitle: 'Professional Labeling & Relabeling',
+    professionalLabelingDesc:
+      'We provide efficient relabeling services, ensuring your product labels comply with any sales channel standards.',
+    professionalLabelingFeature1: 'Efficient Relabeling',
+    professionalLabelingFeature2: 'Multi-Channel Standard Matching',
+    professionalLabelingFeature3: 'Quality Inspection Guarantee',
+    customPackagingTitle: 'Customized Packaging',
+    customPackagingDesc:
+      'We support secondary packaging, repackaging, and combination packaging to meet your marketing and brand presentation needs.',
+    customPackagingFeature1: 'Secondary Packaging Services',
+    customPackagingFeature2: 'Custom Repackaging',
+    customPackagingFeature3: 'Combination Set Packaging',
+    flexibleSolutionsTitle: 'Flexible Custom Solutions',
+    flexibleSolutionsDesc:
+      'With nearly 22 years of industry experience, we can tailor flexible, customizable solutions that meet specific industry requirements.',
+    flexibleSolutionsFeature1: '22 Years Industry Experience',
+    flexibleSolutionsFeature2: 'Tailored Custom Solutions',
+    flexibleSolutionsFeature3: 'Specific Industry Requirements',
+    valueTitle: 'Choose Us and Get Immediate Benefits',
+    valueDescription:
+      'Our value-added services are your tools for addressing market uncertainties and enhancing brand value.',
+    marketResponseTitle: 'Maximum Market Response Speed',
+    marketResponseDesc:
+      'Help you quickly adapt to market changes and platform policy adjustments, enhancing supply chain flexibility and resilience.',
+    costOptimizationTitle: 'Supply Chain Cost Optimization',
+    costOptimizationDesc:
+      'Complete all operations within the warehouse without third-party transfers, saving you time and transportation costs.',
+    brandValueTitle: 'Brand Value Enhancement',
+    brandValueDesc:
+      "Through customized packaging and processing, enhance your product's final presentation and customer experience.",
+    operationalSimplificationTitle: 'Operational Process Simplification',
+    operationalSimplificationDesc:
+      'You simply issue instructions, and all complex warehouse operations are completed by our professional team.',
+    ctaTitle: 'Choose Professional Value-Added Services to Enhance Your Product Value',
+    ctaSubtitle: 'Flexible customized solutions make your supply chain more flexible and creative',
+    ctaPrimaryButton: 'Get Value-Added Services Quote',
+    ctaSecondaryButton: 'Download Service Manual',
+  },
+}
+
+// Get translated text helper function
+const getText = (key: TranslationKey): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
+}
+
+// Responsive breadcrumbs
+const breadcrumbs = computed(() => [
+  { label: getText('breadcrumbServices'), href: '/services' },
+  { label: getText('breadcrumbValueAdded'), href: '/services/value-added-services' },
+])
 </script>

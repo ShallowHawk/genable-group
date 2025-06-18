@@ -53,7 +53,9 @@
                           >
                             {{ caseData.industry }}
                           </span>
-                          <div class="text-sm font-medium text-primary-100">成功案例</div>
+                          <div class="text-sm font-medium text-primary-100">
+                            {{ getText('successCase') }}
+                          </div>
                         </div>
                       </div>
 
@@ -122,7 +124,7 @@
                         >
                           <Icon name="alert-triangle" size="sm" class="text-white" />
                         </div>
-                        客户面临的挑战
+                        {{ getText('clientChallenges') }}
                       </h4>
                       <p class="text-gray-700 leading-relaxed text-lg">{{ caseData.challenge }}</p>
                     </div>
@@ -137,7 +139,7 @@
                         >
                           <Icon name="star" size="sm" class="text-white" />
                         </div>
-                        服务亮点
+                        {{ getText('serviceHighlights') }}
                       </h5>
                       <div class="space-y-3">
                         <div
@@ -162,7 +164,7 @@
                       >
                         <Icon name="lightbulb" size="lg" class="text-white" />
                       </div>
-                      可耐博达 解决方案
+                      {{ getText('kenableSolutions') }}
                     </h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       <div
@@ -193,7 +195,7 @@
                         >
                           <Icon name="trending-up" size="sm" class="text-white" />
                         </div>
-                        实施成果
+                        {{ getText('implementationResults') }}
                       </h5>
                       <div class="grid grid-cols-2 gap-6">
                         <div
@@ -225,7 +227,9 @@
                           >
                             <Icon name="star" size="sm" class="text-white" />
                           </div>
-                          <h4 class="font-black text-white text-xl">客户评价</h4>
+                          <h4 class="font-black text-white text-xl">
+                            {{ getText('clientTestimonial') }}
+                          </h4>
                         </div>
 
                         <blockquote
@@ -262,7 +266,45 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import Icon from '@/components/ui/Icon.vue'
+
+const { locale } = useI18n()
+
+// 定义翻译键类型
+type TranslationKey =
+  | 'successCase'
+  | 'clientChallenges'
+  | 'serviceHighlights'
+  | 'kenableSolutions'
+  | 'implementationResults'
+  | 'clientTestimonial'
+
+// 翻译映射
+const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
+  zh: {
+    successCase: '成功案例',
+    clientChallenges: '客户面临的挑战',
+    serviceHighlights: '服务亮点',
+    kenableSolutions: '可耐博达 解决方案',
+    implementationResults: '实施成果',
+    clientTestimonial: '客户评价',
+  },
+  en: {
+    successCase: 'Success Case',
+    clientChallenges: 'Client Challenges',
+    serviceHighlights: 'Service Highlights',
+    kenableSolutions: 'Kenable Solutions',
+    implementationResults: 'Implementation Results',
+    clientTestimonial: 'Client Testimonial',
+  },
+}
+
+// 获取翻译文本的帮助函数
+const getText = (key: TranslationKey): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
+}
 
 interface CaseData {
   company: string

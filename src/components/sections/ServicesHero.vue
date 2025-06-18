@@ -8,13 +8,12 @@
     <div class="container-section text-center">
       <div class="space-y-8">
         <h1 class="text-white font-black text-5xl lg:text-7xl mb-8 tracking-tight leading-tight">
-          端到端
-          <span class="block text-primary-300 mt-2">一体化</span>
+          {{ getText('title1') }}
+          <span class="block text-primary-300 mt-2">{{ getText('title2') }}</span>
         </h1>
         <div class="w-24 h-1 bg-primary-400 mx-auto mb-8"></div>
         <p class="text-gray-100 font-light text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed">
-          从国际头程到美国末端派送的全链路解决方案。<br />
-          五大核心服务，精准、高效、全程可控。
+          {{ getText('subtitle') }}
         </p>
       </div>
     </div>
@@ -22,7 +21,33 @@
 </template>
 
 <script setup lang="ts">
-// 这个组件不需要任何 props 或响应式数据
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
+
+// 定义翻译键的类型
+type TranslationKey = 'title1' | 'title2' | 'subtitle'
+
+// 翻译映射
+const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
+  zh: {
+    title1: '端到端',
+    title2: '一体化',
+    subtitle: '从国际头程到美国末端派送的全链路解决方案。五大核心服务，精准、高效、全程可控。',
+  },
+  en: {
+    title1: 'End-to-End',
+    title2: 'Integrated Solutions',
+    subtitle:
+      'Complete supply chain solutions from international first-mile to US last-mile delivery. Five core services with precision, efficiency, and full control.',
+  },
+}
+
+// 获取翻译文本的帮助函数
+const getText = (key: TranslationKey): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
+}
 </script>
 
 <style scoped>
