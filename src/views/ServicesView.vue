@@ -241,7 +241,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
   zh: {
     // 页面基本信息
     pageTitle: '端到端一体化服务体系',
-    pageDescription: '我们提供从国际头程到美国末端派送的全链路解决方案，精准、高效，全程可控。',
+    pageDescription: '我们提供从国际头程到美国末端派送的全链路解决方案，精准、高效、全程可控。',
 
     // 服务概览
     fiveCoreServices: '五大核心服务',
@@ -323,7 +323,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     // 页面基本信息 - 专业英文表达
     pageTitle: 'End-to-End Integrated Service System',
     pageDescription:
-      'We provide comprehensive full-chain solutions from international shipping to US last-mile delivery - precise, efficient, and fully controlled.',
+      'We provide comprehensive full-chain solutions from international shipping to US last-mile delivery - precise, efficient and fully controlled.',
 
     // 服务概览 - 简洁有力
     fiveCoreServices: 'Five Core Services',

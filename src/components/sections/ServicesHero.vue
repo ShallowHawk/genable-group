@@ -39,7 +39,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     title1: 'End-to-End',
     title2: 'Integrated Solutions',
     subtitle:
-      'Complete supply chain solutions from international first-mile to US last-mile delivery. Five core services with precision, efficiency, and full control.',
+      'Complete supply chain solutions from international first-mile to US last-mile delivery. Five core services with precision, efficiency and full control.',
   },
 }
 
