@@ -6,6 +6,7 @@
       { label: getText('servicesLabel'), href: '/services' },
       { label: getText('pageTitle'), href: '/services/first-leg-logistics' },
     ]"
+    :show-page-header="false"
   >
     <!-- Hero区域 -->
     <PageHero

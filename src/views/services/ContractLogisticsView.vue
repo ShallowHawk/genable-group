@@ -1,5 +1,5 @@
 <template>
-  <div class="contract-logistics-page">
+  <PageLayout :show-page-header="false">
     <!-- Hero区域 -->
     <PageHero
       :title="getText('title')"
@@ -297,7 +297,7 @@
       secondary-button-icon="download"
       :show-contact-info="true"
     />
-  </div>
+  </PageLayout>
 </template>
 
 <script setup lang="ts">
@@ -306,6 +306,7 @@ import BaseButton from '@/components/ui/BaseButton.vue'
 import PageHero from '@/components/ui/PageHero.vue'
 import Section from '@/components/ui/Section.vue'
 import CtaSection from '@/components/ui/CtaSection.vue'
+import PageLayout from '@/components/layout/PageLayout.vue'
 
 const { locale } = useI18n()
 

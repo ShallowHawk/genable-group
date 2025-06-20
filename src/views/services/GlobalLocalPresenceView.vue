@@ -1,5 +1,5 @@
 <template>
-  <div class="global-local-presence-page">
+  <PageLayout :show-page-header="false">
     <!-- Hero区域 -->
     <PageHero
       :title="getText('heroTitle')"
@@ -175,7 +175,7 @@
       secondary-button-icon="download"
       :show-contact-info="true"
     />
-  </div>
+  </PageLayout>
 </template>
 
 <script setup lang="ts">
@@ -187,6 +187,7 @@ import Section from '@/components/ui/Section.vue'
 import WhyUsModule from '@/components/sections/WhyUsModule.vue'
 import CaseStudyModule_Documentary from '@/components/sections/CaseStudyModule_Documentary.vue'
 import CtaSection from '@/components/ui/CtaSection.vue'
+import PageLayout from '@/components/layout/PageLayout.vue'
 
 const { locale } = useI18n()
 

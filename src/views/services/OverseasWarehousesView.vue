@@ -3,6 +3,7 @@
     :page-title="getText('pageTitle')"
     :page-description="getText('pageDescription')"
     :custom-breadcrumbs="breadcrumbs"
+    :show-page-header="false"
   >
     <!-- Hero区域 -->
     <PageHero
