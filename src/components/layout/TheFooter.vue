@@ -192,10 +192,10 @@ const getText = (key: TranslationKey): string => {
 }
 
 const socialLinks = [
-  { name: 'LinkedIn', href: '#', icon: 'linkedin' },
-  { name: 'Twitter', href: '#', icon: 'twitter' },
-  { name: 'Facebook', href: '#', icon: 'facebook' },
-  { name: 'YouTube', href: '#', icon: 'youtube' },
+  { name: 'LinkedIn', href: '/contact', icon: 'linkedin' },
+  { name: 'Twitter', href: '/contact', icon: 'twitter' },
+  { name: 'Facebook', href: '/contact', icon: 'facebook' },
+  { name: 'YouTube', href: '/contact', icon: 'youtube' },
 ]
 
 // 响应式翻译的快速链接
