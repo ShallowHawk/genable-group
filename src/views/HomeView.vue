@@ -180,8 +180,8 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     heroSubtitle: '一站式跨境物流解决方案',
     heroDescription:
       '一站式提供国际头程、全美仓储、本土派送及订单履行服务，助您轻松立足美国市场。99%货物24小时内被取件',
-    heroTitlePart1: '您值得信赖的美国',
-    heroTitlePart2: '供应链管理合作伙伴',
+    heroTitlePart1: '您值得信赖的',
+    heroTitlePart2: '美国供应链管理合作伙伴',
     heroDescPart1: '一站式提供国际头程、全美仓储、本土派送及订单履行服务，',
     heroDescPart2: '助您轻松立足美国市场。',
     heroDescHighlight: '99%货物24小时内被取件',
@@ -320,8 +320,8 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     heroSubtitle: 'Complete Cross-Border Logistics Solutions',
     heroDescription:
       'From international shipping and nationwide warehousing to local delivery and order fulfillment - helping you succeed in the US market. 99% of shipments picked up within 24 hours.',
-    heroTitlePart1: 'Your Trusted US',
-    heroTitlePart2: 'Supply Chain Partner',
+    heroTitlePart1: 'Your Trusted',
+    heroTitlePart2: 'US Supply Chain Partner',
     heroDescPart1:
       'From international shipping and nationwide warehousing to local delivery and order fulfillment -',
     heroDescPart2: 'helping you succeed in the US market.',
@@ -1112,7 +1112,7 @@ onBeforeUnmount(() => {
                   <BaseButton
                     variant="outline"
                     size="lg"
-                    class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 font-semibold transition-all duration-300"
+                    class="border-2 border-white text-white hover:bg-white/20 hover:border-cyan-400 hover:text-cyan-300 px-8 py-3 font-semibold transition-all duration-300 backdrop-blur-sm"
                   >
                     {{ getText('getQuote') }}
                   </BaseButton>
@@ -1292,7 +1292,7 @@ onBeforeUnmount(() => {
             <BaseButton
               variant="outline"
               size="lg"
-              class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 font-semibold transition-all duration-300"
+              class="border-2 border-white text-white hover:bg-white/20 hover:border-cyan-400 hover:text-cyan-300 px-8 py-3 font-semibold transition-all duration-300 backdrop-blur-sm"
             >
               {{ getText('viewNetwork') }}
             </BaseButton>

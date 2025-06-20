@@ -166,7 +166,7 @@
             <BaseButton
               variant="outline"
               size="lg"
-              class="border-white text-white hover:bg-white hover:text-primary-600"
+              class="border-white text-white hover:bg-white/20 hover:border-cyan-400 hover:text-cyan-300 backdrop-blur-sm"
             >
               <Icon name="help-circle" size="sm" class="mr-2" />
               查看帮助
