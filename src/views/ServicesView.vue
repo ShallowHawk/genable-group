@@ -469,7 +469,7 @@ const services = computed(() => [
     id: '5',
     title: getText('reverseLogistics'),
     description: getText('reverseDesc'),
-    icon: 'arrow-path',
+    icon: 'rotate-ccw',
     route: '/services/reverse-logistics',
     features: [
       getText('returnProcessing'),
