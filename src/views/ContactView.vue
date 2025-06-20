@@ -270,9 +270,9 @@
                 </BaseButton>
                 <p class="text-sm text-gray-500 mt-3 text-center">
                   * {{ getText('privacyPolicy') }}
-                  <a href="#" class="text-primary-600 hover:text-primary-700">{{
+                  <router-link to="/privacy" class="text-primary-600 hover:text-primary-700">{{
                     getText('privacyPolicyLink')
-                  }}</a>
+                  }}</router-link>
                 </p>
               </div>
             </form>
