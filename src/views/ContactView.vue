@@ -131,14 +131,14 @@
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <BaseInput
                   v-model="form.name"
-                  :label="getText('name') + ' *'"
+                  :label="getText('name')"
                   :placeholder="getText('namePlaceholder')"
                   :error="errors.name"
                   :required="true"
                 />
                 <BaseInput
                   v-model="form.phone"
-                  :label="getText('phone') + ' *'"
+                  :label="getText('phone')"
                   :placeholder="getText('phonePlaceholder')"
                   :error="errors.phone"
                   :required="true"
@@ -148,7 +148,7 @@
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <BaseInput
                   v-model="form.email"
-                  :label="getText('email') + ' *'"
+                  :label="getText('email')"
                   type="email"
                   :placeholder="getText('emailPlaceholder')"
                   :error="errors.email"
@@ -263,10 +263,10 @@
                   type="submit"
                   size="lg"
                   class="w-full"
-                  :disabled="isSubmitting"
-                  :loading="isSubmitting"
+                  :disabled="true"
+                  :loading="false"
                 >
-                  {{ isSubmitting ? getText('submitBtn') + '...' : getText('submitBtn') }}
+                  {{ getText('submitBtn') }}
                 </BaseButton>
                 <p class="text-sm text-gray-500 mt-3 text-center">
                   * {{ getText('privacyPolicy') }}
@@ -427,7 +427,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import PageLayout from '@/components/layout/PageLayout.vue'
 import BaseCard from '@/components/ui/BaseCard.vue'
@@ -836,10 +836,42 @@ const form = reactive({
 
 // 表单验证错误
 const errors = reactive({
-  name: '',
-  phone: '',
-  email: '',
+  name: false as boolean | string,
+  phone: false as boolean | string,
+  email: false as boolean | string,
 })
+
+// 实时验证字段
+const validateField = (field: keyof typeof errors) => {
+  switch (field) {
+    case 'name':
+      errors.name = form.name.trim() ? false : errors.name
+      break
+    case 'phone':
+      if (form.phone.trim()) {
+        if (!/^[+]?[\d\s\-()]+$/.test(form.phone)) {
+          errors.phone = getText('phoneValidationError')
+        } else {
+          errors.phone = false
+        }
+      }
+      break
+    case 'email':
+      if (form.email.trim()) {
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+          errors.email = getText('emailValidationError')
+        } else {
+          errors.email = false
+        }
+      }
+      break
+  }
+}
+
+// 监听表单字段变化并实时验证
+watch(() => form.name, () => validateField('name'))
+watch(() => form.phone, () => validateField('phone'))
+watch(() => form.email, () => validateField('email'))
 
 // 提交状态
 const isSubmitting = ref(false)
@@ -920,16 +952,16 @@ const validateForm = () => {
 
   // 重置错误
   Object.keys(errors).forEach((key) => {
-    ;(errors as any)[key] = ''
+    ;(errors as any)[key] = false
   })
 
   if (!form.name.trim()) {
-    errors.name = getText('name')
+    errors.name = getText('name') + ' ' + '为必填项'
     isValid = false
   }
 
   if (!form.phone.trim()) {
-    errors.phone = getText('phone')
+    errors.phone = getText('phone') + ' ' + '为必填项'
     isValid = false
   } else if (!/^[+]?[\d\s\-()]+$/.test(form.phone)) {
     errors.phone = getText('phoneValidationError')
@@ -937,7 +969,7 @@ const validateForm = () => {
   }
 
   if (!form.email.trim()) {
-    errors.email = getText('email')
+    errors.email = getText('email') + ' ' + '为必填项'
     isValid = false
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
     errors.email = getText('emailValidationError')
