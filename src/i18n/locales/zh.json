@@ -572,5 +572,10 @@
   "breadcrumb": {
     "home": "首页",
     "services": "服务体系"
+  },
+  "privacy": {
+    "title": "隐私政策",
+    "description": "我们的隐私政策",
+    "content": "测试"
   }
 }

@@ -456,5 +456,10 @@
   "breadcrumb": {
     "home": "Home",
     "services": "Services"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "description": "Our privacy policy",
+    "content": "test"
   }
 }
