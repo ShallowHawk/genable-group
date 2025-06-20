@@ -520,7 +520,7 @@ const advantages = computed(() => [
   {
     title: getText('selfOperatedAdvantage'),
     description: getText('selfOperatedDesc'),
-    icon: 'building-office-2',
+    icon: 'warehouse',
   },
   {
     title: getText('endToEndAdvantage'),
