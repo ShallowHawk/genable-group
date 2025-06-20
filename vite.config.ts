@@ -7,8 +7,8 @@ import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // GitHub Pages部署配置
-  base: process.env.NODE_ENV === 'production' ? '/genable-group/' : '/',
+  // 服务器部署配置 - 使用根路径
+  base: '/',
   plugins: [
     vue(),
     vueDevTools(),
