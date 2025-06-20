@@ -29,7 +29,7 @@
           <BaseButton
             variant="outline"
             size="lg"
-            class="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 transition-all"
+            class="border-2 border-white text-white hover:bg-white/20 hover:border-cyan-400 hover:text-cyan-300 px-8 transition-all backdrop-blur-sm"
           >
             {{ getText('consultation') }}
           </BaseButton>
