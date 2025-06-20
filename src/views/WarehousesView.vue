@@ -153,12 +153,21 @@
               </div>
 
               <!-- 配送中心图片区域 -->
-              <div
-                class="bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg h-48 flex items-center justify-center mb-4"
-              >
-                <div class="text-center text-gray-500">
-                  <Icon name="building" size="3xl" class="mb-2" />
-                  <p class="text-sm">{{ center.name }} {{ getText('facility') }}</p>
+              <div class="rounded-lg h-48 mb-4 overflow-hidden">
+                <img
+                  v-if="center.image"
+                  :src="center.image"
+                  :alt="center.name"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  v-else
+                  class="bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg h-48 flex items-center justify-center"
+                >
+                  <div class="text-center text-gray-500">
+                    <Icon name="building" size="3xl" class="mb-2" />
+                    <p class="text-sm">{{ center.name }} {{ getText('facility') }}</p>
+                  </div>
                 </div>
               </div>
             </template>
@@ -691,6 +700,7 @@ const distributionCenters = computed(() => [
     state: locale.value === 'zh' ? '加利福尼亚州' : 'California',
     status: getText('operational'),
     icon: 'building',
+    image: '/lsjpszx.jpg',
     description:
       locale.value === 'zh'
         ? '西海岸核心配送中心，覆盖加州、内华达州、亚利桑那州等地区，是我们最大的配送中心。'
@@ -710,6 +720,7 @@ const distributionCenters = computed(() => [
     state: locale.value === 'zh' ? '伊利诺伊州' : 'Illinois',
     status: getText('operational'),
     icon: 'building',
+    image: '/zjgpszx.jpg',
     description:
       locale.value === 'zh'
         ? '中部地区核心枢纽，覆盖中西部各州，地理位置优越，是连接东西海岸的重要节点。'
@@ -729,6 +740,7 @@ const distributionCenters = computed(() => [
     state: locale.value === 'zh' ? '纽约州' : 'New York',
     status: getText('operational'),
     icon: 'building',
+    image: '/nypszx.jpg',
     description:
       locale.value === 'zh'
         ? '东海岸主要配送中心，服务纽约、新泽西、宾州等东北部地区，人口密集，市场需求旺盛。'
@@ -748,6 +760,7 @@ const distributionCenters = computed(() => [
     state: locale.value === 'zh' ? '德克萨斯州' : 'Texas',
     status: getText('operational'),
     icon: 'building',
+    image: '/dlspszx.jpg',
     description:
       locale.value === 'zh'
         ? '南部地区重要配送节点，覆盖德州、路易斯安那州、俄克拉荷马州等南部各州。'
