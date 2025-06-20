@@ -509,18 +509,15 @@ onBeforeUnmount(() => {
               <!-- 创始人照片 -->
               <div class="lg:w-1/3 mb-8 lg:mb-0">
                 <div class="relative">
-                  <!-- 这里使用一个占位符，实际项目中可替换为真实照片 -->
+                  <!-- 使用实际的创始人照片 -->
                   <div
                     class="aspect-w-3 aspect-h-4 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg overflow-hidden shadow-xl"
                   >
-                    <div class="flex items-center justify-center">
-                      <div class="text-center">
-                        <div class="text-6xl text-blue-600 mb-4">👨‍💼</div>
-                        <div class="text-sm text-gray-500">
-                          {{ locale === 'zh' ? '创始人演讲照片' : 'Founder Speaking' }}
-                        </div>
-                      </div>
-                    </div>
+                    <img
+                      src="/123.jpg"
+                      :alt="locale === 'zh' ? '创始人演讲照片' : 'Founder Speaking'"
+                      class="w-full h-full object-cover"
+                    />
                   </div>
 
                   <!-- 装饰元素 -->
