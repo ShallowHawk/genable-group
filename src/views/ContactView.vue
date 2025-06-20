@@ -318,16 +318,19 @@
                 </div>
               </BaseCard>
 
-              <!-- 地图占位符 -->
+              <!-- Google 地图 -->
               <BaseCard variant="elevated" class="overflow-hidden">
-                <div
-                  class="bg-gradient-to-br from-gray-100 to-gray-200 h-64 flex items-center justify-center"
-                >
-                  <div class="text-center text-gray-500">
-                    <Icon name="map" size="4xl" class="mb-4" />
-                    <p class="text-lg font-medium">{{ getText('interactiveMap') }}</p>
-                    <p class="text-sm">{{ getText('clickForDetails') }}</p>
-                  </div>
+                <div class="h-64">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.5634821234567!2d-117.8654123456789!3d34.0205123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2d7c8a3a0b3a1%3A0x123456789abcdef0!2s21908%20Valley%20Blvd%2C%20Walnut%2C%20CA%2091789%2C%20USA!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Office Location - 21908 Valley Blvd, Walnut, CA 91789">
+                  </iframe>
                 </div>
               </BaseCard>
             </div>

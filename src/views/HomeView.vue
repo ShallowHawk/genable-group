@@ -1768,7 +1768,8 @@ onBeforeUnmount(() => {
             </router-link>
 
             <a
-              href="#"
+              href="/First‑Leg (Origin) Logistics Service Handbook.docx"
+              download
               class="inline-flex items-center text-white hover:text-gray-300 font-medium text-lg transition-colors group"
             >
               {{ getText('downloadManualButton') }}
