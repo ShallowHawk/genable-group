@@ -437,24 +437,75 @@ onBeforeUnmount(() => {
                 <!-- 图片区域 -->
                 <div class="lg:w-1/3">
                   <div class="relative">
-                    <!-- 占位图片区域，可以后续替换为真实图片 -->
+                    <!-- 图片区域，2023年显示qmzh.jpg，其他年份显示图标 -->
                     <div
                       class="aspect-w-4 aspect-h-3 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg overflow-hidden shadow-lg"
                     >
-                      <div class="flex items-center justify-center">
-                        <div class="text-center p-6">
-                          <div class="text-4xl text-blue-600 mb-4">
-                            <!-- 根据不同阶段显示不同图标 -->
-                            <template v-if="event.year === '2005'">🏢</template>
-                            <template v-else-if="event.year === '2008-09'">🏭</template>
-                            <template v-else-if="event.year === '2013-16'">🗺️</template>
-                            <template v-else-if="event.year === '2017-20'">⚡</template>
-                            <template v-else-if="event.year === '2021-22'">🌐</template>
-                            <template v-else>🚀</template>
+                      <!-- 2023年显示qmzh.jpg图片 -->
+                      <template v-if="event.year === '2023'">
+                        <img
+                          src="/qmzh.jpg"
+                          :alt="locale === 'zh' ? '全面整合' : 'Comprehensive Integration'"
+                          class="w-full h-full object-cover"
+                        />
+                      </template>
+                      <!-- 2005年显示mdjs.jpg图片 -->
+                      <template v-else-if="event.year === '2005'">
+                        <img
+                          src="/mdjs.jpg"
+                          :alt="locale === 'zh' ? '奠定基石' : 'Foundation'"
+                          class="w-full h-full object-cover"
+                        />
+                      </template>
+                      <!-- 2008-09年显示cjgm.jpg图片 -->
+                      <template v-else-if="event.year === '2008-09'">
+                        <img
+                          src="/cjgm.jpg"
+                          :alt="locale === 'zh' ? '初具规模' : 'Initial Scale'"
+                          class="w-full h-full object-cover"
+                        />
+                      </template>
+                      <!-- 2013-16年显示qmbj.jpg图片 -->
+                      <template v-else-if="event.year === '2013-16'">
+                        <img
+                          src="/qmbj.jpg"
+                          :alt="locale === 'zh' ? '全美布局' : 'Nationwide Expansion'"
+                          class="w-full h-full object-cover"
+                        />
+                      </template>
+                      <!-- 2017-20年显示fwsj.jpg图片 -->
+                      <template v-else-if="event.year === '2017-20'">
+                        <img
+                          src="/fwsj.jpg"
+                          :alt="locale === 'zh' ? '服务升级' : 'Service Upgrade'"
+                          class="w-full h-full object-cover"
+                        />
+                      </template>
+                      <!-- 2021-22年显示ltys.jpg图片 -->
+                      <template v-else-if="event.year === '2021-22'">
+                        <img
+                          src="/ltys.jpg"
+                          :alt="locale === 'zh' ? '链条延伸' : 'Chain Extension'"
+                          class="w-full h-full object-cover"
+                        />
+                      </template>
+                      <!-- 其他年份显示图标 -->
+                      <template v-else>
+                        <div class="flex items-center justify-center">
+                          <div class="text-center p-6">
+                            <div class="text-4xl text-blue-600 mb-4">
+                              <!-- 根据不同阶段显示不同图标 -->
+                              <template v-if="event.year === '2005'">🏢</template>
+                              <template v-else-if="event.year === '2008-09'">🏭</template>
+                              <template v-else-if="event.year === '2013-16'">🗺️</template>
+                              <template v-else-if="event.year === '2017-20'">⚡</template>
+                              <template v-else-if="event.year === '2021-22'">🌐</template>
+                              <template v-else>🚀</template>
+                            </div>
+                            <div class="text-sm text-gray-500">{{ event.year }}</div>
                           </div>
-                          <div class="text-sm text-gray-500">{{ event.year }}</div>
                         </div>
-                      </div>
+                      </template>
                     </div>
 
                     <!-- 蓝色标签区域 -->
