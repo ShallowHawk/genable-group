@@ -1458,23 +1458,14 @@ onBeforeUnmount(() => {
                       <p class="text-xl text-gray-600 mb-10 leading-relaxed">
                         {{ getText('tabBookDesc') }}
                       </p>
-                      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                      <div class="flex justify-center">
                         <router-link to="/contact">
                           <BaseButton
                             variant="primary"
                             size="lg"
-                            class="bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow"
+                            class="bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow px-12"
                           >
-                            {{ getText('newCustomerBooking') }}
-                          </BaseButton>
-                        </router-link>
-                        <router-link to="/contact">
-                          <BaseButton
-                            variant="primary"
-                            size="lg"
-                            class="bg-gray-600 hover:bg-gray-700 shadow-md hover:shadow-lg transition-shadow"
-                          >
-                            {{ getText('existingCustomerLogin') }}
+                            联系我们
                           </BaseButton>
                         </router-link>
                       </div>
@@ -1506,15 +1497,14 @@ onBeforeUnmount(() => {
                             class="w-full shadow-sm"
                           />
                         </div>
-                        <router-link to="/tracking">
-                          <BaseButton
-                            variant="primary"
-                            size="lg"
-                            class="bg-blue-600 hover:bg-blue-700 px-12 shadow-md hover:shadow-lg transition-shadow"
-                          >
-                            {{ getText('trackNowButton') }}
-                          </BaseButton>
-                        </router-link>
+                        <BaseButton
+                          variant="primary"
+                          size="lg"
+                          :disabled="true"
+                          class="bg-gray-400 cursor-not-allowed px-12 shadow-md opacity-50"
+                        >
+                          {{ getText('trackNowButton') }}
+                        </BaseButton>
                       </div>
                     </div>
                   </div>
