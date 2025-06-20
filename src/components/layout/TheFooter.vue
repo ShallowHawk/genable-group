@@ -48,11 +48,11 @@
           <div>
             <h3 class="text-lg font-semibold mb-6">{{ getText('contactTitle') }}</h3>
             <div class="space-y-4">
-              <contact-item icon="phone" :label="contactLabels.phone" value="+1 (555) 123-4567" />
+              <contact-item icon="phone" :label="contactLabels.phone" value="+1 (626) 693-6579" />
               <contact-item
                 icon="mail"
                 :label="contactLabels.email"
-                value="info@kenablegroup.com"
+                value="adam@kenablegroup.com"
               />
               <contact-item icon="map-pin" :label="contactLabels.address" :value="addressText" />
             </div>
@@ -225,7 +225,7 @@ const contactLabels = computed(() => ({
 
 // 响应式翻译的地址信息
 const addressText = computed(() =>
-  locale.value === 'zh' ? '美国加利福尼亚州洛杉矶市' : 'Los Angeles, California, USA',
+  locale.value === 'zh' ? '21908 Valley Blvd, Walnut, CA 91789' : '21908 Valley Blvd, Walnut, CA 91789',
 )
 </script>
 

@@ -26,7 +26,7 @@
             <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ getText('phoneConsult') }}</h3>
             <p class="text-gray-600 mb-4">{{ getText('phoneDesc') }}</p>
             <div class="space-y-2">
-              <p class="font-medium text-primary-600">+1 (555) 123-4567</p>
+              <p class="font-medium text-primary-600">+1 (626) 693-6579</p>
               <p class="text-sm text-gray-500">{{ getText('workdays') }}</p>
               <p class="text-sm text-gray-500">{{ getText('weekends') }}</p>
             </div>
@@ -44,7 +44,7 @@
             <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ getText('emailSupport') }}</h3>
             <p class="text-gray-600 mb-4">{{ getText('emailDesc') }}</p>
             <div class="space-y-2">
-              <p class="font-medium text-accent-600">info@kenablegroup.com</p>
+              <p class="font-medium text-accent-600">adam@kenablegroup.com</p>
               <p class="text-sm text-gray-500">{{ getText('replyTime') }}</p>
               <p class="text-sm text-gray-500">{{ getText('bilingualSupport') }}</p>
             </div>
@@ -288,7 +288,7 @@
             </div>
 
             <div class="space-y-8">
-              <!-- 总部地址 -->
+              <!-- 办公地址 -->
               <BaseCard variant="outlined">
                 <div class="flex items-start space-x-4">
                   <div
@@ -301,65 +301,22 @@
                       {{ getText('headquarters') }}
                     </h3>
                     <p class="text-gray-600 mb-3">
-                      1234 Logistics Blvd, Suite 500<br />
-                      Los Angeles, CA 90015
+                      21908 Valley Blvd<br />
+                      Walnut, California 91789
                     </p>
                     <div class="flex flex-wrap gap-4 text-sm text-gray-500">
                       <span class="flex items-center">
                         <Icon name="phone" size="xs" class="mr-1" />
-                        +1 (555) 123-4567
+                        +1 (626) 693-6579
                       </span>
                       <span class="flex items-center">
                         <Icon name="mail" size="xs" class="mr-1" />
-                        la@kenablegroup.com
+                        adam@kenablegroup.com
                       </span>
                     </div>
                   </div>
                 </div>
               </BaseCard>
-
-              <!-- 分部地址 -->
-              <div class="space-y-4">
-                <h3 class="text-lg font-semibold text-gray-900">{{ getText('otherLocations') }}</h3>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <BaseCard variant="outlined" class="p-4">
-                    <h4 class="font-medium text-gray-900 mb-2">{{ getText('chicago') }}</h4>
-                    <p class="text-sm text-gray-600 mb-2">
-                      5678 Commerce St<br />
-                      Chicago, IL 60601
-                    </p>
-                    <p class="text-sm text-gray-500">+1 (555) 234-5678</p>
-                  </BaseCard>
-
-                  <BaseCard variant="outlined" class="p-4">
-                    <h4 class="font-medium text-gray-900 mb-2">{{ getText('newYork') }}</h4>
-                    <p class="text-sm text-gray-600 mb-2">
-                      9012 Trade Ave<br />
-                      New York, NY 10001
-                    </p>
-                    <p class="text-sm text-gray-500">+1 (555) 345-6789</p>
-                  </BaseCard>
-
-                  <BaseCard variant="outlined" class="p-4">
-                    <h4 class="font-medium text-gray-900 mb-2">{{ getText('dallas') }}</h4>
-                    <p class="text-sm text-gray-600 mb-2">
-                      3456 Freight Way<br />
-                      Dallas, TX 75201
-                    </p>
-                    <p class="text-sm text-gray-500">+1 (555) 456-7890</p>
-                  </BaseCard>
-
-                  <BaseCard variant="outlined" class="p-4">
-                    <h4 class="font-medium text-gray-900 mb-2">{{ getText('china') }}</h4>
-                    <p class="text-sm text-gray-600 mb-2">
-                      深圳市南山区科技园<br />
-                      创新大厦8楼
-                    </p>
-                    <p class="text-sm text-gray-500">+86 755 1234 5678</p>
-                  </BaseCard>
-                </div>
-              </div>
 
               <!-- 地图占位符 -->
               <BaseCard variant="elevated" class="overflow-hidden">
@@ -403,12 +360,7 @@
           </BaseCard>
         </div>
 
-        <div class="text-center mt-12">
-          <BaseButton variant="outline" size="lg">
-            <Icon name="message-circle" size="sm" class="mr-2" />
-            {{ getText('viewMoreFaq') }}
-          </BaseButton>
-        </div>
+
       </div>
     </section>
 
@@ -636,9 +588,8 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
 
     // 办公地址
     officeAddress: '办公地址',
-    officeAddressDesc: '全球多个办事处，就近为您提供专业服务',
-    headquarters: '总部',
-    otherLocations: '其他办事处',
+    officeAddressDesc: '我们的办公地址信息，欢迎您前来洽谈合作',
+    headquarters: '办公地址',
     chicago: '芝加哥',
     newYork: '纽约',
     dallas: '达拉斯',
@@ -767,10 +718,9 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     privacyPolicyLink: 'Privacy Policy',
 
     // 办公地址
-    officeAddress: 'Office Locations',
-    officeAddressDesc: 'Global offices to serve you with professional services nearby',
-    headquarters: 'Headquarters',
-    otherLocations: 'Other Locations',
+    officeAddress: 'Office Address',
+    officeAddressDesc: 'Our office location information, welcome to visit for business discussions',
+    headquarters: 'Office Address',
     chicago: 'Chicago',
     newYork: 'New York',
     dallas: 'Dallas',
