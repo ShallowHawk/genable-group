@@ -25,34 +25,36 @@
             <BaseCard
               variant="elevated"
               hoverable
-              class="text-center h-full transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1"
+              class="h-full transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1"
             >
               <template #header>
-                <div
-                  class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-200 transition-colors"
-                >
-                  <Icon
-                    :name="service.icon"
-                    size="xl"
-                    class="text-primary-500 group-hover:text-primary-600"
-                  />
+                <div class="text-center">
+                  <div
+                    class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-200 transition-colors"
+                  >
+                    <Icon
+                      :name="service.icon"
+                      size="xl"
+                      class="text-primary-500 group-hover:text-primary-600"
+                    />
+                  </div>
+                  <h3
+                    class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors"
+                  >
+                    {{ service.title }}
+                  </h3>
                 </div>
-                <h3
-                  class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors"
-                >
-                  {{ service.title }}
-                </h3>
               </template>
-              <p class="text-gray-600 mb-4">{{ service.description }}</p>
+              <p class="text-gray-600 mb-4 text-left">{{ service.description }}</p>
               <template #footer>
-                <ul class="text-sm text-gray-500 space-y-1 mb-4">
+                <ul class="text-sm text-gray-500 space-y-1 mb-4 text-left">
                   <li v-for="feature in service.features" :key="feature" class="flex items-center">
                     <Icon name="check" size="xs" class="text-primary-500 mr-2" />
                     {{ feature }}
                   </li>
                 </ul>
                 <div
-                  class="text-primary-600 text-sm font-medium group-hover:text-primary-700 transition-colors"
+                  class="text-primary-600 text-sm font-medium group-hover:text-primary-700 transition-colors text-left"
                 >
                   {{ getText('learnDetails') }} →
                 </div>
