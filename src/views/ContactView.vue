@@ -326,7 +326,7 @@
                     width="100%"
                     height="100%"
                     style="border:0;"
-                    allowfullscreen=""
+                    allowfullscreen
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
                     title="Office Location - 21908 Valley Blvd, Walnut, CA 91789">
@@ -593,6 +593,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     officeAddress: '办公地址',
     officeAddressDesc: '我们的办公地址信息，欢迎您前来洽谈合作',
     headquarters: '办公地址',
+    otherLocations: '其他办公地点',
     chicago: '芝加哥',
     newYork: '纽约',
     dallas: '达拉斯',
@@ -724,6 +725,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     officeAddress: 'Office Address',
     officeAddressDesc: 'Our office location information, welcome to visit for business discussions',
     headquarters: 'Office Address',
+    otherLocations: 'Other Locations',
     chicago: 'Chicago',
     newYork: 'New York',
     dallas: 'Dallas',
