@@ -94,8 +94,8 @@
         <div v-if="showContactInfo" class="mt-8 pt-8 border-t border-white/20">
           <p class="text-gray-300 text-lg">
             {{ getContactText() }}
-            <a href="tel:400-XXX-XXXX" class="text-white hover:text-cyan-300 transition-colors">
-              400-XXX-XXXX
+                    <a href="tel:+16266936579" class="text-white hover:text-cyan-300 transition-colors">
+          +1 (626) 693-6579
             </a>
           </p>
         </div>

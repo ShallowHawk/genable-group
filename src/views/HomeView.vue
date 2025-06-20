@@ -214,7 +214,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     ctaSubtitle: '专业团队24小时在线，为您量身打造最优物流解决方案',
     ctaPrimary: '获取专业报价',
     ctaSecondary: '预约专属顾问',
-    ctaTertiary: '400-888-0123',
+            ctaTertiary: '+1 (626) 693-6579',
 
     // 通用
     learnMore: '了解更多',
