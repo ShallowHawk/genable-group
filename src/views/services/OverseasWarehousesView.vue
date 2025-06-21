@@ -210,29 +210,29 @@
           <!-- 智慧库存管理 -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">智慧库存管理</h3>
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">{{ getText('inventoryTitle') }}</h3>
               <p class="text-gray-600 mb-6">
-                我们利用先进的WMS（仓库管理系统），为您提供实时的库存数据，并支持多平台的灵活库存管理，优化所有渠道的履约。
+                {{ getText('inventoryDesc') }}
               </p>
               <ul class="space-y-3">
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  先进WMS系统
+                  {{ getText('inventoryFeature1') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  实时库存数据
+                  {{ getText('inventoryFeature2') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  多平台同步管理
+                  {{ getText('inventoryFeature3') }}
                 </li>
               </ul>
             </div>
             <div>
               <img
                 src="https://images.unsplash.com/photo-1567789884554-0b844b597180?w=600&h=400&fit=crop&crop=center"
-                alt="智能仓库管理系统"
+                :alt="getText('inventoryImageAlt')"
                 class="w-full h-80 object-cover rounded-2xl shadow-lg"
               />
             </div>
@@ -243,27 +243,29 @@
             <div class="order-2 lg:order-1">
               <img
                 src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="多模式订单履行"
+                :alt="getText('fulfillmentImageAlt')"
                 class="w-full h-80 object-cover rounded-2xl shadow-lg"
               />
             </div>
             <div class="order-1 lg:order-2">
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">多模式订单履行</h3>
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                {{ getText('fulfillmentTitle') }}
+              </h3>
               <p class="text-gray-600 mb-6">
-                我们支持FBA入仓、D2C直发消费者和B2B批量批发的多种灵活履约模式，并提供一件代发（Drop-Shipping）服务。
+                {{ getText('fulfillmentDesc') }}
               </p>
               <ul class="space-y-3">
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  FBA入仓服务
+                  {{ getText('fulfillmentFeature1') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  D2C直发消费者
+                  {{ getText('fulfillmentFeature2') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  一件代发服务
+                  {{ getText('fulfillmentFeature3') }}
                 </li>
               </ul>
             </div>
@@ -276,9 +278,11 @@
     <Section background="white">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">选择我们，您将立即获得</h2>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            {{ getText('valueTitle') }}
+          </h2>
           <p class="text-xl text-gray-600">
-            将您的库存交给我们，您得到的不仅是存储空间，更是一个强大的商业增长引擎。
+            {{ getText('valueDesc') }}
           </p>
         </div>
 
@@ -294,10 +298,10 @@
                   />
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900">完全控制与低风险</h3>
+              <h3 class="text-2xl font-bold text-gray-900">{{ getText('value1Title') }}</h3>
             </div>
             <p class="text-gray-600">
-              全自营仓库意味着更强的操作控制力、更低的运营风险和有保障的灵活性与时效性。
+              {{ getText('value1Desc') }}
             </p>
           </div>
 
@@ -312,10 +316,10 @@
                   />
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900">库存周转率提升</h3>
+              <h3 class="text-2xl font-bold text-gray-900">{{ getText('value2Title') }}</h3>
             </div>
             <p class="text-gray-600">
-              通过数据驱动的管理和高效的订单处理，我们帮助您降低库存成本，提升周转率。
+              {{ getText('value2Desc') }}
             </p>
           </div>
 
@@ -328,10 +332,10 @@
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900">客户体验优化</h3>
+              <h3 class="text-2xl font-bold text-gray-900">{{ getText('value3Title') }}</h3>
             </div>
             <p class="text-gray-600">
-              快速、准确的订单履约能显著提升您的终端客户满意度和品牌忠诚度。
+              {{ getText('value3Desc') }}
             </p>
           </div>
 
@@ -346,9 +350,9 @@
                   />
                 </svg>
               </div>
-              <h3 class="text-2xl font-bold text-gray-900">支持业务扩展</h3>
+              <h3 class="text-2xl font-bold text-gray-900">{{ getText('value4Title') }}</h3>
             </div>
-            <p class="text-gray-600">我们的全国性网络能无缝支持您开拓新市场和新销售渠道。</p>
+            <p class="text-gray-600">{{ getText('value4Desc') }}</p>
           </div>
         </div>
       </div>
@@ -356,11 +360,11 @@
 
     <!-- CTA区域 -->
     <CtaSection
-      title="选择专业海外仓储服务，智慧管理您的库存"
-      subtitle="22,000+平方米自营仓储网络，为您的业务增长提供强大支撑"
-      primary-button-text="获取仓储报价"
+      :title="getText('ctaTitle')"
+      :subtitle="getText('ctaSubtitle')"
+      :primary-button-text="getText('ctaPrimaryButton')"
       primary-button-href="/contact"
-      secondary-button-text="下载服务手册"
+      :secondary-button-text="getText('ctaSecondaryButton')"
       secondary-button-href="#"
       secondary-button-icon="download"
       :show-contact-info="true"
@@ -415,6 +419,32 @@ type TranslationKey =
   | 'facilitiesImageAlt'
   | 'breadcrumbServices'
   | 'breadcrumbWarehouses'
+  | 'ctaTitle'
+  | 'ctaSubtitle'
+  | 'ctaPrimaryButton'
+  | 'ctaSecondaryButton'
+  | 'inventoryTitle'
+  | 'inventoryDesc'
+  | 'inventoryFeature1'
+  | 'inventoryFeature2'
+  | 'inventoryFeature3'
+  | 'inventoryImageAlt'
+  | 'fulfillmentTitle'
+  | 'fulfillmentDesc'
+  | 'fulfillmentFeature1'
+  | 'fulfillmentFeature2'
+  | 'fulfillmentFeature3'
+  | 'fulfillmentImageAlt'
+  | 'valueTitle'
+  | 'valueDesc'
+  | 'value1Title'
+  | 'value1Desc'
+  | 'value2Title'
+  | 'value2Desc'
+  | 'value3Title'
+  | 'value3Desc'
+  | 'value4Title'
+  | 'value4Desc'
 
 // Translation mappings - Professional English for overseas warehousing
 const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
@@ -460,6 +490,34 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     facilitiesImageAlt: '高标准仓储设施',
     breadcrumbServices: '服务体系',
     breadcrumbWarehouses: '海外仓储',
+    ctaTitle: '选择专业海外仓储服务，智慧管理您的库存',
+    ctaSubtitle: '22,000+平方米自营仓储网络，为您的业务增长提供强大支撑',
+    ctaPrimaryButton: '获取仓储报价',
+    ctaSecondaryButton: '下载服务手册',
+    inventoryTitle: '智慧库存管理',
+    inventoryDesc:
+      '我们利用先进的WMS（仓库管理系统），为您提供实时的库存数据，并支持多平台的灵活库存管理，优化所有渠道的履约。',
+    inventoryFeature1: '先进WMS系统',
+    inventoryFeature2: '实时库存数据',
+    inventoryFeature3: '多平台同步管理',
+    inventoryImageAlt: '智能仓库管理系统',
+    fulfillmentTitle: '多模式订单履行',
+    fulfillmentDesc:
+      '我们支持FBA入仓、D2C直发消费者和B2B批量批发的多种灵活履约模式，并提供一件代发（Drop-Shipping）服务。',
+    fulfillmentFeature1: 'FBA入仓服务',
+    fulfillmentFeature2: 'D2C直发消费者',
+    fulfillmentFeature3: '一件代发服务',
+    fulfillmentImageAlt: '多模式订单履行',
+    valueTitle: '为您带来的价值',
+    valueDesc: '将您的库存交给我们，您得到的不仅是存储空间，更是一个强大的商业增长引擎。',
+    value1Title: '完全控制与低风险',
+    value1Desc: '全自营仓库意味着更强的操作控制力、更低的运营风险和有保障的灵活性与时效性。',
+    value2Title: '库存周转率提升',
+    value2Desc: '通过数据驱动的管理和高效的订单处理，我们帮助您降低库存成本，提升周转率。',
+    value3Title: '客户体验优化',
+    value3Desc: '快速、准确的订单履约能显著提升您的终端客户满意度和品牌忠诚度。',
+    value4Title: '支持业务扩展',
+    value4Desc: '我们的全国性网络能无缝支持您开拓新市场和新销售渠道。',
   },
   en: {
     pageTitle: 'Overseas Warehousing',
@@ -506,6 +564,40 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     facilitiesImageAlt: 'High-standard storage facilities',
     breadcrumbServices: 'Services',
     breadcrumbWarehouses: 'Overseas Warehousing',
+    ctaTitle: 'Choose Professional Overseas Warehousing Services, Smart Inventory Management',
+    ctaSubtitle:
+      '22,000+ sqft self-operated warehouse network providing strong support for your business growth',
+    ctaPrimaryButton: 'Get Warehousing Quote',
+    ctaSecondaryButton: 'Download Service Manual',
+    inventoryTitle: 'Intelligent Inventory Management',
+    inventoryDesc:
+      'We utilize advanced WMS (Warehouse Management System) to provide real-time inventory data and support flexible inventory management across multiple platforms, optimizing fulfillment across all channels.',
+    inventoryFeature1: 'Advanced WMS System',
+    inventoryFeature2: 'Real-Time Inventory Data',
+    inventoryFeature3: 'Multi-Platform Synchronization Management',
+    inventoryImageAlt: 'Intelligent Warehouse Management System',
+    fulfillmentTitle: 'Multi-Mode Order Fulfillment',
+    fulfillmentDesc:
+      'We support multiple flexible fulfillment modes including FBA in-bound, D2C direct shipping to consumers, and B2B bulk wholesale distribution, offering Drop-Shipping service.',
+    fulfillmentFeature1: 'FBA In-Bound Service',
+    fulfillmentFeature2: 'D2C Direct Shipping to Consumers',
+    fulfillmentFeature3: 'Drop-Shipping Service',
+    fulfillmentImageAlt: 'Multi-Mode Order Fulfillment',
+    valueTitle: 'Choose Us, You Will Immediately Receive',
+    valueDesc:
+      'Entrust your inventory to us - you get more than just storage space, but a powerful business growth engine.',
+    value1Title: 'Complete Control & Low Risk',
+    value1Desc:
+      'Self-operated warehouses mean stronger operational control, lower operational risk, and guaranteed flexibility and timeliness.',
+    value2Title: 'Inventory Turnover Enhancement',
+    value2Desc:
+      'Through data-driven management and efficient order processing, we help you reduce inventory costs and improve turnover rates.',
+    value3Title: 'Customer Experience Optimization',
+    value3Desc:
+      'Fast and accurate order fulfillment significantly enhances your end-customer satisfaction and brand loyalty.',
+    value4Title: 'Business Expansion Support',
+    value4Desc:
+      'Our nationwide network seamlessly supports your expansion into new markets and sales channels.',
   },
 }
 

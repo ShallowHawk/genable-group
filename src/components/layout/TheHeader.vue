@@ -1,27 +1,27 @@
 <template>
   <header :class="headerClasses">
     <nav class="container-section">
-      <div class="flex items-center justify-between h-16 md:h-20">
+      <div class="flex items-center justify-between h-16 lg:h-18">
         <!-- Logo区域 -->
         <div class="flex items-center">
           <router-link to="/" class="flex items-center">
-            <!-- KENABLE Logo -->
+            <!-- KENABLE Logo - 大厂标准尺寸 -->
             <img
               src="@/assets/kenable_logo.svg"
               :alt="getText('logoAlt')"
-              class="h-10 md:h-16 w-auto max-w-none hover:scale-105 transition-transform duration-200"
+              class="h-8 lg:h-10 w-auto max-w-none hover:opacity-80 transition-opacity duration-200"
             />
           </router-link>
         </div>
 
-        <!-- 桌面端导航 -->
-        <div class="hidden lg:flex items-center space-x-4">
+        <!-- 桌面端导航 - 8px网格系统 -->
+        <div class="hidden lg:flex items-center space-x-8">
           <template v-for="item in navigationItems" :key="item.href">
             <!-- 有子菜单的导航项 -->
             <div v-if="item.children" class="relative group">
               <router-link
                 :to="item.href"
-                class="flex items-center px-3 py-2 text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 whitespace-nowrap"
+                class="flex items-center px-3 py-3 text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 whitespace-nowrap min-h-[44px]"
                 :class="{ 'text-blue-600': isActiveRoute(item.href) }"
               >
                 {{ item.label }}
@@ -41,7 +41,7 @@
                     v-for="child in item.children"
                     :key="child.href"
                     :to="child.href"
-                    class="block px-4 py-3 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 whitespace-nowrap leading-tight"
+                    class="block px-4 py-3 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors duration-200 whitespace-nowrap leading-tight min-h-[44px] flex items-center"
                     :class="{ 'text-blue-600 bg-blue-50': isActiveRoute(child.href) }"
                   >
                     {{ child.label }}
@@ -60,27 +60,28 @@
           </template>
         </div>
 
-        <!-- CTA按钮和移动端菜单按钮 -->
-        <div class="flex items-center space-x-3">
-          <!-- 语言切换器 -->
-          <LanguageSwitcher class="hidden md:inline-flex" />
-
-          <!-- 联系我们按钮 (桌面端) -->
+        <!-- CTA按钮区域 - 8px网格系统 -->
+        <div class="flex items-center space-x-4">
+          <!-- 主要行动按钮 (桌面端) -->
           <BaseButton
             variant="primary"
             size="md"
-            class="hidden lg:inline-flex"
+            class="hidden lg:inline-flex px-6 py-2 min-h-[44px] whitespace-nowrap"
             @click="$router.push('/contact')"
           >
             {{ contactText }}
           </BaseButton>
 
-          <!-- 移动端菜单按钮 -->
+          <!-- 语言切换器 - 移动端和桌面端统一，放在最右侧 -->
+          <LanguageSwitcher />
+
+          <!-- 移动端菜单按钮 - 大厂标准 -->
           <button
             @click="toggleMobileMenu"
-            class="lg:hidden p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+            class="lg:hidden p-3 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+            :aria-label="isMobileMenuOpen ? '关闭菜单' : '打开菜单'"
           >
-            <Icon :name="isMobileMenuOpen ? 'x' : 'menu'" size="lg" />
+            <Icon :name="isMobileMenuOpen ? 'x' : 'menu'" size="md" />
           </button>
         </div>
       </div>
@@ -151,10 +152,7 @@
                 />
               </template>
 
-              <!-- 移动端语言切换器 -->
-              <div class="flex justify-center mt-4">
-                <LanguageSwitcher />
-              </div>
+              <!-- 移动端不再显示重复的语言切换器，因为头部已有简化版本 -->
 
               <!-- 移动端CTA按钮 -->
               <BaseButton
@@ -342,10 +340,10 @@ const headerClasses = computed(() => [
   isScrolled.value ? 'bg-white/95 backdrop-blur-sm shadow-md' : 'bg-white',
 ])
 
-// 计算移动端菜单的top位置
+// 计算移动端菜单的top位置 - 大厂标准
 const mobileMenuTop = computed(() => {
-  // 移动端 64px (h-16)，桌面端 80px (h-20)
-  return window?.innerWidth >= 768 ? '80px' : '64px'
+  // 移动端 64px (h-16)，桌面端 72px (h-18)
+  return window?.innerWidth >= 1024 ? '72px' : '64px'
 })
 
 // 添加点击外部关闭菜单的功能

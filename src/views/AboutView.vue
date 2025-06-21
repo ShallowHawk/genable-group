@@ -91,7 +91,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
 
     // 发展历程
     historyTitle: '发展历程',
-    historySubtitle: '近20年的稳健发展，见证我们从本土仓储服务商成长为全美领先的供应链管理企业',
+    historySubtitle: '近22年的稳健发展，见证我们从本土仓储服务商成长为全美领先的供应链管理企业',
 
     // 创始人部分
     founderTitle: '领航者风采',
@@ -123,7 +123,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     timeline2005Title: '奠定基石',
     timeline2005Desc: '在洛杉矶亚速萨成立，启动仓储和卡车运输服务',
     timeline2005Details:
-      '可耐博达（广州）供应链管理有限公司在洛杉矶亚速萨正式成立，标志着我们在美国物流行业的征程开始。初期专注于本地仓储服务和卡车运输业务，为日后的全国性扩张奠定了坚实基础。',
+      '可耐博达供应链管理有限公司在洛杉矶亚速萨正式成立，标志着我们在美国物流行业的征程开始。初期专注于本地仓储服务和卡车运输业务，为日后的全国性扩张奠定了坚实基础。',
     timeline2008Title: '初具规模',
     timeline2008Desc: '在洛杉矶收购首个自有仓库，车队规模增至15辆卡车',
     timeline2008Details:
@@ -146,9 +146,9 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
       '进入新的发展阶段，专注于海外仓储与全链条服务的深度整合。通过平台化发展战略，为客户提供更加智能化、标准化的供应链管理服务，持续引领行业创新。',
 
     // 合作伙伴
-    upsPartnerDesc: 'UPS Ready® Premier Partner 2023',
+    upsPartnerDesc: 'UPS Ready® 顶级合作伙伴 2023',
     uspsPartnerDesc: '美国邮政官方合作伙伴',
-    amazonPartnerDesc: '亚马逊FBA官方服务商',
+    amazonPartnerDesc: '亚马逊FBA认证服务商',
   },
   en: {
     // 页面基本信息 - 专业商务英文

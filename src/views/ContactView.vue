@@ -62,7 +62,7 @@
             <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ getText('onlineService') }}</h3>
             <p class="text-gray-600 mb-4">{{ getText('onlineDesc') }}</p>
             <div class="space-y-2">
-              <p class="font-medium text-green-600">微信: KENABLE2024</p>
+              <p class="font-medium text-green-600">{{ getText('wechatLabel') }}: KENABLE2024</p>
               <p class="text-sm text-gray-500">{{ getText('workHoursReply') }}</p>
               <p class="text-sm text-gray-500">{{ getText('voiceSupport') }}</p>
             </div>
@@ -325,11 +325,12 @@
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.5634821234567!2d-117.8654123456789!3d34.0205123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2d7c8a3a0b3a1%3A0x123456789abcdef0!2s21908%20Valley%20Blvd%2C%20Walnut%2C%20CA%2091789%2C%20USA!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus"
                     width="100%"
                     height="100%"
-                    style="border:0;"
+                    style="border: 0"
                     allowfullscreen
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
-                    title="Office Location - 21908 Valley Blvd, Walnut, CA 91789">
+                    title="Office Location - 21908 Valley Blvd, Walnut, CA 91789"
+                  >
                   </iframe>
                 </div>
               </BaseCard>
@@ -362,8 +363,6 @@
             <p class="text-gray-600 leading-relaxed">{{ faq.answer }}</p>
           </BaseCard>
         </div>
-
-
       </div>
     </section>
 
@@ -418,6 +417,7 @@ type TranslationKey =
   | 'voiceSupport'
   | 'vipService'
   | 'freePlan'
+  | 'wechatLabel'
   // 快速响应承诺
   | 'quickResponseTitle'
   | 'onlineResponse'
@@ -534,6 +534,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     voiceSupport: '支持语音通话',
     vipService: '大客户专享',
     freePlan: '免费方案设计',
+    wechatLabel: '微信',
 
     // 快速响应承诺
     quickResponseTitle: '快速响应承诺',
@@ -666,6 +667,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     voiceSupport: 'Voice call support available',
     vipService: 'Exclusive for enterprise clients',
     freePlan: 'Free solution design',
+    wechatLabel: 'WeChat',
 
     // 快速响应承诺
     quickResponseTitle: 'Quick Response Guarantee',
@@ -824,9 +826,18 @@ const validateField = (field: keyof typeof errors) => {
 }
 
 // 监听表单字段变化并实时验证
-watch(() => form.name, () => validateField('name'))
-watch(() => form.phone, () => validateField('phone'))
-watch(() => form.email, () => validateField('email'))
+watch(
+  () => form.name,
+  () => validateField('name'),
+)
+watch(
+  () => form.phone,
+  () => validateField('phone'),
+)
+watch(
+  () => form.email,
+  () => validateField('email'),
+)
 
 // 提交状态
 const isSubmitting = ref(false)

@@ -211,22 +211,22 @@
           <!-- 全程追踪与管理 -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 class="text-2xl font-bold text-gray-900 mb-6">全程追踪与管理</h3>
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">{{ getText('trackingTitle') }}</h3>
               <p class="text-gray-600 mb-6">
-                我们提供端到端的货物追踪系统，让您随时掌握从提货到交付的每一个动态。
+                {{ getText('trackingDesc') }}
               </p>
               <ul class="space-y-3">
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  实时货物追踪
+                  {{ getText('trackingFeature1') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  端到端可视化
+                  {{ getText('trackingFeature2') }}
                 </li>
                 <li class="flex items-center text-gray-700">
                   <div class="w-2 h-2 bg-primary-500 rounded-full mr-3"></div>
-                  智能预警提醒
+                  {{ getText('trackingFeature3') }}
                 </li>
               </ul>
             </div>
@@ -246,9 +246,11 @@
     <Section background="white">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">选择我们，您将立即获得</h2>
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            {{ getText('valueTitle') }}
+          </h2>
           <p class="text-xl text-gray-600">
-            选择可耐博达Kenable，意味着您选择了一个能创造切实商业价值的合作伙伴。
+            {{ getText('valueIntro') }}
           </p>
         </div>
 
@@ -269,10 +271,10 @@
                 <h3
                   class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors"
                 >
-                  显著降低成本
+                  {{ getText('valueCard1Title') }}
                 </h3>
                 <p class="text-gray-600 leading-relaxed">
-                  通过优化物流路径和批量议价能力，有效控制您的运输成本，让每一分投入都产生最大价值。
+                  {{ getText('valueCard1Desc') }}
                 </p>
               </div>
             </div>
@@ -294,10 +296,10 @@
                 <h3
                   class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors"
                 >
-                  全面规避风险
+                  {{ getText('valueCard2Title') }}
                 </h3>
                 <p class="text-gray-600 leading-relaxed">
-                  专业的合规操作和清关知识，最大程度降低您的货物在海关遇到的风险，确保安全抵达。
+                  {{ getText('valueCard2Desc') }}
                 </p>
               </div>
             </div>
@@ -319,10 +321,10 @@
                 <h3
                   class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors"
                 >
-                  大幅提升效率
+                  {{ getText('valueCard3Title') }}
                 </h3>
                 <p class="text-gray-600 leading-relaxed">
-                  一站式服务简化了您的沟通流程，稳定可靠的运输时效保障了您的库存周转率。
+                  {{ getText('valueCard3Desc') }}
                 </p>
               </div>
             </div>
@@ -344,10 +346,10 @@
                 <h3
                   class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors"
                 >
-                  增强业务焦点
+                  {{ getText('valueCard4Title') }}
                 </h3>
                 <p class="text-gray-600 leading-relaxed">
-                  将繁琐的物流事务外包给我们，让您能将宝贵的精力投入到产品、市场和客户服务中。
+                  {{ getText('valueCard4Desc') }}
                 </p>
               </div>
             </div>
@@ -358,11 +360,11 @@
 
     <!-- CTA区域 -->
     <CtaSection
-      title="选择专业头程物流服务，开启成功之旅"
-      subtitle="一站式解决方案，让您的货物安全、快速抵达美国"
-      primary-button-text="获取头程报价"
+      :title="getText('ctaTitle')"
+      :subtitle="getText('ctaSubtitle')"
+      :primary-button-text="getText('ctaPrimaryButton')"
       primary-button-href="/contact"
-      secondary-button-text="下载服务手册"
+      :secondary-button-text="getText('ctaSecondaryButton')"
       secondary-button-href="#"
       secondary-button-icon="download"
       :show-contact-info="true"
@@ -412,6 +414,25 @@ type TranslationKey =
   | 'clearanceFeature1'
   | 'clearanceFeature2'
   | 'clearanceFeature3'
+  | 'trackingTitle'
+  | 'trackingDesc'
+  | 'trackingFeature1'
+  | 'trackingFeature2'
+  | 'trackingFeature3'
+  | 'valueTitle'
+  | 'valueIntro'
+  | 'valueCard1Title'
+  | 'valueCard1Desc'
+  | 'valueCard2Title'
+  | 'valueCard2Desc'
+  | 'valueCard3Title'
+  | 'valueCard3Desc'
+  | 'valueCard4Title'
+  | 'valueCard4Desc'
+  | 'ctaTitle'
+  | 'ctaSubtitle'
+  | 'ctaPrimaryButton'
+  | 'ctaSecondaryButton'
 
 // 翻译映射 - 使用地道商业英文表达
 const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
@@ -452,6 +473,27 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     clearanceFeature1: '专业报关文件处理',
     clearanceFeature2: '高价值特殊品清关',
     clearanceFeature3: '全程合规保障',
+    trackingTitle: '全程追踪与管理',
+    trackingDesc: '我们提供端到端的货物追踪系统，让您随时掌握从提货到交付的每一个动态。',
+    trackingFeature1: '实时货物追踪',
+    trackingFeature2: '端到端可视化',
+    trackingFeature3: '智能预警提醒',
+    valueTitle: '选择我们，您将立即获得',
+    valueIntro: '选择可耐博达Kenable，意味着您选择了一个能创造切实商业价值的合作伙伴。',
+    valueCard1Title: '显著降低成本',
+    valueCard1Desc:
+      '通过优化物流路径和批量议价能力，有效控制您的运输成本，让每一分投入都产生最大价值。',
+    valueCard2Title: '全面规避风险',
+    valueCard2Desc:
+      '专业的合规操作和清关知识，最大程度降低您的货物在海关遇到的风险，确保安全抵达。',
+    valueCard3Title: '大幅提升效率',
+    valueCard3Desc: '一站式服务简化了您的沟通流程，稳定可靠的运输时效保障了您的库存周转率。',
+    valueCard4Title: '增强业务焦点',
+    valueCard4Desc: '将繁琐的物流事务外包给我们，让您能将宝贵的精力投入到产品、市场和客户服务中。',
+    ctaTitle: '选择专业头程物流服务，开启成功之旅',
+    ctaSubtitle: '一站式解决方案，让您的货物安全、快速抵达美国',
+    ctaPrimaryButton: '获取头程报价',
+    ctaSecondaryButton: '下载服务手册',
   },
   en: {
     pageTitle: 'First-Mile Logistics',
@@ -463,7 +505,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
       'Professional international freight services with end-to-end management from pickup to destination clearance. We provide comprehensive first-mile logistics solutions, handling all complex processes so you can focus on your core business.',
     label: 'First-Mile Logistics Expert',
     getQuote: 'Get First-Mile Quote',
-    consultation: 'Get Started',
+    consultation: 'Online Consultation',
     challengesTitle: 'Core Challenges in First-Mile Logistics',
     challengesIntro:
       'From overseas shipment to US arrival, first-mile logistics is filled with uncertainties. High transportation costs, complex customs processes, uncontrollable delay risks, and inefficient communication with multiple suppliers are all real challenges you face when expanding your business.',
@@ -494,6 +536,31 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     clearanceFeature1: 'Professional customs documentation',
     clearanceFeature2: 'High-value specialty goods clearance',
     clearanceFeature3: 'Full compliance guarantee',
+    trackingTitle: 'End-to-End Tracking & Management',
+    trackingDesc:
+      'We provide comprehensive cargo tracking systems, giving you real-time visibility from pickup to final delivery.',
+    trackingFeature1: 'Real-time cargo tracking',
+    trackingFeature2: 'End-to-end visibility',
+    trackingFeature3: 'Smart alert notifications',
+    valueTitle: 'Choose Us and Gain Immediate Benefits',
+    valueIntro:
+      'Choosing Kenable means partnering with a company that delivers tangible business value.',
+    valueCard1Title: 'Significant Cost Reduction',
+    valueCard1Desc:
+      'Through optimized logistics routes and bulk negotiation power, we effectively control your transportation costs, maximizing the value of every dollar invested.',
+    valueCard2Title: 'Comprehensive Risk Mitigation',
+    valueCard2Desc:
+      'Professional compliance operations and customs expertise minimize risks your cargo faces at customs, ensuring safe arrival.',
+    valueCard3Title: 'Dramatically Improved Efficiency',
+    valueCard3Desc:
+      'One-stop service streamlines your communication processes, while reliable transit times ensure optimal inventory turnover rates.',
+    valueCard4Title: 'Enhanced Business Focus',
+    valueCard4Desc:
+      'By outsourcing complex logistics operations to us, you can channel your valuable resources into product development, marketing, and customer service.',
+    ctaTitle: 'Choose Professional First-Mile Logistics Services, Start Your Success Journey',
+    ctaSubtitle: 'One-stop solutions to ensure your cargo arrives in the US safely and quickly',
+    ctaPrimaryButton: 'Get First-Mile Quote',
+    ctaSecondaryButton: 'Download Service Manual',
   },
 }
 

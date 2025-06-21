@@ -1,9 +1,11 @@
 <template>
-  <PageLayout :page-title="pageTitle" :page-description="pageDesc">
+  <PageLayout :page-title="getText('pageTitle')" :page-description="getText('pageDescription')">
     <section class="py-16 lg:py-24 bg-white">
       <div class="container-section">
-        <div class="max-w-4xl mx-auto prose prose-lg prose-gray prose-headings:text-gray-900 prose-h1:text-3xl prose-h1:font-bold prose-h1:mb-8 prose-h2:text-2xl prose-h2:font-semibold prose-h2:mt-12 prose-h2:mb-6 prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-8 prose-h3:mb-4 prose-p:text-gray-700 prose-p:leading-relaxed prose-li:text-gray-700 prose-strong:text-gray-900 prose-strong:font-semibold prose-table:border-collapse prose-thead:bg-gray-50 prose-th:border prose-th:border-gray-300 prose-th:px-4 prose-th:py-3 prose-th:text-left prose-th:font-semibold prose-th:text-gray-900 prose-td:border prose-td:border-gray-300 prose-td:px-4 prose-td:py-3 prose-td:text-gray-700 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:pl-4 prose-blockquote:py-2 prose-blockquote:italic prose-blockquote:text-gray-700 prose-hr:border-gray-300 prose-hr:my-8">
-          <div v-html="content"></div>
+        <div
+          class="max-w-4xl mx-auto prose prose-lg prose-gray prose-headings:text-gray-900 prose-h1:text-3xl prose-h1:font-bold prose-h1:mb-8 prose-h2:text-2xl prose-h2:font-semibold prose-h2:mt-12 prose-h2:mb-6 prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-8 prose-h3:mb-4 prose-p:text-gray-700 prose-p:leading-relaxed prose-li:text-gray-700 prose-strong:text-gray-900 prose-strong:font-semibold prose-table:border-collapse prose-thead:bg-gray-50 prose-th:border prose-th:border-gray-300 prose-th:px-4 prose-th:py-3 prose-th:text-left prose-th:font-semibold prose-th:text-gray-900 prose-td:border prose-td:border-gray-300 prose-td:px-4 prose-td:py-3 prose-td:text-gray-700 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:pl-4 prose-blockquote:py-2 prose-blockquote:italic prose-blockquote:text-gray-700 prose-hr:border-gray-300 prose-hr:my-8"
+        >
+          <div v-html="getText('content')"></div>
         </div>
       </div>
     </section>
@@ -17,17 +19,15 @@ import PageLayout from '@/components/layout/PageLayout.vue'
 
 const { locale } = useI18n()
 
-const pageTitle = computed(() => {
-  return locale.value === 'zh' ? '隐私政策' : 'Privacy Policy'
-})
+// Translation keys type
+type TranslationKey = 'pageTitle' | 'pageDescription' | 'content'
 
-const pageDesc = computed(() => {
-  return locale.value === 'zh' ? '我们的隐私政策' : 'Our privacy policy'
-})
-
-const content = computed(() => {
-  if (locale.value === 'zh') {
-    return `
+// Translation mappings
+const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
+  zh: {
+    pageTitle: '隐私政策',
+    pageDescription: '我们的隐私政策',
+    content: `
       <h2 class="mb-8">中文版网站隐私政策</h2>
 
       <h3>目录</h3>
@@ -124,9 +124,12 @@ const content = computed(() => {
 
       <h3 id="section-11">11. 隐私政策的更新</h3>
       <p>我们可能不定期更新本政策。重大变更（影响您的核心权利或处理方式）将通过网站公告或电子邮件另行通知，并在新版本中注明修订内容。</p>
-    `
-  } else {
-    return `
+    `,
+  },
+  en: {
+    pageTitle: 'Privacy Policy',
+    pageDescription: 'Our privacy policy',
+    content: `
       <h2 class="mb-8">English‑Language Website Privacy Policy</h2>
 
       <h3>Table of Contents</h3>
@@ -209,21 +212,27 @@ const content = computed(() => {
       <h3 id="section-8">8. Information Security</h3>
       <ul>
         <li>TLS/HTTPS encryption across the site;</li>
-        <li>Access control, least privilege, multi‑factor authentication;</li>
+        <li>Access control, least privilege, two-factor authentication;</li>
         <li>Regular penetration testing and security audits;</li>
-        <li>Employee privacy and security training with NDAs;</li>
-        <li>Incident‑response procedures for data breaches.</li>
+        <li>Employee privacy training and confidentiality agreements;</li>
+        <li>Data breach response procedures.</li>
       </ul>
 
       <h3 id="section-9">9. Children's Privacy</h3>
-      <p>This Website and our services are intended for <strong>users aged 18 and above</strong>. We do not knowingly collect personal information from anyone under 18. If we learn we have inadvertently done so, we will delete it promptly.</p>
+      <p>This website and services are intended only for users <strong>18 and older</strong>. We do not knowingly collect personal information from children under 18; if discovered, we will promptly delete it.</p>
 
       <h3 id="section-10">10. Do‑Not‑Track</h3>
-      <p>Some browsers transmit "Do Not Track" (DNT) signals. As there is no industry‑standard response, this Website currently does not respond to DNT signals. Should an applicable standard emerge, we will revise this Policy accordingly.</p>
+      <p>Some browsers provide "Do Not Track (DNT)" signals. Currently, there is no unified industry technical standard, so this website does not respond to DNT. Should future standards become effective and applicable, we will update this Policy.</p>
 
       <h3 id="section-11">11. Changes to This Policy</h3>
-      <p>We may update this Privacy Policy from time to time. Material changes that affect your fundamental rights or our processing practices will be announced on the Website or via email, and the revised version will indicate the updates made.</p>
-    `
-  }
-})
+      <p>We may update this Policy from time to time. Material changes (affecting your core rights or processing methods) will be announced via website notice or email, with revision details noted in the new version.</p>
+    `,
+  },
+}
+
+// Get translated text helper function
+const getText = (key: TranslationKey): string => {
+  const currentLang = locale.value as 'zh' | 'en'
+  return translations[currentLang]?.[key] || translations.zh[key]
+}
 </script>

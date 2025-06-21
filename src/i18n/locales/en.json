@@ -46,7 +46,7 @@
     "features": {
       "pickup": "99% pickup guarantee",
       "shipping": "5-7 days East/West Coast shipping",
-      "experience": "Nearly 20 years of industry experience",
+      "experience": "Nearly 22 years of industry experience",
       "warehouses": "Self-operated warehouses in 4 US states"
     }
   },
@@ -133,7 +133,7 @@
     },
     "industryExperience": {
       "title": "Rich Industry and Customs Clearance Experience",
-      "description": "Nearly 20 years of industry experience, proficient in US regulations and platform policies, efficiently solving complex logistics and customs challenges."
+      "description": "Nearly 22 years of industry experience, proficient in US regulations and platform policies, efficiently solving complex logistics and customs challenges."
     },
     "deliveryNetwork": {
       "title": "Efficient Delivery Partnership Network",
@@ -398,7 +398,7 @@
       },
       "industryExperience": {
         "title": "Rich Industry and Customs Clearance Experience",
-        "description": "Nearly 20 years of industry experience, proficient in US regulations and platform policies, efficiently solving complex logistics and customs challenges."
+        "description": "Nearly 22 years of industry experience, proficient in US regulations and platform policies, efficiently solving complex logistics and customs challenges."
       },
       "deliveryNetwork": {
         "title": "Efficient Delivery Partnership Network",
@@ -421,8 +421,8 @@
       "keywords": "cross-border logistics,US warehousing,international shipping,overseas warehouse,e-commerce logistics,supply chain management,customs clearance,last mile delivery"
     },
     "about": {
-      "title": "About Us - Kenable | 20 Years of Professional Cross-Border Logistics Experience",
-      "description": "Founded in 2004, Kenable Group Corp has focused on cross-border logistics for 20 years, serving 500+ enterprise customers. With a professional team of 200+ people, 4 major distribution centers, and 98% customer satisfaction rate. Learn about our development history and core values.",
+      "title": "About Us - Kenable | 22 Years of Professional Cross-Border Logistics Experience",
+      "description": "Founded in 2004, Kenable Group Corp has focused on cross-border logistics for 22 years, serving 500+ enterprise customers. With a professional team of 200+ people, 4 major distribution centers, and 98% customer satisfaction rate. Learn about our development history and core values.",
       "keywords": "company introduction,logistics experience,corporate history,team introduction,logistics experts,industry experience"
     },
     "services": {
@@ -461,5 +461,25 @@
     "title": "Privacy Policy",
     "description": "Our privacy policy",
     "content": "test"
+  },
+  "languageSwitcherDemo": {
+    "title": "Enhanced Language Switching Experience",
+    "description": "We've redesigned our language switcher following international design standards from major tech companies, delivering a more intuitive and elegant switching experience.",
+    "demoTitle": "Language Switcher Demo",
+    "try": "Try clicking the language switcher in the top right corner to experience the new interactive design!",
+    "features": {
+      "title": "Core Features",
+      "intuitive": "Globe Icon - More intuitive visual identifier",
+      "accessible": "Fully Accessible - Supports keyboard navigation and screen readers",
+      "responsive": "Responsive Design - Perfect adaptation for both mobile and desktop",
+      "animation": "Smooth Animation - Elegant dropdown expansion effects"
+    },
+    "improvements": {
+      "title": "Design Improvements",
+      "globe": "• Uses globe icon instead of flags, avoiding language-country confusion",
+      "native": "• Displays native language names (中文/English) instead of abbreviations",
+      "dropdown": "• Adopts dropdown menu design, supporting future language expansion",
+      "feedback": "• Provides clear visual feedback and selected state indication"
+    }
   }
 }

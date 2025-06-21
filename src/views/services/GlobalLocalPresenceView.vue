@@ -355,13 +355,9 @@ const whyUsFeatures = computed(() => [
 const caseStudyImages = [
   {
     url: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop&crop=center',
-    alt: '亚洲团队沟通',
-    caption: '可耐博达亚洲团队与客户协调供应商管理',
   },
   {
     url: 'https://images.unsplash.com/photo-1584681613380-1d42c1b21853?q=80&w=2728&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: '亚洲地图集货',
-    caption: '覆盖中国、越南、印尼的本地化服务网络',
   },
 ]
 </script>

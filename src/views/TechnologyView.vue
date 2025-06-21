@@ -57,25 +57,33 @@
                       <div class="text-xs text-blue-600 font-semibold">
                         {{ getText('activeOrders') }}
                       </div>
-                      <div class="text-lg font-bold text-blue-900">2,847</div>
+                      <div class="text-lg font-bold text-blue-900">
+                        {{ getText('dashboardValue2847') }}
+                      </div>
                     </div>
                     <div class="bg-green-50 p-3 rounded-lg">
                       <div class="text-xs text-green-600 font-semibold">
                         {{ getText('cargoInTransit') }}
                       </div>
-                      <div class="text-lg font-bold text-green-900">1,234</div>
+                      <div class="text-lg font-bold text-green-900">
+                        {{ getText('dashboardValue1234') }}
+                      </div>
                     </div>
                     <div class="bg-purple-50 p-3 rounded-lg">
                       <div class="text-xs text-purple-600 font-semibold">
                         {{ getText('inventorySku') }}
                       </div>
-                      <div class="text-lg font-bold text-purple-900">15,678</div>
+                      <div class="text-lg font-bold text-purple-900">
+                        {{ getText('dashboardValue15678') }}
+                      </div>
                     </div>
                     <div class="bg-orange-50 p-3 rounded-lg">
                       <div class="text-xs text-orange-600 font-semibold">
                         {{ getText('transportVehicles') }}
                       </div>
-                      <div class="text-lg font-bold text-orange-900">456</div>
+                      <div class="text-lg font-bold text-orange-900">
+                        {{ getText('dashboardValue456') }}
+                      </div>
                     </div>
                   </div>
 
@@ -689,23 +697,23 @@
                       <div class="absolute inset-0 flex items-end justify-between px-2">
                         <div class="flex flex-col items-center">
                           <div class="w-8 bg-blue-400 rounded-t mb-1" style="height: 30px"></div>
-                          <span class="text-xs text-gray-600">06:00</span>
+                          <span class="text-xs text-gray-600">{{ getText('timeLabel0600') }}</span>
                         </div>
                         <div class="flex flex-col items-center">
                           <div class="w-8 bg-blue-500 rounded-t mb-1" style="height: 45px"></div>
-                          <span class="text-xs text-gray-600">09:00</span>
+                          <span class="text-xs text-gray-600">{{ getText('timeLabel0900') }}</span>
                         </div>
                         <div class="flex flex-col items-center">
                           <div class="w-8 bg-green-500 rounded-t mb-1" style="height: 60px"></div>
-                          <span class="text-xs text-gray-600">12:00</span>
+                          <span class="text-xs text-gray-600">{{ getText('timeLabel1200') }}</span>
                         </div>
                         <div class="flex flex-col items-center">
                           <div class="w-8 bg-green-600 rounded-t mb-1" style="height: 75px"></div>
-                          <span class="text-xs text-gray-600">15:00</span>
+                          <span class="text-xs text-gray-600">{{ getText('timeLabel1500') }}</span>
                         </div>
                         <div class="flex flex-col items-center">
                           <div class="w-8 bg-blue-500 rounded-t mb-1" style="height: 50px"></div>
-                          <span class="text-xs text-gray-600">18:00</span>
+                          <span class="text-xs text-gray-600">{{ getText('timeLabel1800') }}</span>
                         </div>
                       </div>
                     </div>
@@ -735,7 +743,7 @@
                         </div>
                         <div>
                           <div class="text-lg font-bold text-green-700">
-                            {{ getText('vehiclesInTransitCount') }}
+                            {{ getText('fleetValue342') }}
                           </div>
                           <div class="text-xs text-green-600">
                             {{ getText('vehiclesInTransitLabel') }}
@@ -766,7 +774,7 @@
                         </div>
                         <div>
                           <div class="text-lg font-bold text-orange-700">
-                            {{ getText('pendingScheduleCount') }}
+                            {{ getText('fleetValue108') }}
                           </div>
                           <div class="text-xs text-orange-600">
                             {{ getText('pendingScheduleLabel') }}
@@ -846,14 +854,16 @@
                   <div class="grid grid-cols-3 gap-4 mb-6">
                     <div class="bg-green-50 p-3 rounded-lg text-center">
                       <div class="text-lg font-bold text-green-700">
-                        {{ getText('vehiclesInTransitCount') }}
+                        {{ getText('fleetValue342') }}
                       </div>
                       <div class="text-xs text-green-600">
                         {{ getText('vehiclesInTransitLabel') }}
                       </div>
                     </div>
                     <div class="bg-blue-50 p-3 rounded-lg text-center">
-                      <div class="text-lg font-bold text-blue-700">89%</div>
+                      <div class="text-lg font-bold text-blue-700">
+                        {{ getText('utilizationValue89') }}
+                      </div>
                       <div class="text-xs text-blue-600">{{ getText('capacityUtilization') }}</div>
                     </div>
                     <div class="bg-orange-50 p-3 rounded-lg text-center">
@@ -1162,9 +1172,7 @@ type TranslationKey =
   | 'fleetManagementTitle'
   | 'todayEfficiencyTitle'
   | 'efficiencyIncrease'
-  | 'vehiclesInTransitCount'
   | 'vehiclesInTransitLabel'
-  | 'pendingScheduleCount'
   | 'pendingScheduleLabel'
   | 'keyTransportRoutes'
   | 'routeLaToVegas'
@@ -1200,6 +1208,26 @@ type TranslationKey =
   | 'statusArrived'
   | 'statusInTransit'
   | 'statusLoading'
+  // 新增的时间和系统标签
+  | 'timeLabel0600'
+  | 'timeLabel0900'
+  | 'timeLabel1200'
+  | 'timeLabel1500'
+  | 'timeLabel1800'
+  | 'efficiencyChartTitle'
+  | 'systemStatus'
+  // 新增数值显示
+  | 'dashboardValue2847'
+  | 'dashboardValue1234'
+  | 'dashboardValue15678'
+  | 'dashboardValue456'
+  // AGV和仓储系统
+  | 'agvStatusActive'
+  | 'sortingStatusActive'
+  // 车队具体数值
+  | 'fleetValue342'
+  | 'fleetValue108'
+  | 'utilizationValue89'
 
 // 翻译映射 - 地道英文表达
 const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
@@ -1292,51 +1320,71 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     transportDescription:
       '我们不仅拥有超过450辆卡车的自营车队，更通过技术平台实现了对运输资源的高效调度与整合。我们与UPS、USPS等快递巨头建立了官方合作伙伴关系并实现了系统集成，确保无论是大批量卡车运输还是海量包裹派送，都能精准、高效地完成。',
     fleetManagementTitle: '车队管理系统 - 实时监控',
-    todayEfficiencyTitle: "Today's Transportation Efficiency",
+    todayEfficiencyTitle: '今日运输效率',
     efficiencyIncrease: '↗ +12.5%',
-    vehiclesInTransitCount: '342',
-    vehiclesInTransitLabel: 'In Transit',
-    pendingScheduleCount: '108',
-    pendingScheduleLabel: 'Pending Schedule',
-    keyTransportRoutes: 'Key Transportation Routes',
-    routeLaToVegas: 'Los Angeles → Las Vegas',
-    routeLaToPhoenix: 'Los Angeles → Phoenix',
-    routeSdToLa: 'San Diego → Los Angeles',
-    estimatedArrival2h: 'ETA 2 hours',
-    estimatedArrival4h: 'ETA 4 hours',
-    slightDelay: 'Slight delay',
-    routeStatusNormal: 'Normal',
-    routeStatusInTransit: 'In Transit',
-    routeStatusDelayed: 'Delayed',
-    realtimeTransportStatus: 'Real-time Transport Status',
-    capacityUtilization: 'Capacity Utilization',
-    avgDelay: 'Avg Delay',
-    smartTransportScheduling: 'Smart Transportation Scheduling',
+    vehiclesInTransitLabel: '在途车辆',
+    pendingScheduleLabel: '待调度',
+    keyTransportRoutes: '关键运输路线',
+    routeLaToVegas: '洛杉矶 → 拉斯维加斯',
+    routeLaToPhoenix: '洛杉矶 → 菲尼克斯',
+    routeSdToLa: '圣地亚哥 → 洛杉矶',
+    estimatedArrival2h: '预计2小时到达',
+    estimatedArrival4h: '预计4小时到达',
+    slightDelay: '轻微延误',
+    routeStatusNormal: '正常',
+    routeStatusInTransit: '运输中',
+    routeStatusDelayed: '延误',
+    realtimeTransportStatus: '实时运输状态',
+    capacityUtilization: '运力利用率',
+    avgDelay: '平均延误',
+    smartTransportScheduling: '智能运输调度',
     smartTransportSchedulingDesc:
-      'Intelligent planning of optimal transport routes and modes (FTL/LTL) based on geographic location, time requirements, and cargo dimensions',
-    realtimeFleetManagement: 'Real-time Fleet Management',
-    realtimeFleetManagementDesc:
-      'End-to-end tracking of vehicle GPS location, in-transit status, estimated delivery time, and proof of delivery (POD)',
-    carrierIntegration: 'Deep Carrier Integration',
+      '基于地理位置、时间要求和货物尺寸，智能规划最优运输路线和模式（整车/零担）',
+    realtimeFleetManagement: '实时车队管理',
+    realtimeFleetManagementDesc: '端到端追踪车辆GPS位置、在途状态、预估交付时间和送达证明（POD）',
+    carrierIntegration: '承运商深度集成',
     carrierIntegrationDesc:
-      'Seamless integration with UPS and USPS systems through APIs, automatic waybill generation, label printing, and "last mile" tracking',
-    multiPlatformFulfillment: 'Multi-Platform Sales Fulfillment',
-    multiPlatformFulfillmentDesc:
-      'Supporting logistics fulfillment for Amazon, Temu, TikTok, and independent websites',
+      '通过API与UPS和USPS系统无缝集成，自动生成运单、标签打印和"最后一公里"追踪',
+    multiPlatformFulfillment: '多平台销售履约',
+    multiPlatformFulfillmentDesc: '支持亚马逊、Temu、TikTok和独立网站的物流履约服务',
     ownTrucksCount: '450+',
-    ownTrucksLabel: 'Self-Operated Trucks',
+    ownTrucksLabel: '自营卡车',
     onTimeDeliveryRate: '95%',
-    onTimeDeliveryLabel: 'On-Time Delivery Rate',
-    realtimeMonitoringLabel: 'Real-time Monitoring',
+    onTimeDeliveryLabel: '准时送达率',
+    realtimeMonitoringLabel: '实时监控',
 
     // 运输记录和状态
     avgDelayValue: '1.2小时',
-    transportRecord1: 'T-2023 → LA Warehouse',
-    transportRecord2: 'T-2024 → Las Vegas',
-    transportRecord3: 'T-2025 → Phoenix',
+    transportRecord1: '车辆T-2023 → 洛杉矶仓库',
+    transportRecord2: '车辆T-2024 → 拉斯维加斯',
+    transportRecord3: '车辆T-2025 → 菲尼克斯',
     statusArrived: '已到达',
     statusInTransit: '运输中',
     statusLoading: '装载中',
+
+    // 新增的时间和系统标签
+    timeLabel0600: '06:00',
+    timeLabel0900: '09:00',
+    timeLabel1200: '12:00',
+    timeLabel1500: '15:00',
+    timeLabel1800: '18:00',
+    efficiencyChartTitle: '效率图表',
+    systemStatus: '系统状态',
+
+    // 新增数值显示
+    dashboardValue2847: '2,847',
+    dashboardValue1234: '1,234',
+    dashboardValue15678: '15,678',
+    dashboardValue456: '456',
+
+    // AGV和仓储系统
+    agvStatusActive: '运行中',
+    sortingStatusActive: '高速运行',
+
+    // 车队具体数值
+    fleetValue342: '342',
+    fleetValue108: '108',
+    utilizationValue89: '89%',
   },
   en: {
     // 页面基本信息 - 专业技术表达
@@ -1437,9 +1485,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     fleetManagementTitle: 'Fleet Management System - Real-time Monitoring',
     todayEfficiencyTitle: "Today's Transportation Efficiency",
     efficiencyIncrease: '↗ +12.5%',
-    vehiclesInTransitCount: '342',
     vehiclesInTransitLabel: 'In Transit',
-    pendingScheduleCount: '108',
     pendingScheduleLabel: 'Pending Schedule',
     keyTransportRoutes: 'Key Transportation Routes',
     routeLaToVegas: 'Los Angeles → Las Vegas',
@@ -1474,12 +1520,36 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
 
     // 运输记录和状态
     avgDelayValue: '1.2 hours',
-    transportRecord1: 'T-2023 → LA Warehouse',
-    transportRecord2: 'T-2024 → Las Vegas',
-    transportRecord3: 'T-2025 → Phoenix',
+    transportRecord1: 'Vehicle T-2023 → LA Warehouse',
+    transportRecord2: 'Vehicle T-2024 → Las Vegas',
+    transportRecord3: 'Vehicle T-2025 → Phoenix',
     statusArrived: 'Arrived',
     statusInTransit: 'In Transit',
     statusLoading: 'Loading',
+
+    // 新增的时间和系统标签
+    timeLabel0600: '06:00',
+    timeLabel0900: '09:00',
+    timeLabel1200: '12:00',
+    timeLabel1500: '15:00',
+    timeLabel1800: '18:00',
+    efficiencyChartTitle: 'Efficiency Chart',
+    systemStatus: 'System Status',
+
+    // 新增数值显示
+    dashboardValue2847: '2,847',
+    dashboardValue1234: '1,234',
+    dashboardValue15678: '15,678',
+    dashboardValue456: '456',
+
+    // AGV和仓储系统
+    agvStatusActive: 'Active',
+    sortingStatusActive: 'High-Speed Operation',
+
+    // 车队具体数值
+    fleetValue342: '342',
+    fleetValue108: '108',
+    utilizationValue89: '89%',
   },
 }
 

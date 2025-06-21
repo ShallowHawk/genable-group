@@ -66,7 +66,7 @@
     </section>
 
     <!-- 服务流程 -->
-    <section class="py-16 lg:py-24 bg-gray-50">
+    <section class="py-16 lg:py-24 bg-gray-50" id="service-process">
       <div class="container-section">
         <div class="text-center mb-16">
           <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -75,25 +75,78 @@
           <p class="text-xl text-gray-600">{{ getText('transparentProcessDesc') }}</p>
         </div>
 
-        <div class="max-w-6xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-8">
-            <div v-for="(step, index) in processSteps" :key="step.title" class="text-center">
-              <div class="relative">
-                <div
-                  class="w-16 h-16 bg-primary-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold"
-                >
-                  {{ index + 1 }}
+        <div class="max-w-7xl mx-auto">
+          <!-- 桌面端：水平流程布局 -->
+          <div class="hidden lg:flex items-center justify-center process-flow">
+            <template v-for="(step, index) in processSteps" :key="step.title">
+              <div class="process-step-item group" :style="{ animationDelay: `${index * 150}ms` }">
+                <div class="step-content">
+                  <div class="step-icon-wrapper">
+                    <div class="step-icon">
+                      {{ index + 1 }}
+                    </div>
+                  </div>
+                  <h3 class="step-title">{{ step.title }}</h3>
+                  <p class="step-description">{{ step.description }}</p>
                 </div>
-                <Icon
-                  v-if="index < processSteps.length - 1"
-                  name="arrow-right"
-                  size="md"
-                  class="absolute top-8 left-1/2 transform translate-x-8 text-gray-400 hidden lg:block"
-                />
               </div>
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ step.title }}</h3>
-              <p class="text-gray-600 text-sm">{{ step.description }}</p>
-            </div>
+
+              <!-- 连接箭头 -->
+              <div v-if="index < processSteps.length - 1" class="process-arrow">
+                <div class="arrow-line"></div>
+                <div class="arrow-head"></div>
+              </div>
+            </template>
+          </div>
+
+          <!-- 平板端：2x3 网格布局 -->
+          <div class="hidden md:grid lg:hidden grid-cols-3 gap-8 process-grid-tablet">
+            <template v-for="(step, index) in processSteps" :key="step.title">
+              <div class="process-step-item group" :style="{ animationDelay: `${index * 150}ms` }">
+                <div class="step-content">
+                  <div class="step-icon-wrapper">
+                    <div class="step-icon">
+                      {{ index + 1 }}
+                    </div>
+                  </div>
+                  <h3 class="step-title">{{ step.title }}</h3>
+                  <p class="step-description">{{ step.description }}</p>
+                </div>
+              </div>
+
+              <!-- 第3步到第4步的向下箭头 -->
+              <div v-if="index === 2" class="col-span-3 flex justify-center py-4">
+                <div class="vertical-arrow">
+                  <Icon name="chevron-down" size="lg" class="text-primary-500" />
+                </div>
+              </div>
+            </template>
+          </div>
+
+          <!-- 移动端：垂直堆叠布局 -->
+          <div class="md:hidden space-y-8 process-mobile">
+            <template v-for="(step, index) in processSteps" :key="step.title">
+              <div class="process-step-item group" :style="{ animationDelay: `${index * 150}ms` }">
+                <div class="step-content mobile-layout">
+                  <div class="step-icon-wrapper">
+                    <div class="step-icon">
+                      {{ index + 1 }}
+                    </div>
+                  </div>
+                  <div class="step-text">
+                    <h3 class="step-title">{{ step.title }}</h3>
+                    <p class="step-description">{{ step.description }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 移动端连接线 -->
+              <div v-if="index < processSteps.length - 1" class="flex justify-center">
+                <div class="mobile-connector">
+                  <Icon name="chevron-down" size="md" class="text-primary-400" />
+                </div>
+              </div>
+            </template>
           </div>
         </div>
       </div>
@@ -157,7 +210,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import PageLayout from '@/components/layout/PageLayout.vue'
 import BaseCard from '@/components/ui/BaseCard.vue'
@@ -166,6 +219,43 @@ import ServicesHero from '@/components/sections/ServicesHero.vue'
 import UnifiedCtaSection from '@/components/sections/UnifiedCtaSection.vue'
 
 const { locale } = useI18n()
+
+// 滚动触发动画的逻辑
+let observer: IntersectionObserver | null = null
+
+onMounted(() => {
+  // 创建 Intersection Observer 来检测服务流程模块何时进入视窗
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // 当模块进入视窗时，添加动画触发类
+          entry.target.classList.add('animate-in')
+        }
+      })
+    },
+    {
+      // 当模块顶部露出30%时开始触发动画
+      threshold: 0.3,
+      // 提前50px开始检测
+      rootMargin: '50px 0px -50px 0px',
+    },
+  )
+
+  // 开始观察服务流程模块
+  const processSection = document.getElementById('service-process')
+  if (processSection) {
+    observer.observe(processSection)
+  }
+})
+
+onUnmounted(() => {
+  // 清理 Observer
+  if (observer) {
+    observer.disconnect()
+    observer = null
+  }
+})
 
 // 定义翻译键的类型
 type TranslationKey =
@@ -536,5 +626,276 @@ const advantages = computed(() => [
 </script>
 
 <style scoped>
-/* 组件特定样式 */
+/* ===== 服务流程模块样式优化 ===== */
+
+/* 基础动画定义 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 流程步骤基础样式 */
+.process-step-item {
+  /* 初始状态 - 用于动画 */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+
+  /* 交互准备 */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+/* === 桌面端布局样式 === */
+.process-flow {
+  padding: 2rem 0;
+}
+
+.process-flow .process-step-item {
+  flex: 0 0 auto;
+  width: 200px;
+  text-align: center;
+}
+
+.process-flow .step-content {
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 步骤图标样式 */
+.step-icon-wrapper {
+  margin-bottom: 1rem;
+}
+
+.step-icon {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.step-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+/* 步骤标题和描述 */
+.step-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.step-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+/* === 桌面端连接箭头样式 === */
+.process-arrow {
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #1e40af);
+  position: relative;
+  margin: 0 1.5rem;
+  max-width: 120px;
+  border-radius: 2px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.process-arrow::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -8px;
+  transform: translateY(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid #1e40af;
+  border-right: 3px solid #1e40af;
+  background: white;
+}
+
+/* === 悬停效果 === */
+.process-step-item:hover {
+  transform: translateY(-8px);
+}
+
+.process-step-item:hover .step-content {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.process-step-item:hover .step-icon {
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+}
+
+.process-step-item:hover .step-icon::before {
+  transform: scale(1);
+}
+
+.process-step-item:hover .step-title {
+  color: #3b82f6;
+}
+
+.process-step-item:hover .step-description {
+  color: #4b5563;
+}
+
+/* 相邻箭头高亮效果 */
+.process-step-item:hover + .process-arrow,
+.process-arrow:has(+ .process-step-item:hover) {
+  opacity: 1;
+  background: linear-gradient(90deg, #60a5fa, #3b82f6);
+}
+
+/* === 平板端样式 === */
+.process-grid-tablet .process-step-item {
+  text-align: center;
+}
+
+.process-grid-tablet .step-content {
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  height: 100%;
+}
+
+.vertical-arrow {
+  padding: 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+}
+
+/* === 移动端样式 === */
+.process-mobile .step-content.mobile-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  text-align: left;
+}
+
+.mobile-layout .step-icon-wrapper {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.mobile-layout .step-icon {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25rem;
+}
+
+.mobile-layout .step-text {
+  flex: 1;
+}
+
+.mobile-layout .step-title {
+  margin-bottom: 0.5rem;
+}
+
+.mobile-connector {
+  padding: 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 50%;
+  margin: 0.5rem 0;
+}
+
+/* === 响应式微调 === */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .process-grid-tablet {
+    gap: 2rem;
+  }
+
+  .process-grid-tablet .step-content {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 767px) {
+  .process-mobile .process-step-item {
+    margin-bottom: 0;
+  }
+
+  .mobile-layout .step-content {
+    margin-bottom: 0;
+  }
+}
+
+/* === 滚动触发动画增强 === */
+@media (prefers-reduced-motion: no-preference) {
+  .process-step-item {
+    animation-play-state: paused;
+  }
+
+  /* 当模块进入视窗时触发动画 */
+  #service-process.animate-in .process-step-item {
+    animation-play-state: running;
+  }
+}
+
+/* === 无障碍和性能优化 === */
+@media (prefers-reduced-motion: reduce) {
+  .process-step-item,
+  .step-icon,
+  .step-content,
+  .process-arrow {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .process-step-item {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* === 高DPI屏幕优化 === */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .step-icon {
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+  }
+
+  .process-arrow::after {
+    border-width: 2px;
+  }
+}
 </style>

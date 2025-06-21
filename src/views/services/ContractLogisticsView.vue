@@ -288,11 +288,11 @@
 
     <!-- CTA区域 -->
     <CtaSection
-      title="选择个性化定制方案，优化您的供应链"
-      subtitle="全美仓储网络，根据您的业务特点量身定制高效的订单履行和库存管理解决方案"
-      primary-button-text="获取仓储报价"
+      :title="getText('ctaTitle')"
+      :subtitle="getText('ctaSubtitle')"
+      :primary-button-text="getText('ctaPrimaryButton')"
       primary-button-href="/contact"
-      secondary-button-text="下载服务手册"
+      :secondary-button-text="getText('ctaSecondaryButton')"
       secondary-button-href="#"
       secondary-button-icon="download"
       :show-contact-info="true"
@@ -344,6 +344,10 @@ type TranslationKey =
   | 'solutionDesc'
   | 'effect'
   | 'effectDesc'
+  | 'ctaTitle'
+  | 'ctaSubtitle'
+  | 'ctaPrimaryButton'
+  | 'ctaSecondaryButton'
 
 // 翻译映射 - 使用地道商业英文表达
 const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
@@ -388,6 +392,10 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
       '根据客户业务特点定制东、西海岸双仓布局，WMS系统直连Shopify店铺，量身打造自动化订单处理、精美包装与快速发货的专属流程。',
     effect: '成效：',
     effectDesc: '订单处理准确率高达99.9%',
+    ctaTitle: '选择个性化定制方案，优化您的供应链',
+    ctaSubtitle: '全美仓储网络，根据您的业务特点量身定制高效的订单履行和库存管理解决方案',
+    ctaPrimaryButton: '获取仓储报价',
+    ctaSecondaryButton: '下载服务手册',
   },
   en: {
     title: 'Custom Contract Logistics Solutions That Unlock Your Potential',
@@ -395,7 +403,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
       'Kenable operates over 22,000 sqft of owned warehouse space across four strategic US hubs in California, Texas, Georgia, and Indiana. We deliver tailored warehousing, order fulfillment, value-added services, and reverse logistics solutions designed to effortlessly manage your American supply chain.',
     label: 'US Warehousing & Fulfillment Expert',
     getQuote: 'Get Warehouse Quote',
-    consultation: 'Get Started',
+    consultation: 'Online Consultation',
     ourSolutionsTitle: 'Our Customized Solutions',
     inventoryTitle: 'Smart Warehousing & Inventory Management',
     inventoryDesc:
@@ -433,6 +441,11 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
       'Based on client business characteristics, we designed a dual East-West Coast warehouse layout with WMS system direct connection to Shopify store, creating a custom automated order processing, premium packaging, and rapid fulfillment workflow.',
     effect: 'Results:',
     effectDesc: 'Order processing accuracy reaching 99.9%',
+    ctaTitle: 'Choose Custom Contract Logistics Solutions to Optimize Your Supply Chain',
+    ctaSubtitle:
+      'Nationwide warehouse network providing tailored efficient order fulfillment and inventory management solutions based on your business characteristics',
+    ctaPrimaryButton: 'Get Warehouse Quote',
+    ctaSecondaryButton: 'Download Service Manual',
   },
 }
 

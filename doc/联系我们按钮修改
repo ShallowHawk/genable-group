@@ -1,0 +1,196 @@
+# 首页"联系我们"按钮布局问题排查修改指南
+
+## 问题现象
+在中文模式下，"联系我们"按钮出现竖向排列，而不是期望的水平布局。
+
+## 问题定位
+
+### 1. 主要问题位置
+**文件位置：** 第711-729行 - 预订服务选项卡内容
+
+```vue
+<!-- 预订服务选项卡 - 当前有问题的代码 -->
+<div
+  v-else-if="activeTab === 'book'"
+  class="flex flex-col justify-center h-full"
+>
+  <!-- 标题和描述... -->
+  <div class="flex justify-center">
+    <router-link to="/contact">
+      <BaseButton
+        variant="primary"
+        size="lg"
+        class="bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow px-12 whitespace-nowrap"
+      >
+        {{ locale === 'zh' ? '联系我们' : 'Contact Us' }}
+      </BaseButton>
+    </router-link>
+  </div>
+</div>
+```
+
+### 2. 根本原因分析
+1. **硬编码文本问题**：直接在模板中使用三元运算符切换中英文，未使用统一的翻译系统
+2. **翻译系统不一致**：其他按钮都使用`getText()`函数，这个按钮却硬编码
+3. **CSS类冲突**：可能存在样式优先级问题
+4. **响应式布局问题**：在某些屏幕尺寸下flex布局表现异常
+
+## 修改方案
+
+### 方案一：统一翻译系统（推荐）
+
+#### 步骤1：添加翻译键
+在第61行附近的`TranslationKey`类型定义中添加：
+
+```typescript
+type TranslationKey =
+  // ... 现有的翻译键
+  | 'contactUs'  // 添加这一行
+```
+
+#### 步骤2：添加翻译文本
+在中文翻译对象中（第278行附近）添加：
+
+```typescript
+zh: {
+  // ... 现有翻译
+  contactUs: '联系我们',
+}
+```
+
+在英文翻译对象中（第467行附近）添加：
+
+```typescript
+en: {
+  // ... 现有翻译
+  contactUs: 'Contact Us',
+}
+```
+
+#### 步骤3：修改按钮代码
+将第720-729行的按钮部分替换为：
+
+```vue
+<div class="flex justify-center">
+  <router-link to="/contact">
+    <BaseButton
+      variant="primary"
+      size="lg"
+      class="bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow px-12 whitespace-nowrap"
+    >
+      {{ getText('contactUs') }}
+    </BaseButton>
+  </router-link>
+</div>
+```
+
+### 方案二：CSS布局强化（辅助方案）
+
+如果问题仍然存在，在第715-729行的整个按钮容器外层添加额外的布局控制：
+
+```vue
+<div class="flex flex-col justify-center h-full">
+  <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+    {{ getText('tabBookTitle') }}
+  </h2>
+  <p class="text-xl text-gray-600 mb-10 leading-relaxed">
+    {{ getText('tabBookDesc') }}
+  </p>
+  <!-- 强化的布局容器 -->
+  <div class="flex justify-center items-center w-full">
+    <div class="inline-flex">
+      <router-link to="/contact">
+        <BaseButton
+          variant="primary"
+          size="lg"
+          class="bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow px-12 whitespace-nowrap min-w-max"
+        >
+          {{ getText('contactUs') }}
+        </BaseButton>
+      </router-link>
+    </div>
+  </div>
+</div>
+```
+
+### 方案三：检查其他可能的冲突
+
+#### 检查全局CSS冲突
+确保没有全局CSS规则影响按钮布局：
+
+```vue
+<!-- 如果需要，可以添加局部样式作用域 -->
+<div class="flex justify-center" style="min-height: 60px;">
+  <router-link to="/contact" class="inline-block">
+    <BaseButton
+      variant="primary"
+      size="lg"
+      class="bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow px-12 whitespace-nowrap display-inline-flex items-center"
+    >
+      {{ getText('contactUs') }}
+    </BaseButton>
+  </router-link>
+</div>
+```
+
+## 验证方法
+
+### 1. 功能验证
+- 切换到中文模式，检查"预订服务"选项卡
+- 确认按钮显示为"联系我们"且为水平居中
+- 切换到英文模式，确认按钮显示为"Contact Us"
+
+### 2. 响应式验证
+- 在不同屏幕尺寸下测试（手机、平板、桌面）
+- 确保按钮在所有尺寸下都保持水平布局
+
+### 3. 一致性验证
+- 对比其他选项卡的按钮布局
+- 确保整体设计一致性
+
+## 预防措施
+
+### 1. 统一翻译管理
+确保所有用户界面文本都通过`getText()`函数管理，避免硬编码。
+
+### 2. CSS命名规范
+使用一致的CSS类命名，避免样式冲突。
+
+### 3. 响应式测试
+每次修改后都要在不同设备上测试布局效果。
+
+## 扩展优化建议
+
+### 1. 增加按钮一致性
+考虑为所有主要操作按钮创建统一的样式类：
+
+```vue
+<!-- 可以考虑创建统一的按钮组件样式 -->
+<BaseButton
+  variant="primary"
+  size="lg"
+  class="primary-action-button"
+>
+  {{ getText('contactUs') }}
+</BaseButton>
+```
+
+### 2. 改进移动端体验
+在移动设备上，可以考虑让按钮占据更多宽度：
+
+```vue
+<div class="flex justify-center">
+  <router-link to="/contact" class="w-full max-w-xs sm:w-auto">
+    <BaseButton
+      variant="primary"
+      size="lg"
+      class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow px-12 whitespace-nowrap"
+    >
+      {{ getText('contactUs') }}
+    </BaseButton>
+  </router-link>
+</div>
+```
+
+## 总结
+主要问题是硬编码的中英文切换导致的翻译系统不一致。通过统一使用`getText()`函数和完善翻译配置，可以彻底解决这个问题。同时，适当的CSS布局强化可以确保在各种情况下都能保持正确的水平布局。

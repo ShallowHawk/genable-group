@@ -111,9 +111,6 @@
                   </h3>
                   <p class="text-gray-600">
                     {{ getText('integrationDesc') }}
-                    <a href="#" class="text-cyan-600 hover:text-cyan-800 font-medium">{{
-                      getText('connectWithUs')
-                    }}</a>
                   </p>
                 </div>
               </div>
@@ -293,11 +290,11 @@
 
     <!-- CTA区域 -->
     <CtaSection
-      title="打造智能供应链，赋能业务增长"
-      subtitle="专业的供应链解决方案，助您实现成本优化和效率提升"
-      primary-button-text="获取解决方案"
+      :title="getText('ctaTitle')"
+      :subtitle="getText('ctaSubtitle')"
+      :primary-button-text="getText('ctaPrimaryButton')"
       primary-button-href="/contact"
-      secondary-button-text="下载服务手册"
+      :secondary-button-text="getText('ctaSecondaryButton')"
       secondary-button-href="#"
       secondary-button-icon="download"
       :show-contact-info="true"
@@ -350,6 +347,10 @@ type TranslationKey =
   | 'solutionsDesc'
   | 'results'
   | 'resultsDesc'
+  | 'ctaTitle'
+  | 'ctaSubtitle'
+  | 'ctaPrimaryButton'
+  | 'ctaSecondaryButton'
 
 // 翻译映射 - 使用地道商业英文表达
 const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
@@ -392,6 +393,10 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
       '集成其ERP系统，部署实时追踪的供应商管理库存（VMI），并通过数据分析优化安全库存与补货策略。',
     results: '成效：',
     resultsDesc: '库存持有成本降低18%',
+    ctaTitle: '打造智能供应链，赋能业务增长',
+    ctaSubtitle: '专业的供应链解决方案，助您实现成本优化和效率提升',
+    ctaPrimaryButton: '获取解决方案',
+    ctaSecondaryButton: '下载服务手册',
   },
   en: {
     title: 'End-to-End Supply Chain Optimization That Drives Growth',
@@ -399,7 +404,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
       'Drawing on 22 years of industry insight, Kenable delivers comprehensive supply chain solutions from design optimization, technology integration, and risk management to customized services. Through professional SCM/WMS system integration, we help you achieve cost optimization, efficiency improvements, agile response, and continuous innovation.',
     label: 'Supply Chain Architects',
     getSolution: 'Get Supply Chain Solution',
-    consultation: 'Get Started',
+    consultation: 'Online Consultation',
     ourSolutionsTitle: 'Our Supply Chain Solutions',
     designTitle: 'Supply Chain Design & Optimization',
     designDesc:
@@ -438,6 +443,11 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
       'Integrated their ERP system, deployed real-time tracking Vendor Managed Inventory (VMI), and optimized safety stock and replenishment strategies through data analysis.',
     results: 'Results:',
     resultsDesc: '18% reduction in inventory holding costs',
+    ctaTitle: 'Build Smart Supply Chains to Drive Business Growth',
+    ctaSubtitle:
+      'Professional supply chain solutions to help you achieve cost optimization and efficiency improvements',
+    ctaPrimaryButton: 'Get Supply Chain Solution',
+    ctaSecondaryButton: 'Download Service Manual',
   },
 }
 

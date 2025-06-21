@@ -368,11 +368,11 @@
 
     <!-- CTA区域 -->
     <CtaSection
-      title="选择专业逆向物流服务，挖掘退货价值"
-      subtitle="专业的退货处理方案，将成本中心转变为价值回收中心"
-      primary-button-text="获取逆向物流报价"
+      :title="getText('ctaTitle')"
+      :subtitle="getText('ctaSubtitle')"
+      :primary-button-text="getText('ctaPrimaryButton')"
       primary-button-href="/contact"
-      secondary-button-text="下载服务手册"
+      :secondary-button-text="getText('ctaSecondaryButton')"
       secondary-button-href="#"
       secondary-button-icon="download"
       :show-contact-info="true"

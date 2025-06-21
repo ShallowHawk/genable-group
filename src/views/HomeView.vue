@@ -56,6 +56,11 @@ type TranslationKey =
   | 'heroBadge'
   | 'heroCtaPrimary'
   | 'heroCtaSecondary'
+  // Hero优势标签
+  | 'heroPickupGuarantee'
+  | 'heroTransitTime'
+  | 'heroExperience'
+  | 'heroWarehouseNetwork'
   // 轮播图
   | 'airFreightTitle'
   | 'airFreightSubtitle'
@@ -86,6 +91,7 @@ type TranslationKey =
   | 'viewNetwork'
   | 'getQuote'
   | 'clientTestimonials'
+  | 'contactUs'
   // 新增翻译键
   | 'kenableSolutionsTitle'
   | 'kenableSolutionsSubtitle'
@@ -155,7 +161,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     warehouseNetworkDesc:
       '在加州、德州、佐治亚和印第安纳州拥有超22,000平米的自营仓库，确保高效分销。',
     industryExperienceTitle: '丰富的行业与清关经验',
-    industryExperienceDesc: '近20年行业经验，精通美国法规和平台政策，高效解决复杂物流与清关挑战。',
+    industryExperienceDesc: '近22年行业经验，精通美国法规和平台政策，高效解决复杂物流与清关挑战。',
     deliveryNetworkTitle: '高效的派送合作网络',
     deliveryNetworkDesc: '与UPS、USPS等官方合作，配合自营卡车车队，保障派送时效。',
     customSolutionsTitle: '柔性定制化解决方案',
@@ -189,6 +195,12 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     heroCtaPrimary: '开始合作',
     heroCtaSecondary: '了解更多',
 
+    // Hero优势标签
+    heroPickupGuarantee: '99% 取件率保证',
+    heroTransitTime: '东西海岸运输5-7天',
+    heroExperience: '近22年行业经验',
+    heroWarehouseNetwork: '全美4州自营仓库',
+
     // 轮播图服务
     airFreightTitle: '空运服务',
     airFreightSubtitle: '快速、安全的国际航空运输解决方案',
@@ -214,13 +226,14 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     ctaSubtitle: '专业团队24小时在线，为您量身打造最优物流解决方案',
     ctaPrimary: '获取专业报价',
     ctaSecondary: '预约专属顾问',
-            ctaTertiary: '+1 (626) 693-6579',
+    ctaTertiary: '+1 (626) 693-6579',
 
     // 通用
     learnMore: '了解更多',
     viewNetwork: '查看我们的全球网络',
     getQuote: '获取报价',
     clientTestimonials: '客户评价',
+    contactUs: '联系我们',
 
     // 新增翻译
     kenableSolutionsTitle: '可耐博达Kenable解决方案',
@@ -330,6 +343,12 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     heroCtaPrimary: 'Start Partnership',
     heroCtaSecondary: 'Learn More',
 
+    // Hero优势标签
+    heroPickupGuarantee: '99% Pickup Guarantee',
+    heroTransitTime: 'Coast-to-Coast in 5-7 Days',
+    heroExperience: '22+ Years Experience',
+    heroWarehouseNetwork: '4 States Warehouse Network',
+
     // 轮播图服务 - 简洁有力的英文
     airFreightTitle: 'Air Freight Services',
     airFreightSubtitle: 'Fast, secure international air transport',
@@ -368,6 +387,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     viewNetwork: 'View Our Global Network',
     getQuote: 'Get Quote',
     clientTestimonials: 'Client Testimonials',
+    contactUs: 'Contact Us',
 
     // 新增翻译
     kenableSolutionsTitle: 'Kenable Solutions',
@@ -1164,22 +1184,22 @@ onBeforeUnmount(() => {
             <span
               class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 backdrop-blur-sm text-blue-200 border border-blue-400/30"
             >
-              99% 取件率保证
+              {{ getText('heroPickupGuarantee') }}
             </span>
             <span
               class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-cyan-500/20 backdrop-blur-sm text-cyan-200 border border-cyan-400/30"
             >
-              东西海岸运输5-7天
+              {{ getText('heroTransitTime') }}
             </span>
             <span
               class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-500/20 backdrop-blur-sm text-blue-200 border border-blue-400/30"
             >
-              近20年行业经验
+              {{ getText('heroExperience') }}
             </span>
             <span
               class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-cyan-500/20 backdrop-blur-sm text-cyan-200 border border-cyan-400/30"
             >
-              全美4州自营仓库
+              {{ getText('heroWarehouseNetwork') }}
             </span>
           </div>
         </div>
@@ -1463,9 +1483,9 @@ onBeforeUnmount(() => {
                           <BaseButton
                             variant="primary"
                             size="lg"
-                            class="bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow px-12"
+                            class="bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-shadow px-12 whitespace-nowrap"
                           >
-                            联系我们
+                            {{ getText('contactUs') }}
                           </BaseButton>
                         </router-link>
                       </div>

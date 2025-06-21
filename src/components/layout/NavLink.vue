@@ -50,13 +50,14 @@ const handleClick = (event: Event) => {
 .nav-link {
   display: flex;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 0.75rem;
   color: #374151;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s ease;
   border-radius: 0.375rem;
   white-space: nowrap;
+  min-height: 44px;
 }
 
 .nav-link:hover,

@@ -339,17 +339,13 @@ const whyUsFeatures = computed(() => [
   },
 ])
 
-// 案例研究图片
+// Case study images
 const caseStudyImages = [
   {
     url: 'https://images.unsplash.com/photo-1601999007938-f584b47324ac?q=80&w=2638&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: '火车运输集装箱',
-    caption: '通过海铁联运，货物从洛杉矶港高效转运至内陆城市',
   },
   {
     url: 'https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?q=80&w=2618&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: '卡车装载货物',
-    caption: '自有卡车网络完成最后一公里的精准送达',
   },
 ]
 </script>
