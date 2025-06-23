@@ -92,6 +92,7 @@ type TranslationKey =
   | 'chintServiceCities'
   | 'cushionDeliveryTime'
   | 'cushionWarehouseSpace'
+  | 'cushionDistributionCount'
 
 // 翻译映射 - 地道英文表达
 const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
@@ -139,6 +140,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     chintServiceCities: '15个',
     cushionDeliveryTime: '2-3天',
     cushionWarehouseSpace: '50万+',
+    cushionDistributionCount: '5个',
 
     // Cushion Lab案例
     cushionCompany: 'Cushion Lab',
@@ -267,6 +269,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     chintServiceCities: '15 cities',
     cushionDeliveryTime: '2-3 days',
     cushionWarehouseSpace: '500,000+ sqft',
+    cushionDistributionCount: '5',
   },
 }
 
@@ -394,7 +397,7 @@ const cushionLabCase = computed(() => ({
     { value: '300%↑', metric: getText('cushionResult1Metric') },
     { value: '40%↓', metric: getText('cushionResult2Metric') },
     { value: '98%', metric: getText('cushionResult3Metric') },
-    { value: '5个', metric: getText('cushionResult4Metric') },
+    { value: getText('cushionDistributionCount'), metric: getText('cushionResult4Metric') },
   ],
 }))
 </script>

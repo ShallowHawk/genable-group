@@ -41,6 +41,23 @@
                   {{ link.label }}
                 </router-link>
               </li>
+              <li>
+                <a
+                  href="/First‑Leg (Origin) Logistics Service Handbook.docx"
+                  download
+                  class="text-gray-300 hover:text-white transition-colors duration-200 inline-flex items-center"
+                >
+                  {{ getText('downloadManual') }}
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    ></path>
+                  </svg>
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -108,6 +125,7 @@ type TranslationKey =
   | 'technology'
   | 'news'
   | 'contactUs'
+  | 'downloadManual'
   // 联系信息
   | 'contactTitle'
   | 'phone'
@@ -137,6 +155,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     technology: '技术管理',
     news: '新闻资讯',
     contactUs: '联系我们',
+    downloadManual: '下载服务手册',
 
     // 联系信息
     contactTitle: '联系我们',
@@ -167,6 +186,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     technology: 'Technology',
     news: 'News',
     contactUs: 'Contact Us',
+    downloadManual: 'Download Service Manual',
 
     // 联系信息
     contactTitle: 'Contact Us',
@@ -225,7 +245,9 @@ const contactLabels = computed(() => ({
 
 // 响应式翻译的地址信息
 const addressText = computed(() =>
-  locale.value === 'zh' ? '21908 Valley Blvd, Walnut, CA 91789' : '21908 Valley Blvd, Walnut, CA 91789',
+  locale.value === 'zh'
+    ? '21908 Valley Blvd, Walnut, CA 91789'
+    : '21908 Valley Blvd, Walnut, CA 91789',
 )
 </script>
 

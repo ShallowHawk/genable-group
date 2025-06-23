@@ -61,6 +61,7 @@
             <a
               v-if="secondaryButtonHref || secondaryButtonText"
               :href="secondaryButtonHref || '#'"
+              :download="secondaryButtonIcon === 'download' ? true : undefined"
               class="inline-flex items-center text-white hover:text-gray-300 font-medium text-lg transition-colors group"
             >
               {{ secondaryButtonText || getDefaultSecondaryButtonText() }}
@@ -94,8 +95,8 @@
         <div v-if="showContactInfo" class="mt-8 pt-8 border-t border-white/20">
           <p class="text-gray-300 text-lg">
             {{ getContactText() }}
-                    <a href="tel:+16266936579" class="text-white hover:text-cyan-300 transition-colors">
-          +1 (626) 693-6579
+            <a href="tel:+16266936579" class="text-white hover:text-cyan-300 transition-colors">
+              +1 (626) 693-6579
             </a>
           </p>
         </div>

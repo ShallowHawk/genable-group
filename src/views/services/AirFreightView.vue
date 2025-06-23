@@ -295,14 +295,12 @@
     </Section>
 
     <!-- CTA区域 -->
-    <CtaSection
+    <UnifiedCtaSection
       :title="getText('ctaTitle')"
       :subtitle="getText('ctaSubtitle')"
       :primary-button-text="getText('ctaPrimaryButton')"
       primary-button-href="/contact"
       :secondary-button-text="getText('ctaSecondaryButton')"
-      secondary-button-href="#"
-      secondary-button-icon="download"
       :show-contact-info="true"
     />
   </PageLayout>
@@ -313,7 +311,7 @@ import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import PageHero from '@/components/ui/PageHero.vue'
 import Section from '@/components/ui/Section.vue'
-import CtaSection from '@/components/ui/CtaSection.vue'
+import UnifiedCtaSection from '@/components/ui/UnifiedCtaSection.vue'
 import PageLayout from '@/components/layout/PageLayout.vue'
 
 // I18n setup

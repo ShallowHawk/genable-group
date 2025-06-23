@@ -78,8 +78,11 @@
           <!-- 移动端菜单按钮 - 大厂标准 -->
           <button
             @click="toggleMobileMenu"
+            @touchstart.passive="() => {}"
             class="lg:hidden p-3 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+            :class="{ 'pointer-events-none opacity-50': isMenuTransitioning }"
             :aria-label="isMobileMenuOpen ? '关闭菜单' : '打开菜单'"
+            :disabled="isMenuTransitioning"
           >
             <Icon :name="isMobileMenuOpen ? 'x' : 'menu'" size="md" />
           </button>
@@ -97,6 +100,7 @@
       >
         <div
           v-show="isMobileMenuOpen"
+          data-mobile-menu
           class="lg:hidden fixed left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-40"
           :style="{ top: mobileMenuTop }"
         >
@@ -115,7 +119,8 @@
                       {{ item.label }}
                     </router-link>
                     <button
-                      @click="toggleMobileSubmenu(item.href)"
+                      @click="(event) => toggleMobileSubmenu(item.href, event)"
+                      @touchstart.passive="() => {}"
                       class="p-3 text-gray-700 hover:text-blue-600 transition-colors duration-200"
                     >
                       <Icon
@@ -173,7 +178,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/ui/BaseButton.vue'
@@ -269,6 +274,7 @@ const contactText = computed(() => getText('contact'))
 const isMobileMenuOpen = ref(false)
 const isScrolled = ref(false)
 const openMobileSubmenus = ref<string[]>([])
+const isMenuTransitioning = ref(false) // 添加过渡状态跟踪
 
 // 响应式导航项 - 使用翻译
 const navigationItems = computed(() => [
@@ -301,16 +307,86 @@ const navigationItems = computed(() => [
   { label: getText('technology'), href: '/technology' },
 ])
 
-const toggleMobileMenu = () => {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value
+// 改进的菜单切换函数 - 防止快速点击导致状态混乱
+const toggleMobileMenu = async (event?: Event) => {
+  // 防止事件冒泡
+  if (event) {
+    event.preventDefault()
+    event.stopPropagation()
+  }
+
+  // 如果正在过渡中，忽略操作
+  if (isMenuTransitioning.value) {
+    return
+  }
+
+  isMenuTransitioning.value = true
+
+  try {
+    if (isMobileMenuOpen.value) {
+      await closeMobileMenu()
+    } else {
+      await openMobileMenu()
+    }
+  } finally {
+    // 确保过渡状态在操作完成后重置
+    setTimeout(() => {
+      isMenuTransitioning.value = false
+    }, 350) // 略长于CSS过渡时间
+  }
 }
 
-const closeMobileMenu = () => {
+// 异步打开菜单
+const openMobileMenu = async () => {
+  await nextTick()
+  isMobileMenuOpen.value = true
+
+  // 防止背景滚动
+  document.body.style.overflow = 'hidden'
+  document.body.classList.add('mobile-menu-open')
+
+  // 为iOS Safari特殊处理
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    document.body.style.position = 'fixed'
+    document.body.style.width = '100%'
+    document.body.style.top = `-${window.scrollY}px`
+  }
+}
+
+// 异步关闭菜单
+const closeMobileMenu = async () => {
+  // 记录当前滚动位置（iOS Safari）
+  const scrollY = /iPad|iPhone|iPod/.test(navigator.userAgent)
+    ? parseInt(document.body.style.top || '0') * -1
+    : window.scrollY
+
   isMobileMenuOpen.value = false
   openMobileSubmenus.value = []
+
+  // 恢复背景滚动
+  document.body.style.overflow = ''
+  document.body.classList.remove('mobile-menu-open')
+
+  // iOS Safari特殊处理
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    document.body.style.position = ''
+    document.body.style.width = ''
+    document.body.style.top = ''
+    window.scrollTo(0, scrollY)
+  }
+
+  await nextTick()
 }
 
-const toggleMobileSubmenu = (href: string) => {
+const toggleMobileSubmenu = async (href: string, event?: Event) => {
+  // 防止事件冒泡
+  if (event) {
+    event.preventDefault()
+    event.stopPropagation()
+  }
+
+  await nextTick()
+
   const index = openMobileSubmenus.value.indexOf(href)
   if (index > -1) {
     openMobileSubmenus.value.splice(index, 1)
@@ -319,9 +395,9 @@ const toggleMobileSubmenu = (href: string) => {
   }
 }
 
-const handleContactClick = () => {
+const handleContactClick = async () => {
+  await closeMobileMenu()
   router.push('/contact')
-  closeMobileMenu()
 }
 
 const isActiveRoute = (href: string) => {
@@ -346,36 +422,97 @@ const mobileMenuTop = computed(() => {
   return window?.innerWidth >= 1024 ? '72px' : '64px'
 })
 
-// 添加点击外部关闭菜单的功能
+// 改进的外部点击处理 - 增加延迟和更精确的检测
 const handleClickOutside = (event: Event) => {
+  // 如果菜单没有打开或正在过渡，直接返回
+  if (!isMobileMenuOpen.value || isMenuTransitioning.value) {
+    return
+  }
+
   const target = event.target as Element
   const header = document.querySelector('header')
+  const mobileMenu = document.querySelector('[data-mobile-menu]')
 
-  if (isMobileMenuOpen.value && header && !header.contains(target)) {
-    closeMobileMenu()
+  // 检查点击是否在header或移动菜单内部
+  if (header && (header.contains(target) || (mobileMenu && mobileMenu.contains(target)))) {
+    return
   }
+
+  // 延迟执行关闭操作，确保不会与其他点击事件冲突
+  setTimeout(() => {
+    if (isMobileMenuOpen.value) {
+      closeMobileMenu()
+    }
+  }, 50)
 }
 
-// 添加键盘事件处理
+// 键盘事件处理
 const handleKeyPress = (event: KeyboardEvent) => {
-  if (event.key === 'Escape' && isMobileMenuOpen.value) {
+  if (event.key === 'Escape' && isMobileMenuOpen.value && !isMenuTransitioning.value) {
     closeMobileMenu()
   }
 }
 
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
+// 窗口大小变化处理
+const handleResize = () => {
+  // 如果切换到桌面端，自动关闭移动菜单
+  if (window.innerWidth >= 1024 && isMobileMenuOpen.value) {
+    closeMobileMenu()
+  }
+}
+
+// 路由变化监听
+watch(route, () => {
+  if (isMobileMenuOpen.value) {
+    closeMobileMenu()
+  }
+})
+
+// 监听菜单状态变化，确保状态同步
+watch(isMobileMenuOpen, (newValue) => {
+  if (!newValue) {
+    // 菜单关闭时，确保所有子菜单也关闭
+    openMobileSubmenus.value = []
+  }
+})
+
+onMounted(async () => {
+  await nextTick()
+
+  // 初始化滚动处理
+  window.addEventListener('scroll', handleScroll, { passive: true })
   handleScroll()
-  document.addEventListener('click', handleClickOutside)
+
+  // 添加事件监听器 - 增加防抖
+  let clickTimeout: ReturnType<typeof setTimeout>
+  const debouncedClickOutside = (event: Event) => {
+    clearTimeout(clickTimeout)
+    clickTimeout = setTimeout(() => handleClickOutside(event), 100)
+  }
+
+  document.addEventListener('click', debouncedClickOutside, { passive: true })
   document.addEventListener('keydown', handleKeyPress)
+  window.addEventListener('resize', handleResize, { passive: true })
+
+  // 确保初始状态正确
+  if (isMobileMenuOpen.value) {
+    await closeMobileMenu()
+  }
 })
 
 onUnmounted(() => {
+  // 清理事件监听器
   window.removeEventListener('scroll', handleScroll)
   document.removeEventListener('click', handleClickOutside)
   document.removeEventListener('keydown', handleKeyPress)
-  // 确保恢复body滚动
+  window.removeEventListener('resize', handleResize)
+
+  // 恢复body样式
   document.body.style.overflow = ''
+  document.body.style.position = ''
+  document.body.style.width = ''
+  document.body.style.top = ''
+  document.body.classList.remove('mobile-menu-open')
 })
 </script>
 

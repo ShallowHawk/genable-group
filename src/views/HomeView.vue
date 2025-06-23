@@ -4,8 +4,9 @@ import { useI18n } from 'vue-i18n'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import BaseButton from '@/components/ui/BaseButton.vue'
-import BaseInput from '@/components/ui/BaseInput.vue'
+// import BaseInput from '@/components/ui/BaseInput.vue' // 暂时注释，选项卡功能待实现
 import Icon from '@/components/ui/Icon.vue'
+import UnifiedCtaSection from '@/components/ui/UnifiedCtaSection.vue'
 
 // 注册 ScrollTrigger 插件
 gsap.registerPlugin(ScrollTrigger)
@@ -305,7 +306,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
       'Over 240,000 sq ft of self-operated warehouses strategically located in California, Texas, Georgia, and Indiana for optimal distribution.',
     industryExperienceTitle: 'Deep Industry & Regulatory Expertise',
     industryExperienceDesc:
-      'Nearly two decades of experience navigating US regulations and platform requirements, solving complex logistics challenges efficiently.',
+      'Nearly 22 years of experience navigating US regulations and platform requirements, solving complex logistics challenges efficiently.',
     deliveryNetworkTitle: 'Reliable Delivery Partnership',
     deliveryNetworkDesc:
       'Official partnerships with UPS and USPS combined with our own fleet ensure consistent delivery performance.',
@@ -756,20 +757,20 @@ const faqItems = computed(() => {
   ]
 })
 
-// 选项卡功能
-const activeTab = ref('quote')
+// 选项卡功能 - 暂时注释，功能待实现
+// const activeTab = ref('quote')
 
 // 响应式选项卡
-const tabs = computed(() => [
-  { id: 'quote', label: getText('tabGetQuote') },
-  { id: 'services', label: getText('tabServices') },
-  { id: 'book', label: getText('tabBook') },
-  { id: 'track', label: getText('tabTrack') },
-])
+// const tabs = computed(() => [
+//   { id: 'quote', label: getText('tabGetQuote') },
+//   { id: 'services', label: getText('tabServices') },
+//   { id: 'book', label: getText('tabBook') },
+//   { id: 'track', label: getText('tabTrack') },
+// ])
 
-const setActiveTab = (tabId: string) => {
-  activeTab.value = tabId
-}
+// const setActiveTab = (tabId: string) => {
+//   activeTab.value = tabId
+// }
 
 // 初始化滚动动画
 const initScrollAnimations = () => {
@@ -1365,11 +1366,11 @@ onBeforeUnmount(() => {
       </div>
     </section>
 
-    <!-- 选项卡组件区域 -->
+    <!-- 选项卡组件区域 - 暂时注释，功能待实现
     <section class="py-12 bg-gray-50">
       <div class="container-section">
         <div class="max-w-7xl mx-auto">
-          <!-- 选项卡导航 - 居中设计 -->
+          选项卡导航 - 居中设计
           <div class="tabs-centered-container">
             <div class="tabs-fullwidth-container">
               <div class="tabs-list">
@@ -1384,7 +1385,7 @@ onBeforeUnmount(() => {
               </div>
             </div>
 
-            <!-- 选项卡内容 -->
+            选项卡内容
             <div class="tab-content-container">
               <div class="pt-20 pb-16 px-12 tab-content-section">
                 <transition
@@ -1397,13 +1398,13 @@ onBeforeUnmount(() => {
                   leave-from-class="opacity-100 transform translate-y-0"
                   leave-to-class="opacity-0 transform -translate-y-4"
                 >
-                  <!-- 统一的内容容器 -->
+                  统一的内容容器
                   <div
                     :key="activeTab"
                     class="text-center text-lg"
                     style="min-height: 400px; max-width: 1200px; margin: 0 auto"
                   >
-                    <!-- 获取报价选项卡 -->
+                    获取报价选项卡
                     <div v-if="activeTab === 'quote'" class="flex flex-col justify-center h-full">
                       <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
                         {{ getText('tabQuoteTitle') }}
@@ -1434,7 +1435,7 @@ onBeforeUnmount(() => {
                       </div>
                     </div>
 
-                    <!-- 物流解决方案选项卡 -->
+                    物流解决方案选项卡
                     <div
                       v-else-if="activeTab === 'services'"
                       class="flex flex-col justify-center h-full"
@@ -1467,7 +1468,7 @@ onBeforeUnmount(() => {
                       </div>
                     </div>
 
-                    <!-- 预订服务选项卡 -->
+                    预订服务选项卡
                     <div
                       v-else-if="activeTab === 'book'"
                       class="flex flex-col justify-center h-full"
@@ -1491,7 +1492,7 @@ onBeforeUnmount(() => {
                       </div>
                     </div>
 
-                    <!-- 货物追踪选项卡 -->
+                    货物追踪选项卡
                     <div
                       v-else-if="activeTab === 'track'"
                       class="flex flex-col justify-center h-full"
@@ -1535,6 +1536,7 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </section>
+    -->
 
     <!-- 客户评价区域 - 选项卡风格 -->
     <section class="py-16 lg:py-24 bg-gray-100 testimonial-section">
@@ -1732,75 +1734,15 @@ onBeforeUnmount(() => {
       </div>
     </section>
 
-    <!-- CTA区域 - DSV风格 -->
-    <section
-      class="py-16 lg:py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden cta-section"
-    >
-      <!-- 背景装饰效果 -->
-      <div class="absolute inset-0 opacity-10">
-        <div
-          class="absolute top-20 left-20 w-32 h-32 bg-blue-400 rounded-full blur-3xl animate-pulse"
-        ></div>
-        <div
-          class="absolute bottom-20 right-20 w-32 h-32 bg-cyan-400 rounded-full blur-3xl animate-pulse"
-        ></div>
-      </div>
-
-      <div class="container-section relative z-10">
-        <div class="max-w-4xl mx-auto text-center text-white cta-content">
-          <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold mb-8 leading-tight">
-            {{ getText('ctaTitle') }}
-          </h2>
-          <p class="text-xl lg:text-2xl mb-12 text-gray-300 font-light leading-relaxed">
-            {{ getText('ctaSubtitle') }}
-          </p>
-
-          <!-- CTA按钮 -->
-          <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <router-link
-              to="/contact"
-              class="inline-flex items-center px-8 py-4 bg-white text-blue-900 font-semibold text-lg rounded-lg hover:bg-gray-100 transition-all duration-300 group"
-            >
-              {{ getText('startCooperationButton') }}
-              <svg
-                class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                ></path>
-              </svg>
-            </router-link>
-
-            <a
-              href="/First‑Leg (Origin) Logistics Service Handbook.docx"
-              download
-              class="inline-flex items-center text-white hover:text-gray-300 font-medium text-lg transition-colors group"
-            >
-              {{ getText('downloadManualButton') }}
-              <svg
-                class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- CTA区域 -->
+    <UnifiedCtaSection
+      :title="getText('ctaTitle')"
+      :subtitle="getText('ctaSubtitle')"
+      :primary-button-text="getText('startCooperationButton')"
+      primary-button-href="/contact"
+      :secondary-button-text="getText('downloadManualButton')"
+      :show-contact-info="true"
+    />
   </div>
 </template>
 

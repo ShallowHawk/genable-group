@@ -303,7 +303,7 @@
       :primary-button-text="getText('ctaPrimaryButton')"
       primary-button-href="/contact"
       :secondary-button-text="getText('ctaSecondaryButton')"
-      secondary-button-href="#"
+      secondary-button-href="/First‑Leg (Origin) Logistics Service Handbook.docx"
       secondary-button-icon="download"
       :show-contact-info="true"
     />

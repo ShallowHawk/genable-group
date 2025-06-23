@@ -168,7 +168,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     // 发展历程 - 专业表达
     historyTitle: 'Our Journey',
     historySubtitle:
-      'Nearly two decades of steady growth, witnessing our evolution from a local warehousing provider to a leading supply chain management enterprise across America',
+      'Nearly 22 years of steady growth, witnessing our evolution from a local warehousing provider to a leading supply chain management enterprise across America',
 
     // 创始人部分 - 尊重和专业
     founderTitle: 'Leadership Excellence',

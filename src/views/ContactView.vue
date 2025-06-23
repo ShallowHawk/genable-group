@@ -263,8 +263,8 @@
                   type="submit"
                   size="lg"
                   class="w-full"
-                  :disabled="true"
-                  :loading="false"
+                  :disabled="isSubmitting"
+                  :loading="isSubmitting"
                 >
                   {{ getText('submitBtn') }}
                 </BaseButton>
@@ -390,6 +390,9 @@ import BaseButton from '@/components/ui/BaseButton.vue'
 import Icon from '@/components/ui/Icon.vue'
 
 const { locale } = useI18n()
+
+// 目标邮箱地址
+const TARGET_EMAIL = 'adam@kenablegroup.com'
 
 // 定义翻译键的类型
 type TranslationKey =
@@ -563,7 +566,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     message: '详细需求',
     messagePlaceholder: '请详细描述您的物流需求和期望...',
     preferredContact: '首选联系方式',
-    submitBtn: '提交咨询',
+    submitBtn: '发送邮件',
 
     // 表单选项
     selectBusinessType: '请选择业务类型',
@@ -634,8 +637,8 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     // 表单验证错误
     phoneValidationError: '请输入有效的电话号码',
     emailValidationError: '请输入有效的邮箱地址',
-    submitSuccess: '提交成功！我们将在24小时内与您联系。',
-    submitError: '提交失败，请稍后重试。',
+    submitSuccess: '邮件客户端已打开，请完成邮件发送！',
+    submitError: '无法打开邮件客户端，请检查您的设备设置。',
   },
   en: {
     // 页面基本信息 - 专业商务表达
@@ -696,7 +699,7 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     message: 'Detailed Requirements',
     messagePlaceholder: 'Please describe your logistics needs and expectations in detail...',
     preferredContact: 'Preferred Contact Method',
-    submitBtn: 'Submit Inquiry',
+    submitBtn: 'Send Email',
 
     // 表单选项 - 标准英文
     selectBusinessType: 'Select business type',
@@ -767,8 +770,8 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     // 表单验证错误
     phoneValidationError: 'Please enter a valid phone number',
     emailValidationError: 'Please enter a valid email address',
-    submitSuccess: 'Submitted successfully! We will contact you within 24 hours.',
-    submitError: 'Submission failed. Please try again later.',
+    submitSuccess: 'Email client opened! Please complete sending the email.',
+    submitError: 'Unable to open email client. Please check your device settings.',
   },
 }
 
@@ -778,28 +781,48 @@ const getText = (key: TranslationKey): string => {
   return translations[currentLang]?.[key] || translations.zh[key]
 }
 
+// 表单数据类型定义
+interface FormData {
+  name: string
+  phone: string
+  email: string
+  company: string
+  businessType: string
+  monthlyVolume: string
+  services: string[]
+  message: string
+  preferredContact: string
+}
+
+// 表单错误类型定义
+interface FormErrors {
+  name: boolean | string
+  phone: boolean | string
+  email: boolean | string
+}
+
 // 表单数据
-const form = reactive({
+const form = reactive<FormData>({
   name: '',
   phone: '',
   email: '',
   company: '',
   businessType: '',
   monthlyVolume: '',
-  services: [] as string[],
+  services: [],
   message: '',
-  preferredContact: 'phone' as string,
+  preferredContact: 'phone',
 })
 
 // 表单验证错误
-const errors = reactive({
-  name: false as boolean | string,
-  phone: false as boolean | string,
-  email: false as boolean | string,
+const errors = reactive<FormErrors>({
+  name: false,
+  phone: false,
+  email: false,
 })
 
 // 实时验证字段
-const validateField = (field: keyof typeof errors) => {
+const validateField = (field: keyof FormErrors) => {
   switch (field) {
     case 'name':
       errors.name = form.name.trim() ? false : errors.name
@@ -913,12 +936,13 @@ const faqs = computed(() => [
 ])
 
 // 表单验证
-const validateForm = () => {
+const validateForm = (): boolean => {
   let isValid = true
 
   // 重置错误
-  Object.keys(errors).forEach((key) => {
-    ;(errors as any)[key] = false
+  const errorKeys: (keyof FormErrors)[] = ['name', 'phone', 'email']
+  errorKeys.forEach((key) => {
+    errors[key] = false
   })
 
   if (!form.name.trim()) {
@@ -945,7 +969,44 @@ const validateForm = () => {
   return isValid
 }
 
-// 表单提交
+// 格式化服务选项为文本
+const formatServices = (serviceValues: string[]): string => {
+  return serviceValues
+    .map((value) => {
+      const service = services.value.find((s) => s.value === value)
+      return service?.label || value
+    })
+    .join(', ')
+}
+
+// 格式化业务类型为文本
+const formatBusinessType = (type: string): string => {
+  const businessTypes: Record<string, { zh: string; en: string }> = {
+    ecommerce: { zh: '跨境电商', en: 'Cross-border E-commerce' },
+    manufacturing: { zh: '制造业', en: 'Manufacturing' },
+    retail: { zh: '零售业', en: 'Retail' },
+    healthcare: { zh: '医疗健康', en: 'Healthcare' },
+    automotive: { zh: '汽车配件', en: 'Automotive Parts' },
+    electronics: { zh: '电子产品', en: 'Electronics' },
+    other: { zh: '其他', en: 'Other' },
+  }
+  const currentLang = locale.value as 'zh' | 'en'
+  return businessTypes[type]?.[currentLang] || type
+}
+
+// 格式化月发货量为文本
+const formatMonthlyVolume = (volume: string): string => {
+  const volumes: Record<string, { zh: string; en: string }> = {
+    small: { zh: '100包裹以下', en: 'Under 100 packages' },
+    medium: { zh: '100-1000包裹', en: '100-1,000 packages' },
+    large: { zh: '1000-5000包裹', en: '1,000-5,000 packages' },
+    enterprise: { zh: '5000包裹以上', en: 'Over 5,000 packages' },
+  }
+  const currentLang = locale.value as 'zh' | 'en'
+  return volumes[volume]?.[currentLang] || volume
+}
+
+// 表单提交 - 使用mailto链接打开邮件客户端
 const handleSubmit = async () => {
   if (!validateForm()) {
     return
@@ -954,25 +1015,88 @@ const handleSubmit = async () => {
   isSubmitting.value = true
 
   try {
-    // 模拟API调用
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    // 构建邮件主题
+    const subject = `[网站联系] 来自 ${form.name} 的咨询`
+
+    // 构建邮件正文
+    const bodyLines = [
+      '您收到一条来自官网联系表单的新咨询：',
+      '',
+      '=== 基本信息 ===',
+      `姓名：${form.name}`,
+      `邮箱：${form.email}`,
+      `电话：${form.phone}`,
+      `公司：${form.company || '未填写'}`,
+      '',
+      '=== 业务信息 ===',
+      `业务类型：${form.businessType ? formatBusinessType(form.businessType) : '未选择'}`,
+      `月发货量：${form.monthlyVolume ? formatMonthlyVolume(form.monthlyVolume) : '未选择'}`,
+      `服务需求：${form.services.length > 0 ? formatServices(form.services) : '未选择'}`,
+      `首选联系方式：${getText(
+        form.preferredContact === 'phone'
+          ? 'phoneMethod'
+          : form.preferredContact === 'email'
+            ? 'emailMethod'
+            : form.preferredContact === 'wechat'
+              ? 'wechatMethod'
+              : 'visitMethod',
+      )}`,
+      '',
+      '=== 详细需求 ===',
+      form.message || '无',
+      '',
+      '=== 提交信息 ===',
+      `提交时间：${new Date().toLocaleString('zh-CN', {
+        timeZone: 'Asia/Shanghai',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+      })}`,
+      '',
+      '请及时回复客户！',
+    ]
+
+    const body = bodyLines.join('\n')
+
+    // 构建mailto链接
+    const mailtoLink = `mailto:${TARGET_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+
+    // 打开邮件客户端
+    window.open(mailtoLink, '_self')
 
     // 提交成功后的处理
-    alert(getText('submitSuccess'))
+    setTimeout(() => {
+      alert(getText('submitSuccess'))
 
-    // 重置表单
-    Object.keys(form).forEach((key) => {
-      if (Array.isArray((form as any)[key])) {
-        ;(form as any)[key] = []
-      } else {
-        ;(form as any)[key] = ''
-      }
-    })
-    form.preferredContact = 'phone'
+      // 重置表单
+      const formKeys: (keyof FormData)[] = [
+        'name',
+        'phone',
+        'email',
+        'company',
+        'businessType',
+        'monthlyVolume',
+        'message',
+      ]
+      formKeys.forEach((key) => {
+        if (key === 'services') {
+          form.services = []
+        } else {
+          form[key] = ''
+        }
+      })
+      form.preferredContact = 'phone'
+    }, 1000)
   } catch (error) {
+    console.error('邮件客户端打开失败:', error)
     alert(getText('submitError'))
   } finally {
-    isSubmitting.value = false
+    setTimeout(() => {
+      isSubmitting.value = false
+    }, 1000)
   }
 }
 </script>

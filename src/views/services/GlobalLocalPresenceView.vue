@@ -171,7 +171,7 @@
       :primary-button-text="getText('ctaPrimary')"
       primary-button-href="/contact"
       :secondary-button-text="getText('ctaSecondary')"
-      secondary-button-href="#"
+      secondary-button-href="/First‑Leg (Origin) Logistics Service Handbook.docx"
       secondary-button-icon="download"
       :show-contact-info="true"
     />
