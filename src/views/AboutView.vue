@@ -7,6 +7,11 @@ import PageLayout from '@/components/layout/PageLayout.vue'
 import AboutHero from '@/components/sections/AboutHero.vue'
 import UnifiedCtaSection from '@/components/sections/UnifiedCtaSection.vue'
 
+// 导入合作伙伴logo图片
+import upsLogo from '/UPS-logo-880x660.png'
+import uspsLogo from '/usps.jpg'
+import amazonLogo from '/amazon6707.jpg'
+
 // 注册 ScrollTrigger 插件
 gsap.registerPlugin(ScrollTrigger)
 
@@ -37,12 +42,7 @@ type TranslationKey =
   | 'achievementBadge2'
   | 'achievementBadge3'
   | 'achievementBadge4'
-  // 团队部分
-  | 'coreTeamTitle'
-  | 'operationsDirector'
-  | 'techDirector'
-  | 'businessDirector'
-  | 'comingSoon'
+
   // 合作伙伴部分
   | 'partnershipsTitle'
   | 'partnershipsSubtitle'
@@ -105,13 +105,6 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     achievementBadge2: '美国交通部演讲嘉宾',
     achievementBadge3: '22年行业经验',
     achievementBadge4: '行业影响力专家',
-
-    // 团队部分
-    coreTeamTitle: '核心管理团队',
-    operationsDirector: '运营总监',
-    techDirector: '技术总监',
-    businessDirector: '业务总监',
-    comingSoon: '即将公布',
 
     // 合作伙伴部分
     partnershipsTitle: '权威认证与合作',
@@ -182,13 +175,6 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     achievementBadge2: 'US Department of Transportation Speaker',
     achievementBadge3: '22 Years of Industry Experience',
     achievementBadge4: 'Industry Thought Leader',
-
-    // 团队部分 - 专业英文
-    coreTeamTitle: 'Core Management Team',
-    operationsDirector: 'Operations Director',
-    techDirector: 'Technology Director',
-    businessDirector: 'Business Director',
-    comingSoon: 'Coming Soon',
 
     // 合作伙伴部分 - 权威表达
     partnershipsTitle: 'Certifications & Partnerships',
@@ -289,9 +275,9 @@ const timelineEvents = [
 
 // 合作伙伴和认证
 const partnerships = [
-  { name: 'UPS', description: getText('upsPartnerDesc') },
-  { name: 'USPS', description: getText('uspsPartnerDesc') },
-  { name: 'Amazon', description: getText('amazonPartnerDesc') },
+  { name: 'UPS', description: getText('upsPartnerDesc'), logo: upsLogo },
+  { name: 'USPS', description: getText('uspsPartnerDesc'), logo: uspsLogo },
+  { name: 'Amazon', description: getText('amazonPartnerDesc'), logo: amazonLogo },
 ]
 
 // 初始化滚动动画
@@ -630,47 +616,6 @@ onBeforeUnmount(() => {
                 </div>
               </div>
             </div>
-
-            <!-- 核心管理团队预留区域 -->
-            <div class="mt-16 pt-16 border-t border-gray-200">
-              <h4 class="text-2xl font-bold text-gray-900 mb-8 text-center">
-                {{ getText('coreTeamTitle') }}
-              </h4>
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- 预留的团队成员卡片 -->
-                <div class="text-center opacity-60">
-                  <div
-                    class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center"
-                  >
-                    <span class="text-2xl">👨‍💼</span>
-                  </div>
-                  <h5 class="font-semibold text-gray-900 mb-1">
-                    {{ getText('operationsDirector') }}
-                  </h5>
-                  <p class="text-sm text-gray-600">{{ getText('comingSoon') }}</p>
-                </div>
-                <div class="text-center opacity-60">
-                  <div
-                    class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center"
-                  >
-                    <span class="text-2xl">👩‍💼</span>
-                  </div>
-                  <h5 class="font-semibold text-gray-900 mb-1">{{ getText('techDirector') }}</h5>
-                  <p class="text-sm text-gray-600">{{ getText('comingSoon') }}</p>
-                </div>
-                <div class="text-center opacity-60">
-                  <div
-                    class="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center"
-                  >
-                    <span class="text-2xl">👨‍💼</span>
-                  </div>
-                  <h5 class="font-semibold text-gray-900 mb-1">
-                    {{ getText('businessDirector') }}
-                  </h5>
-                  <p class="text-sm text-gray-600">{{ getText('comingSoon') }}</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -715,11 +660,20 @@ onBeforeUnmount(() => {
               class="text-center group partnership-item"
             >
               <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 h-full">
-                <!-- 合作伙伴Logo占位符 -->
+                <!-- 合作伙伴Logo -->
                 <div
-                  class="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-lg flex items-center justify-center text-2xl group-hover:bg-white/30 transition-colors"
+                  class="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-lg flex items-center justify-center group-hover:bg-white/30 transition-colors overflow-hidden"
                 >
-                  📦
+                  <img
+                    :src="partner.logo"
+                    :alt="partner.name"
+                    :class="[
+                      'max-w-full max-h-full object-contain transition-all duration-300',
+                      partner.name === 'UPS' ? 'scale-250' : '',
+                      partner.name === 'Amazon' ? 'scale-200' : '',
+                    ]"
+                    loading="lazy"
+                  />
                 </div>
                 <h4 class="text-xl font-bold text-white mb-2">{{ partner.name }}</h4>
                 <p class="text-gray-300 text-sm">{{ partner.description }}</p>
@@ -761,5 +715,18 @@ onBeforeUnmount(() => {
 
 .aspect-h-3 {
   height: 200px;
+}
+
+/* 合作伙伴 logo 特殊放大 */
+.scale-150 {
+  transform: scale(1.5);
+}
+
+.scale-200 {
+  transform: scale(2);
+}
+
+.scale-250 {
+  transform: scale(2.5);
 }
 </style>

@@ -8,6 +8,14 @@ import BaseButton from '@/components/ui/BaseButton.vue'
 import Icon from '@/components/ui/Icon.vue'
 import UnifiedCtaSection from '@/components/ui/UnifiedCtaSection.vue'
 
+// 导入合作伙伴logo图片
+import upsLogo from '/UPS-logo-880x660.png'
+import uspsLogo from '/usps.jpg'
+import amazonLogo from '/amazon6707.jpg'
+import chintLogo from '/chint_logo.png'
+import cushionLogo from '/cushion.jpg'
+import matsonLogo from '/matson.jpg'
+
 // 注册 ScrollTrigger 插件
 gsap.registerPlugin(ScrollTrigger)
 
@@ -610,12 +618,12 @@ const carouselSlides = computed(() => [
 
 // 合作伙伴
 const partners = [
-  { name: 'UPS', logo: '📦' },
-  { name: 'USPS', logo: '📮' },
-  { name: 'Amazon', logo: '🛒' },
-  { name: 'Chint', logo: '⚡' },
-  { name: 'Cushion Lab', logo: '🪑' },
-  { name: 'Matson', logo: '🚢' },
+  { name: 'UPS', logo: upsLogo },
+  { name: 'USPS', logo: uspsLogo },
+  { name: 'Amazon', logo: amazonLogo },
+  { name: 'Chint', logo: chintLogo },
+  { name: 'Cushion Lab', logo: cushionLogo },
+  { name: 'Matson', logo: matsonLogo },
 ]
 
 // 轮播图状态
@@ -1143,12 +1151,12 @@ onBeforeUnmount(() => {
           </div>
         </div>
 
-        <!-- 导航箭头 -->
+        <!-- 导航箭头 - 仅在桌面端显示 -->
         <button
           @click="prevSlide"
           @mouseover="stopAutoPlay"
           @mouseleave="startAutoPlay"
-          class="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-all duration-300 group"
+          class="hidden md:block absolute left-4 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-all duration-300 group"
         >
           <Icon name="chevron-left" size="md" class="text-white group-hover:text-gray-100" />
         </button>
@@ -1156,7 +1164,7 @@ onBeforeUnmount(() => {
           @click="nextSlide"
           @mouseover="stopAutoPlay"
           @mouseleave="startAutoPlay"
-          class="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-all duration-300 group"
+          class="hidden md:block absolute right-4 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-white/30 transition-all duration-300 group"
         >
           <Icon name="chevron-right" size="md" class="text-white group-hover:text-gray-100" />
         </button>
@@ -1667,7 +1675,17 @@ onBeforeUnmount(() => {
               :key="partner.name"
               class="text-center opacity-60 hover:opacity-100 transition-opacity duration-300 partner-item"
             >
-              <div class="text-3xl lg:text-4xl text-gray-600">{{ partner.logo }}</div>
+              <div class="w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center mb-2">
+                <img
+                  :src="partner.logo"
+                  :alt="partner.name"
+                  :class="[
+                    'max-w-full max-h-full object-contain transition-all duration-300',
+                    partner.name === 'UPS' ? 'scale-200' : '',
+                  ]"
+                  loading="lazy"
+                />
+              </div>
               <div class="text-sm font-medium text-gray-600 mt-2">{{ partner.name }}</div>
             </div>
           </div>
@@ -1985,5 +2003,10 @@ onBeforeUnmount(() => {
   .carousel-bg {
     background-attachment: scroll;
   }
+}
+
+/* UPS logo 特殊放大 */
+.scale-200 {
+  transform: scale(2);
 }
 </style>

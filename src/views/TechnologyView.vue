@@ -556,9 +556,6 @@
                           </div>
                           <div class="text-sm text-gray-600">{{ getText('agvSystemDesc') }}</div>
                         </div>
-                        <div class="ml-auto">
-                          <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                        </div>
                       </div>
 
                       <!-- 模拟路径图 -->
@@ -587,10 +584,6 @@
                             </div>
                           </div>
                         </div>
-                        <!-- 移动路径 -->
-                        <div
-                          class="animate-[pulse_2s_ease-in-out_infinite] absolute top-1/2 left-2 w-2 h-2 bg-blue-500 rounded-full"
-                        ></div>
                       </div>
                     </div>
 
@@ -620,19 +613,6 @@
                           </div>
                           <div class="text-sm text-gray-600">
                             {{ getText('sortingSystemDesc') }}
-                          </div>
-                        </div>
-                        <div class="ml-auto">
-                          <div class="flex space-x-1">
-                            <div class="w-2 h-2 bg-green-500 rounded-full animate-bounce"></div>
-                            <div
-                              class="w-2 h-2 bg-green-500 rounded-full animate-bounce"
-                              style="animation-delay: 0.1s"
-                            ></div>
-                            <div
-                              class="w-2 h-2 bg-green-500 rounded-full animate-bounce"
-                              style="animation-delay: 0.2s"
-                            ></div>
                           </div>
                         </div>
                       </div>

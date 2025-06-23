@@ -253,61 +253,6 @@
       </div>
     </section>
 
-    <!-- 仓储服务流程 -->
-    <section class="py-16 lg:py-24 bg-gray-50">
-      <div class="container-section">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            {{ getText('serviceProcessTitle') }}
-          </h2>
-          <p class="text-xl text-gray-600">{{ getText('serviceProcessDesc') }}</p>
-        </div>
-
-        <div class="max-w-6xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div
-              v-for="(step, index) in serviceProcess"
-              :key="step.title"
-              class="relative text-center"
-            >
-              <div class="flex flex-col items-center">
-                <!-- 步骤圆圈 -->
-                <div
-                  class="w-16 h-16 bg-primary-500 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold relative z-10"
-                >
-                  {{ index + 1 }}
-                </div>
-
-                <!-- 连接线 -->
-                <div
-                  v-if="index < serviceProcess.length - 1"
-                  class="absolute top-8 left-1/2 w-full h-0.5 bg-primary-200 transform translate-x-8 hidden lg:block"
-                ></div>
-
-                <!-- 步骤图标 -->
-                <div
-                  class="w-12 h-12 bg-white border-2 border-primary-200 rounded-lg flex items-center justify-center mb-4"
-                >
-                  <Icon :name="step.icon" size="lg" class="text-primary-500" />
-                </div>
-
-                <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ step.title }}</h3>
-                <p class="text-gray-600 text-sm">{{ step.description }}</p>
-
-                <!-- 时间指标 -->
-                <div
-                  class="mt-3 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-100 text-accent-800"
-                >
-                  <Icon name="clock" size="xs" class="mr-1" />
-                  {{ step.time }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- 统一CTA区域 -->
     <UnifiedCtaSection />
   </PageLayout>
@@ -364,8 +309,6 @@ type TranslationKey =
   // 仓储系统标题
   | 'warehouseSystemTitle'
   | 'warehouseSystemDesc'
-  | 'serviceProcessTitle'
-  | 'serviceProcessDesc'
   // WMS功能特性
   | 'smartInboundManagementTitle'
   | 'smartInboundManagementDesc'
@@ -404,19 +347,6 @@ type TranslationKey =
   | 'offlineOperation'
   | 'voiceGuidance'
   | 'deviceManagement'
-  // 服务流程
-  | 'cargoReceivingTitle'
-  | 'cargoReceivingDesc'
-  | 'cargoReceivingTime'
-  | 'smartStorageTitle'
-  | 'smartStorageDesc'
-  | 'smartStorageTime'
-  | 'orderProcessingTitle'
-  | 'orderProcessingDesc'
-  | 'orderProcessingTime'
-  | 'outboundDeliveryTitle'
-  | 'outboundDeliveryDesc'
-  | 'outboundDeliveryTime'
   // 地图状态标签
   | 'headquarters'
   | 'centralHub'
@@ -433,11 +363,11 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     // 网络概览
     networkTitle: '战略布局全美的智能仓储网络',
     networkDesc1:
-      '可耐博达在美国战略性布局了4大配送中心，覆盖东西海岸及中部地区，确保为客户提供最快速、最经济的仓储和配送服务。',
+      '可耐博达战略性布局4大配送中心：洛杉矶综合性总部依托美国最大港口群优势，亚特兰大东部枢纽连接东岸港口与内陆市场，印第安纳波利斯中西部枢纽保障美国腹地货物流转，达拉斯南部枢纽覆盖墨西哥湾港口及南部各州。',
     networkDesc2:
-      '每个配送中心都配备了先进的WMS仓储管理系统，实现智能分拣、自动化库存管理和实时订单跟踪，确保99%的包裹能在24小时内完成提货。',
+      '每个配送中心都配备了先进的WMS仓储管理系统，实现智能分拣、自动化库存管理和实时订单跟踪。从港口提柜拆柜到跨州转运，从一件代发到卡车派送(FTL/LTL)，全链条专业服务确保99%的包裹能在24小时内完成处理。',
     networkDesc3:
-      '总仓储面积超过50万平方英尺，日处理能力达10万个包裹，为跨境电商客户提供从入库到出库的全流程专业服务。',
+      '总仓储面积超过50万平方英尺，日处理能力达10万个包裹，为跨境电商及传统贸易客户提供从港口到门店的全程供应链解决方案。',
 
     // 核心优势
     smartAutomation: '智能自动化',
@@ -471,8 +401,6 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     // 仓储系统标题
     warehouseSystemTitle: '智能仓储系统',
     warehouseSystemDesc: '先进的WMS系统管理，优化仓储空间利用率',
-    serviceProcessTitle: '仓储服务流程',
-    serviceProcessDesc: '高效、安全的仓储服务流程',
 
     // WMS功能特性
     smartInboundManagementTitle: '智能入库管理',
@@ -514,23 +442,10 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     voiceGuidance: '语音指导',
     deviceManagement: '设备管理',
 
-    // 服务流程
-    cargoReceivingTitle: '货物接收',
-    cargoReceivingDesc: '验收入库，条码扫描，质量检查',
-    cargoReceivingTime: '2-4小时',
-    smartStorageTitle: '智能存储',
-    smartStorageDesc: '自动分配库位，上架存储，系统更新',
-    smartStorageTime: '1-2小时',
-    orderProcessingTitle: '订单处理',
-    orderProcessingDesc: '订单接收，智能分拣，包装确认',
-    orderProcessingTime: '0.5-1小时',
-    outboundDeliveryTitle: '出库配送',
-    outboundDeliveryDesc: '货物出库，运输安排，配送跟踪',
-    outboundDeliveryTime: '1-3天',
     // 地图状态标签
     headquarters: '总部中心',
-    centralHub: '中部枢纽',
-    eastCoastCenter: '东海岸中心',
+    centralHub: '东南枢纽',
+    eastCoastCenter: '中西部中心',
     southCenter: '南部中心',
   },
   en: {
@@ -542,11 +457,11 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     // 网络概览 - 简洁有力
     networkTitle: 'Strategically Positioned Intelligent Warehouse Network Across America',
     networkDesc1:
-      'Kenable has strategically positioned 4 major distribution centers across America, covering East and West coasts as well as central regions, ensuring the fastest and most cost-effective warehousing and distribution services for our clients.',
+      "Kenable strategically positions 4 major distribution centers: Los Angeles comprehensive headquarters leverages America's largest port complex, Atlanta eastern hub connects East Coast ports with inland markets, Indianapolis midwest hub ensures cargo flow throughout America's heartland, and Dallas southern hub covers Gulf Coast ports and Southern states.",
     networkDesc2:
-      'Each distribution center is equipped with advanced WMS warehouse management systems, enabling intelligent sorting, automated inventory management, and real-time order tracking, ensuring 99% of packages are picked within 24 hours.',
+      'Each distribution center is equipped with advanced WMS warehouse management systems for intelligent sorting, automated inventory management, and real-time order tracking. From port container services to interstate transit, from dropshipping to truck delivery (FTL/LTL), our end-to-end professional services ensure 99% of packages are processed within 24 hours.',
     networkDesc3:
-      'With total warehouse space exceeding 500,000 square feet and daily processing capacity of 100,000 packages, we provide comprehensive professional services from inbound to outbound for cross-border e-commerce clients.',
+      'With total warehouse space exceeding 500,000 square feet and daily processing capacity of 100,000 packages, we provide comprehensive supply chain solutions from port to storefront for cross-border e-commerce and traditional trade clients.',
 
     // 核心优势 - 专业术语
     smartAutomation: 'Smart Automation',
@@ -581,8 +496,6 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     // 仓储系统标题
     warehouseSystemTitle: 'Smart Warehouse System',
     warehouseSystemDesc: 'Advanced WMS System Management, Optimizing Warehouse Space Utilization',
-    serviceProcessTitle: 'Warehouse Service Process',
-    serviceProcessDesc: 'Efficient and Secure Warehouse Service Process',
 
     // WMS功能特性
     smartInboundManagementTitle: 'Smart Inbound Management',
@@ -629,23 +542,10 @@ const translations: Record<'zh' | 'en', Record<TranslationKey, string>> = {
     voiceGuidance: 'Voice Guidance',
     deviceManagement: 'Device Management',
 
-    // 服务流程
-    cargoReceivingTitle: 'Cargo Receiving',
-    cargoReceivingDesc: 'Receiving Goods, Scanning Barcode, Quality Inspection',
-    cargoReceivingTime: '2-4 Hours',
-    smartStorageTitle: 'Smart Storage',
-    smartStorageDesc: 'Automatically Allocate Storage Locations, Shelf Storage, System Update',
-    smartStorageTime: '1-2 Hours',
-    orderProcessingTitle: 'Order Processing',
-    orderProcessingDesc: 'Order Receiving, Smart Sorting, Packaging Confirmation',
-    orderProcessingTime: '0.5-1 Hour',
-    outboundDeliveryTitle: 'Outbound Delivery',
-    outboundDeliveryDesc: 'Goods Outbound, Transportation Arrangement, Delivery Tracking',
-    outboundDeliveryTime: '1-3 Days',
     // 地图状态标签 - 专业标识
     headquarters: 'Headquarters',
-    centralHub: 'Central Hub',
-    eastCoastCenter: 'East Coast Center',
+    centralHub: 'Southeast Hub',
+    eastCoastCenter: 'Midwest Center',
     southCenter: 'South Center',
   },
 }
@@ -668,19 +568,19 @@ const mapCenters = computed(() => [
   },
   {
     id: '2',
-    name: 'Chicago',
-    state: 'Illinois',
-    coordinates: [41.8781, -87.6298] as [number, number],
+    name: 'Atlanta',
+    state: 'Georgia',
+    coordinates: [33.749, -84.388] as [number, number],
     status: getText('centralHub'),
-    description: 'Midwest distribution center',
+    description: 'Southeast distribution center',
   },
   {
     id: '3',
-    name: 'New York',
-    state: 'New York',
-    coordinates: [40.7128, -74.006] as [number, number],
+    name: 'Indianapolis',
+    state: 'Indiana',
+    coordinates: [39.7684, -86.1581] as [number, number],
     status: getText('eastCoastCenter'),
-    description: 'Northeast distribution hub',
+    description: 'Midwest distribution hub',
   },
   {
     id: '4',
@@ -697,82 +597,106 @@ const distributionCenters = computed(() => [
   {
     id: 1,
     name: locale.value === 'zh' ? '洛杉矶配送中心' : 'Los Angeles Distribution Center',
-    state: locale.value === 'zh' ? '加利福尼亚州' : 'California',
+    state:
+      locale.value === 'zh'
+        ? '加利福尼亚州 (综合性总部)'
+        : 'California (Comprehensive Headquarters)',
     status: getText('operational'),
     icon: 'building',
     image: '/lsjpszx.jpg',
     description:
       locale.value === 'zh'
-        ? '西海岸核心配送中心，覆盖加州、内华达州、亚利桑那州等地区，是我们最大的配送中心。'
-        : 'West Coast core distribution center covering California, Nevada, Arizona and surrounding regions, our largest distribution facility.',
+        ? '作为我们的多功能综合类总部仓库，洛杉矶中心依托邻近美国最大港口群的地理优势，提供最全面的"一站式"供应链解决方案，是您进入美国市场的理想起点。'
+        : 'As our multi-functional comprehensive headquarters warehouse, the Los Angeles center leverages its proximity to America\'s largest port complex to provide the most comprehensive "one-stop" supply chain solutions, serving as your ideal gateway to the US market.',
     area: locale.value === 'zh' ? '20万平方英尺' : '200,000 sq ft',
     capacity: locale.value === 'zh' ? '4万包裹/天' : '40,000 packages/day',
     radius: locale.value === 'zh' ? '500英里' : '500 miles',
     delivery: locale.value === 'zh' ? '1-2天' : '1-2 days',
     features:
       locale.value === 'zh'
-        ? ['FBA头程', '亚马逊配送', '海外仓储', '退货处理']
-        : ['FBA First Mile', 'Amazon Fulfillment', 'Overseas Warehousing', 'Returns Processing'],
+        ? ['港口提柜与拆柜', '一件代发与订单履行', '长期/短期仓储', '转运与卡车派送', '一站式服务']
+        : [
+            'Port Container Services',
+            'Dropshipping & Order Fulfillment',
+            'Short/Long-term Storage',
+            'Transshipment & Trucking',
+            'One-stop Solutions',
+          ],
   },
   {
     id: 2,
-    name: locale.value === 'zh' ? '芝加哥配送中心' : 'Chicago Distribution Center',
-    state: locale.value === 'zh' ? '伊利诺伊州' : 'Illinois',
+    name: locale.value === 'zh' ? '亚特兰大配送中心' : 'Atlanta Distribution Center',
+    state: locale.value === 'zh' ? '乔治亚州 (东部枢纽)' : 'Georgia (Eastern Hub)',
     status: getText('operational'),
     icon: 'building',
     image: '/zjgpszx.jpg',
     description:
       locale.value === 'zh'
-        ? '中部地区核心枢纽，覆盖中西部各州，地理位置优越，是连接东西海岸的重要节点。'
-        : 'Central region core hub covering Midwest states, strategically located as a key connection point between East and West coasts.',
+        ? '坐落于美国东南部的交通要道，亚特兰大中心是连接东岸港口和内陆市场的关键卡车货运仓库，专注于提供高效快捷的货物中转服务。'
+        : 'Located at the transportation hub of the American Southeast, the Atlanta center serves as a key truck freight warehouse connecting East Coast ports and inland markets, focusing on efficient and rapid cargo transit services.',
     area: locale.value === 'zh' ? '15万平方英尺' : '150,000 sq ft',
     capacity: locale.value === 'zh' ? '3万包裹/天' : '30,000 packages/day',
     radius: locale.value === 'zh' ? '400英里' : '400 miles',
     delivery: locale.value === 'zh' ? '1-3天' : '1-3 days',
     features:
       locale.value === 'zh'
-        ? ['中转分拣', '库存管理', '订单履行', '包装服务']
-        : ['Transit Sorting', 'Inventory Management', 'Order Fulfillment', 'Packaging Services'],
+        ? ['港口提柜与拆柜', '拆柜与跨州转运', '卡车派送(FTL/LTL)', '萨凡纳港口服务']
+        : [
+            'Port Container Services',
+            'Deconsolidation & Interstate Transit',
+            'Truck Delivery (FTL/LTL)',
+            'Savannah Port Services',
+          ],
   },
   {
     id: 3,
-    name: locale.value === 'zh' ? '纽约配送中心' : 'New York Distribution Center',
-    state: locale.value === 'zh' ? '纽约州' : 'New York',
+    name: locale.value === 'zh' ? '印第安纳波利斯配送中心' : 'Indianapolis Distribution Center',
+    state: locale.value === 'zh' ? '印第安纳州 (中西部枢纽)' : 'Indiana (Midwest Hub)',
     status: getText('operational'),
     icon: 'building',
     image: '/nypszx.jpg',
     description:
       locale.value === 'zh'
-        ? '东海岸主要配送中心，服务纽约、新泽西、宾州等东北部地区，人口密集，市场需求旺盛。'
-        : 'East Coast major distribution center serving New York, New Jersey, Pennsylvania and Northeast regions, high population density with strong market demand.',
+        ? '作为美国中西部的核心物流节点，印第安纳波利斯中心专注于卡车货运服务，是保障货物在美国腹地快速流转的关键一环。'
+        : "As the core logistics node in the American Midwest, the Indianapolis center focuses on truck freight services, serving as a crucial link ensuring rapid cargo flow throughout America's heartland.",
     area: locale.value === 'zh' ? '12万平方英尺' : '120,000 sq ft',
     capacity: locale.value === 'zh' ? '2.5万包裹/天' : '25,000 packages/day',
     radius: locale.value === 'zh' ? '300英里' : '300 miles',
     delivery: locale.value === 'zh' ? '1-2天' : '1-2 days',
     features:
       locale.value === 'zh'
-        ? ['快速配送', '当日达', '冷链仓储', '高价值商品']
-        : ['Express Delivery', 'Same-Day Delivery', 'Cold Chain Storage', 'High-Value Goods'],
+        ? ['港口提柜与拆柜', '拆柜与跨州转运', '卡车派送(FTL/LTL)', '中西部陆路网络']
+        : [
+            'Port Container Services',
+            'Deconsolidation & Interstate Transit',
+            'Truck Delivery (FTL/LTL)',
+            'Midwest Ground Network',
+          ],
   },
   {
     id: 4,
     name: locale.value === 'zh' ? '达拉斯配送中心' : 'Dallas Distribution Center',
-    state: locale.value === 'zh' ? '德克萨斯州' : 'Texas',
+    state: locale.value === 'zh' ? '德克萨斯州 (南部枢纽)' : 'Texas (Southern Hub)',
     status: getText('operational'),
     icon: 'building',
     image: '/dlspszx.jpg',
     description:
       locale.value === 'zh'
-        ? '南部地区重要配送节点，覆盖德州、路易斯安那州、俄克拉荷马州等南部各州。'
-        : 'Important distribution node in the South, covering Texas, Louisiana, Oklahoma and other Southern states.',
+        ? '达拉斯中心位于美国南部的战略要地，是连接墨西哥湾港口及南部各州的重要卡车货运仓库，为您的货物进入南部市场提供强大支持。'
+        : 'The Dallas center is strategically located in the American South, serving as an important truck freight warehouse connecting Gulf Coast ports and Southern states, providing strong support for your cargo entering Southern markets.',
     area: locale.value === 'zh' ? '10万平方英尺' : '100,000 sq ft',
     capacity: locale.value === 'zh' ? '2万包裹/天' : '20,000 packages/day',
     radius: locale.value === 'zh' ? '350英里' : '350 miles',
     delivery: locale.value === 'zh' ? '2-3天' : '2-3 days',
     features:
       locale.value === 'zh'
-        ? ['大件商品', '汽配仓储', 'B2B配送', '定制包装']
-        : ['Large Items', 'Auto Parts Storage', 'B2B Distribution', 'Custom Packaging'],
+        ? ['港口提柜与拆柜', '拆柜与跨州转运', '卡车派送(FTL/LTL)', '休斯顿港口服务']
+        : [
+            'Port Container Services',
+            'Deconsolidation & Interstate Transit',
+            'Truck Delivery (FTL/LTL)',
+            'Houston Port Services',
+          ],
   },
 ])
 
@@ -849,34 +773,6 @@ const wmsFeatures = computed(() => [
       getText('voiceGuidance'),
       getText('deviceManagement'),
     ],
-  },
-])
-
-// 服务流程
-const serviceProcess = computed(() => [
-  {
-    title: getText('cargoReceivingTitle'),
-    description: getText('cargoReceivingDesc'),
-    icon: 'package-check',
-    time: getText('cargoReceivingTime'),
-  },
-  {
-    title: getText('smartStorageTitle'),
-    description: getText('smartStorageDesc'),
-    icon: 'database',
-    time: getText('smartStorageTime'),
-  },
-  {
-    title: getText('orderProcessingTitle'),
-    description: getText('orderProcessingDesc'),
-    icon: 'clipboard-list',
-    time: getText('orderProcessingTime'),
-  },
-  {
-    title: getText('outboundDeliveryTitle'),
-    description: getText('outboundDeliveryDesc'),
-    icon: 'truck',
-    time: getText('outboundDeliveryTime'),
   },
 ])
 </script>
